@@ -1,10 +1,17 @@
-package main.java.com.cinema_seat_booking.service;
+package com.cinema_seat_booking.service;
 
 import com.cinema_seat_booking.model.*;
 import com.cinema_seat_booking.repository.ReservationRepository;
 import com.cinema_seat_booking.repository.SeatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.cinema_seat_booking.model.Seat;
+import com.cinema_seat_booking.model.User;
+import com.cinema_seat_booking.model.Screening;
+import com.cinema_seat_booking.model.Reservation;
+
+
+
 
 import java.util.List;
 import java.util.Optional;
@@ -18,7 +25,7 @@ public class ReservationService {
     @Autowired
     private SeatRepository seatRepository;
 
-    public Reservation createReservation(Client client, Screening screening, List<Seat> seats, String paymentMethod) {
+    public Reservation createReservation(User user, Screening screening, List<Seat> seats, String paymentMethod) {
         // Check to see if they are free 
         for (Seat seat : seats) {
             if (seat.isReserved()) {
@@ -33,7 +40,7 @@ public class ReservationService {
         }
 
         //create the reservation 
-        Reservation reservation = new Reservation(client, screening, seats, paymentMethod);
+        Reservation reservation = new Reservation(user, screening, seats, paymentMethod);
         reservation.setReservationState(Reservation.ReservationState.PENDING);
 
         return reservationRepository.save(reservation);

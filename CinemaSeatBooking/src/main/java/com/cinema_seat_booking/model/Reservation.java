@@ -1,6 +1,8 @@
-package main.java.com.cinema_seat_booking.model;
+package com.cinema_seat_booking.model;
 
 import java.util.List;
+
+import com.cinema_seat_booking.model.User;
 
 import jakarta.persistence.*;
 
@@ -14,7 +16,7 @@ public class Reservation {
 
     @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)
-    private Client client;
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "screening_id", nullable = false)
@@ -38,8 +40,8 @@ public class Reservation {
     //cnstrctr
     public Reservation() {}
 
-    public Reservation(Client client, Screening screening, List<Seat> seats, String paymentMethod) {
-        this.client = client;
+    public Reservation(User user, Screening screening, List<Seat> seats, String paymentMethod) {
+        this.user = user;
         this.screening = screening;
         this.seats = seats;
         this.paymentMethod = paymentMethod;
@@ -64,12 +66,12 @@ public class Reservation {
         this.id = id; 
     }
 
-    public Client getClient() { 
-        return client; 
+    public User getUser() { 
+        return user; 
     }
 
-    public void setClient(Client client) { 
-        this.client = client; 
+    public void setUser(User user) { 
+        this.user = user; 
     }
 
     public Screening getScreening() { 
@@ -85,9 +87,9 @@ public class Reservation {
         return seats; 
     }
 
-    public void setSeat(Seat seat) { 
-        this.seat = seat; 
-    }
+    public void setSeats(List<Seat> seats) { 
+    this.seats = seats; 
+}
 
     public ReservationState getReservationState() { 
         return reservationState; 

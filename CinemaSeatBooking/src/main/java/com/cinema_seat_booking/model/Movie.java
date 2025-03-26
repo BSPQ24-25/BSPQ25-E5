@@ -1,4 +1,4 @@
-package main.java.com.cinema_seat_booking.model;
+package com.cinema_seat_booking.model;
 
 import jakarta.persistence.*;
 
