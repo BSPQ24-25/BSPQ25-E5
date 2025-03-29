@@ -1,5 +1,7 @@
 package com.cinema_seat_booking.model;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -22,16 +24,20 @@ public class Movie {
     @Column(nullable = false)
     private String cast;
 
-    public Movie() {}
+    @OneToMany(mappedBy = "movie", fetch = FetchType.LAZY)
+    private List<Screening> screenings;
 
-    public Movie(String title, int duration, String genre, String cast) {
+    public Movie() {
+    }
+
+    public Movie(String title, int duration, String genre, String cast, List<Screening> screenings) {
         this.title = title;
         this.duration = duration;
         this.genre = genre;
         this.cast = cast;
+        this.screenings = screenings;
     }
 
-    
     public Long getId() {
         return id;
     }
@@ -70,6 +76,14 @@ public class Movie {
 
     public void setCast(String cast) {
         this.cast = cast;
+    }
+
+    public List<Screening> getScreenings() {
+        return screenings;
+    }
+
+    public void setScreenings(List<Screening> screenings) {
+        this.screenings = screenings;
     }
 
     @Override

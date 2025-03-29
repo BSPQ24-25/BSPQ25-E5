@@ -16,35 +16,51 @@ public class Seat {
     @Column(nullable = false)
     private boolean isReserved = false;
 
-    public Seat() {}
+    @ManyToOne
+    @JoinColumn(name = "room_id")
+    private Room room;
+
+    public Seat() {
+    }
 
     public Seat(int seatNumber) {
         this.seatNumber = seatNumber;
         this.isReserved = false;
     }
 
-    public void reserve() { 
+    public void reserve() {
         this.isReserved = true;
-     }
-
-    public Long getId() { 
-        return id; 
-    }
-    public void setId(Long id) { 
-        this.id = id; 
     }
 
-    public int getSeatNumber() { 
-        return seatNumber; 
+    public Long getId() {
+        return id;
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public int getSeatNumber() {
+        return seatNumber;
+    }
+
     public void setSeatNumber(int seatNumber) {
-         this.seatNumber = seatNumber;
-         }
+        this.seatNumber = seatNumber;
+    }
 
     public boolean isReserved() {
-         return isReserved; 
-        }
+        return isReserved;
+    }
+
     public void setReserved(boolean reserved) {
-         isReserved = reserved; 
-        }
+        isReserved = reserved;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
+    }
 }

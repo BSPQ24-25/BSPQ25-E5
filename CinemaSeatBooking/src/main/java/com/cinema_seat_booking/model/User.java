@@ -1,5 +1,7 @@
 package com.cinema_seat_booking.model;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -21,6 +23,9 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Reservation> reservations;
 
     // Constructor vacío (necesario para JPA)
     public User() {
@@ -96,10 +101,10 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-               "id=" + id +
-               ", username='" + username + '\'' +
-               ", email='" + email + '\'' +
-               ", role=" + role +
-               '}';
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", role=" + role +
+                '}';
     }
 }

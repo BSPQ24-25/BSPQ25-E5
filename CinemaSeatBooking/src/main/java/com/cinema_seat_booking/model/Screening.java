@@ -1,5 +1,7 @@
 package com.cinema_seat_booking.model;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -20,7 +22,14 @@ public class Screening {
     @Column(nullable = false)
     private String location;
 
-    public Screening() {}
+    @JoinColumn(name = "room_id")
+    private Room room;
+
+    @OneToMany(mappedBy = "screening", fetch = FetchType.LAZY)
+    private List<Reservation> reservations;
+
+    public Screening() {
+    }
 
     public Screening(Movie movie, String date, String location) {
         this.movie = movie;
@@ -28,31 +37,35 @@ public class Screening {
         this.location = location;
     }
 
-    public Long getId() { 
-        return id; 
-    }
-    public void setId(Long id) { 
-        this.id = id; 
+    public Long getId() {
+        return id;
     }
 
-    public Movie getMovie() { 
-        return movie; 
-    }
-    public void setMovie(Movie movie) { 
-        this.movie = movie; 
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getDate() { 
-        return date; 
-    }
-    public void setDate(String date) { 
-        this.date = date; 
+    public Movie getMovie() {
+        return movie;
     }
 
-    public String getLocation() { 
-        return location; 
+    public void setMovie(Movie movie) {
+        this.movie = movie;
     }
-    public void setLocation(String location) { 
-        this.location = location; 
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 }
