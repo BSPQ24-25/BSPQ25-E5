@@ -1,0 +1,20 @@
+package com.cinema_seat_booking.notification;
+
+public class Alert extends Notification {
+    private int level;
+
+    public Alert(String message, int level) {
+        // Alerts are treated as warnings by default
+        super(message, NotificationType.WARNING);
+        this.level = level;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    @Override
+    public String toString() {
+        return "[" + getCreatedAt() + "] ALERT (Level " + level + "): " + getMessage();
+    }
+}
