@@ -40,6 +40,9 @@ public class Reservation {
     @Column(nullable = false)
     private String paymentMethod;
 
+    @OneToOne(mappedBy = "reservation", cascade = CascadeType.ALL)
+    private Payment payment;
+
     // cnstrctr
     public Reservation() {
     }
@@ -52,7 +55,7 @@ public class Reservation {
         this.date = LocalDateTime.now();
         this.reservationState = ReservationState.PENDING;
     }
-    //////
+//////
     // public void confirmReservation() {
     // if (!seat.isReserved()) {
     // seat.reserve();
@@ -117,6 +120,14 @@ public class Reservation {
 
     public void setPaymentMethod(String paymentMethod) {
         this.paymentMethod = paymentMethod;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
     }
 
     // Enum for Reservation State i dont know if its what we want ?? :()
