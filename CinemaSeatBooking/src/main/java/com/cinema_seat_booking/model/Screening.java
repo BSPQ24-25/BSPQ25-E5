@@ -2,6 +2,9 @@
 package com.cinema_seat_booking.model;
 
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -15,7 +18,7 @@ public class Screening {
 
     @Column(nullable = false)
     private String date;
-    
+
     @Column(nullable = false)
     private String location;
 
@@ -23,6 +26,7 @@ public class Screening {
     private Room room;
 
     @OneToMany(mappedBy = "screening", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Reservation> reservations;
 
     // Getters and setters
@@ -73,26 +77,25 @@ public class Screening {
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
     }
-    
+
     // No-argument constructor (needed for JPA)
     public Screening() {
         // This constructor is required by JPA
     }
 
-	public Screening(Movie movie, String date, String location, Room room, List<Reservation> reservations) {
-		super();
-		this.movie = movie;
-		this.date = date;
-		this.location = location;
-		this.room = room;
-		this.reservations = reservations;
-	}
-    
+    public Screening(Movie movie, String date, String location, Room room, List<Reservation> reservations) {
+        super();
+        this.movie = movie;
+        this.date = date;
+        this.location = location;
+        this.room = room;
+        this.reservations = reservations;
+    }
+
     public Screening(Movie movie, String date, String location, Room room) {
-    	this.movie = movie;
-    	this.date = date;
-    	this.location = location;
-    	this.room = room;
+        this.movie = movie;
+        this.date = date;
+        this.location = location;
+        this.room = room;
     }
 }
-

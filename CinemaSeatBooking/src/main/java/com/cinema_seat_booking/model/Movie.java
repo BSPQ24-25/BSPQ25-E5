@@ -3,28 +3,31 @@ package com.cinema_seat_booking.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 @Entity
 public class Movie {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
-    @Column(nullable = false, unique = true)
-    private String title;
-    
-    @Column(nullable = false)
-    private int duration;
-    
-    @Column(nullable = false)
-    private String genre;
-    
-    @Column(nullable = false, name = "movie_cast")
-    private String cast;
-    
-    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
-    private List<Screening> screenings;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	@Column(nullable = false, unique = true)
+	private String title;
+
+	@Column(nullable = false)
+	private int duration;
+
+	@Column(nullable = false)
+	private String genre;
+
+	@Column(nullable = false, name = "movie_cast")
+	private String cast;
+
+	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
+	@JsonIgnore
+	private List<Screening> screenings;
 
 	public Long getId() {
 		return id;
@@ -73,11 +76,19 @@ public class Movie {
 	public void setScreenings(List<Screening> screenings) {
 		this.screenings = screenings;
 	}
-	
-    // No-argument constructor (needed for JPA)
-    public Movie() {
-        // This constructor is required by JPA
-    }
+
+	public void addScreening(Screening screening) {
+		if (this.screenings == null) {
+			this.screenings = new ArrayList<>();
+		}
+		this.screenings.add(screening);
+		// screening.setMovie(this); // Set the movie for the screening
+	}
+
+	// No-argument constructor (needed for JPA)
+	public Movie() {
+		// This constructor is required by JPA
+	}
 
 	public Movie(String title, int duration, String genre, String cast, List<Screening> screenings) {
 		super();
@@ -87,7 +98,7 @@ public class Movie {
 		this.cast = cast;
 		this.screenings = screenings;
 	}
-    
+
 	public Movie(String title, int duration, String genre, String cast) {
 		this.title = title;
 		this.duration = duration;

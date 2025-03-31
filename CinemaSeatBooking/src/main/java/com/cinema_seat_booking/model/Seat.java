@@ -8,10 +8,10 @@ public class Seat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     @Column(nullable = false)
     private int seatNumber;
-    
+
     @Column(nullable = false)
     private boolean isReserved;
 
@@ -55,19 +55,21 @@ public class Seat {
     public Seat() {
         // This constructor is required by JPA
     }
-    
-	public Seat(int seatNumber, boolean isReserved, Room room) {
-		super();
-		this.seatNumber = seatNumber;
-		this.isReserved = isReserved;
-		this.room = room;
-		room.getSeats().add(this);
-	}
-    
-	public Seat(int seatNumber, Room room) {
-		this.seatNumber=seatNumber;
-		this.isReserved=false;
-		this.room=room;
-		room.getSeats().add(this);
-	}
+
+    public Seat(int seatNumber, boolean isReserved, Room room) {
+        super();
+        this.seatNumber = seatNumber;
+        this.isReserved = isReserved;
+        this.room = room;
+        room.getSeats().add(this);
+        room.addSeat(this);
+    }
+
+    public Seat(int seatNumber, Room room) {
+        this.seatNumber = seatNumber;
+        this.isReserved = false;
+        this.room = room;
+        room.getSeats().add(this);
+        room.addSeat(this);
+    }
 }

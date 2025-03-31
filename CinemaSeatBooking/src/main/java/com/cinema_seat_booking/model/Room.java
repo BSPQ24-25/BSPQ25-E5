@@ -6,16 +6,19 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     @Column(nullable = false, unique = true)
     private String name;
 
     @OneToMany(mappedBy = "room", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Seat> seats;
 
     // Getters and setters
@@ -42,20 +45,25 @@ public class Room {
     public void setSeats(List<Seat> seats) {
         this.seats = seats;
     }
-    
+
+    public void addSeat(Seat seat) {
+        this.seats.add(seat);
+        seat.setRoom(this);
+    }
+
     // No-argument constructor (needed for JPA)
     public Room() {
         // This constructor is required by JPA
     }
-    
-	public Room(String name, List<Seat> seats) {
-		super();
-		this.name = name;
-		this.seats = seats;
-	}
 
-	public Room(String name) {
+    public Room(String name, List<Seat> seats) {
+        super();
         this.name = name;
-        this.seats=new ArrayList<Seat>();
-	}
+        this.seats = seats;
+    }
+
+    public Room(String name) {
+        this.name = name;
+        this.seats = new ArrayList<Seat>();
+    }
 }
