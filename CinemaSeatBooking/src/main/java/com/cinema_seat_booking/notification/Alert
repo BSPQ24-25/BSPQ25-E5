@@ -4,7 +4,6 @@ public class Alert extends Notification {
     private int level;
 
     public Alert(String message, int level) {
-        // Alerts are treated as warnings by default
         super(message, NotificationType.WARNING);
         this.level = level;
     }

@@ -15,8 +15,6 @@ public class NotificationManager {
     }
 
     public void send(Notification notification) {
-        // In a real-world application, you might send this over email, SMS, etc.
-        // Here, we simulate sending by printing to the console.
         System.out.println(notification);
     }
 
@@ -24,7 +22,6 @@ public class NotificationManager {
         for (Notification notification : notifications) {
             send(notification);
         }
-        // Optionally clear notifications after sending them.
         notifications.clear();
     }
 }
