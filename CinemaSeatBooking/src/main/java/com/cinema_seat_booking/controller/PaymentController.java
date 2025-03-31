@@ -14,8 +14,8 @@ public class PaymentController {
     private ReservationService reservationService;
     
     @PostMapping("/process")
-    public Payment processPayment(@RequestParam Long reservationId, @RequestParam String paymentMethod, @RequestParam double amount) {
+    public Payment processPayment(@RequestParam Long reservationId, @RequestParam String paymentMethod, @RequestParam double amount, @RequestParam String date) {
         var reservation = reservationService.getReservationById(reservationId);
-        return paymentService.processPayment(reservation, paymentMethod, amount);
+        return paymentService.processPayment(reservation, paymentMethod, amount, date);
     }
 }

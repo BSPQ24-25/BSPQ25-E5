@@ -1,37 +1,24 @@
+
 package com.cinema_seat_booking.model;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "seats")
 public class Seat {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    
     @Column(nullable = false)
     private int seatNumber;
-
+    
     @Column(nullable = false)
-    private boolean isReserved = false;
+    private boolean isReserved;
 
     @ManyToOne
-    @JoinColumn(name = "room_id")
     private Room room;
 
-    public Seat() {
-    }
-
-    public Seat(int seatNumber) {
-        this.seatNumber = seatNumber;
-        this.isReserved = false;
-    }
-
-    public void reserve() {
-        this.isReserved = true;
-    }
-
+    // Getters and setters
     public Long getId() {
         return id;
     }
@@ -52,8 +39,8 @@ public class Seat {
         return isReserved;
     }
 
-    public void setReserved(boolean reserved) {
-        isReserved = reserved;
+    public void setReserved(boolean isReserved) {
+        this.isReserved = isReserved;
     }
 
     public Room getRoom() {
@@ -63,4 +50,24 @@ public class Seat {
     public void setRoom(Room room) {
         this.room = room;
     }
+
+    // No-argument constructor (needed for JPA)
+    public Seat() {
+        // This constructor is required by JPA
+    }
+    
+	public Seat(int seatNumber, boolean isReserved, Room room) {
+		super();
+		this.seatNumber = seatNumber;
+		this.isReserved = isReserved;
+		this.room = room;
+		room.getSeats().add(this);
+	}
+    
+	public Seat(int seatNumber, Room room) {
+		this.seatNumber=seatNumber;
+		this.isReserved=false;
+		this.room=room;
+		room.getSeats().add(this);
+	}
 }

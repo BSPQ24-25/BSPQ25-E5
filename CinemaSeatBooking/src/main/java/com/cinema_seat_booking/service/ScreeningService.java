@@ -2,6 +2,9 @@ package com.cinema_seat_booking.service;
 
 import com.cinema_seat_booking.model.Screening;
 import com.cinema_seat_booking.repository.ScreeningRepository;
+
+import jakarta.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +29,7 @@ public class ScreeningService {
         return screeningRepository.save(screening);
     }
 
+    @Transactional
     public void deleteScreening(Long id) {
         screeningRepository.deleteById(id);
     }
@@ -42,6 +46,7 @@ public class ScreeningService {
         return screeningRepository.findByLocation(location);
     }
 
+    @Transactional
     public Screening updateScreening(Long id, Screening newScreening) throws Exception {
         return screeningRepository.findById(id).map(screening -> {
             screening.setMovie(newScreening.getMovie());

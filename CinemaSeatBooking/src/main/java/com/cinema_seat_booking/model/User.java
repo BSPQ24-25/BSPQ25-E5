@@ -1,110 +1,113 @@
 package com.cinema_seat_booking.model;
-
 import java.util.List;
-
 import jakarta.persistence.*;
-
 @Entity
 @Table(name = "users")
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    
     @Column(nullable = false, unique = true)
     private String username;
-
+    
     @Column(nullable = false)
     private String password;
-
-    @Column(nullable = false, unique = true)
+    
+    @Column(nullable = false)
     private String email;
+@Enumerated(EnumType.STRING)
+private Role role;
 
-    @Enumerated(EnumType.STRING)
-    private Role role;
+@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+private List<Reservation> reservations;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    private List<Reservation> reservations;
+// Getters
+public Long getId() {
+    return id;
+}
 
-    // Constructor vacío (necesario para JPA)
-    public User() {
-    }
+public String getUsername() {
+    return username;
+}
 
-    // Constructor sin ID ni rol (ej. para registro)
-    public User(String username, String password, String email) {
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.role = Role.USER; // asignamos USER por defecto
-    }
+public String getPassword() {
+    return password;
+}
 
-    // Constructor con ID (opcional)
-    public User(Long id, String username, String password, String email) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.role = Role.USER; // también por defecto
-    }
+public String getEmail() {
+    return email;
+}
 
-    // Constructor con todo (por si necesitas controlar el rol manualmente)
-    public User(Long id, String username, String password, String email, Role role) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.role = role;
-    }
+public Role getRole() {
+    return role;
+}
 
-    // Getters y setters
-    public Long getId() {
-        return id;
-    }
+public List<Reservation> getReservations() {
+    return reservations;
+}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+// Setters
+public void setId(Long id) {
+    this.id = id;
+}
 
-    public String getUsername() {
-        return username;
-    }
+public void setUsername(String username) {
+    this.username = username;
+}
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+public void setPassword(String password) {
+    this.password = password;
+}
 
-    public String getPassword() {
-        return password;
-    }
+public void setEmail(String email) {
+    this.email = email;
+}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+public void setRole(Role role) {
+    this.role = role;
+}
 
-    public String getEmail() {
-        return email;
-    }
+public void setReservations(List<Reservation> reservations) {
+    this.reservations = reservations;
+}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+// Generators
+public void addReservation(Reservation reservation) {
+    this.reservations.add(reservation);
+    reservation.setUser(this);
+}
 
-    public Role getRole() {
-        return role;
-    }
+public void removeReservation(Reservation reservation) {
+    this.reservations.remove(reservation);
+    reservation.setUser(null);
+}
 
-    public void setRole(Role role) {
-        this.role = role;
-    }
+// No-argument constructor (needed for JPA)
+public User() {
+    // This constructor is required by JPA
+}
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", email='" + email + '\'' +
-                ", role=" + role +
-                '}';
-    }
+public User(String username, String password, String email, Role role, List<Reservation> reservations) {
+	super();
+	this.username = username;
+	this.password = password;
+	this.email = email;
+	this.role = role;
+	this.reservations = reservations;
+}
+
+public User(String username, String password, String email, Role role) {
+	this.username = username;
+	this.password = password;
+	this.email = email;
+	this.role = role;
+}
+public User(String username, String password, String email) {
+	this.username = username;
+	this.password = password;
+	this.email = email;
+	this.role = Role.CLIENT;
+}
+
 }

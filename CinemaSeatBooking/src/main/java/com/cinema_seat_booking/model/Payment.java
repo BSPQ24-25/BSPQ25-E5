@@ -1,38 +1,24 @@
+
 package com.cinema_seat_booking.model;
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "payments")
 public class Payment {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
-    @JoinColumn(name = "reservation_id", nullable = false)
-    private Reservation reservation;
+
     @Column(nullable = false)
     private String paymentMethod;
+
     @Column(nullable = false)
     private double amount;
+
     @Column(nullable = false)
-    private LocalDateTime paymentDate;
-    @Column(nullable = false)
+    private String paymentDate;
+
     @Enumerated(EnumType.STRING)
     private PaymentStatus status;
-
-    public Payment() {
-
-    }
-
-    public Payment(Reservation reservation, String paymentMethod, double amount) {
-        this.reservation = reservation;
-        this.paymentMethod = paymentMethod;
-        this.amount = amount;
-        this.paymentDate = LocalDateTime.now();
-        this.status = PaymentStatus.PENDING;
-    }
 
     public Long getId() {
         return id;
@@ -40,14 +26,6 @@ public class Payment {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Reservation getReservation() {
-        return reservation;
-    }
-
-    public void setReservation(Reservation reservation) {
-        this.reservation = reservation;
     }
 
     public String getPaymentMethod() {
@@ -66,11 +44,11 @@ public class Payment {
         this.amount = amount;
     }
 
-    public LocalDateTime getPaymentDate() {
+    public String getPaymentDate() {
         return paymentDate;
     }
 
-    public void setPaymentDate(LocalDateTime paymentDate) {
+    public void setPaymentDate(String paymentDate) {
         this.paymentDate = paymentDate;
     }
 
@@ -81,10 +59,24 @@ public class Payment {
     public void setStatus(PaymentStatus status) {
         this.status = status;
     }
-
-    public enum PaymentStatus {
-        PENDING,
-        COMPLETED,
-        FAILED
+    
+    // No-argument constructor (needed for JPA)
+    public Payment() {
+        // This constructor is required by JPA
     }
+
+    public Payment(String paymentMethod, double amount, String paymentDate, PaymentStatus status) {
+        super();
+        this.paymentMethod = paymentMethod;
+        this.amount = amount;
+        this.paymentDate = paymentDate;
+        this.status = status;
+    }
+
+	public Payment(String paymentMethod, double amount, String paymentDate) {
+		this.paymentMethod = paymentMethod;
+		this.amount = amount;
+		this.paymentDate = paymentDate;
+	}
 }
+
