@@ -4,7 +4,9 @@ import com.cinema_seat_booking.dto.UserDTO;
 import com.cinema_seat_booking.model.User;
 import com.cinema_seat_booking.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
+import org.springframework.web.bind.annotation.RequestBody; // ✅ CORRECTO
+
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;

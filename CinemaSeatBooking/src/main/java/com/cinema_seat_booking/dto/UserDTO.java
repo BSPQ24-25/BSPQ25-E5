@@ -5,6 +5,10 @@ public class UserDTO {
     private String username;
     private String password;
     private String email;
+    
+    public UserDTO() {
+        // Constructor vacío requerido por Spring para deserializar JSON
+    }
 
     public String getUsername() {
         return username;

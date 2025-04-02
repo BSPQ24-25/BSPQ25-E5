@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registrar Usuario</title>
+</head>
+<body>
+    <h1>Registro de Usuario</h1>
+    <form id="registerForm">
+        <label>Username:
+            <input type="text" id="username" required>
+        </label><br>
+        <label>Email:
+            <input type="email" id="email" required>
+        </label><br>
+        <label>Password:
+            <input type="password" id="password" required>
+        </label><br>
+        <button type="submit">Registrar</button>
+    </form>
+
+    <div id="registerResult" style="margin-top: 20px;"></div>
+
+    <script>
+        document.getElementById("registerForm").onsubmit = async function (e) {
+            e.preventDefault();
+
+            const userData = {
+                username: document.getElementById("username").value,
+                email: document.getElementById("email").value,
+                password: document.getElementById("password").value
+            };
+
+            try {
+                const response = await fetch('/api/users/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(userData)
+                });
+
+                const resultDiv = document.getElementById("registerResult");
+
+                if (response.status === 201) {
+                    const user = await response.json();
+                    resultDiv.innerHTML = `<p style="color: green;">Usuario ${user.username} registrado con éxito.</p>`;
+                } else {
+                    const text = await response.text();
+                    resultDiv.innerHTML = `<p style="color: red;">Error al registrar: ${text}</p>`;
+                }
+
+            } catch (error) {
+                document.getElementById("registerResult").innerHTML =
+                    `<p style="color: red;">Error de conexión: ${error}</p>`;
+            }
+        };
+    </script>
+</body>
+</html>

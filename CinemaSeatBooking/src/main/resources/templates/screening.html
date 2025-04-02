@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Screenings</title>
+</head>
+<body>
+<h1>Available Screenings</h1>
+<ul id="screeningList"></ul>
+
+<script>
+async function loadScreenings() {
+    const response = await fetch('/api/screenings');
+    const screenings = await response.json();
+    const list = document.getElementById('screeningList');
+    screenings.forEach(screening => {
+        const li = document.createElement('li');
+        li.textContent = `Movie ID: ${screening.movieId}, Time: ${screening.dateTime}`;
+        list.appendChild(li);
+    });
+}
+loadScreenings();
+</script>
+</body>
+</html>

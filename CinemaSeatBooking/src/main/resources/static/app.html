@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cinema Seat Booking - SPA</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        nav button { margin-right: 10px; }
+        .section { display: none; }
+        .section.active { display: block; margin-top: 20px; }
+        input { margin: 5px 0; }
+    </style>
+</head>
+<body>
+<h1>🎬 Cinema Seat Booking</h1>
+
+<nav>
+    <button type="button" onclick="showSection('register')">📝 Register</button>
+    <button type="button" onclick="showSection('login')">🔐 Login</button>
+    <button type="button" onclick="showSection('profile')">🔍 Search</button>
+    <button type="button" onclick="showSection('edit')">✏️ Edit</button>
+    <button type="button" onclick="showSection('delete')">🗑️ Delete</button>
+</nav>
+
+<!-- Registro -->
+<div id="register" class="section">
+    <h2>Registrar Usuario</h2>
+    <form id="registerForm">
+        <label>Username: <input type="text" id="regUsername" required></label><br>
+        <label>Email: <input type="email" id="regEmail" required></label><br>
+        <label>Password: <input type="password" id="regPassword" required></label><br>
+        <button type="submit">Registrar</button>
+    </form>
+    <div id="registerResult"></div>
+</div>
+
+<!-- Login -->
+<div id="login" class="section">
+    <h2>Login</h2>
+    <form id="loginForm">
+        <label>Username: <input type="text" id="loginUsername" required></label><br>
+        <label>Password: <input type="password" id="loginPassword" required></label><br>
+        <button type="submit">Login</button>
+    </form>
+    <div id="loginResult"></div>
+</div>
+
+<!-- Ver perfil -->
+<div id="profile" class="section">
+    <h2>Buscar Perfil</h2>
+    <form id="profileForm">
+        <label>Username: <input type="text" id="searchUsername" required></label>
+        <button type="submit">Buscar</button>
+    </form>
+    <div id="profileResult"></div>
+</div>
+
+<!-- Editar perfil -->
+<div id="edit" class="section">
+    <h2>Editar Perfil</h2>
+    <form id="editForm">
+        <label>Username: <input type="text" id="editUsername" required></label><br>
+        <label>Email: <input type="email" id="editEmail" required></label><br>
+        <label>Password: <input type="password" id="editPassword" required></label><br>
+        <button type="submit">Actualizar</button>
+    </form>
+    <div id="editResult"></div>
+</div>
+
+<!-- Eliminar perfil -->
+<div id="delete" class="section">
+    <h2>Eliminar Perfil</h2>
+    <form id="deleteForm">
+        <label>Username: <input type="text" id="deleteUsername" required></label><br>
+        <label>Password: <input type="password" id="deletePassword" required></label><br>
+        <button type="submit">Eliminar</button>
+    </form>
+    <div id="deleteResult"></div>
+</div>
+
+<!-- Scripts -->
+<script>
+function showSection(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+
+// ✅ Esperar a que todo cargue antes de enganchar los formularios
+window.addEventListener('DOMContentLoaded', () => {
+    showSection('register'); // ✅ Mostrar sección inicial
+
+    // Registro
+    document.getElementById("registerForm").onsubmit = async function (e) {
+        e.preventDefault();
+        const data = {
+            username: document.getElementById("regUsername").value,
+            email: document.getElementById("regEmail").value,
+            password: document.getElementById("regPassword").value
+        };
+
+        const res = await fetch('/api/users/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+
+        const msg = document.getElementById("registerResult");
+
+        if (res.status === 201) {
+            const user = await res.json();
+            msg.innerHTML = `<p style="color:green;">Usuario ${user.username} registrado con éxito.</p>`;
+            document.getElementById("registerForm").reset();
+        } else {
+            try {
+                const error = await res.json();
+                msg.innerHTML = `<p style="color:red;">Error: ${error.message || JSON.stringify(error)}</p>`;
+            } catch {
+                const text = await res.text();
+                msg.innerHTML = `<p style="color:red;">Error al registrar: ${text}</p>`;
+            }
+        }
+
+        return false;
+    };
+
+    // Login
+    document.getElementById("loginForm").onsubmit = async function (e) {
+        e.preventDefault();
+        const data = {
+            username: document.getElementById("loginUsername").value,
+            password: document.getElementById("loginPassword").value
+        };
+        const res = await fetch('/api/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+
+        const msg = document.getElementById("loginResult");
+        if (res.ok) {
+            const token = await res.text();
+            localStorage.setItem('token', token);
+            msg.innerHTML = `<p style="color:green;">Login exitoso. Token guardado.</p>`;
+        } else {
+            msg.innerHTML = `<p style="color:red;">Login fallido.</p>`;
+        }
+
+        return false;
+    };
+
+    // Ver perfil
+    document.getElementById("profileForm").onsubmit = async function (e) {
+        e.preventDefault();
+        const username = document.getElementById("searchUsername").value;
+        const res = await fetch(`/api/users/profile?username=${username}`);
+        const result = document.getElementById("profileResult");
+
+        if (res.ok) {
+            const user = await res.json();
+            result.innerHTML = `
+                <p><strong>Username:</strong> ${user.username}</p>
+                <p><strong>Email:</strong> ${user.email}</p>`;
+        } else {
+            result.innerHTML = `<p style="color:red;">Usuario no encontrado.</p>`;
+        }
+
+        return false;
+    };
+
+    // Editar perfil
+    document.getElementById("editForm").onsubmit = async function (e) {
+        e.preventDefault();
+        const data = {
+            username: document.getElementById("editUsername").value,
+            email: document.getElementById("editEmail").value,
+            password: document.getElementById("editPassword").value
+        };
+
+        const res = await fetch('/api/users/profile', {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+
+        const result = document.getElementById("editResult");
+        result.innerHTML = res.ok
+            ? `<p style="color:green;">Perfil actualizado.</p>`
+            : `<p style="color:red;">Error al actualizar perfil.</p>`;
+
+        return false;
+    };
+
+    // Eliminar perfil
+    document.getElementById("deleteForm").onsubmit = async function (e) {
+        e.preventDefault();
+        const username = document.getElementById("deleteUsername").value;
+        const password = document.getElementById("deletePassword").value;
+
+        const res = await fetch(`/api/users/profile?username=${username}&password=${password}`, {
+            method: 'DELETE'
+        });
+
+        const result = document.getElementById("deleteResult");
+        result.innerHTML = res.status === 204
+            ? `<p style="color:green;">Perfil eliminado.</p>`
+            : `<p style="color:red;">Error al eliminar perfil.</p>`;
+
+        return false;
+    };
+});
+</script>
+</body>
+</html>
