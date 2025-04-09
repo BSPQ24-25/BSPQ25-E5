@@ -1,4 +1,7 @@
-package com.cinema_seat_booking.service;
+//package com.cinema_seat_booking.unit;
+//package com.cinema_seat_booking.CinemaSeatBooking.integration;
+package com.cinema_seat_booking.integration;
+
 
 import com.cinema_seat_booking.model.*;
 import com.cinema_seat_booking.repository.PaymentRepository;
