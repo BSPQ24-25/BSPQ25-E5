@@ -30,7 +30,7 @@ class ScreeningControllerIntegrationTest {
     private MockMvc mockMvc;
 
     @MockBean
-    private ScreeningService screeningService; // Mock the ScreeningService bean
+    private ScreeningService screeningService; 
 
     @Test
     void testGetAllScreenings() throws Exception {

@@ -66,11 +66,11 @@ public class Payment {
     }
 
     public Payment(String paymentMethod, double amount, String paymentDate, PaymentStatus status) {
-        super();
+       
         this.paymentMethod = paymentMethod;
         this.amount = amount;
         this.paymentDate = paymentDate;
-        this.status = status;
+        this.status = PaymentStatus.PENDING;;
     }
 
 	public Payment(String paymentMethod, double amount, String paymentDate) {
