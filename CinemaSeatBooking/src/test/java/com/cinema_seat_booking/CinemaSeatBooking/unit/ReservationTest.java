@@ -10,16 +10,13 @@ class ReservationTest {
 
     @Test
     void testReservationConstructorWithPayment() {
-        // Arrange
         User user = new User();
         Screening screening = new Screening();
         Payment payment = new Payment();
         Seat seat = new Seat();
 
-        // Act
         Reservation reservation = new Reservation(user, screening, payment, seat);
 
-        // Assert
         assertEquals(user, reservation.getUser());
         assertEquals(screening, reservation.getScreening());
         assertEquals(payment, reservation.getPayment());
@@ -29,15 +26,12 @@ class ReservationTest {
 
     @Test
     void testReservationConstructorWithoutPayment() {
-        // Arrange
         User user = new User();
         Screening screening = new Screening();
         Seat seat = new Seat();
 
-        // Act
         Reservation reservation = new Reservation(user, screening, seat);
 
-        // Assert
         assertEquals(user, reservation.getUser());
         assertEquals(screening, reservation.getScreening());
         assertNotNull(reservation.getPayment(), "Payment should be initialized");
@@ -47,7 +41,6 @@ class ReservationTest {
 
     @Test
     void testSettersAndGetters() {
-        // Arrange
         User user = new User();
         Screening screening = new Screening();
         Payment payment = new Payment();
@@ -55,7 +48,6 @@ class ReservationTest {
 
         Reservation reservation = new Reservation();
 
-        // Act
         reservation.setId(1L);
         reservation.setUser(user);
         reservation.setScreening(screening);
@@ -63,7 +55,6 @@ class ReservationTest {
         reservation.setPayment(payment);
         reservation.setReservationState(ReservationState.PENDING);
 
-        // Assert
         assertEquals(1L, reservation.getId());
         assertEquals(user, reservation.getUser());
         assertEquals(screening, reservation.getScreening());
