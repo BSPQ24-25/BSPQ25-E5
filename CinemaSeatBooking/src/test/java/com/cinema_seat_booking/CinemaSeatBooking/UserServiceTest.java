@@ -80,4 +80,30 @@ class UserServiceTest {
         assertFalse(deleted);
         verify(userRepository, never()).delete(any());
     }
+
+    @Test
+    void testUpdateUserProfile_Success() {
+        when(userRepository.findByUsername("alice")).thenReturn(user);
+        when(userRepository.save(any(User.class))).thenReturn(user);
+
+        dto.setUsername("alice");
+        dto.setEmail("new@example.com");
+        dto.setPassword("newpass");
+        User updated = userService.updateUserProfile(dto);
+
+        assertEquals("new@example.com", updated.getEmail());
+        assertEquals("newpass", updated.getPassword());
+        verify(userRepository).save(any(User.class));
+    }
+
+    @Test
+    void testUpdateUserProfile_NotFound() {
+        when(userRepository.findByUsername("bob")).thenReturn(null);
+        UserDTO missing = new UserDTO();
+        missing.setUsername("bob");
+        missing.setEmail("b@example.com");
+        missing.setPassword("pass");
+
+        assertThrows(RuntimeException.class, () -> userService.updateUserProfile(missing));
+    }
 }
