@@ -22,7 +22,9 @@ public class DataInitializer {
 
     @Bean
     @Transactional
-    CommandLineRunner initData(UserRepository userRepository, MovieRepository movieRepository, RoomRepository roomRepository, SeatRepository seatRepository, ScreeningRepository screeningRepository, ReservationRepository reservationRepository, PaymentRepository paymentRepository) {
+    CommandLineRunner initData(UserRepository userRepository, MovieRepository movieRepository,
+            RoomRepository roomRepository, SeatRepository seatRepository, ScreeningRepository screeningRepository,
+            ReservationRepository reservationRepository, PaymentRepository paymentRepository) {
         return args -> {
             // Database is already initialized
             if (userRepository.count() > 0) {
@@ -66,21 +68,19 @@ public class DataInitializer {
             screeningRepository.saveAll(List.of(screening1, screening2));
             logger.info("Screenings saved!");
 
-
             // Create some reservations
             Reservation reservation1 = new Reservation(user1, screening1, null, seat1);
             Reservation reservation2 = new Reservation(user2, screening2, null, seat2);
 
             reservationRepository.saveAll(List.of(reservation1, reservation2));
             logger.info("Reservations saved!");
-            
+
             // Create some payments
             Payment payment1 = new Payment("Credit Card", 20.0, "2024-01-01 18:00", PaymentStatus.COMPLETED);
             Payment payment2 = new Payment("PayPal", 30.0, "2024-01-02 20:00", PaymentStatus.COMPLETED);
-            
+
             paymentRepository.saveAll(List.of(payment1, payment2));
             logger.info("Payments saved!");
-            
 
             // Link payments to reservations
             reservation1.setPayment(payment1);
@@ -91,4 +91,3 @@ public class DataInitializer {
         };
     }
 }
-

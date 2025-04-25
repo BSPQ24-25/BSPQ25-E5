@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 public class Room {
@@ -51,6 +52,12 @@ public class Room {
         seat.setRoom(this);
     }
 
+    @Transient
+    @JsonProperty("seatCount")
+    public int getSeatCount() {
+        return seats != null ? seats.size() : 0;
+    }
+
     // No-argument constructor (needed for JPA)
     public Room() {
         // This constructor is required by JPA
@@ -65,5 +72,10 @@ public class Room {
     public Room(String name) {
         this.name = name;
         this.seats = new ArrayList<Seat>();
+
+        for (int i = 1; i <= 20; i++) {
+            Seat seat = new Seat(i, this);
+            this.seats.add(seat);
+        }
     }
 }
