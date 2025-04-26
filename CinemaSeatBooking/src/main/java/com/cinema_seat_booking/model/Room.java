@@ -58,6 +58,30 @@ public class Room {
         return seats != null ? seats.size() : 0;
     }
 
+    @Transient
+    @JsonProperty("availableSeats")
+    public int getAvailableSeats() {
+        int availableSeats = 0;
+        for (Seat seat : seats) {
+            if (!seat.isReserved()) {
+                availableSeats++;
+            }
+        }
+        return availableSeats;
+    }
+
+    @Transient
+    @JsonProperty("reservedSeats")
+    public int getReservedSeats() {
+        int reservedSeats = 0;
+        for (Seat seat : seats) {
+            if (seat.isReserved()) {
+                reservedSeats++;
+            }
+        }
+        return reservedSeats;
+    }
+
     // No-argument constructor (needed for JPA)
     public Room() {
         // This constructor is required by JPA

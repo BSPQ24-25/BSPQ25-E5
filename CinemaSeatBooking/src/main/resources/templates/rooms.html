@@ -9,34 +9,6 @@
 <script th:src="@{js/cufon-replace.js}" type="text/javascript"></script>
 <script th:src="@{js/Gill_Sans_400.font.js}" type="text/javascript"></script>
 <script th:src="@{js/script.js}" type="text/javascript"></script>
-<script>
-  async function loadRooms() {
-    try {
-      const response = await fetch('/api/rooms');
-      const rooms = await response.json();
-      const contentDiv = document.querySelector('.content');
-
-      const roomList = document.createElement('ul');
-      roomList.className = 'list';
-
-      rooms.forEach(room => {
-        const li = document.createElement('li');
-        li.innerHTML = `
-          <h4>Room: ${room.name}</h4>
-          <p>Room ID: ${room.id}</p>
-        `;
-        roomList.appendChild(li);
-      });
-
-      contentDiv.innerHTML = '<h3>Available <span>Rooms</span></h3>';
-      contentDiv.appendChild(roomList);
-    } catch (error) {
-      console.error('Error loading rooms:', error);
-    }
-  }
-
-  document.addEventListener('DOMContentLoaded', loadRooms);
-</script>
 
 <!--[if lt IE 7]>
 <script type="text/javascript" src="js/ie_png.js"></script>
@@ -84,8 +56,32 @@
           <h3>Recent <span>Articles</span></h3>
           <ul class="list" th:each="room : ${rooms}">
             <li>
-              <h4 th:text="${room.name}">Room Name</h4>
-              <p>ID: <span th:text="${room.id}">1</span></p>
+              <div style="display: flex; align-items: center;">
+                <div style="
+                  width: 200px;
+                  height: 100px;
+                  background-image: url('images/textarea-bg.gif');
+                  background-size: 100% 100%;
+                  background-repeat: no-repeat;
+                  background-position: center;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  font-weight: bold;
+                  font-size: 18px;
+                  color: #fff;
+                  margin-right: 20px;
+                ">
+                  <span th:text="${room.name}">Room name</span>
+                </div>
+                <div>
+                  <ul style="list-style: disc; padding-left: 20px;">
+                    <li style="padding-top: 0px;"><strong>Seats:</strong> <span th:text="${room.seatCount}">Seat account</span></li>
+                    <li style="padding-top: 0px;">Free seats: <span th:text="${room.availableSeats}"></span>Available Seats</li>
+                    <li style="padding-top: 0px;">Reserved seats: <span th:text="${room.reservedSeats}"></span>Reserved Seats</li>
+                  </ul>
+                </div>
+              </div>
             </li>
           </ul>
         </div>
