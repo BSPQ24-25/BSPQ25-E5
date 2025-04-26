@@ -4,21 +4,37 @@
     <title>Screenings</title>
 </head>
 <body>
-<h1>Available Screenings</h1>
-<ul id="screeningList"></ul>
+    <h1>Available Screenings</h1>
+    <ul id="screeningList"></ul>
 
-<script>
-async function loadScreenings() {
-    const response = await fetch('/api/screenings');
-    const screenings = await response.json();
-    const list = document.getElementById('screeningList');
-    screenings.forEach(screening => {
-        const li = document.createElement('li');
-        li.textContent = `Movie ID: ${screening.movieId}, Time: ${screening.dateTime}`;
-        list.appendChild(li);
-    });
-}
-loadScreenings();
-</script>
+    <script>
+        async function loadScreenings() {
+            try {
+                const response = await fetch('/api/screenings');
+                const screenings = await response.json();
+                const list = document.getElementById('screeningList');
+                list.innerHTML = ''; // Limpiar si se recarga
+
+                if (screenings.length === 0) {
+                    list.innerHTML = '<li>No screenings available</li>';
+                    return;
+                }
+
+                screenings.forEach(screening => {
+                    const li = document.createElement('li');
+                    const movie = screening.movie?.title || `ID ${screening.movieId}`;
+                    const time = new Date(screening.dateTime).toLocaleString();
+
+                    li.textContent = `Movie: ${movie}, Time: ${time}`;
+                    list.appendChild(li);
+                });
+            } catch (error) {
+                console.error('Error fetching screenings:', error);
+                document.getElementById('screeningList').innerHTML = '<li>Error loading screenings</li>';
+            }
+        }
+
+        loadScreenings();
+    </script>
 </body>
 </html>

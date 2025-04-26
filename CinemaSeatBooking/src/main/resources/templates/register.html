@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register - Cinema Booking</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Create Account</h2>
+        <form id="registerForm">
+            <input type="text" id="username" placeholder="Username" required/>
+            <input type="password" id="password" placeholder="Password" required/>
+            <input type="email" id="email" placeholder="Email" required/>
+            <button type="submit">Register</button>
+        </form>
+        <div class="login-link">
+            <p>Already have an account? <a th:href="@{/}">Login here</a></p>
+        </div>
+    </div>
+
+<script src="scripts.js"></script>
+</body>
+</html>
