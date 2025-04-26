@@ -1,5 +1,6 @@
 package com.cinema_seat_booking.controller;
 
+import com.cinema_seat_booking.repository.MovieRepository;
 import com.cinema_seat_booking.service.RoomService;
 import com.cinema_seat_booking.service.ScreeningService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ public class FrontendController {
 
     @Autowired private RoomService roomService;
     @Autowired private ScreeningService screeningService;
+    @Autowired private MovieRepository movieRepository;
 
     @GetMapping("/")
     public String showLoginPage() {
@@ -23,8 +25,9 @@ public class FrontendController {
         return "register"; // register.html
     }
 
-    @GetMapping("/home")
-    public String showHomePage() {
+    @GetMapping({"/","/home"})
+    public String showHomePage(Model model) {
+        model.addAttribute("movies", movieRepository.findAll());
         return "index"; // index.html
     }
 

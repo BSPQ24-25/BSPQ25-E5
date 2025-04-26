@@ -1,40 +1,50 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Screenings</title>
+
+    <!-- 1) Enlaza el CSS desde /static/css/style.css -->
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+
+    <!-- 2) Enlaza tus scripts desde /static/js/... -->
+    <script th:src="@{/js/jquery-1.4.2.min.js}"></script>
+    <script th:src="@{/js/cufon-yui.js}"></script>
+    <script th:src="@{/js/cufon-replace.js}"></script>
+    <script th:src="@{/js/Gill_Sans_400.font.js}"></script>
+    <script th:src="@{/js/script.js}"></script>
 </head>
-<body>
-    <h1>Available Screenings</h1>
-    <ul id="screeningList"></ul>
+<body id="page3">
+  <div class="tail-top">
+    <!-- … aquí tu header/nav idéntico al de rooms.html … -->
 
-    <script>
-        async function loadScreenings() {
-            try {
-                const response = await fetch('/api/screenings');
-                const screenings = await response.json();
-                const list = document.getElementById('screeningList');
-                list.innerHTML = ''; // Limpiar si se recarga
+    <div id="content">
+      <h1>Available Screenings</h1>
 
-                if (screenings.length === 0) {
-                    list.innerHTML = '<li>No screenings available</li>';
-                    return;
-                }
+      <!-- 3) Este bloque Thymeleaf recorre la lista que puso tu FrontendController -->
+      <div class="content">
+        <ul class="list" th:if="${!#lists.isEmpty(screenings)}"
+            th:each="s : ${screenings}">
+          <li>
+            <!-- título de la película -->
+            <strong th:text="${s.movie.title}">Movie Title</strong><br/>
+            <!-- fecha (en tu DataInitializer lo intercambiaste por ciudad, ojo con eso) -->
+            Date: <span th:text="${s.date}">YYYY-MM-DD</span><br/>
+            Location: <span th:text="${s.location}">Location</span><br/>
+            Room: <span th:text="${s.room.name}">Room Name</span>
+          </li>
+        </ul>
 
-                screenings.forEach(screening => {
-                    const li = document.createElement('li');
-                    const movie = screening.movie?.title || `ID ${screening.movieId}`;
-                    const time = new Date(screening.dateTime).toLocaleString();
+        <!-- 4) Mensaje de “no hay funciones” -->
+        <p th:if="${#lists.isEmpty(screenings)}">
+          No screenings available.
+        </p>
+      </div>
+    </div>
 
-                    li.textContent = `Movie: ${movie}, Time: ${time}`;
-                    list.appendChild(li);
-                });
-            } catch (error) {
-                console.error('Error fetching screenings:', error);
-                document.getElementById('screeningList').innerHTML = '<li>Error loading screenings</li>';
-            }
-        }
+    <!-- …pie de página igual al de rooms.html…-->
+  </div>
 
-        loadScreenings();
-    </script>
+  <script type="text/javascript"> Cufon.now(); </script>
 </body>
 </html>
