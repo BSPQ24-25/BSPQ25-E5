@@ -3,48 +3,90 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Screenings</title>
-
-    <!-- 1) Enlaza el CSS desde /static/css/style.css -->
-    <link th:href="@{/css/style.css}" rel="stylesheet" />
-
-    <!-- 2) Enlaza tus scripts desde /static/js/... -->
-    <script th:src="@{/js/jquery-1.4.2.min.js}"></script>
-    <script th:src="@{/js/cufon-yui.js}"></script>
-    <script th:src="@{/js/cufon-replace.js}"></script>
-    <script th:src="@{/js/Gill_Sans_400.font.js}"></script>
-    <script th:src="@{/js/script.js}"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css"/>
+    <script th:src="@{/js/jquery-1.4.2.min.js}" type="text/javascript"></script>
+    <script th:src="@{/js/cufon-yui.js}" type="text/javascript"></script>
+    <script th:src="@{/js/cufon-replace.js}" type="text/javascript"></script>
+    <script th:src="@{/js/Gill_Sans_400.font.js}" type="text/javascript"></script>
+    <script th:src="@{/js/script.js}" type="text/javascript"></script>
 </head>
 <body id="page3">
-  <div class="tail-top">
-    <!-- … aquí tu header/nav idéntico al de rooms.html … -->
-
-    <div id="content">
-      <h1>Available Screenings</h1>
-
-      <!-- 3) Este bloque Thymeleaf recorre la lista que puso tu FrontendController -->
-      <div class="content">
-        <ul class="list" th:if="${!#lists.isEmpty(screenings)}"
-            th:each="s : ${screenings}">
-          <li>
-            <!-- título de la película -->
-            <strong th:text="${s.movie.title}">Movie Title</strong><br/>
-            <!-- fecha (en tu DataInitializer lo intercambiaste por ciudad, ojo con eso) -->
-            Date: <span th:text="${s.date}">YYYY-MM-DD</span><br/>
-            Location: <span th:text="${s.location}">Location</span><br/>
-            Room: <span th:text="${s.room.name}">Room Name</span>
-          </li>
-        </ul>
-
-        <!-- 4) Mensaje de “no hay funciones” -->
-        <p th:if="${#lists.isEmpty(screenings)}">
-          No screenings available.
-        </p>
+    <div class="tail-top">
+        <div class="tail-bottom">
+          <div id="main">
+            <div id="header">
+              <div class="row-1">
+                <div class="fleft"><a href="#">Cinema Seat <span>Booking</span></a></div>
+                <ul>
+                  <li><a href="#"><img src="images/icon1.gif" alt="" /></a></li>
+                  <li><a href="#"><img src="images/icon2.gif" alt="" /></a></li>
+                  <li><a href="#"><img src="images/icon3.gif" alt="" /></a></li>
+                </ul>
+              </div>
+              <div class="row-2">
+                <ul>
+                  <li><a th:href="@{/home}">Home</a></li>
+                  <li><a th:href="@{/about}">About</a></li>
+                  <li><a th:href="@{/articles}">Articles</a></li>
+                  <li><a th:href="@{/contact}">Contacts</a></li>
+                  <li class="last"><a th:href="@{/rooms}">Rooms</a></li>
+                </ul>
+              </div>
+            </div>
+      
+            <div id="content">
+              <div class="line-hor"></div>
+              <div class="box">
+                <div class="border-right">
+                  <div class="border-left">
+                    <div class="inner">
+                      <h3>Available <span>Screenings</span></h3>
+      
+                      <div th:if="${!#lists.isEmpty(screenings)}">
+                        <ul class="list" th:each="s : ${screenings}">
+                          <li>
+                            <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                              <div style="margin-right: 20px;">
+                                
+                              </div>
+                              <div>
+                                <h4 th:text="${s.movie.title}">Movie Title</h4>
+                                <p><strong>Location:</strong> <span th:text="${s.location}">Location</span></p>
+                                <p><strong>Date:</strong> <span th:text="${s.date}">YYYY-MM-DD</span></p>
+                                <p><strong>Room:</strong> <span th:text="${s.room.name}">Room Name</span></p>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+      
+                      <p th:if="${#lists.isEmpty(screenings)}">
+                        No screenings available.
+                      </p>
+      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+      
+            <div id="footer">
+              <div class="left">
+                <div class="right">
+                  <div class="footerlink">
+                    <p class="lf">Copyright &copy; 2010 <a href="#">SiteName</a> - All Rights Reserved</p>
+                    <p class="rf">Design by <a href="http://www.templatemonster.com/">TemplateMonster</a></p>
+                    <div style="clear:both;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+      
+          </div>
+        </div>
       </div>
-    </div>
-
-    <!-- …pie de página igual al de rooms.html…-->
-  </div>
-
-  <script type="text/javascript"> Cufon.now(); </script>
+      
+      <script type="text/javascript"> Cufon.now(); </script>
 </body>
 </html>
