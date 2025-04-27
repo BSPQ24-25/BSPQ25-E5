@@ -46,10 +46,11 @@
                       <h3>Available <span>Screenings</span></h3>
       
                       <div th:if="${!#lists.isEmpty(screenings)}">
-                        <ul class="list" th:each="s : ${screenings}">
-                          <li>
-                            <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                        <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+                          <div th:each="s : ${screenings}" style="flex: 0 0 calc(100%); border: 1px solid #ccc; border-radius: 10px; padding: 20px; box-sizing: border-box;">
+                            <div style="display: flex; align-items: center; gap: 50px;">
                               <div style="margin-right: 20px;">
+                                <img src="images/banner-img.png" alt="" style="width: 250px; height: auto; border-radius: 10px;"/>
                               </div>
                               <div>
                                 <h4 th:text="${s.movie.title}">Movie Title</h4>
@@ -61,8 +62,8 @@
                                 </form>
                               </div>
                             </div>
-                          </li>
-                        </ul>
+                          </div>
+                        </div>
                       </div>
       
                       <p th:if="${#lists.isEmpty(screenings)}">

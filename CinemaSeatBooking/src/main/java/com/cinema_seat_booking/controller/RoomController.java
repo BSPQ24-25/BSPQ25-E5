@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cinema_seat_booking.dto.CreateRoomDTO;
+import com.cinema_seat_booking.dto.RoomDTO;
 import com.cinema_seat_booking.model.Room;
 import com.cinema_seat_booking.service.RoomService;
 
@@ -55,16 +56,21 @@ public class RoomController {
             @ApiResponse(responseCode = "404", description = "Room not found")
     })
     @GetMapping("/{id}")
-    public ResponseEntity<Room> getRoomById(@PathVariable Long id) {
+    public ResponseEntity<RoomDTO> getRoomById(@PathVariable Long id) {
         Optional<Room> room = roomService.getRoomById(id);
-        return room.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        RoomDTO roomDTO = new RoomDTO(room.get().getId(), room.get().getName(), room.get().getSeats());
+        return roomDTO != null ? ResponseEntity.ok(roomDTO) : ResponseEntity.notFound().build();
     }
 
     @Operation(summary = "Get all rooms", description = "Returns all available rooms")
     @ApiResponse(responseCode = "200", description = "Rooms retrieved successfully")
     @GetMapping
-    public ResponseEntity<List<Room>> getAllRooms() {
-        return ResponseEntity.ok(roomService.getAllRooms());
+    public ResponseEntity<List<RoomDTO>> getAllRooms() {
+        List<Room> rooms = roomService.getAllRooms();
+        List<RoomDTO> roomDTOs = rooms.stream()
+                .map(room -> new RoomDTO(room.getId(), room.getName(), room.getSeats()))
+                .toList();
+        return roomDTOs.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(roomDTOs);
     }
 
     @Operation(summary = "Delete a room", description = "Deletes a room by ID")

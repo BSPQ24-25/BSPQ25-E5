@@ -66,22 +66,24 @@
             <div class="border-left">
               <div class="inner">
                   <h3>Fresh <span>Movies</span></h3>
-                  <ul class="movies" th:if="${!#lists.isEmpty(movies)}"
-                      th:each="movie : ${movies}">
-                    <li>
-                      <h4 th:text="${movie.title}">Movie Title</h4>
-                      <p><strong>Genre:</strong> <span th:text="${movie.genre}">Genre</span></p>
-                      <p><strong>Duration:</strong> <span th:text="${movie.duration}">120</span> min</p>
-                      <p><strong>Cast:</strong> <span th:text="${movie.cast}">Cast list</span></p>
-                      <div class="wrapper">
-                        <a th:href="@{/screenings}" class="link2">
-                          <span><span>View Screenings</span></span>
-                        </a>
+                  <div th:if="${!#lists.isEmpty(movies)}">
+                    <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+                      <div th:each="movie : ${movies}" style="flex: 0 0 calc(33.333% - 20px); border: 1px solid #ccc; border-radius: 10px; padding: 20px; box-sizing: border-box;">
+                        <h4 th:text="${movie.title}">Movie Title</h4>
+                        <p><strong>Genre:</strong> <span th:text="${movie.genre}">Genre</span></p>
+                        <p><strong>Duration:</strong> <span th:text="${movie.duration}">120</span> min</p>
+                        <p><strong>Cast:</strong> <span th:text="${movie.cast}">Cast list</span></p>
+                        <div style="display: flex; justify-content: center;">
+                          <form th:action="@{/screenings}" method="get">
+                            <button type="submit" class="button">View Screenings</button>
+                          </form>
+                        </div>
                       </div>
-                    </li>
-                  </ul>
-                  <p th:if="${#lists.isEmpty(movies)}">No movies available.</p>
-                  <div style="height: 300px;"></div>
+                    </div>
+                  </div>
+                  <p th:if="${#lists.isEmpty(movies)}">
+                    No movies available.
+                  </p>
               </div>
             </div>
           </div>

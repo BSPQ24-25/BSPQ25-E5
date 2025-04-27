@@ -9,13 +9,13 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String paymentMethod;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private double amount;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String paymentDate;
 
     @Enumerated(EnumType.STRING)

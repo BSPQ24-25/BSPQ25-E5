@@ -599,9 +599,34 @@ a {
 .button {
 	background-color: #d72a18;
 	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
 	cursor: pointer;
 	font-size: 1em;
 	line-height: 1em;
 	color: #fff;
 	text-decoration: none;
+	border-radius: 10px;
+}
+
+.seat {
+	width: 60px;
+	height: 60px;
+	background-color: green;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	line-height: 60px;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.seat.reserved {
+	background-color: red;
+	cursor: not-allowed;
+}
+
+.seat.selected {
+	background-color: lightskyblue;
 }

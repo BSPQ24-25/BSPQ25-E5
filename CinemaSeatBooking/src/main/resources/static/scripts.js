@@ -20,9 +20,7 @@ document.getElementById("loginForm")?.addEventListener("submit", async function 
 
         const token = await response.text();
         localStorage.setItem("token", token);
-
-        console.log("Redirecting to /home"); // Log before redirecting
-
+        localStorage.setItem("username", username);
         window.location.href = "/home"; // Redirect to home page
     } catch (error) {
         document.getElementById("errorMsg").innerText = error.message;
@@ -108,3 +106,75 @@ async function loadRooms() {
     }
 }
 
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const seats = document.querySelectorAll('.seat:not(.reserved)');
+    const reserveButton = document.getElementById('reserveButton');
+    const selectedSeatInput = document.getElementById('selectedSeatId');
+    let selectedSeatId = null; // Variable global para almacenar el ID del asiento seleccionado
+
+    // Maneja la selección del asiento
+    seats.forEach(seat => {
+        seat.addEventListener('click', function () {
+            // Deselecciona otros asientos
+            seats.forEach(s => s.classList.remove('selected'));
+
+            // Marca el asiento clicado
+            seat.classList.add('selected');
+
+            // Guarda el seatId en la variable global
+            selectedSeatId = seat.getAttribute('data-seat-id');
+            selectedSeatInput.value = selectedSeatId;
+            console.log("Selected seat ID:", selectedSeatInput.value); // Log the selected seat ID for debugging
+
+            // Habilita el botón de reserva si se selecciona un asiento
+            reserveButton.disabled = false;
+        });
+    });
+
+    // Maneja la acción de clic en el botón de reserva
+    reserveButton.addEventListener("click", function () {
+        // Verifica si hay un asiento seleccionado
+        if (!selectedSeatId) {
+            alert("Please select a seat first.");
+            return;
+        }
+
+        // Recupera el username desde localStorage
+        const username = localStorage.getItem("username");
+
+        if (!username) {
+            alert("You must be logged in to reserve a seat.");
+            return;
+        }
+
+        const screeningId = document.getElementById("screeningId").value;
+        console.log("Screening ID:", screeningId); // Log the screening ID for debugging
+
+        // Realiza la reserva a través de la API
+        fetch("/api/reservations", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: new URLSearchParams({
+                "username": username,
+                "screeningId": screeningId,
+                "seatId": selectedSeatId
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data) {
+                    window.location.href = "/screenings"; // Redirige a la página de screenings
+                } else {
+                    alert("Failed to make reservation.");
+                }
+            })
+            .catch(error => {
+                console.error("Error making reservation:", error);
+                alert("An error occurred. Please try again.");
+            });
+    });
+});
