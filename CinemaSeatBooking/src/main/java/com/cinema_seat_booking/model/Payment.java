@@ -1,5 +1,6 @@
 
 package com.cinema_seat_booking.model;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -59,7 +60,7 @@ public class Payment {
     public void setStatus(PaymentStatus status) {
         this.status = status;
     }
-    
+
     // No-argument constructor (needed for JPA)
     public Payment() {
         // This constructor is required by JPA
@@ -73,10 +74,9 @@ public class Payment {
         this.status = status;
     }
 
-	public Payment(String paymentMethod, double amount, String paymentDate) {
-		this.paymentMethod = paymentMethod;
-		this.amount = amount;
-		this.paymentDate = paymentDate;
-	}
+    public Payment(String paymentMethod, double amount, String paymentDate) {
+        this.paymentMethod = paymentMethod;
+        this.amount = amount;
+        this.paymentDate = paymentDate;
+    }
 }
-

@@ -7,13 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class FrontendController {
 
-    @Autowired private RoomService roomService;
-    @Autowired private ScreeningService screeningService;
-    @Autowired private MovieRepository movieRepository;
+    @Autowired
+    private RoomService roomService;
+    @Autowired
+    private ScreeningService screeningService;
+    @Autowired
+    private MovieRepository movieRepository;
 
     @GetMapping("/")
     public String showLoginPage() {
@@ -25,7 +29,7 @@ public class FrontendController {
         return "register"; // register.html
     }
 
-    @GetMapping({"/","/home"})
+    @GetMapping({ "/", "/home" })
     public String showHomePage(Model model) {
         model.addAttribute("movies", movieRepository.findAll());
         return "index"; // index.html
@@ -61,5 +65,13 @@ public class FrontendController {
     public String showScreeningsPage(Model model) {
         model.addAttribute("screenings", screeningService.getAllScreenings());
         return "screening";
+    }
+
+    @GetMapping("/screenings/{id}")
+    public String showScreeningDetails(@PathVariable Long id, Model model) {
+        // Obtén el screening usando el ID
+        model.addAttribute("screening", screeningService.getScreeningById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Screening not found with ID: " + id)));
+        return "reservation"; // reservation.html
     }
 }

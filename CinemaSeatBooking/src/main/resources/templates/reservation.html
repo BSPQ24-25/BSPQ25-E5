@@ -41,32 +41,33 @@
                 <div class="border-right">
                   <div class="border-left">
                     <div class="inner">
-                      <h3>Available <span>Screenings</span></h3>
+                      <h3>Make a <span>Reservation</span></h3>
       
-                      <div th:if="${!#lists.isEmpty(screenings)}">
-                        <ul class="list" th:each="s : ${screenings}">
-                          <li>
-                            <div style="display: flex; align-items: center; margin-bottom: 20px;">
-                              <div style="margin-right: 20px;">
-                              </div>
-                              <div>
-                                <h4 th:text="${s.movie.title}">Movie Title</h4>
-                                <p><strong>Location:</strong> <span th:text="${s.location}">Location</span></p>
-                                <p><strong>Date:</strong> <span th:text="${s.date}">YYYY-MM-DD</span></p>
-                                <p><strong>Room:</strong> <span th:text="${s.room.name}">Room Name</span></p>
-                                <form th:action="@{'/screenings/' + ${s.id}}" method="get">
-                                  <button type="submit" class="button">Make Reservation</button>
-                                </form>
-                              </div>
+                      <div th:if="${screening != null}">
+                        <!-- Mostrar información de un solo screening -->
+                        <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                            <div style="margin-right: 20px;">
+                                <!-- Puedes agregar aquí la imagen de la película si la tienes -->
                             </div>
-                          </li>
-                        </ul>
+                            <div>
+                                <h4 th:text="${screening.movie.title}">Movie Title</h4>
+                                <p><strong>Location:</strong> <span th:text="${screening.location}">Location</span></p>
+                                <p><strong>Date:</strong> <span th:text="${screening.date}">YYYY-MM-DD</span></p>
+                                <p><strong>Room:</strong> <span th:text="${screening.room.name}">Room Name</span></p>
+                            </div>
+                        </div>
+
+                        <!-- Botón para hacer la reserva -->
+                        <!-- <form th:action="@{/reservations}" method="post">
+                            <input type="hidden" name="screeningId" th:value="${screening.id}"/>
+                            <input type="hidden" name="username" value="user123"/>  Aquí va el username del usuario 
+                            <button type="submit" class="button">Make Reservation</button>
+                        </form> -->
                       </div>
       
-                      <p th:if="${#lists.isEmpty(screenings)}">
-                        No screenings available.
+                      <p th:if="${screening == null}">
+                        No screening details found.
                       </p>
-      
                     </div>
                   </div>
                 </div>

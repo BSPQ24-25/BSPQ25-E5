@@ -1,5 +1,7 @@
 package com.cinema_seat_booking.dto;
 
+import com.cinema_seat_booking.model.Seat;
+
 public class SeatDTO {
     private Long id;
     private int seatNumber;
@@ -15,6 +17,13 @@ public class SeatDTO {
         this.seatNumber = seatNumber;
         this.isReserved = isReserved;
         this.roomName = roomName;
+    }
+
+    public SeatDTO(Seat seat) {
+        this.id = seat.getId();
+        this.seatNumber = seat.getSeatNumber();
+        this.isReserved = seat.isReserved();
+        this.roomName = seat.getRoom() != null ? seat.getRoom().getName() : null;
     }
 
     public Long getId() {

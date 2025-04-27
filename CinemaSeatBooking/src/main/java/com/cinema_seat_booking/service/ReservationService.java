@@ -30,16 +30,16 @@ public class ReservationService {
 
     @Transactional
     public Reservation createReservation(User user, Screening screening, Seat seat, String paymentMethod) {
-        // Check to see if they are free 
-            if (seat.isReserved()) {
-                throw new IllegalStateException("Seat " + seat.getSeatNumber() + " is already reserved!");
-            }
+        // Check to see if they are free
+        if (seat.isReserved()) {
+            throw new IllegalStateException("Seat " + seat.getSeatNumber() + " is already reserved!");
+        }
 
-        //go through list to mark them as reserved 
-            seat.setReserved(true);
-            seatRepository.save(seat);
+        // go through list to mark them as reserved
+        seat.setReserved(true);
+        seatRepository.save(seat);
 
-        //create the reservation 
+        // create the reservation
         Reservation reservation = new Reservation(user, screening, seat);
         reservation.setReservationState(ReservationState.PENDING);
 
@@ -53,7 +53,7 @@ public class ReservationService {
         if (optionalReservation.isPresent()) {
             Reservation reservation = optionalReservation.get();
             Seat seat = reservation.getSeat(); // Retrieve all seats in the reservation
-            
+
             seat.setReserved(false);
             seatRepository.save(seat);
 
@@ -63,7 +63,7 @@ public class ReservationService {
             throw new IllegalArgumentException("Reservation not found!");
         }
     }
-    
+
     @Transactional
     public Reservation createReservation(Reservation reservation) {
         return reservationRepository.save(reservation);
@@ -71,8 +71,9 @@ public class ReservationService {
 
     @Transactional
     public Payment makePayment(Long reservationId, String paymentMethod, double amount, String date) {
-        Reservation reservation = reservationRepository.findById(reservationId).orElseThrow(() -> new IllegalArgumentException("Reservation not found"));
-        Payment payment = paymentService.processPayment(reservation, paymentMethod, amount,  date);
+        Reservation reservation = reservationRepository.findById(reservationId)
+                .orElseThrow(() -> new IllegalArgumentException("Reservation not found"));
+        Payment payment = paymentService.processPayment(reservation, paymentMethod, amount, date);
         paymentRepository.save(payment);
         reservation.setPayment(payment);
         reservationRepository.save(reservation);
@@ -80,6 +81,9 @@ public class ReservationService {
     }
 
     public Reservation getReservationById(Long reservationId) {
-        return reservationRepository.findById(reservationId).orElseThrow(() -> new IllegalArgumentException("Reservation not found"));
+        Reservation reservation = reservationRepository.findById(reservationId)
+                .orElseThrow(() -> new IllegalArgumentException("Reservation not found"));
+
+        return reservation;
     }
 }
