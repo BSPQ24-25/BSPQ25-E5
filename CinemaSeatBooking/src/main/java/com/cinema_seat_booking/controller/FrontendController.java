@@ -29,7 +29,7 @@ public class FrontendController {
         return "register"; // register.html
     }
 
-    @GetMapping({ "/", "/home" })
+    @GetMapping({ "/home" })
     public String showHomePage(Model model) {
         model.addAttribute("movies", movieRepository.findAll());
         return "index"; // index.html
@@ -59,6 +59,14 @@ public class FrontendController {
     public String showRoomsPage(Model model) {
         model.addAttribute("rooms", roomService.getAllRooms());
         return "rooms"; // rooms.html
+    }
+
+    @GetMapping("/rooms/{id}")
+    public String showRoomDetails(@PathVariable Long id, Model model) {
+        // Obtén la sala usando el ID
+        model.addAttribute("room", roomService.getRoomById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Room not found with ID: " + id)));
+        return "room"; // room.html
     }
 
     @GetMapping("/screenings")
