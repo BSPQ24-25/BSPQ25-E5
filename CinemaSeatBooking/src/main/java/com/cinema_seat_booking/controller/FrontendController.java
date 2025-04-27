@@ -74,4 +74,57 @@ public class FrontendController {
                 .orElseThrow(() -> new IllegalArgumentException("Screening not found with ID: " + id)));
         return "reservation"; // reservation.html
     }
+    //lithuanian
+    
+
+    @GetMapping("/register-lt")
+    public String showLTRegisterPage() {
+        return "register-lt"; // register.html
+    }
+
+    @GetMapping({ "/lt", "/home-lt" })
+    public String showLTHomePage(Model model) {
+        model.addAttribute("movies", movieRepository.findAll());
+        return "index-lt"; // index.html
+    }
+
+    @GetMapping("/about-lt")
+    public String showLTAboutPage() {
+        return "about-us-lt"; // about-us.html
+    }
+
+    @GetMapping("/articles-lt")
+    public String showLTArticlesPage() {
+        return "articles-lt"; // articles.html
+    }
+
+    @GetMapping("/article-lt")
+    public String showLTArticlePage() {
+        return "article-lt"; // article.html
+    }
+
+    @GetMapping("/contact-lt")
+    public String showLTContactPage() {
+        return "contact-us-lt"; // contact-us.html
+    }
+
+    @GetMapping("/rooms-lt")
+    public String showLTRoomsPage(Model model) {
+        model.addAttribute("rooms", roomService.getAllRooms());
+        return "rooms-lt"; // rooms.html
+    }
+
+    @GetMapping("/screenings-lt")
+    public String showLTScreeningsPage(Model model) {
+        model.addAttribute("screenings", screeningService.getAllScreenings());
+        return "screening-lt";
+    }
+
+    @GetMapping("/screenings-lt/{id}")
+    public String showLTScreeningDetails(@PathVariable Long id, Model model) {
+        // Obtén el screening usando el ID
+        model.addAttribute("screening", screeningService.getScreeningById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Screening not found with ID: " + id)));
+        return "reservation-lt"; // reservation.html
+    }
 }

@@ -24,12 +24,12 @@
 
 <!-- Registro -->
 <div id="register" class="section">
-    <h2>Registrar Usuario</h2>
+    <h2>User registration</h2>
     <form id="registerForm">
         <label>Username: <input type="text" id="regUsername" required></label><br>
         <label>Email: <input type="email" id="regEmail" required></label><br>
         <label>Password: <input type="password" id="regPassword" required></label><br>
-        <button type="submit">Registrar</button>
+        <button type="submit">Register</button>
     </form>
     <div id="registerResult"></div>
 </div>
@@ -47,33 +47,33 @@
 
 <!-- Ver perfil -->
 <div id="profile" class="section">
-    <h2>Buscar Perfil</h2>
+    <h2>Profile search</h2>
     <form id="profileForm">
         <label>Username: <input type="text" id="searchUsername" required></label>
-        <button type="submit">Buscar</button>
+        <button type="submit">Search</button>
     </form>
     <div id="profileResult"></div>
 </div>
 
 <!-- Editar perfil -->
 <div id="edit" class="section">
-    <h2>Editar Perfil</h2>
+    <h2>Edit the profile</h2>
     <form id="editForm">
         <label>Username: <input type="text" id="editUsername" required></label><br>
         <label>Email: <input type="email" id="editEmail" required></label><br>
         <label>Password: <input type="password" id="editPassword" required></label><br>
-        <button type="submit">Actualizar</button>
+        <button type="submit">Accept</button>
     </form>
     <div id="editResult"></div>
 </div>
 
 <!-- Eliminar perfil -->
 <div id="delete" class="section">
-    <h2>Eliminar Perfil</h2>
+    <h2>Remove the profile</h2>
     <form id="deleteForm">
         <label>Username: <input type="text" id="deleteUsername" required></label><br>
         <label>Password: <input type="password" id="deletePassword" required></label><br>
-        <button type="submit">Eliminar</button>
+        <button type="submit">Remove</button>
     </form>
     <div id="deleteResult"></div>
 </div>
@@ -108,7 +108,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
         if (res.status === 201) {
             const user = await res.json();
-            msg.innerHTML = `<p style="color:green;">Usuario ${user.username} registrado con éxito.</p>`;
+            msg.innerHTML = `<p style="color:green;">User ${user.username} registered and exited.</p>`;
             document.getElementById("registerForm").reset();
         } else {
             try {
@@ -116,7 +116,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 msg.innerHTML = `<p style="color:red;">Error: ${error.message || JSON.stringify(error)}</p>`;
             } catch {
                 const text = await res.text();
-                msg.innerHTML = `<p style="color:red;">Error al registrar: ${text}</p>`;
+                msg.innerHTML = `<p style="color:red;">Registration error: ${text}</p>`;
             }
         }
 
@@ -140,9 +140,9 @@ window.addEventListener('DOMContentLoaded', () => {
         if (res.ok) {
             const token = await res.text();
             localStorage.setItem('token', token);
-            msg.innerHTML = `<p style="color:green;">Login exitoso. Token guardado.</p>`;
+            msg.innerHTML = `<p style="color:green;">Login exited. Token guarded.</p>`;
         } else {
-            msg.innerHTML = `<p style="color:red;">Login fallido.</p>`;
+            msg.innerHTML = `<p style="color:red;">Login failed.</p>`;
         }
 
         return false;
@@ -161,7 +161,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 <p><strong>Username:</strong> ${user.username}</p>
                 <p><strong>Email:</strong> ${user.email}</p>`;
         } else {
-            result.innerHTML = `<p style="color:red;">Usuario no encontrado.</p>`;
+            result.innerHTML = `<p style="color:red;">Usuario not found.</p>`;
         }
 
         return false;
@@ -184,8 +184,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
         const result = document.getElementById("editResult");
         result.innerHTML = res.ok
-            ? `<p style="color:green;">Perfil actualizado.</p>`
-            : `<p style="color:red;">Error al actualizar perfil.</p>`;
+            ? `<p style="color:green;">Profile updated.</p>`
+            : `<p style="color:red;">Error when updating profile.</p>`;
 
         return false;
     };
@@ -202,8 +202,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
         const result = document.getElementById("deleteResult");
         result.innerHTML = res.status === 204
-            ? `<p style="color:green;">Perfil eliminado.</p>`
-            : `<p style="color:red;">Error al eliminar perfil.</p>`;
+            ? `<p style="color:green;">Profile removed.</p>`
+            : `<p style="color:red;">Error when removing profile.</p>`;
 
         return false;
     };
