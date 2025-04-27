@@ -93,7 +93,7 @@ public class Reservation {
 		this.user = user;
 		this.screening = screening;
 		this.reservationState = ReservationState.PENDING;
-		// this.payment = new Payment();
+		this.payment = new Payment();
 		this.seat = seat;
 	}
 }
