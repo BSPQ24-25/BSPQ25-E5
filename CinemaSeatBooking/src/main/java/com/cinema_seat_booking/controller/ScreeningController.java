@@ -41,7 +41,7 @@ public class ScreeningController {
     @GetMapping("/{id}")
     public ResponseEntity<ScreeningDTO> getScreeningById(@PathVariable Long id) {
         Optional<Screening> screening = screeningService.getScreeningById(id);
-        if (screening.isEmpty()) return null;
+        if (screening.isEmpty()) return ResponseEntity.notFound().build(); 
         ScreeningDTO screeningDTO = new ScreeningDTO(screening.get().getId(), screening.get().getMovie(),
                 screening.get().getDate(), screening.get().getLocation(), screening.get().getRoom());
         return screeningDTO != null ? ResponseEntity.ok(screeningDTO) : ResponseEntity.notFound().build();
