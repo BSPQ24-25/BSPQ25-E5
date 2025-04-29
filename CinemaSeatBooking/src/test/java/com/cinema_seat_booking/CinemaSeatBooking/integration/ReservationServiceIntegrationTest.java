@@ -81,6 +81,12 @@ class ReservationServiceIntegrationTest {
 
         // Act
         Reservation reservation = reservationService.createReservation(user, screening, seat, "Credit Card");
+        String method = "Debit Card";
+        double amount = 150.0;
+        String date = "2025-04-21";
+
+        Payment payment = new Payment(method, amount, date, PaymentStatus.PENDING);
+        reservation.setPayment(payment);
 
         // Assert
         assertNotNull(reservation);
@@ -120,6 +126,12 @@ void testCancelReservation() {
     Seat seat = seats.get(0);
     
     Reservation reservation = reservationService.createReservation(user, screening, seat, "Credit Card");
+    String method = "Debit Card";
+        double amount = 150.0;
+        String date = "2025-04-21";
+
+        Payment payment = new Payment(method, amount, date, PaymentStatus.PENDING);
+        reservation.setPayment(payment);
     Long reservationId = reservation.getId();
 
     // Act
