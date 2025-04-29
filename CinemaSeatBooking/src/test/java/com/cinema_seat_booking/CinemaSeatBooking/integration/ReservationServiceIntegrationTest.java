@@ -111,7 +111,7 @@ void testCancelReservation() {
         seats.add(seat);
     }
 
-    Room room = new Room("Room 1", seats);
+    Room room = new Room("Room Cancel Test", seats);
     roomRepository.save(room);
 
     Screening screening = new Screening(movie, "2025-04-15 18:00", "Cinema City", room);
@@ -150,7 +150,7 @@ void testCancelReservation() {
                   seats.add(seat);
               }
       
-              Room room = new Room("Room 1", seats);
+              Room room = new Room("Room 3", seats);
               Screening screening = new Screening(movie, "2025-04-15 18:00", "Cinema City", room);
       
               Seat seat = seats.get(0); // Use the first seat from the list

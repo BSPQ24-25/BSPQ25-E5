@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Naudotojo profilis</title>
+</head>
+<body>
+<h1>Naudotojo profilis</h1>
+<label>Naudotojas: <input type="text" id="username"></label>
+<button onclick="loadProfile()">Užkrauti profilį</button>
+
+<div id="profileDetails" style="display:none;">
+    <p id="userInfo"></p>
+    <button onclick="deleteProfile()">Ištrinti profilį</button>
+</div>
+
+<script>
+async function loadProfile() {
+    const username = document.getElementById('username').value;
+    const response = await fetch(`/api/users/profile?username=${username}`);
+    if (response.ok) {
+        const user = await response.json();
+        document.getElementById('userInfo').textContent = `Username: ${user.username}, Email: ${user.email}`;
+        document.getElementById('profileDetails').style.display = 'block';
+    } else {
+        alert('User not found');
+    }
+}
+
+async function deleteProfile() {
+    const username = document.getElementById('username').value;
+    const password = prompt("Enter your password to delete profile:");
+    const response = await fetch(`/api/users/profile?username=${username}&password=${password}`, {
+        method: 'DELETE'
+    });
+    if (response.status === 204) {
+        alert('Profile deleted');
+    } else {
+        alert('Deletion failed');
+    }
+}
+</script>
+</body>
+</html>

@@ -17,12 +17,20 @@ public class ScreeningService {
     @Autowired
     private ScreeningRepository screeningRepository;
 
+    @Transactional
     public List<Screening> getAllScreenings() {
-        return screeningRepository.findAll();
+        List<Screening> screenings = screeningRepository.findAll();
+        screenings.forEach(screening -> screening.getRoom().getSeats().size());
+        return screenings;
     }
 
+    @Transactional
     public Optional<Screening> getScreeningById(Long id) {
-        return screeningRepository.findById(id);
+        Optional<Screening> screening = screeningRepository.findById(id);
+        if (screening.isPresent()) {
+            screening.get().getRoom().getSeats().size();
+        }
+        return screening;
     }
 
     public Screening scheduleScreening(Screening screening) {
@@ -35,15 +43,22 @@ public class ScreeningService {
     }
 
     public List<Screening> getScreeningsByMovie(Long movieId) {
-        return screeningRepository.findByMovieId(movieId);
+        List<Screening> screenings = screeningRepository.findByMovieId(movieId);
+        System.out.println("Screenings for movie ID " + movieId + ": " + screenings.size());
+        screenings.forEach(screening -> screening.getRoom().getSeats().size());
+        return screenings;
     }
 
     public List<Screening> getScreeningsByDate(String date) {
-        return screeningRepository.findByDate(date);
+        List<Screening> screenings = screeningRepository.findByDate(date);
+        screenings.forEach(screening -> screening.getRoom().getSeats().size());
+        return screenings;
     }
 
     public List<Screening> getScreeningsByLocation(String location) {
-        return screeningRepository.findByLocation(location);
+        List<Screening> screenings = screeningRepository.findByLocation(location);
+        screenings.forEach(screening -> screening.getRoom().getSeats().size());
+        return screenings;
     }
 
     @Transactional

@@ -1,5 +1,6 @@
 package com.cinema_seat_booking.controller;
 
+import com.cinema_seat_booking.dto.ScreeningDTO;
 import com.cinema_seat_booking.model.Screening;
 import com.cinema_seat_booking.service.ScreeningService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -24,9 +25,12 @@ public class ScreeningController {
     @Operation(summary = "Return all screenings", description = "Returns all the screenings available in the app")
     @ApiResponse(responseCode = "200", description = "List of screenings retrieved successfully")
     @GetMapping
-    public ResponseEntity<List<Screening>> getAllScreenings() {
+    public ResponseEntity<List<ScreeningDTO>> getAllScreenings() {
         List<Screening> screenings = screeningService.getAllScreenings();
-        return ResponseEntity.ok(screenings);
+        List<ScreeningDTO> screeningDTOs = screenings.stream()
+                .map(screening -> new ScreeningDTO(screening))
+                .toList();
+        return ResponseEntity.ok(screeningDTOs);
     }
 
     @Operation(summary = "Get screening by ID", description = "Retrieves a specific screening by its ID")
@@ -35,9 +39,12 @@ public class ScreeningController {
             @ApiResponse(responseCode = "404", description = "Screening not found")
     })
     @GetMapping("/{id}")
-    public ResponseEntity<Screening> getScreeningById(@PathVariable Long id) {
+    public ResponseEntity<ScreeningDTO> getScreeningById(@PathVariable Long id) {
         Optional<Screening> screening = screeningService.getScreeningById(id);
-        return screening.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        if (screening.isEmpty()) return ResponseEntity.notFound().build(); 
+        ScreeningDTO screeningDTO = new ScreeningDTO(screening.get().getId(), screening.get().getMovie(),
+                screening.get().getDate(), screening.get().getLocation(), screening.get().getRoom());
+        return screeningDTO != null ? ResponseEntity.ok(screeningDTO) : ResponseEntity.notFound().build();
     }
 
     @Operation(summary = "Schedule a new screening", description = "Creates and schedules a new movie screening")
@@ -46,10 +53,11 @@ public class ScreeningController {
             @ApiResponse(responseCode = "400", description = "Invalid input data")
     })
     @PostMapping
-    public ResponseEntity<Screening> scheduleScreening(@RequestBody Screening screening) {
+    public ResponseEntity<ScreeningDTO> scheduleScreening(@RequestBody Screening screening) {
         try {
             Screening createdScreening = screeningService.scheduleScreening(screening);
-            return new ResponseEntity<>(createdScreening, HttpStatus.CREATED);
+            ScreeningDTO screeningDTO = new ScreeningDTO(createdScreening);
+            return new ResponseEntity<>(screeningDTO, HttpStatus.CREATED);
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
@@ -62,10 +70,12 @@ public class ScreeningController {
             @ApiResponse(responseCode = "404", description = "Screening not found")
     })
     @PutMapping("/{id}")
-    public ResponseEntity<Screening> updateScreening(@PathVariable Long id, @RequestBody Screening screeningDetails) {
+    public ResponseEntity<ScreeningDTO> updateScreening(@PathVariable Long id,
+            @RequestBody Screening screeningDetails) {
         try {
             Screening updatedScreening = screeningService.updateScreening(id, screeningDetails);
-            return ResponseEntity.ok(updatedScreening);
+            ScreeningDTO screeningDTO = new ScreeningDTO(updatedScreening);
+            return ResponseEntity.ok(screeningDTO);
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
@@ -90,24 +100,33 @@ public class ScreeningController {
     @Operation(summary = "Get screenings by movie", description = "Retrieves all screenings for a specific movie")
     @ApiResponse(responseCode = "200", description = "List of screenings retrieved successfully")
     @GetMapping("/movie/{movieId}")
-    public ResponseEntity<List<Screening>> getScreeningsByMovie(@PathVariable Long movieId) {
+    public ResponseEntity<List<ScreeningDTO>> getScreeningsByMovie(@PathVariable Long movieId) {
         List<Screening> screenings = screeningService.getScreeningsByMovie(movieId);
-        return ResponseEntity.ok(screenings);
+        List<ScreeningDTO> screeningDTOs = screenings.stream()
+                .map(screening -> new ScreeningDTO(screening))
+                .toList();
+        return ResponseEntity.ok(screeningDTOs);
     }
 
     @Operation(summary = "Get screenings by date", description = "Retrieves all screenings for a specific date")
     @ApiResponse(responseCode = "200", description = "List of screenings retrieved successfully")
     @GetMapping("/date/{date}")
-    public ResponseEntity<List<Screening>> getScreeningsByDate(@PathVariable String date) {
+    public ResponseEntity<List<ScreeningDTO>> getScreeningsByDate(@PathVariable String date) {
         List<Screening> screenings = screeningService.getScreeningsByDate(date);
-        return ResponseEntity.ok(screenings);
+        List<ScreeningDTO> screeningDTOs = screenings.stream()
+                .map(screening -> new ScreeningDTO(screening))
+                .toList();
+        return ResponseEntity.ok(screeningDTOs);
     }
 
     @Operation(summary = "Get screenings by location", description = "Retrieves all screenings at a specific location")
     @ApiResponse(responseCode = "200", description = "List of screenings retrieved successfully")
     @GetMapping("/location/{location}")
-    public ResponseEntity<List<Screening>> getScreeningsByLocation(@PathVariable String location) {
+    public ResponseEntity<List<ScreeningDTO>> getScreeningsByLocation(@PathVariable String location) {
         List<Screening> screenings = screeningService.getScreeningsByLocation(location);
-        return ResponseEntity.ok(screenings);
+        List<ScreeningDTO> screeningDTOs = screenings.stream()
+                .map(screening -> new ScreeningDTO(screening))
+                .toList();
+        return ResponseEntity.ok(screeningDTOs);
     }
 }

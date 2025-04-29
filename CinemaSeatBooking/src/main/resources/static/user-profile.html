@@ -4,12 +4,12 @@
     <title>User Profile</title>
 </head>
 <body>
-    <h1>Buscar perfil de usuario</h1>
+    <h1>Search for the user profile</h1>
     <form id="searchForm">
         <label>Username:
             <input type="text" id="username" required>
         </label>
-        <button type="submit">Buscar</button>
+        <button type="submit">Search</button>
     </form>
 
     <div id="profileResult" style="margin-top: 20px;"></div>
@@ -27,17 +27,17 @@
                 if (response.ok) {
                     const user = await response.json();
                     responseDiv.innerHTML = `
-                        <h3>Información del Usuario</h3>
+                        <h3User information</h3>
                         <p><strong>Username:</strong> ${user.username}</p>
                         <p><strong>Email:</strong> ${user.email}</p>
                     `;
                 } else if (response.status === 404) {
-                    responseDiv.innerHTML = `<p style="color: red;">Usuario no encontrado</p>`;
+                    responseDiv.innerHTML = `<p style="color: red;">User not found</p>`;
                 } else {
-                    responseDiv.innerHTML = `<p style="color: red;">Error desconocido</p>`;
+                    responseDiv.innerHTML = `<p style="color: red;">Unknown error</p>`;
                 }
             } catch (error) {
-                responseDiv.innerHTML = `<p style="color: red;">Error de conexión: ${error}</p>`;
+                responseDiv.innerHTML = `<p style="color: red;">Connection error: ${error}</p>`;
             }
         };
     </script>

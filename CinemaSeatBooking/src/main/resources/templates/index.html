@@ -27,6 +27,8 @@
             <li><a href="#"><img src="images/icon1-act.gif" alt="" /></a></li>
             <li><a href="#"><img src="images/icon2.gif" alt="" /></a></li>
             <li><a href="#"><img src="images/icon3.gif" alt="" /></a></li>
+            <li><a href="/home-lt"><img src="images/world.png" style="height:13px; width: 13px;" alt="" /></a></li>
+            <li><a href="/home"><img src="images/united-kingdom.png" style="height:13px; width: 13px;" alt="" /></a></li>
           </ul>
         </div>
         <div class="row-2">
@@ -52,9 +54,9 @@
             <div class="border-left">
               <div class="inner">
                 <h3>Welcome to <b>Cinema Seat</b> <span>Booking</span></h3>
-                <p>Felitsed vel inte vivamus ant sed sapientesque ero id auctor tincidunt. Enimin ulla mi et nibh turien augue habitudin platea sed orci. Intedonec quis sed condis donec urna lacilis leo quismodo wisi quis.</p>
-                <div class="img-box1"><img src="images/1page-img1.jpg" alt="" />Fauctororci cursuspendrerisque ipsum elit congue nibh proin nulla eu urna et. Tordolorem metus fringilla sem facinia sapien in in malesuada vitae quismodo. Ipsumut tellentegest nunc pede id sem gravida natis justo maecenas eu. </div>
-                <p>Doneccursus et amet a mattitor condisse laoreet accum wisis sapibulum orci. Cursuscondimentum dolorem pulvinare lacus amet commod tincidunt tellus quisque donec natibus.</p>
+                <p>Do you want to see the latest hero in an iron suit demolish some bad guys or maybe see an old scientist go to the future in a cool car made out of stainless steel? Or how about having some laugh at the newest installment of a movie series from a galaxy far far away?</p>
+                <div class="img-box1"><img src="images/1page-img1.jpg" alt="" />This is a website for managing and reserving the cinema screen bookings just for you. No matter if you are a customer, or if you are a cinema looking for a reliable and good solution for managing your back end, we are your option. </div>
+                <p>Just contact us any time and we will get back to you in the shortest time possible. If you didn't get a message back, just visit us at our offices here, in US of A.</p>
               </div>
             </div>
           </div>
@@ -64,22 +66,24 @@
             <div class="border-left">
               <div class="inner">
                   <h3>Fresh <span>Movies</span></h3>
-                  <ul class="movies" th:if="${!#lists.isEmpty(movies)}"
-                      th:each="movie : ${movies}">
-                    <li>
-                      <h4 th:text="${movie.title}">Movie Title</h4>
-                      <p><strong>Genre:</strong> <span th:text="${movie.genre}">Genre</span></p>
-                      <p><strong>Duration:</strong> <span th:text="${movie.duration}">120</span> min</p>
-                      <p><strong>Cast:</strong> <span th:text="${movie.cast}">Cast list</span></p>
-                      <div class="wrapper">
-                        <a th:href="@{/screenings}" class="link2">
-                          <span><span>View Screenings</span></span>
-                        </a>
+                  <div th:if="${!#lists.isEmpty(movies)}">
+                    <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+                      <div th:each="movie : ${movies}" style="flex: 0 0 calc(33.333% - 20px); border: 1px solid #ccc; border-radius: 10px; padding: 20px; box-sizing: border-box;">
+                        <h4 th:text="${movie.title}">Movie Title</h4>
+                        <p><strong>Genre:</strong> <span th:text="${movie.genre}">Genre</span></p>
+                        <p><strong>Duration:</strong> <span th:text="${movie.duration}">120</span> min</p>
+                        <p><strong>Cast:</strong> <span th:text="${movie.cast}">Cast list</span></p>
+                        <div style="display: flex; justify-content: center;">
+                          <form th:action="@{/screenings}" method="get">
+                            <button type="submit" class="button">View Screenings</button>
+                          </form>
+                        </div>
                       </div>
-                    </li>
-                  </ul>
-                  <p th:if="${#lists.isEmpty(movies)}">No movies available.</p>
-                  <div style="height: 300px;"></div>
+                    </div>
+                  </div>
+                  <p th:if="${#lists.isEmpty(movies)}">
+                    No movies available.
+                  </p>
               </div>
             </div>
           </div>
@@ -89,7 +93,7 @@
       <div class="left">
         <div class="right">
           <div class="footerlink">
-            <p class="lf">Copyright &copy; 2010 <a href="#">SiteName</a> - All Rights Reserved</p>
+            <p class="lf">Copyright &copy; 2025 <a href="#">SiteName</a> - All Rights Reserved</p>
             <p class="rf">Design by <a href="http://www.templatemonster.com/">TemplateMonster</a></p>
             <div style="clear:both;"></div>
           </div>
