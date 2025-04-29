@@ -58,8 +58,12 @@ public class RoomController {
     @GetMapping("/{id}")
     public ResponseEntity<RoomDTO> getRoomById(@PathVariable Long id) {
         Optional<Room> room = roomService.getRoomById(id);
-        RoomDTO roomDTO = new RoomDTO(room.get().getId(), room.get().getName(), room.get().getSeats());
-        return roomDTO != null ? ResponseEntity.ok(roomDTO) : ResponseEntity.notFound().build();
+        if (room.isPresent()) {
+            RoomDTO roomDTO = new RoomDTO(room.get().getId(), room.get().getName(), room.get().getSeats());
+            return ResponseEntity.ok(roomDTO);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @Operation(summary = "Get all rooms", description = "Returns all available rooms")
@@ -99,6 +103,8 @@ public class RoomController {
         try {
             Room room = roomService.updateRoom(id, updatedRoom.getName());
             return ResponseEntity.ok(room);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.notFound().build();
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
