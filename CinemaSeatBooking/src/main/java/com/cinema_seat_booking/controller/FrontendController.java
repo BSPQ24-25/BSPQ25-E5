@@ -48,6 +48,10 @@ public class FrontendController {
         return "about-us"; // about-us.html
     }
 
+    @GetMapping("/404-lt")
+    public String show404ltPage() {
+        return "404-lt"; // about-us.html
+    }
     @GetMapping("/articles")
     public String showArticlesPage(HttpSession session) {
         Object user = session.getAttribute("user");
