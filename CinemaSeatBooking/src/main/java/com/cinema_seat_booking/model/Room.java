@@ -85,12 +85,17 @@ public class Room {
     // No-argument constructor (needed for JPA)
     public Room() {
         // This constructor is required by JPA
+        this.seats = new ArrayList<>();
     }
 
     public Room(String name, List<Seat> seats) {
         super();
         this.name = name;
-        this.seats = seats;
+        if (seats == null) {
+            this.seats = new ArrayList<>(); 
+        } else {
+            this.seats = seats;
+        }
     }
 
     public Room(String name) {
