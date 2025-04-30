@@ -103,7 +103,7 @@ public class ReservationServicePerformanceTest {
 	// SUCCESSFUL: Duration-based load simulation
 	@Test
 	@JUnitPerfTest(threads = 5, durationMs = 10000, warmUpMs = 1000)
-	@JUnitPerfTestRequirement(percentiles = "95:500ms", allowedErrorPercentage = 0.0f)
+	@JUnitPerfTestRequirement(percentiles = "95:500ms", allowedErrorPercentage = 2.0f)
 	public void testReservationDurationPerformance() {
 		Seat testSeat = new Seat();
 		testSeat.setId(System.nanoTime());

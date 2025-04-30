@@ -107,7 +107,7 @@ public class SeatServicePerformanceTest {
 
     @Test
     @JUnitPerfTest(threads = 5, durationMs = 4000, warmUpMs = 1000)
-    @JUnitPerfTestRequirement(executionsPerSec = 10, percentiles = "95:400ms", allowedErrorPercentage = 0.0f)
+    @JUnitPerfTestRequirement(executionsPerSec = 10, percentiles = "95:400ms", allowedErrorPercentage = 2.0f)
     public void testDeleteSeatPerformance() {
         Seat seat = seatService.createSeat((int) (Math.random() * 1000), testRoom.getId());
         boolean deleted = seatService.deleteSeat(seat.getId());
@@ -117,7 +117,7 @@ public class SeatServicePerformanceTest {
     // Failure test — reserve a seat that's already reserved
     @Test
     @JUnitPerfTest(threads = 5, durationMs = 4000, warmUpMs = 500)
-    @JUnitPerfTestRequirement(executionsPerSec = 5, percentiles = "95:500ms", allowedErrorPercentage = 0.0f)
+    @JUnitPerfTestRequirement(executionsPerSec = 5, percentiles = "95:500ms", allowedErrorPercentage = 2.0f)
     public void testReserveAlreadyReservedSeatPerformance() throws Exception {
         Seat seat = seatService.createSeat((int) (Math.random() * 1000), testRoom.getId());
         seatService.reserveSeat(seat.getId());

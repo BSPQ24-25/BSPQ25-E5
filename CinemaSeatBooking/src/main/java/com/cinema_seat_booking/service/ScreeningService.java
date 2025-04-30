@@ -44,7 +44,6 @@ public class ScreeningService {
 
     public List<Screening> getScreeningsByMovie(Long movieId) {
         List<Screening> screenings = screeningRepository.findByMovieId(movieId);
-        System.out.println("Screenings for movie ID " + movieId + ": " + screenings.size());
         screenings.forEach(screening -> screening.getRoom().getSeats().size());
         return screenings;
     }
