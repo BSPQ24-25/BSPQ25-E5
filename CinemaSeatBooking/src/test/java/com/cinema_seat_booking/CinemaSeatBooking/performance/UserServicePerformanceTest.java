@@ -69,26 +69,30 @@ public class UserServicePerformanceTest {
 
 	@Test
 	@JUnitPerfTest(threads = 5, durationMs = 6000, warmUpMs = 1000)
-	@JUnitPerfTestRequirement(executionsPerSec = 10, percentiles = "95:400ms", allowedErrorPercentage = 2.0f)
+	@JUnitPerfTestRequirement(executionsPerSec = 10, percentiles = "95:400ms", allowedErrorPercentage = 0.2f)
 	public void testUpdateUserProfilePerformance() {
+	    String uniqueId = UUID.randomUUID().toString();
+	    
 	    UserDTO userDTO = new UserDTO();
-	    userDTO.setUsername("user_" + UUID.randomUUID());
-	    userDTO.setEmail(userDTO.getUsername() + "@test.com");
+	    userDTO.setUsername("user_" + uniqueId);
+	    userDTO.setEmail("user_" + uniqueId + "@test.com");
 	    userDTO.setPassword("password");
 
 	    userService.registerUser(userDTO);
 
-	    userDTO.setEmail("updated_" + userDTO.getEmail());
+	    // Update same user
+	    userDTO.setEmail("updated_user_" + uniqueId + "@test.com");
 	    userDTO.setPassword("newpassword");
 
 	    User updated = userService.updateUserProfile(userDTO);
+
 	    assertNotNull(updated);
-	    assertEquals("updated_" + userDTO.getEmail(), updated.getEmail());
+	    assertEquals("updated_user_" + uniqueId + "@test.com", updated.getEmail());
 	}
 
 	@Test
 	@JUnitPerfTest(threads = 5, durationMs = 6000, warmUpMs = 1000)
-	@JUnitPerfTestRequirement(executionsPerSec = 10, percentiles = "95:400ms", allowedErrorPercentage = 3.0f)
+	@JUnitPerfTestRequirement(executionsPerSec = 10, percentiles = "95:400ms", allowedErrorPercentage = 0.0f)
 	public void testDeleteUserPerformance() {
 	    UserDTO userDTO = new UserDTO();
 	    userDTO.setUsername("user_" + UUID.randomUUID());
