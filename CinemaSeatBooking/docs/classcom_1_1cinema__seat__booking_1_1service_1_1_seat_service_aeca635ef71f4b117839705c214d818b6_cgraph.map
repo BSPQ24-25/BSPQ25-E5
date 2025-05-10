@@ -1,0 +1,7 @@
+<map id="com.cinema_seat_booking.service.SeatService.updateSeat" name="com.cinema_seat_booking.service.SeatService.updateSeat">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,39,232,81"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a012e1fe2ca9df3e658dd13ec2c64a309" title=" " alt="" coords="280,5,499,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="232,43,264,39,265,45,232,49"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a2da4524edacf0031321feaf2fcd99bc1" title=" " alt="" coords="280,72,499,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="232,71,265,75,264,81,232,77"/>
+</map>

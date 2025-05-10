@@ -1,0 +1,7 @@
+<map id="com.cinema_seat_booking.service.ReservationService.cancelReservation" name="com.cinema_seat_booking.service.ReservationService.cancelReservation">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,39,253,81"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#a4a7b3bcd2775490e16347fd8446fe0c3" title=" " alt="" coords="301,5,520,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="253,43,285,39,286,44,253,48"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a8003ff7cf8511684dcfc4f3eef08bdda" title=" " alt="" coords="301,72,520,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="253,72,286,76,285,81,253,77"/>
+</map>

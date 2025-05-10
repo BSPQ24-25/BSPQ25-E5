@@ -1,0 +1,17 @@
+<map id="src/main/java/com/cinema_seat_booking/controller/GlobalExceptionHandler.java" name="src/main/java/com/cinema_seat_booking/controller/GlobalExceptionHandler.java">
+<area shape="rect" id="Node000001" title=" " alt="" coords="739,5,932,64"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,112,175,155"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="739,47,494,73,190,114,189,109,493,68,738,42"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="199,120,392,147"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="739,55,404,115,378,119,377,114,403,109,738,50"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="416,112,679,155"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="751,67,625,109,623,104,749,62"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="704,112,967,155"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="838,64,838,97,833,97,833,64"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="992,112,1255,155"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="922,62,1048,104,1046,109,920,67"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="1279,112,1493,155"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="933,50,1264,108,1263,113,932,56"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="1517,112,1786,155"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="933,44,1502,109,1501,114,932,49"/>
+</map>

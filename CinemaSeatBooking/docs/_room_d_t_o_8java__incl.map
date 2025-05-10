@@ -1,0 +1,11 @@
+<map id="src/main/java/com/cinema_seat_booking/dto/RoomDTO.java" name="src/main/java/com/cinema_seat_booking/dto/RoomDTO.java">
+<area shape="rect" id="Node000001" title=" " alt="" coords="185,5,407,48"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,96,128,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="238,51,118,93,116,88,236,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="152,96,243,123"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="272,51,226,88,223,84,269,47"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="267,96,522,123"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="323,47,369,84,366,88,320,51"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="546,96,792,123"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="393,46,596,90,595,95,391,51"/>
+</map>

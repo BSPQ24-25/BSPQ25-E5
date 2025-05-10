@@ -1,0 +1,9 @@
+<map id="src/main/java/com/cinema_seat_booking/model/User.java" name="src/main/java/com/cinema_seat_booking/model/User.java">
+<area shape="rect" id="Node000001" title=" " alt="" coords="129,5,333,48"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,104,97,131"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,51,92,99,89,94,188,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="120,96,342,139"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="234,48,234,81,228,81,228,48"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="366,104,506,131"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="280,46,394,95,392,100,278,51"/>
+</map>

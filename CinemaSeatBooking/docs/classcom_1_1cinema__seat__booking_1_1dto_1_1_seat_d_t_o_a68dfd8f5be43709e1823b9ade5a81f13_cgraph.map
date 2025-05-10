@@ -1,0 +1,11 @@
+<map id="com.cinema_seat_booking.dto.SeatDTO.SeatDTO" name="com.cinema_seat_booking.dto.SeatDTO.SeatDTO">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,105,208,148"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a9c621d974953ff69978677138fede8fb" title=" " alt="" coords="256,5,475,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,102,255,58,273,51,275,56,257,62,154,107"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_room.html#ae7a89ea77c228ec78629a768fa377d4a" title=" " alt="" coords="256,72,475,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="208,111,240,107,240,112,208,116"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#aba2c569171b06af7eb7ca56c9ca12cbf" title=" " alt="" coords="256,139,475,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="208,137,240,141,240,147,208,142"/>
+<area shape="rect" id="Node000005" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#ab4b0c8caf25d7db65ab9194bbed49616" title=" " alt="" coords="256,205,475,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="154,146,257,191,275,197,273,202,255,196,151,151"/>
+</map>
