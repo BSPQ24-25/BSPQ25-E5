@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -37,19 +38,27 @@ public class RoomController {
             @ApiResponse(responseCode = "201", description = "Room created successfully"),
             @ApiResponse(responseCode = "400", description = "Invalid input data")
     })
+
     @PostMapping
     public ResponseEntity<Room> createRoom(@RequestBody CreateRoomDTO createRoomDTO) {
         try {
-            System.out.println("Received request to create room: " + createRoomDTO);
             String roomName = createRoomDTO.getName();
-            System.out.println("Creating room with name: " + roomName);
+            System.out.println("@||||||||||||||||"+roomName);
+            if (roomName == null || roomName.trim().isEmpty()) {
+                System.err.println("Room name is null or empty.");
+                return ResponseEntity.badRequest().body(null); // Invalid input
+            }
             Room createdRoom = roomService.createRoomWithSeats(roomName);
-            return new ResponseEntity<>(createdRoom, HttpStatus.CREATED);
+            System.out.println("Created room: " + createdRoom);
+            return ResponseEntity.status(HttpStatus.CREATED).body(createdRoom);
+        } catch (DataIntegrityViolationException e) {
+            System.err.println("Room creation failed: Room name already exists.");
+            return ResponseEntity.status(HttpStatus.CONFLICT).build(); // Handle duplicate room names
         } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
+            System.err.println("Unexpected error during room creation: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
-
     @Operation(summary = "Get a room by ID", description = "Returns a room and its seats by ID")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Room found"),
@@ -109,4 +118,12 @@ public class RoomController {
             return ResponseEntity.badRequest().build();
         }
     }
+    // @GetMapping("/debug")
+    // public ResponseEntity<List<Room>> getAllRooms() {
+    //     List<Room> rooms = roomService.getAllRooms();
+    //     return ResponseEntity.ok(rooms);
+    // }
+
 }
+    
+

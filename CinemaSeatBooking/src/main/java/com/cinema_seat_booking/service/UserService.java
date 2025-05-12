@@ -6,12 +6,16 @@ import com.cinema_seat_booking.model.User;
 import com.cinema_seat_booking.repository.UserRepository;
 
 import jakarta.transaction.Transactional;
+import org.slf4j.Logger;
 
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
+private static final Logger log = LoggerFactory.getLogger(UserService.class);
+
 
     @Autowired
     private UserRepository userRepository;
@@ -19,13 +23,21 @@ public class UserService {
 
     @Transactional
     public User registerUser(UserDTO user) {
+        try{
+            log.info("Registering user: {}", user);
+
     	User newUser = new User();
     	newUser.setUsername(user.getUsername());
     	newUser.setEmail(user.getEmail());
         newUser.setPassword(user.getPassword());
         newUser.setRole(Role.CLIENT);
         return userRepository.save(newUser);
+    } catch (Exception e) {
+        log.error("Error registering user: {}", e.getMessage(), e);
+        throw e;
     }
+    }
+    
 
     public User getUserByUsername(String username) {
         if ((User)userRepository.findByUsername(username) == null) {

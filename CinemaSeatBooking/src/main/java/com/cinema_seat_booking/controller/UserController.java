@@ -4,14 +4,15 @@ import com.cinema_seat_booking.dto.UserDTO;
 import com.cinema_seat_booking.model.User;
 import com.cinema_seat_booking.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
-
-import org.springframework.web.bind.annotation.RequestBody; // ✅ CORRECTO
-
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+// ✅ CORRECTO
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -27,10 +28,16 @@ public class UserController {
             @ApiResponse(responseCode = "400", description = "Invalid input")
     })
     @PostMapping("/register")
-    public ResponseEntity<User> register(@RequestBody UserDTO userDTO) {
+public ResponseEntity<?> register(@RequestBody @Valid UserDTO userDTO) {
+    try {
         User user = userService.registerUser(userDTO);
         return new ResponseEntity<>(user, HttpStatus.CREATED);
+    } catch (DataIntegrityViolationException e) {
+        return new ResponseEntity<>("Username or email already exists", HttpStatus.BAD_REQUEST);
+    } catch (Exception e) {
+        return new ResponseEntity<>("An error occurred while registering the user", HttpStatus.INTERNAL_SERVER_ERROR);
     }
+}
 
     @Operation(summary = "View user profile", description = "Fetch the profile of a user by username")
     @ApiResponses(value = {

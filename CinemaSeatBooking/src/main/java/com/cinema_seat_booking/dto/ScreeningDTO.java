@@ -10,6 +10,8 @@ public class ScreeningDTO {
     private String date;
     private String location;
     private RoomDTO room;
+    public ScreeningDTO() {
+    }
 
     public ScreeningDTO(Long id, Movie movie, String date, String location, Room room) {
         this.id = id;
