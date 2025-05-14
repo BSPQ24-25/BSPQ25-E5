@@ -9,7 +9,6 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.util.Collection;
 
 @Component
 public class CustomSuccessHandler implements AuthenticationSuccessHandler {
@@ -17,19 +16,18 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request,
                                         HttpServletResponse response,
-                                        Authentication authentication)
-                                        throws IOException, ServletException {
-        Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
-        for (GrantedAuthority authority : authorities) {
-            String role = authority.getAuthority();
-            if (role.equals("ROLE_ADMIN")) {
-                response.sendRedirect("/admin/dashboard");
-                return;
-            } else if (role.equals("ROLE_CLIENT")) {
-                response.sendRedirect("/home");
-                return;
-            }
+                                        Authentication authentication) throws IOException {
+        String redirectURL = "/home.html"; // valor por defecto
+
+        for (GrantedAuthority authority : authentication.getAuthorities()) {
+        	if (authority.getAuthority().equals("ADMIN")) {
+        	    redirectURL = "/admin/dashboard";
+        	} else if (authority.getAuthority().equals("CLIENT")) {
+        	    redirectURL = "/user/home";
+        	}
+
         }
-        response.sendRedirect("/login?error=true");
+
+        response.sendRedirect(redirectURL);
     }
 }

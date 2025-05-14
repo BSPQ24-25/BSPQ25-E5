@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
-
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -17,19 +16,22 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .authorizeHttpRequests()
-                .requestMatchers("/admin/**").hasAuthority("ADMIN")
-                .requestMatchers("/client/**").hasAuthority("CLIENT")
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/admin-dashboard.html").hasAuthority("ADMIN")
+                .requestMatchers("/home.html").hasAuthority("CLIENT")
                 .anyRequest().permitAll()
-            .and()
-            .formLogin()
-                .loginPage("/login")
+            )
+            .formLogin(form -> form
+                .loginPage("/login.html") 
+                .loginProcessingUrl("/login") 
                 .successHandler(customSuccessHandler)
                 .permitAll()
-            .and()
-            .logout()
-                .logoutSuccessUrl("/login?logout")
-                .permitAll();
+            )
+            .logout(logout -> logout
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login.html")
+                .permitAll()
+            );
 
         return http.build();
     }
