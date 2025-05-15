@@ -1,25 +1,29 @@
-
 package com.cinema_seat_booking.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 public class Payment {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @Column(nullable = true)
-    private String paymentMethod;
+	@Column(nullable = true)
+	private String paymentMethod;
 
-    @Column(nullable = true)
-    private double amount;
+	@Column(nullable = true)
+	private double amount;
 
-    @Column(nullable = true)
-    private String paymentDate;
+	@Column(nullable = true)
+	private String paymentDate;
 
-    @Enumerated(EnumType.STRING)
-    private PaymentStatus status;
+	@Enumerated(EnumType.STRING)
+	private PaymentStatus status;
+	
+	@OneToOne(mappedBy = "payment")
+	private Reservation reservation;
 
     public Long getId() {
         return id;
@@ -59,6 +63,14 @@ public class Payment {
 
     public void setStatus(PaymentStatus status) {
         this.status = status;
+    }
+    
+    public Reservation getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(Reservation reservation) {
+        this.reservation = reservation;
     }
 
     // No-argument constructor (needed for JPA)

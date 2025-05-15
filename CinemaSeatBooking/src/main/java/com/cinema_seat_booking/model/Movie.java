@@ -25,7 +25,7 @@ public class Movie {
 	@Column(nullable = false, name = "movie_cast")
 	private String cast;
 
-	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonIgnore
 	private List<Screening> screenings;
 
@@ -82,12 +82,13 @@ public class Movie {
 			this.screenings = new ArrayList<>();
 		}
 		this.screenings.add(screening);
-		// screening.setMovie(this); // Set the movie for the screening
+		screening.setMovie(this);
 	}
 
 	// No-argument constructor (needed for JPA)
 	public Movie() {
 		// This constructor is required by JPA
+		this.screenings = new ArrayList<>();
 	}
 
 	public Movie(String title, int duration, String genre, String cast, List<Screening> screenings) {
@@ -96,7 +97,7 @@ public class Movie {
 		this.duration = duration;
 		this.genre = genre;
 		this.cast = cast;
-		this.screenings = screenings;
+		this.screenings = screenings != null ? screenings : new ArrayList<>();
 	}
 
 	public Movie(String title, int duration, String genre, String cast) {
