@@ -1,5 +1,5 @@
 
-package com.cinema_seat_booking.CinemaSeatBooking;
+package com.cinema_seat_booking.controller;
 
 import java.time.LocalDateTime;
 import java.util.List;

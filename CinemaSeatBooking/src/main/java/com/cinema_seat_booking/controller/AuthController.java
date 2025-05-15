@@ -14,6 +14,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -37,6 +38,24 @@ public class AuthController {
         return ResponseEntity.ok("User registered successfully");
     
 }
+    @PostMapping("/api/auth/login")
+    public ResponseEntity<Map<String, String>> login(@RequestBody Map<String, String> loginRequest, HttpSession session) {
+        String username = loginRequest.get("username");
+        String password = loginRequest.get("password");
+
+        User user = userRepository.findByUsername(username);
+        if (user == null || !user.getPassword().equals(password)) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("error", "Invalid credentials"));
+        }
+
+        session.setAttribute("user", user);
+        return ResponseEntity.ok(Map.of(
+            "role", user.getRole().name(),
+            "username", user.getUsername()
+        ));
+    }
+
+
 }
 
 

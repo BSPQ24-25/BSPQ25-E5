@@ -23,12 +23,6 @@ public class FrontendController {
     @Autowired
     private MovieRepository movieRepository;
 
-    /*
-    @GetMapping("/")
-    public String showLoginPage() {
-        return "home"; // home.html
-    }
-    */
     @GetMapping("/")
     public String showLoginPage() {
         return "login"; // ← muestra login.html correctamente
@@ -48,7 +42,7 @@ public class FrontendController {
     public String showRegisterPage() {
         return "register"; // register.html
     }
-
+    /*
     @GetMapping("/home")
     public String showHomePage(HttpSession session, Model model) {
         Object userObj = session.getAttribute("user");
@@ -63,16 +57,16 @@ public class FrontendController {
 
         model.addAttribute("movies", movieRepository.findAll());
         return "index"; // Para CLIENT
-    }
+    } */
     
+    @GetMapping("/home")
+    public String showHomePage(HttpSession session, Model model) {
+        // cargar películas
+        return "index"; // index.html
+    }
+
     @GetMapping("/admin-dashboard")
     public String showAdminDashboard(HttpSession session, Model model) {
-        Object userObj = session.getAttribute("user");
-        if (userObj == null || !"ADMIN".equals(getUserRole(session))) {
-            return "redirect:/";
-        }
-
-        model.addAttribute("movies", movieRepository.findAll()); // O lo que necesites
         return "admin-dashboard"; // admin-dashboard.html
     }
 
