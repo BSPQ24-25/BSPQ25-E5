@@ -3,33 +3,28 @@ package com.cinema_seat_booking.security;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
-@Configuration
-public class SecurityConfig {
+import com.cinema_seat_booking.model.User;
 
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
-            .csrf().disable()
-            .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/", "/register", "/css/**", "/js/**", "/images/**").permitAll()
-                .requestMatchers("/admin/**").hasRole("ADMIN")
-                .anyRequest().authenticated()
-            )
-            .formLogin(form -> form
-                .loginPage("/") // Página personalizada (login.html sirve en "/")
-                .loginProcessingUrl("/login") // Asegura que el formulario POST vaya a esta URL
-                .defaultSuccessUrl("/home", true)
-                .failureUrl("/?error=true")
-                .permitAll()
-            )
-            .logout(logout -> logout
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/")
-                .permitAll()
-            );
+	
+	@Configuration
+	@EnableWebSecurity
+	public class SecurityConfig {
+	    @Bean
+	    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+	        http.csrf().disable()
+	            .authorizeHttpRequests()
+	            .anyRequest().permitAll(); // Todo está permitido de momento
 
-        return http.build();
-    }
-}
+	        return http.build();
+	    }
+	    
+
+
+	}
+

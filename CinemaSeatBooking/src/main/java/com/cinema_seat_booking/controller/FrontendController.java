@@ -12,6 +12,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.GrantedAuthority;
 
 @Controller
 public class FrontendController {
@@ -29,13 +34,16 @@ public class FrontendController {
     }
 
 
-    private String getUserRole(HttpSession session) {
-        Object userObj = session.getAttribute("user");
-        if (userObj instanceof com.cinema_seat_booking.model.User user) {
-        	return user.getRole().name(); // Devuelve "ADMIN" o "CLIENT"
+    private String getUserRole() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null && auth.isAuthenticated() && !(auth instanceof AnonymousAuthenticationToken)) {
+            for (GrantedAuthority authority : auth.getAuthorities()) {
+                return authority.getAuthority(); // Devuelve "ROLE_CLIENT" o "ROLE_ADMIN"
+            }
         }
         return null;
     }
+
 
     
     @GetMapping("/register")
@@ -58,6 +66,13 @@ public class FrontendController {
         model.addAttribute("movies", movieRepository.findAll());
         return "index"; // Para CLIENT
     } */
+    
+    @PostMapping("/do-login")
+    public String fakeLoginRedirect(HttpSession session) {
+        // No hacemos validación aún, simplemente redirigimos
+        return "redirect:/home";
+    }
+
     
     @GetMapping("/home")
     public String showHomePage(HttpSession session, Model model) {
@@ -82,13 +97,14 @@ public class FrontendController {
         return "404-lt"; // about-us.html
     }
     @GetMapping("/articles")
-    public String showArticlesPage(HttpSession session) {
-        Object user = session.getAttribute("user");
-        if (user == null) {
-            return "redirect:/";
+    public String showArticlesPage() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth == null || !auth.isAuthenticated() || auth instanceof AnonymousAuthenticationToken) {
+            String username = auth.getName(); // nombre de usuario
         }
-        return "articles"; // articles.html
+        return "articles";
     }
+
 
     @GetMapping("/article")
     public String showArticlePage(HttpSession session) {

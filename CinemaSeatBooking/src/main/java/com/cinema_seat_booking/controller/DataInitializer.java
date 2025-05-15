@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.cinema_seat_booking.model.*;
 import com.cinema_seat_booking.repository.*;
@@ -87,6 +88,13 @@ public class DataInitializer {
             screeningRepository.saveAll(List.of(screening1, screening2, screening3, screening4, screening5,
                     screening6, screening7, screening8, screening9, screening10));
             logger.info("Screenings saved!");
+            
+            User user = new User();
+            user.setUsername("inigo");
+            user.setPassword(new BCryptPasswordEncoder().encode("1234"));
+            user.setRole(Role.CLIENT);
+            userRepository.save(user);
+
 
         };
     }
