@@ -68,17 +68,35 @@ public class FrontendController {
     } */
     
     @PostMapping("/do-login")
-    public String fakeLoginRedirect(HttpSession session) {
-        // No hacemos validación aún, simplemente redirigimos
+    public String fakeLoginRedirect(HttpSession session, HttpServletRequest request) {
+        String username = request.getParameter("username");
+
+        com.cinema_seat_booking.model.User user = new com.cinema_seat_booking.model.User();
+        user.setUsername(username);
+        user.setRole(com.cinema_seat_booking.model.Role.CLIENT);
+
+        session.setAttribute("user", user);
         return "redirect:/home";
     }
 
-    
+    /*
     @GetMapping("/home")
     public String showHomePage(HttpSession session, Model model) {
         // cargar películas
         return "index"; // index.html
+    } */
+    
+    @GetMapping("/home")
+    public String showHomePage(HttpSession session, Model model) {
+        Object user = session.getAttribute("user");
+        if (user == null) {
+            return "redirect:/";
+        }
+
+        model.addAttribute("movies", movieRepository.findAll()); // ← Carga las pelis
+        return "index"; // index.html
     }
+
 
     @GetMapping("/admin-dashboard")
     public String showAdminDashboard(HttpSession session, Model model) {
