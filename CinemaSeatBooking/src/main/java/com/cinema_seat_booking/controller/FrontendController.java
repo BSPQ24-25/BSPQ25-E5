@@ -28,20 +28,48 @@ public class FrontendController {
         return "home"; // home.html
     }
 
+    private String getUserRole(HttpSession session) {
+        Object userObj = session.getAttribute("user");
+        if (userObj instanceof com.cinema_seat_booking.model.User user) {
+        	return user.getRole().name(); // Devuelve "ADMIN" o "CLIENT"
+        }
+        return null;
+    }
+
+    
     @GetMapping("/register")
     public String showRegisterPage() {
         return "register"; // register.html
     }
 
-    @GetMapping({ "/home" })
+    @GetMapping("/home")
     public String showHomePage(HttpSession session, Model model) {
-        Object user = session.getAttribute("user");
-        if (user == null) {
+        Object userObj = session.getAttribute("user");
+        if (userObj == null) {
             return "redirect:/";
         }
+
+        String role = getUserRole(session);
+        if ("ADMIN".equals(role)) {
+            return "redirect:/admin-dashboard";
+        }
+
         model.addAttribute("movies", movieRepository.findAll());
-        return "index"; // index.html
+        return "index"; // Para CLIENT
     }
+    
+    @GetMapping("/admin-dashboard")
+    public String showAdminDashboard(HttpSession session, Model model) {
+        Object userObj = session.getAttribute("user");
+        if (userObj == null || !"ADMIN".equals(getUserRole(session))) {
+            return "redirect:/";
+        }
+
+        model.addAttribute("movies", movieRepository.findAll()); // O lo que necesites
+        return "admin-dashboard"; // admin-dashboard.html
+    }
+
+    
 
     @GetMapping("/about")
     public String showAboutPage() {

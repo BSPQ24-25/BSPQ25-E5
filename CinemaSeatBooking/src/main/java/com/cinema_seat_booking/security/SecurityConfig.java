@@ -14,25 +14,25 @@ public class SecurityConfig {
     private CustomSuccessHandler customSuccessHandler;
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http.csrf().disable()
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/admin-dashboard.html").hasAuthority("ADMIN")
-                .requestMatchers("/home.html").hasAuthority("CLIENT")
-                .anyRequest().permitAll()
+                .requestMatchers("/", "/register", "/api/auth/**", "/css/**", "/js/**").permitAll()
+                .requestMatchers("/admin/**").hasRole("ADMIN")
+                .requestMatchers("/client/**").hasRole("CLIENT")
+                .anyRequest().authenticated()
             )
             .formLogin(form -> form
-                .loginPage("/login.html") 
-                .loginProcessingUrl("/login") 
-                .successHandler(customSuccessHandler)
+                .loginPage("/")
+                .defaultSuccessUrl("/home", true)
                 .permitAll()
             )
             .logout(logout -> logout
                 .logoutUrl("/logout")
-                .logoutSuccessUrl("/login.html")
-                .permitAll()
+                .logoutSuccessUrl("/")
             );
 
         return http.build();
     }
+
 }

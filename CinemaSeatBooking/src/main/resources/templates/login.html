@@ -10,7 +10,7 @@
     <label>Password: <input type="password" id="password" required></label><br>
     <button type="submit">Login</button>
 </form>
-
+<!-- 
 <script>
 document.getElementById('loginForm').onsubmit = async function (e) {
     e.preventDefault();
@@ -25,6 +25,35 @@ document.getElementById('loginForm').onsubmit = async function (e) {
     const result = await response.text();
     alert('Token: ' + result);
 }
+</script>-->
+
+<script>
+document.getElementById('loginForm').onsubmit = async function (e) {
+    e.preventDefault();
+
+    const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            username: document.getElementById('username').value,
+            password: document.getElementById('password').value
+        })
+    });
+
+    if (response.ok) {
+        const result = await response.json();
+
+        if (result.role === 'ADMIN') {
+            window.location.href = '/admin-dashboard';
+        } else {
+            window.location.href = '/home';
+        }
+    } else {
+        alert('Login failed');
+    }
+};
 </script>
+
+
 </body>
 </html>
