@@ -5,6 +5,7 @@ public class CreateRoomDTO {
     private String name;
 
     public CreateRoomDTO() {
+           this.name = "unasigned"+ System.currentTimeMillis();
     }
 
     public CreateRoomDTO(String name) {

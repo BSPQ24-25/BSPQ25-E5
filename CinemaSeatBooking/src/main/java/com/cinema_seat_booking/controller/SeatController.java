@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,19 +21,20 @@ public class SeatController {
     @Autowired
     private SeatService seatService;
 
-    @Operation(summary = "Get all seats", description = "Returns a list of all seats with room information")
-    @GetMapping
-    public List<SeatDTO> getAllSeats() {
-        List<Seat> seats = seatService.getAllSeats();
+    @Operation(summary = "Get seats by room ID")
+@GetMapping("/room/{roomId}")
+
+   public ResponseEntity<List<SeatDTO>> getSeatsByRoomId(@PathVariable Long roomId) {
+    try {
+        List<Seat> seats = seatService.getSeatsByRoomId(roomId); // Fetch seats by room ID
         List<SeatDTO> seatDTOs = seats.stream()
-                .map(seat -> new SeatDTO(
-                        seat.getId(),
-                        seat.getSeatNumber(),
-                        seat.isReserved(),
-                        seat.getRoom().getName()))
+                .map(seat -> new SeatDTO(seat)) // Convert Seat entities to SeatDTOs
                 .collect(Collectors.toList());
-        return seatDTOs;
+        return ResponseEntity.ok(seatDTOs); // Return the list of SeatDTOs
+    } catch (Exception e) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build(); // Handle errors
     }
+}
 
     @Operation(summary = "Get seat by ID")
     @ApiResponses({
@@ -40,6 +42,7 @@ public class SeatController {
             @ApiResponse(responseCode = "404", description = "Seat not found")
     })
     @GetMapping("/{id}")
+    
     public ResponseEntity<SeatDTO> getSeatById(@PathVariable Long id) {
         try {
             Seat seat = seatService.getSeatById(id).orElseThrow(() -> new RuntimeException("Seat not found"));

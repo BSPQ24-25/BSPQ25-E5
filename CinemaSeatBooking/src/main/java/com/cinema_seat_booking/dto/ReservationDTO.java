@@ -1,5 +1,7 @@
 package com.cinema_seat_booking.dto;
 
+import  com.cinema_seat_booking.dto.*;
+
 import com.cinema_seat_booking.model.Reservation;
 import com.cinema_seat_booking.model.Seat;
 import com.cinema_seat_booking.model.Screening;
@@ -7,21 +9,24 @@ import com.cinema_seat_booking.model.User;
 
 public class ReservationDTO {
     private Long reservationId;
-    private User user;
+    private UserDTO user;
     private ScreeningDTO screening;
     private SeatDTO seat;
     private String reservationState;
-
-    // Constructor que mapea desde la entidad Reservation
-    public ReservationDTO(Reservation reservation) {
+ public ReservationDTO(Reservation reservation) {
         this.reservationId = reservation.getId();
-        this.user = reservation.getUser();
-        this.screening = new ScreeningDTO(reservation.getScreening());
-        this.seat = new SeatDTO(reservation.getSeat());
+        this.user = new UserDTO(reservation.getUser()); // Map to UserDTO
+        this.screening = new ScreeningDTO(reservation.getScreening()); // Map to ScreeningDTO
+        this.seat = new SeatDTO(reservation.getSeat()); // Map to SeatDTO
         if (reservation.getReservationState() != null) {
             this.reservationState = reservation.getReservationState().name();
         }
     }
+    // Constructor que mapea desde la entidad Reservation
+   
+     public ReservationDTO() {
+    }
+
 
     // Getters
     public Long getReservationId() {
@@ -32,11 +37,11 @@ public class ReservationDTO {
         this.reservationId = reservationId;
     }
 
-    public User getUser() {
+    public UserDTO getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserDTO user) {
         this.user = user;
     }
 

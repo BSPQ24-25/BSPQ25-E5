@@ -12,4 +12,5 @@ public interface SeatRepository extends JpaRepository<Seat, Long> {
     List<Seat> findByRoomIdAndIsReservedFalse(Long roomId);
 
     List<Seat> findByRoomId(Long roomId);
+    
 }

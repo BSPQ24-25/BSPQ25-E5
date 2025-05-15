@@ -34,27 +34,27 @@ public class ReservationController {
 
     // Crear una reserva
     @PostMapping
-    public ResponseEntity<?> createReservation(
-            @RequestParam String username,
-            @RequestParam Long screeningId,
-            @RequestParam Long seatId) {
-        try {
-            User user = userService.getUserByUsername(username);
-            Screening screening = screeningService.getScreeningById(screeningId)
-                    .orElseThrow(() -> new IllegalArgumentException("Screening not found with ID: " + screeningId));
-            Seat seat = seatService.getSeatById(seatId)
-                    .orElseThrow(() -> new IllegalArgumentException("Seat not found with ID: " + seatId));
+public ResponseEntity<?> createReservation(
+        @RequestParam String username,
+        @RequestParam Long screeningId,
+        @RequestParam Long seatId) {
+    try {
+        User user = userService.getUserByUsername(username);
+        Screening screening = screeningService.getScreeningById(screeningId)
+                .orElseThrow(() -> new IllegalArgumentException("Screening not found with ID: " + screeningId));
+        Seat seat = seatService.getSeatById(seatId)
+                .orElseThrow(() -> new IllegalArgumentException("Seat not found with ID: " + seatId));
 
-            Reservation reservation = reservationService.createReservation(user, screening, seat, "NONE");
-            return new ResponseEntity<>(new ReservationDTO(reservation), HttpStatus.CREATED);
-        } catch (IllegalArgumentException e) {
-            log.warn("Invalid request: {}", e.getMessage());
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-        } catch (Exception e) {
-            log.error("Unexpected error creating reservation", e);
-            return new ResponseEntity<>("Internal server error: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        Reservation reservation = reservationService.createReservation(user, screening, seat, "NONE");
+        return new ResponseEntity<>(new ReservationDTO(reservation), HttpStatus.CREATED);
+    } catch (IllegalArgumentException e) {
+        log.warn("Invalid request: {}", e.getMessage());
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+    } catch (Exception e) {
+        log.error("Unexpected error creating reservation", e);
+        return new ResponseEntity<>("Internal server error: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
+}
 
     // Cancelar una reserva
     @DeleteMapping("/{reservationId}")

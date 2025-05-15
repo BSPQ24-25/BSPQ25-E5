@@ -54,5 +54,17 @@ public class RoomDTO {
     public void setSeats(List<SeatDTO> seats) {
         this.seats = seats;
     }
-
+  public Room toEntity() {
+        Room room = new Room();
+        room.setId(this.id);
+        room.setName(this.name);
+        if (this.seats != null) {
+            List<Seat> seatEntities = new ArrayList<>();
+            for (SeatDTO seatDTO : this.seats) {
+                seatEntities.add(seatDTO.toEntity()); // Assuming SeatDTO has a toEntity() method
+            }
+            room.setSeats(seatEntities);
+        }
+        return room;
+    }
 }

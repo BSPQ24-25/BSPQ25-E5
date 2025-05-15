@@ -57,6 +57,14 @@ public class SeatDTO {
     public void setRoomName(String roomName) {
         this.roomName = roomName;
     }
+     public Seat toEntity() {
+        Seat seat = new Seat();
+        seat.setId(this.id);
+        seat.setSeatNumber(this.seatNumber);
+        seat.setReserved(this.isReserved);
+        return seat;
+    }
+
 
     @Override
     public String toString() {

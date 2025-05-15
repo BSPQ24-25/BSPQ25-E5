@@ -56,7 +56,9 @@ public class SeatService {
     public List<Seat> getAvailableSeats(Long roomId) {
         return seatRepository.findByRoomIdAndIsReservedFalse(roomId);
     }
-
+    public List<Seat> getSeatsByRoomId(Long roomId) {
+    return seatRepository.findByRoomId(roomId);
+}
     public void reserveSeat(Long seatId) throws Exception {
         Seat seat = seatRepository.findById(seatId)
                 .orElseThrow(() -> new Exception("Seat not found"));

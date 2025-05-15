@@ -22,6 +22,9 @@ public class RoomService {
 
     @Autowired
     private SeatRepository seatRepository;
+    public void deleteAllRooms() {
+    roomRepository.deleteAll();
+}
 
     public Room createRoomWithSeats(String name) {
         if (name == null || name.trim().isEmpty()) {

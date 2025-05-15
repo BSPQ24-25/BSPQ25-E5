@@ -100,6 +100,11 @@ public class RoomController {
             return ResponseEntity.notFound().build();
         }
     }
+//     @DeleteMapping("/deleteAll")
+// public ResponseEntity<Void> deleteAllRooms() {
+//     roomService.deleteAllRooms();
+//     return ResponseEntity.noContent().build();
+// }
 
     @Operation(summary = "Update a room", description = "Updates the name of a room")
     @ApiResponses(value = {

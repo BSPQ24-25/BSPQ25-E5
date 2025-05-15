@@ -1,6 +1,7 @@
 package com.cinema_seat_booking.controller;
 
 import com.cinema_seat_booking.dto.ScreeningDTO;
+import com.cinema_seat_booking.model.Movie;
 import com.cinema_seat_booking.model.Screening;
 import com.cinema_seat_booking.service.ScreeningService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -25,6 +26,15 @@ public class ScreeningController {
     @Operation(summary = "Return all screenings", description = "Returns all the screenings available in the app")
     @ApiResponse(responseCode = "200", description = "List of screenings retrieved successfully")
     @GetMapping
+    
+  @PostMapping
+  
+    public ResponseEntity<ScreeningDTO> createScreening(@RequestBody ScreeningDTO screeningDTO) {
+    System.out.println("createScreening method called with ScreeningDTO: " + screeningDTO);
+    ScreeningDTO saved = screeningService.saveScreening(screeningDTO);
+    System.out.println("Saved ScreeningDto" + screeningDTO);
+    return new ResponseEntity<>(saved, HttpStatus.CREATED);
+}
     public ResponseEntity<List<ScreeningDTO>> getAllScreenings() {
         List<Screening> screenings = screeningService.getAllScreenings();
         List<ScreeningDTO> screeningDTOs = screenings.stream()

@@ -1,6 +1,10 @@
 
 package com.cinema_seat_booking.dto;
 
+import com.cinema_seat_booking.model.User; // Correct import
+import com.cinema_seat_booking.model.*;
+
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
@@ -18,6 +22,11 @@ public class UserDTO {
     public UserDTO() {
         // Constructor vacío requerido por Spring para deserializar JSON
     }
+     public UserDTO(User user) {
+    this.username = user.getUsername(); // Use the correct getter
+    this.password = user.getPassword();
+    this.email = user.getEmail();
+}
 
     public String getUsername() {
         return username;
