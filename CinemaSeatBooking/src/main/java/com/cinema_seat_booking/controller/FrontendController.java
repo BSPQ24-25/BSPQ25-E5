@@ -23,10 +23,17 @@ public class FrontendController {
     @Autowired
     private MovieRepository movieRepository;
 
+    /*
     @GetMapping("/")
     public String showLoginPage() {
         return "home"; // home.html
     }
+    */
+    @GetMapping("/")
+    public String showLoginPage() {
+        return "login"; // ← muestra login.html correctamente
+    }
+
 
     private String getUserRole(HttpSession session) {
         Object userObj = session.getAttribute("user");
