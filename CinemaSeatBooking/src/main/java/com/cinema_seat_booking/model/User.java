@@ -7,27 +7,27 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.*;
 
+
 @Entity
 @Table(name = "users")
 public class User {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@Column(nullable = false, unique = true)
-	private String username;
+    @Column(nullable = false, unique = true)
+    private String username;
 
-	@Column(nullable = false)
-	private String password;
+    @Column(nullable = false)
+    private String password;
 
-	@Column(nullable = false)
-	private String email;
+    @Column(nullable = false)
+    private String email;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
-	@Enumerated(EnumType.STRING)
-	private Role role;
-
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
-	private List<Reservation> reservations;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Reservation> reservations;
 
     // Getters
     public Long getId() {
@@ -82,26 +82,18 @@ public class User {
 
     // Generators
     public void addReservation(Reservation reservation) {
-        if (this.reservations == null) {
-            this.reservations = new ArrayList<>();
-        }
         this.reservations.add(reservation);
         reservation.setUser(this);
     }
 
     public void removeReservation(Reservation reservation) {
-        if (this.reservations != null) {
-            this.reservations.remove(reservation);
-            if (reservation.getUser() == this) {
-                reservation.setUser(null);
-            }
-        }
+        this.reservations.remove(reservation);
+        reservation.setUser(null);
     }
 
     // No-argument constructor (needed for JPA)
     public User() {
         // This constructor is required by JPA
-        this.reservations = new ArrayList<>();
     }
 
     public User(String username, String password, String email, Role role, List<Reservation> reservations) {
@@ -110,7 +102,7 @@ public class User {
         this.password = password;
         this.email = email;
         this.role = role;
-        this.reservations = reservations != null ? reservations : new ArrayList<>();
+        this.reservations = reservations;
     }
 
     public User(String username, String password, String email, Role role) {
@@ -118,7 +110,6 @@ public class User {
         this.password = password;
         this.email = email;
         this.role = role;
-        this.reservations = new ArrayList<>();
     }
 
     public User(String username, String password, String email) {
@@ -126,6 +117,6 @@ public class User {
         this.password = password;
         this.email = email;
         this.role = Role.CLIENT;
-        this.reservations = new ArrayList<>();
     }
+
 }

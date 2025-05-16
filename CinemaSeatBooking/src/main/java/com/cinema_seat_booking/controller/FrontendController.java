@@ -1,8 +1,12 @@
 package com.cinema_seat_booking.controller;
 
+import com.cinema_seat_booking.model.Role;
+import com.cinema_seat_booking.model.User;
 import com.cinema_seat_booking.repository.MovieRepository;
+import com.cinema_seat_booking.repository.UserRepository;
 import com.cinema_seat_booking.service.RoomService;
 import com.cinema_seat_booking.service.ScreeningService;
+import com.cinema_seat_booking.service.UserService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -13,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -27,7 +32,13 @@ public class FrontendController {
     private ScreeningService screeningService;
     @Autowired
     private MovieRepository movieRepository;
-
+    
+    @Autowired
+    private UserService userService;
+    
+    @Autowired
+    private UserRepository userRepository;
+    
     @GetMapping("/")
     public String showLoginPage() {
         return "login"; // ← muestra login.html correctamente
@@ -38,7 +49,7 @@ public class FrontendController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth != null && auth.isAuthenticated() && !(auth instanceof AnonymousAuthenticationToken)) {
             for (GrantedAuthority authority : auth.getAuthorities()) {
-                return authority.getAuthority(); // Devuelve "ROLE_CLIENT" o "ROLE_ADMIN"
+                return authority.getAuthority(); 
             }
         }
         return null;
@@ -66,7 +77,7 @@ public class FrontendController {
         model.addAttribute("movies", movieRepository.findAll());
         return "index"; // Para CLIENT
     } */
-    
+    /*
     @PostMapping("/do-login")
     public String fakeLoginRedirect(HttpSession session, HttpServletRequest request) {
         String username = request.getParameter("username");
@@ -77,8 +88,38 @@ public class FrontendController {
 
         session.setAttribute("user", user);
         return "redirect:/home";
+    } */
+    
+    @PostMapping("/do-login")
+    public String login(@RequestParam String username,
+                        @RequestParam String password,
+                        HttpSession session,
+                        Model model) {
+
+        User user = userService.authenticate(username, password); 
+
+        if (user == null) {
+            model.addAttribute("error", "Invalid username or password");
+            return "login"; 
+        }
+
+        session.setAttribute("user", user);
+
+        if (user.getRole() == Role.ADMIN) {
+            return "redirect:/admin-dashboard";
+        } else {
+            return "redirect:/home";
+        }
     }
 
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate(); // Cierra la sesión del usuario
+        return "redirect:/"; // Redirige a la página de login o home
+    }
+
+
+    
     /*
     @GetMapping("/home")
     public String showHomePage(HttpSession session, Model model) {
@@ -236,4 +277,40 @@ public class FrontendController {
                 .orElseThrow(() -> new IllegalArgumentException("Screening not found with ID: " + id)));
         return "reservation-lt"; // reservation.html
     }
+    
+    @PostMapping("/do-register")
+    public String registerUser(@RequestParam String username,
+                               @RequestParam String email,
+                               @RequestParam String password,
+                               HttpSession session,
+                               Model model) {
+
+        // Verifica si ya existe el username
+        if (userRepository.findByUsername(username) != null) {
+            model.addAttribute("error", "Username already exists. Try another.");
+            return "register"; // Vuelve al formulario con mensaje de error
+        }
+
+        User user = new User();
+        user.setUsername(username);
+        user.setEmail(email);
+        user.setPassword(password);
+
+        if (email.toLowerCase().contains("admin")) {
+            user.setRole(Role.ADMIN);
+        } else {
+            user.setRole(Role.CLIENT);
+        }
+
+        userRepository.save(user);
+        session.setAttribute("user", user);
+
+        return user.getRole() == Role.ADMIN ? "redirect:/admin-dashboard" : "redirect:/home";
+    }
+
+
+
+
+
+    
 }

@@ -12,19 +12,22 @@ import org.springframework.security.web.SecurityFilterChain;
 import com.cinema_seat_booking.model.User;
 
 	
-	@Configuration
-	@EnableWebSecurity
-	public class SecurityConfig {
-	    @Bean
-	    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-	        http.csrf().disable()
-	            .authorizeHttpRequests()
-	            .anyRequest().permitAll(); // Todo está permitido de momento
-
-	        return http.build();
-	    }
-	    
 
 
-	}
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http.csrf().disable()
+            .authorizeHttpRequests()
+            .anyRequest().permitAll(); // Todo está permitido de momento
+
+        return http.build();
+    }
+    
+
+
+}
+
 
