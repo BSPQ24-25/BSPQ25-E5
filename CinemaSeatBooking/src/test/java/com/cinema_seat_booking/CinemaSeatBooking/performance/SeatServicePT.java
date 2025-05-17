@@ -21,16 +21,9 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Performance tests for SeatService that don't use Mockito
- * and don't create new records in the database.
- * 
- * All test methods are wrapped in @Transactional to ensure
- * any changes are rolled back after test execution.
- */
-@SpringBootTest
+@SpringBootTest(classes = com.cinema_seat_booking.controller.CinemaSeatBookingApplication.class)
 @ExtendWith(JUnitPerfInterceptor.class)
-public class SeatServicePerformanceTest {
+public class SeatServicePT {
 
     @Autowired
     private SeatService seatService;

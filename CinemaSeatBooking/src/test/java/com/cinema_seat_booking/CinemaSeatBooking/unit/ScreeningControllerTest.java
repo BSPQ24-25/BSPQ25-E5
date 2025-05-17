@@ -1,4 +1,4 @@
-package com.cinema_seat_booking.CinemaSeatBooking.integration;
+package com.cinema_seat_booking.CinemaSeatBooking.unit;
 
 
 import com.cinema_seat_booking.model.Movie;
@@ -22,9 +22,9 @@ import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@SpringBootTest
+@SpringBootTest(classes = com.cinema_seat_booking.controller.CinemaSeatBookingApplication.class)
 @AutoConfigureMockMvc
-class ScreeningControllerIntegrationTest {
+class ScreeningControllerTest {
 
     @Autowired
     private MockMvc mockMvc;

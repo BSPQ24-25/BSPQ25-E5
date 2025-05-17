@@ -82,4 +82,9 @@ public class Seat {
         this.isReserved = false;
         this.room = room;
     }
+
+	public void setSeatNumber(Integer number) {
+		// TODO Auto-generated method stub
+		this.seatNumber = number;
+	}
 }
