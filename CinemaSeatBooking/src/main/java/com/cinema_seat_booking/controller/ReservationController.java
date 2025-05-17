@@ -6,6 +6,9 @@ import com.cinema_seat_booking.service.ReservationService;
 import com.cinema_seat_booking.service.ScreeningService;
 import com.cinema_seat_booking.service.SeatService;
 import com.cinema_seat_booking.service.UserService;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,6 +44,22 @@ public class ReservationController {
         // Crear la reserva
         Reservation reservation = reservationService.createReservation(user, screening, seat, "NONE");
         return new ReservationDTO(reservation);
+    }
+
+    @GetMapping
+    public List<ReservationDTO> getAllReservations() {
+        List<Reservation> reservations = reservationService.getAllReservations();
+        return reservations.stream()
+                .map(reservation -> new ReservationDTO(reservation))
+                .toList();
+    }
+
+    @GetMapping("/user/{username}")
+    public List<ReservationDTO> getAllReservationsOfUser(@RequestParam String username) {
+        List<Reservation> reservations = reservationService.getAllReservationsOfUser(username);
+        return reservations.stream()
+                .map(reservation -> new ReservationDTO(reservation))
+                .toList();
     }
 
     // Cancelar una reserva

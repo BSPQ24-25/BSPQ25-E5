@@ -4,6 +4,7 @@ import com.cinema_seat_booking.model.Role;
 import com.cinema_seat_booking.model.User;
 import com.cinema_seat_booking.repository.MovieRepository;
 import com.cinema_seat_booking.repository.UserRepository;
+import com.cinema_seat_booking.service.ReservationService;
 import com.cinema_seat_booking.service.RoomService;
 import com.cinema_seat_booking.service.ScreeningService;
 import com.cinema_seat_booking.service.UserService;
@@ -32,75 +33,76 @@ public class FrontendController {
     private ScreeningService screeningService;
     @Autowired
     private MovieRepository movieRepository;
-    
     @Autowired
     private UserService userService;
-    
     @Autowired
     private UserRepository userRepository;
-    
+    @Autowired
+    private ReservationService reservationService;
+
     @GetMapping("/")
     public String showLoginPage() {
         return "login"; // ← muestra login.html correctamente
     }
 
-
     private String getUserRole() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth != null && auth.isAuthenticated() && !(auth instanceof AnonymousAuthenticationToken)) {
             for (GrantedAuthority authority : auth.getAuthorities()) {
-                return authority.getAuthority(); 
+                return authority.getAuthority();
             }
         }
         return null;
     }
 
-
-    
     @GetMapping("/register")
     public String showRegisterPage() {
         return "register"; // register.html
     }
     /*
-    @GetMapping("/home")
-    public String showHomePage(HttpSession session, Model model) {
-        Object userObj = session.getAttribute("user");
-        if (userObj == null) {
-            return "redirect:/";
-        }
-
-        String role = getUserRole(session);
-        if ("ADMIN".equals(role)) {
-            return "redirect:/admin-dashboard";
-        }
-
-        model.addAttribute("movies", movieRepository.findAll());
-        return "index"; // Para CLIENT
-    } */
+     * @GetMapping("/home")
+     * public String showHomePage(HttpSession session, Model model) {
+     * Object userObj = session.getAttribute("user");
+     * if (userObj == null) {
+     * return "redirect:/";
+     * }
+     * 
+     * String role = getUserRole(session);
+     * if ("ADMIN".equals(role)) {
+     * return "redirect:/admin-dashboard";
+     * }
+     * 
+     * model.addAttribute("movies", movieRepository.findAll());
+     * return "index"; // Para CLIENT
+     * }
+     */
     /*
-    @PostMapping("/do-login")
-    public String fakeLoginRedirect(HttpSession session, HttpServletRequest request) {
-        String username = request.getParameter("username");
+     * @PostMapping("/do-login")
+     * public String fakeLoginRedirect(HttpSession session, HttpServletRequest
+     * request) {
+     * String username = request.getParameter("username");
+     * 
+     * com.cinema_seat_booking.model.User user = new
+     * com.cinema_seat_booking.model.User();
+     * user.setUsername(username);
+     * user.setRole(com.cinema_seat_booking.model.Role.CLIENT);
+     * 
+     * session.setAttribute("user", user);
+     * return "redirect:/home";
+     * }
+     */
 
-        com.cinema_seat_booking.model.User user = new com.cinema_seat_booking.model.User();
-        user.setUsername(username);
-        user.setRole(com.cinema_seat_booking.model.Role.CLIENT);
-
-        session.setAttribute("user", user);
-        return "redirect:/home";
-    } */
-    
     @PostMapping("/do-login")
     public String login(@RequestParam String username,
-                        @RequestParam String password,
-                        HttpSession session,
-                        Model model) {
+            @RequestParam String password,
+            HttpSession session,
+            Model model) {
 
-        User user = userService.authenticate(username, password); 
+        User user = userService.authenticate(username, password);
 
         if (user == null) {
             model.addAttribute("error", "Invalid username or password");
-            return "login"; 
+            return "login";
         }
 
         session.setAttribute("user", user);
@@ -118,15 +120,14 @@ public class FrontendController {
         return "redirect:/"; // Redirige a la página de login o home
     }
 
-
-    
     /*
-    @GetMapping("/home")
-    public String showHomePage(HttpSession session, Model model) {
-        // cargar películas
-        return "index"; // index.html
-    } */
-    
+     * @GetMapping("/home")
+     * public String showHomePage(HttpSession session, Model model) {
+     * // cargar películas
+     * return "index"; // index.html
+     * }
+     */
+
     @GetMapping("/home")
     public String showHomePage(HttpSession session, Model model) {
         Object user = session.getAttribute("user");
@@ -138,13 +139,20 @@ public class FrontendController {
         return "index"; // index.html
     }
 
-
     @GetMapping("/admin-dashboard")
     public String showAdminDashboard(HttpSession session, Model model) {
         return "admin-dashboard"; // admin-dashboard.html
     }
 
-    
+    @GetMapping("/myreservations")
+    public String showMyReservationsPage(HttpSession session, Model model) {
+        User user = (User) session.getAttribute("user");
+        if (user == null) {
+            return "redirect:/";
+        }
+        model.addAttribute("reservations", reservationService.getAllReservationsOfUser(user.getUsername()));
+        return "myreservations"; // myreservations.html
+    }
 
     @GetMapping("/about")
     public String showAboutPage() {
@@ -155,6 +163,7 @@ public class FrontendController {
     public String show404ltPage() {
         return "404-lt"; // about-us.html
     }
+
     @GetMapping("/articles")
     public String showArticlesPage() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -163,7 +172,6 @@ public class FrontendController {
         }
         return "articles";
     }
-
 
     @GetMapping("/article")
     public String showArticlePage(HttpSession session) {
@@ -224,8 +232,7 @@ public class FrontendController {
                 .orElseThrow(() -> new IllegalArgumentException("Screening not found with ID: " + id)));
         return "reservation"; // reservation.html
     }
-    //lithuanian
-    
+    // lithuanian
 
     @GetMapping("/register-lt")
     public String showLTRegisterPage() {
@@ -277,13 +284,13 @@ public class FrontendController {
                 .orElseThrow(() -> new IllegalArgumentException("Screening not found with ID: " + id)));
         return "reservation-lt"; // reservation.html
     }
-    
+
     @PostMapping("/do-register")
     public String registerUser(@RequestParam String username,
-                               @RequestParam String email,
-                               @RequestParam String password,
-                               HttpSession session,
-                               Model model) {
+            @RequestParam String email,
+            @RequestParam String password,
+            HttpSession session,
+            Model model) {
 
         // Verifica si ya existe el username
         if (userRepository.findByUsername(username) != null) {
@@ -308,9 +315,4 @@ public class FrontendController {
         return user.getRole() == Role.ADMIN ? "redirect:/admin-dashboard" : "redirect:/home";
     }
 
-
-
-
-
-    
 }

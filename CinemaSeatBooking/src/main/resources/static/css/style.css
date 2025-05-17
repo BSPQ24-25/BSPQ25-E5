@@ -2,19 +2,26 @@
 	margin: 0;
 	padding: 0;
 }
+
 #header .row-1 .fleft {
-    font-family: 'Roboto', sans-serif; /* Replace with your chosen font */
-    color: #bfbfbf; /* Replace gradient with a solid color */
+	font-family: 'Roboto', sans-serif;
+	/* Replace with your chosen font */
+	color: #bfbfbf;
+	/* Replace gradient with a solid color */
 }
 
 #header .row-1 .fleft span {
-    font-family: 'Roboto', sans-serif;
-    color: #d72a18;
+	font-family: 'Roboto', sans-serif;
+	color: #d72a18;
 }
 
-#header .row-2 ul li, h2, h3, h4 {
-    font-family: 'Roboto', sans-serif;
+#header .row-2 ul li,
+h2,
+h3,
+h4 {
+	font-family: 'Roboto', sans-serif;
 }
+
 html,
 body {
 	min-width: 940px;
@@ -406,6 +413,20 @@ h4 {
 	position: relative;
 }
 
+.small-line-hor {
+	overflow: hidden;
+	font-size: 0;
+	line-height: 0;
+	width: 90%;
+	height: 8px;
+	background: url(../images/line-hor.gif) repeat-x left top;
+	z-index: 1;
+	position: relative;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
 .box {
 	background: #000;
 	width: 100%;
@@ -610,6 +631,32 @@ a {
 
 .button {
 	background-color: #d72a18;
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	cursor: pointer;
+	font-size: 1em;
+	line-height: 1em;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 10px;
+}
+
+.cancel-button {
+	background-color: #d72a18;
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	cursor: pointer;
+	font-size: 1em;
+	line-height: 1em;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 10px;
+}
+
+.pay-button {
+	background-color: green;
 	padding: 10px;
 	padding-left: 20px;
 	padding-right: 20px;
