@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin – Movies</title>
+  <link th:href="@{/css/style.css}" rel="stylesheet" />
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 960px;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 6px;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 1.75rem;
+  color: #333;
+}
+
+a.button, button {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  background: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+a.button:hover, button:hover {
+  background: #0056b3;
+}
+
+a.back {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #666;
+  text-decoration: none;
+}
+a.back:hover {
+  text-decoration: underline;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+table th, table td {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table thead {
+  background: #007bff;
+  color: #fff;
+}
+
+table tbody tr:nth-child(even) {
+  background: #f9f9f9;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Movies admin</h2>
+    <a th:href="@{/admin/movies/new}" class="button">+ Nueva Película</a>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Genre</th>
+          <th>Duration</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="movie : ${movies}">
+          <td th:text="${movie.id}">1</td>
+          <td th:text="${movie.title}">Name</td>
+          <td th:text="${movie.genre}">Comedy</td>
+          <td th:text="${movie.duration} + ' min'">120</td>
+          <td>
+            <a th:href="@{'/admin/movies/' + ${movie.id} + '/edit'}">Edit</a>
+            |
+            <form th:action="@{'/admin/movies/' + ${movie.id} + '/delete'}" method="post" style="display:inline">
+              <button type="submit" onclick="return confirm('Delete movie?')">Delete</button>
+            </form>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <a th:href="@{/admin/dashboard}">← Back to Dashboard</a>
+  </div>
+</body>
+</html>

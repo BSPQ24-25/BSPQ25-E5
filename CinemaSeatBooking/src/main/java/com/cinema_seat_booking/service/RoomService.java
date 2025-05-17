@@ -19,7 +19,7 @@ public class RoomService {
     @Autowired
     private SeatRepository seatRepository;
 
-    public Room createRoomWithSeats(String name) {
+    public Room createRoomWithSeats(String name, int seatCount) {
         Room room = new Room(name);
         roomRepository.save(room);
 

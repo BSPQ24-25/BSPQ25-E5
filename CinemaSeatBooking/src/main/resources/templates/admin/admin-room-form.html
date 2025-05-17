@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title th:text="${id} != null ? 'Editar Sala' : 'Nueva Sala'">Room</title>
+  <link th:href="@{/css/style.css}" rel="stylesheet" />
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 960px;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 6px;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 1.75rem;
+  color: #333;
+}
+
+a.button, button {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  background: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+a.button:hover, button:hover {
+  background: #0056b3;
+}
+
+a.back {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #666;
+  text-decoration: none;
+}
+a.back:hover {
+  text-decoration: underline;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+table th, table td {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table thead {
+  background: #007bff;
+  color: #fff;
+}
+
+table tbody tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+</style>
+
+</head>
+<body>
+   <div class="container">
+    <h2 th:text="${id == null} ? 'Create Room' : 'Edit Room'">Room Form</h2>
+
+    <form th:if="${id == null}"
+          th:action="@{/admin/rooms}"
+          th:object="${room}"
+          method="post">
+      <div>
+        <label for="name">Name:</label><br/>
+        <input type="text" id="name" th:field="*{name}" required />
+      </div>
+      <div>
+        <label for="seatCount"># Seats:</label><br/>
+        <input type="number" id="seatCount" th:field="*{seatCount}" min="1" required />
+      </div>
+      <button type="submit">Save</button>
+    </form>
+
+    <form th:if="${id != null}"
+          th:action="@{/admin/rooms/{id}(id=${id})}"
+          th:object="${room}"
+          method="post">
+      <div>
+        <label for="name">Name:</label><br/>
+        <input type="text" id="name" th:field="*{name}" required />
+      </div>
+      <div>
+        <label for="seatCount"># Seats:</label><br/>
+        <input type="number" id="seatCount" th:field="*{seatCount}" min="1" required />
+      </div>
+      <button type="submit">Save</button>
+    </form>
+
+    <a th:href="@{/admin/rooms}" class="back">← Back to Rooms</a>
+  </div>
+</body>
+</html>
