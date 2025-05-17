@@ -30,9 +30,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 
-@SpringBootTest
+@SpringBootTest(classes = com.cinema_seat_booking.controller.CinemaSeatBookingApplication.class)
 @ExtendWith({JUnitPerfInterceptor.class, SpringExtension.class})
-public class UserServicePerformanceTest {
+public class UserServicePT {
     
     // Thread-safe counters for generating unique usernames within tests
     private static final AtomicInteger COUNTER = new AtomicInteger(0);

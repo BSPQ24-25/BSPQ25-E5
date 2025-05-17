@@ -24,7 +24,7 @@ class ScreeningTest {
         assertEquals(date, screening.getDate());
         assertEquals(location, screening.getLocation());
         assertEquals(room, screening.getRoom());
-        assertNull(screening.getReservations());
+        assertTrue(screening.getReservations().isEmpty());
     }
 
     @Test

@@ -17,9 +17,9 @@ import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
+@SpringBootTest(classes = com.cinema_seat_booking.controller.CinemaSeatBookingApplication.class)
 @ExtendWith(JUnitPerfInterceptor.class)
-public class RoomServicePerformanceTest {
+public class RoomServicePT {
 
     @Autowired
     private static RoomService roomService;

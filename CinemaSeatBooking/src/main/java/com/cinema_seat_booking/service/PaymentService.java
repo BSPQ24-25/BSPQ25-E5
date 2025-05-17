@@ -29,7 +29,7 @@ public class PaymentService {
         return payment;
     }
 
-    protected boolean simulatePaymentGateway() {
+    public boolean simulatePaymentGateway() {
         return true;
     }
 }

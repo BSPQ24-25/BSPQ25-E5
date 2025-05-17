@@ -30,9 +30,9 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@SpringBootTest
+@SpringBootTest(classes = com.cinema_seat_booking.controller.CinemaSeatBookingApplication.class)
 @ExtendWith({JUnitPerfInterceptor.class, SpringExtension.class})
-public class ScreeningServicePerformanceTest {
+public class ScreeningServicePT {
 
     @Autowired
     private static ScreeningService screeningService;

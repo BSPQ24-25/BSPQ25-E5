@@ -27,9 +27,9 @@ import com.github.noconnor.junitperf.JUnitPerfTestActiveConfig;
 import com.github.noconnor.junitperf.JUnitPerfTestRequirement;
 import com.github.noconnor.junitperf.reporting.providers.HtmlReportGenerator;
 
-@SpringBootTest
+@SpringBootTest(classes = com.cinema_seat_booking.controller.CinemaSeatBookingApplication.class)
 @ExtendWith(JUnitPerfInterceptor.class)
-public class PaymentServicePerformanceTest {
+public class PaymentServicePT {
 	@Autowired
 	private PaymentService paymentService;
 
@@ -74,7 +74,7 @@ public class PaymentServicePerformanceTest {
 	@JUnitPerfTestRequirement(executionsPerSec = 10, percentiles = "95:400ms", allowedErrorPercentage = 0.0f)
 	public void testSimulatedPaymentFailurePerformance() {
 	    PaymentService failingPaymentService = new PaymentService() {
-	        protected boolean simulatePaymentGateway() {
+	        public boolean simulatePaymentGateway() {
 	            return false;
 	        }
 	    };
