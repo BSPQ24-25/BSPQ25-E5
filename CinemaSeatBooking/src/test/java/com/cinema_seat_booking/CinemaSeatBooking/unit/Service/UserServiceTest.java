@@ -1,4 +1,4 @@
-package com.cinema_seat_booking.CinemaSeatBooking.unit;
+package com.cinema_seat_booking.CinemaSeatBooking.unit.Service;
 
 import com.cinema_seat_booking.dto.UserDTO;
 import com.cinema_seat_booking.model.Role;
@@ -12,7 +12,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -61,7 +60,7 @@ class UserServiceTest {
     void testGetUserByUsername_NotFound() {
         when(userRepository.findByUsername("bob")).thenReturn(null);
         RuntimeException ex = assertThrows(RuntimeException.class,
-            () -> userService.getUserByUsername("bob"));
+                () -> userService.getUserByUsername("bob"));
         assertEquals("User not found", ex.getMessage());
     }
 

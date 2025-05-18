@@ -1,4 +1,4 @@
-package com.cinema_seat_booking.CinemaSeatBooking.unit;
+package com.cinema_seat_booking.CinemaSeatBooking.unit.Service;
 
 import com.cinema_seat_booking.model.*;
 import com.cinema_seat_booking.repository.*;
@@ -72,29 +72,30 @@ class ReservationServiceTest {
         seat = new Seat();
         seat.setId(1L);
         seat.setSeatNumber(1);
-        // Important: do NOT set reserved to true in setup, let individual tests control this
+        // Important: do NOT set reserved to true in setup, let individual tests control
+        // this
         seat.setReserved(false);
-        
+
         reservation = new Reservation();
         reservation.setId(1L);
         reservation.setUser(user);
         reservation.setScreening(screening);
         reservation.setSeat(seat);
         reservation.setReservationState(ReservationState.PENDING);
-        
+
         payment = new Payment();
         payment.setId(1L);
         payment.setReservation(reservation);
         payment.setStatus(PaymentStatus.COMPLETED);
-        
+
         reservation.setPayment(payment);
-        
+
         // Add reservation to the user's list
         user.getReservations().add(reservation);
-        
+
         // Add seat to room
         room.getSeats().add(seat);
-        
+
         // Add reservation to screening
         screening.getReservations().add(reservation);
     }
@@ -107,7 +108,7 @@ class ReservationServiceTest {
         availableSeat.setId(1L);
         availableSeat.setSeatNumber(1);
         availableSeat.setReserved(false);
-        
+
         when(seatRepository.findById(availableSeat.getId())).thenReturn(Optional.of(availableSeat));
         when(reservationRepository.save(any(Reservation.class))).thenReturn(reservation);
 
@@ -134,7 +135,7 @@ class ReservationServiceTest {
         IllegalStateException exception = assertThrows(IllegalStateException.class, () -> {
             reservationService.createReservation(user, screening, seat, "Credit Card");
         });
-        
+
         assertTrue(exception.getMessage().contains("already reserved"));
     }
 
@@ -142,10 +143,10 @@ class ReservationServiceTest {
     void testCancelReservation_Success() {
         // Arrange
         when(reservationRepository.findById(1L)).thenReturn(Optional.of(reservation));
-        
+
         // Make sure all collections are initialized
         seat.setReservation(reservation);
-        
+
         // Act
         reservationService.cancelReservation(1L);
 
@@ -166,13 +167,13 @@ class ReservationServiceTest {
         String paymentMethod = "Credit Card";
         double amount = 25.0;
         String date = "2025-04-29";
-        
+
         when(reservationRepository.findById(1L)).thenReturn(Optional.of(reservation));
         when(paymentService.processPayment(reservation, paymentMethod, amount, date)).thenReturn(payment);
-        
+
         // Act
         Payment result = reservationService.makePayment(1L, paymentMethod, amount, date);
-        
+
         // Assert
         assertNotNull(result);
         assertEquals(PaymentStatus.COMPLETED, result.getStatus());
@@ -185,10 +186,10 @@ class ReservationServiceTest {
         // Arrange
         List<Reservation> reservations = List.of(reservation);
         when(reservationRepository.findAll()).thenReturn(reservations);
-        
+
         // Act
         List<Reservation> result = reservationService.getAllReservations();
-        
+
         // Assert
         assertNotNull(result);
         assertEquals(1, result.size());
@@ -199,10 +200,10 @@ class ReservationServiceTest {
     void testGetReservationById_Success() {
         // Arrange
         when(reservationRepository.findById(1L)).thenReturn(Optional.of(reservation));
-        
+
         // Act
         Reservation result = reservationService.getReservationById(1L);
-        
+
         // Assert
         assertNotNull(result);
         assertEquals(reservation, result);
@@ -212,12 +213,12 @@ class ReservationServiceTest {
     void testGetReservationById_NotFound() {
         // Arrange
         when(reservationRepository.findById(99L)).thenReturn(Optional.empty());
-        
+
         // Act & Assert
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
             reservationService.getReservationById(99L);
         });
-        
+
         assertTrue(exception.getMessage().contains("Reservation not found"));
     }
 }
