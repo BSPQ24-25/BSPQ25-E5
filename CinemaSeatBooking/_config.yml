@@ -1,6 +1,6 @@
 # Site settings
-title: My Project Title
-description: A short description of your site
+title: CinemaSeatBooking
+description: 
 baseurl: "" # Leave empty if deploying at the root of the repo (like username.github.io)
 url: ""     # Let GitHub set this automatically
 
