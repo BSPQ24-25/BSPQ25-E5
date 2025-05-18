@@ -1,4 +1,4 @@
-package com.cinema_seat_booking.CinemaSeatBooking.unit;
+package com.cinema_seat_booking.CinemaSeatBooking.unit.Service;
 
 import com.cinema_seat_booking.model.*;
 import com.cinema_seat_booking.repository.*;

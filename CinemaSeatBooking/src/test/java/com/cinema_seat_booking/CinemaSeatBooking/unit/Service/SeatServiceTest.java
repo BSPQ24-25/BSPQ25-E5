@@ -1,4 +1,4 @@
-package com.cinema_seat_booking.CinemaSeatBooking.unit;
+package com.cinema_seat_booking.CinemaSeatBooking.unit.Service;
 
 import com.cinema_seat_booking.model.Seat;
 import com.cinema_seat_booking.repository.SeatRepository;
@@ -51,7 +51,9 @@ class SeatServiceTest {
 
     @Test
     void testCancelSeatReservation_NotReserved() {
-        Seat freeSeat = new Seat(); freeSeat.setId(3L); freeSeat.setReserved(false);
+        Seat freeSeat = new Seat();
+        freeSeat.setId(3L);
+        freeSeat.setReserved(false);
         when(seatRepository.findById(3L)).thenReturn(Optional.of(freeSeat));
         Exception ex = assertThrows(Exception.class, () -> seatService.cancelSeatReservation(3L));
         assertEquals("Seat is not reserved", ex.getMessage());
