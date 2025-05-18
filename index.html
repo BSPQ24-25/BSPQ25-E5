@@ -101,16 +101,34 @@
 
     <div class="report-list">
       <h2>📊 Performance Test Reports</h2>
-      <ul>
-        <li><a href="CinemaSeatBooking/target/reports/payment-service-perf-report.html">💳 Payment Service</a></li>
-        <li><a href="CinemaSeatBooking/target/reports/reservation-service-perf-report.html">📅 Reservation Service</a></li>
-        <li><a href="CinemaSeatBooking/target/reports/room-service-perf-report.html">🚪 Room Service</a></li>
-        <li><a href="CinemaSeatBooking/target/reports/screening-perf-report.html">🎥 Screening Service</a></li>
-        <li><a href="CinemaSeatBooking/target/reports/seat-service-perf-report.html">💺 Seat Service</a></li>
-        <li><a href="CinemaSeatBooking/target/reports/user-service-perf-report.html">👤 User Service</a></li>
+      <ul id="report-links">
+        <!-- JavaScript will inject report links here -->
       </ul>
     </div>
   </div>
 
+  <script>
+    // List your report files here
+    const reports = [
+      { file: "payment-service-perf-report.html", name: "💳 Payment Service" },
+      { file: "reservation-service-perf-report.html", name: "📅 Reservation Service" },
+      { file: "room-service-perf-report.html", name: "🚪 Room Service" },
+      { file: "screening-perf-report.html", name: "🎥 Screening Service" },
+      { file: "seat-service-perf-report.html", name: "💺 Seat Service" },
+      { file: "user-service-perf-report.html", name: "👤 User Service" }
+    ];
+
+    const list = document.getElementById("report-links");
+    reports.forEach(report => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = `CinemaSeatBooking/target/reports/${report.file}`;
+      a.textContent = report.name;
+      li.appendChild(a);
+      list.appendChild(li);
+    });
+  </script>
+
 </body>
 </html>
+  
