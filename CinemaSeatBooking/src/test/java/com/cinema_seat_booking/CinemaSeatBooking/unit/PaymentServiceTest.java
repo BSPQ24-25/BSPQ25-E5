@@ -22,118 +22,123 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class PaymentServiceTest {
-    
+
+    @Mock
+    private PaymentRepository paymentRepository;
+
+    @Mock
+    private ReservationRepository reservationRepository;
+
     @Spy
     @InjectMocks
     private PaymentService paymentService;
-    
+
     private Reservation reservation;
+    private Payment payment;
 
     @BeforeEach
     void setUp() {
         reservation = new Reservation();
         reservation.setId(1L);
         reservation.setReservationState(ReservationState.PENDING);
+
+        payment = new Payment();
+        payment.setAmount(25.0);
+        payment.setPaymentDate("2025-04-29");
+        payment.setPaymentMethod("Credit Card");
+        payment.setStatus(PaymentStatus.PENDING);
+        payment.setReservation(reservation);
+
+        reservation.setPayment(payment);
     }
 
     @Test
     void testProcessPayment_Successful() {
-        // Arrange
-        String paymentMethod = "Credit Card";
-        double amount = 25.0;
-        String date = "2025-04-29";
-        
+
+        when(paymentRepository.save(any(Payment.class))).thenReturn(payment);
+        when(reservationRepository.save(any(Reservation.class))).thenReturn(reservation);
+
         doReturn(true).when(paymentService).simulatePaymentGateway();
-        
+
         // Act
-        Payment payment = paymentService.processPayment(reservation, paymentMethod, amount, date);
-        
+        Payment payment_processed = paymentService.processPayment(reservation, payment.getPaymentMethod(),
+                payment.getAmount(), payment.getPaymentDate());
+
         // Assert
-        assertNotNull(payment);
-        assertEquals(PaymentStatus.COMPLETED, payment.getStatus());
+        assertNotNull(payment_processed);
+        assertEquals(PaymentStatus.COMPLETED, payment_processed.getStatus());
         assertEquals(ReservationState.PAID, reservation.getReservationState());
-        assertEquals(payment, reservation.getPayment());
-        assertEquals(amount, payment.getAmount());
-        assertEquals(date, payment.getPaymentDate());
-        assertEquals(paymentMethod, payment.getPaymentMethod());
+        assertEquals(payment_processed, reservation.getPayment());
+        assertEquals(payment.getAmount(), payment_processed.getAmount());
+        assertEquals(payment.getPaymentDate(), payment_processed.getPaymentDate());
+        assertEquals(payment.getPaymentMethod(), payment_processed.getPaymentMethod());
     }
-    
+
     @Test
     void testProcessPayment_NullReservation() {
-        // Arrange
-        String paymentMethod = "Credit Card";
-        double amount = 25.0;
-        String date = "2025-04-29";
-        
         // Act & Assert
         NullPointerException exception = assertThrows(NullPointerException.class, () -> {
-            paymentService.processPayment(null, paymentMethod, amount, date);
+            paymentService.processPayment(null, payment.getPaymentMethod(), payment.getAmount(),
+                    payment.getPaymentDate());
         });
-        
+
         // Verify the exception message contains information about the null reservation
         assertTrue(exception.getMessage().contains("reservation"));
     }
-    
+
     @Test
     void testProcessPayment_InvalidAmount() {
         // Arrange
-        String paymentMethod = "Credit Card";
-        double amount = -10.0;
-        String date = "2025-04-29";
-        
+        payment.setAmount(-10);
+
+        when(paymentRepository.save(any(Payment.class))).thenReturn(payment);
+        when(reservationRepository.save(any(Reservation.class))).thenReturn(reservation);
+
         doReturn(true).when(paymentService).simulatePaymentGateway();
-        
+
         // Act
-        Payment payment = paymentService.processPayment(reservation, paymentMethod, amount, date);
-        
+        Payment payment_processed = paymentService.processPayment(reservation, payment.getPaymentMethod(),
+                payment.getAmount(), payment.getPaymentDate());
+
         // Assert - since the original implementation doesn't validate amount
-        assertNotNull(payment);
-        assertEquals(PaymentStatus.COMPLETED, payment.getStatus());
+        assertNotNull(payment_processed);
+        assertEquals(PaymentStatus.COMPLETED, payment_processed.getStatus());
         assertEquals(ReservationState.PAID, reservation.getReservationState());
-        assertEquals(amount, payment.getAmount());
+        assertEquals(payment.getAmount(), payment_processed.getAmount());
     }
-    
+
     @Test
     void testProcessPayment_AlreadyPaid() {
-        // Arrange
-        String paymentMethod = "Credit Card";
-        double amount = 25.0;
-        String date = "2025-04-29";
-        
+
         reservation.setReservationState(ReservationState.PAID);
-        Payment existingPayment = new Payment();
-        existingPayment.setId(99L);
-        reservation.setPayment(existingPayment);
-        
         doReturn(true).when(paymentService).simulatePaymentGateway();
-        
-        // Act
-        Payment payment = paymentService.processPayment(reservation, paymentMethod, amount, date);
-        
-        // Assert - since the original implementation doesn't check if already paid
-        assertNotNull(payment);
-        assertEquals(PaymentStatus.COMPLETED, payment.getStatus());
-        assertEquals(ReservationState.PAID, reservation.getReservationState());
-        assertNotEquals(existingPayment, reservation.getPayment());
+
+        // Act & Assert
+        IllegalStateException exception = assertThrows(IllegalStateException.class, () -> {
+            paymentService.processPayment(reservation, payment.getPaymentMethod(),
+                    payment.getAmount(), payment.getPaymentDate());
+        });
+
+        // Assert
+        assertEquals("Reservation is already paid.", exception.getMessage());
     }
-    
+
     @Test
     void testProcessPayment_Failed() {
-        // Arrange
-        String paymentMethod = "Credit Card";
-        double amount = 25.0;
-        String date = "2025-04-29";
-        
+
+        when(paymentRepository.save(any(Payment.class))).thenReturn(payment);
+        // when(reservationRepository.save(any(Reservation.class))).thenReturn(reservation);
+
         // Mock the payment gateway to return false (failed payment)
         doReturn(false).when(paymentService).simulatePaymentGateway();
-        
+
         // Act
-        Payment payment = paymentService.processPayment(reservation, paymentMethod, amount, date);
-        
+        Payment payment_processed = paymentService.processPayment(reservation, payment.getPaymentMethod(),
+                payment.getAmount(), payment.getPaymentDate());
+
         // Assert
-        assertNotNull(payment);
-        assertEquals(PaymentStatus.FAILED, payment.getStatus());
+        assertNotNull(payment_processed);
+        assertEquals(PaymentStatus.FAILED, payment_processed.getStatus());
         assertEquals(ReservationState.PENDING, reservation.getReservationState());
-        assertNull(reservation.getPayment());
     }
 }

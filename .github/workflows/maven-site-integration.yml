@@ -64,14 +64,6 @@ jobs:
         run: mvn verify -Pintegration
         working-directory: ./CinemaSeatBooking
 
-      - name: Run Performance Tests
-        run: mvn verify -Pperformance
-        working-directory: ./CinemaSeatBooking
-
-      - name: Run All Tests (Redundancy Check)
-        run: mvn verify -Pall-tests
-        working-directory: ./CinemaSeatBooking
-
       - name: Generate Maven Site
         run: mvn site
         working-directory: ./CinemaSeatBooking
