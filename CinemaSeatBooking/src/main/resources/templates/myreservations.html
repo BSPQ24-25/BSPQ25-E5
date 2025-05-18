@@ -77,13 +77,25 @@
 
                         <div style="display: flex; justify-content: space-between; margin-top: 10px;">
                           <!-- Cancel Button -->
-                          <button class="cancel-button" style="background-color: #e74c3c;" th:data-id="${reservation.id}">
+                          <button class="cancel-button" th:data-id="${reservation.id}">
                             Cancel
                           </button>
-                          <!-- Pay Button
-                          <button class="pay-button" style="background-color: #27ae60;" th:data-id="${reservation.id}">
+                          <!-- Pay Button -->
+                          <button 
+                            class="pay-button" 
+                            style="background-color: grey; cursor: not-allowed;" 
+                            disabled
+                            th:if="${reservation.reservationState.toString() == 'PAID'}">
+                            Paid
+                          </button>
+
+                          <!-- Si la reserva NO está pagada -->
+                          <button 
+                            class="pay-button" 
+                            th:data-id="${reservation.id}"
+                            th:if="${reservation.reservationState.toString() != 'PAID'}">
                             Pay
-                          </button> -->
+                          </button>
                         </div>
 
                       </div>

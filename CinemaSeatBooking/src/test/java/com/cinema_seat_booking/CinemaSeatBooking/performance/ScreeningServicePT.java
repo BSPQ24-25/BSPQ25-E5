@@ -53,7 +53,7 @@ public class ScreeningServicePT {
     // Configure HTML performance report
     @JUnitPerfTestActiveConfig
     private static final JUnitPerfReportingConfig PERF_CONFIG = JUnitPerfReportingConfig.builder()
-            .reportGenerator(new HtmlReportGenerator(System.getProperty("user.dir") + "/target/reports/screening-perf-report.html"))
+            .reportGenerator(new HtmlReportGenerator(System.getProperty("user.dir") + "/target/site/performance-reports/screening-perf-report.html"))
             .build();
 
     @BeforeAll

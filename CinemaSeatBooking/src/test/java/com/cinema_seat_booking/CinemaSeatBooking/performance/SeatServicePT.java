@@ -37,7 +37,7 @@ public class SeatServicePT {
     // Configuration for JUnitPerf reports
     @JUnitPerfTestActiveConfig
     private static final JUnitPerfReportingConfig PERF_CONFIG = JUnitPerfReportingConfig.builder()
-            .reportGenerator(new HtmlReportGenerator(System.getProperty("user.dir") + "/target/reports/seat-service-perf-report.html"))
+            .reportGenerator(new HtmlReportGenerator(System.getProperty("user.dir") + "/target/site/performance-reports/seat-service-perf-report.html"))
             .build();
 
     /**

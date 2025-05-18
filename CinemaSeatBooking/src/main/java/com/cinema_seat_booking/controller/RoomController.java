@@ -1,19 +1,14 @@
+/**
+ * @package com.cinema_seat_booking.controller
+ * @brief REST controller for managing cinema rooms and their seats.
+ *
+ * Provides endpoints to create, read, update, and delete rooms,
+ * along with retrieving rooms and their associated seats.
+ */
 package com.cinema_seat_booking.controller;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.cinema_seat_booking.dto.CreateRoomDTO;
 import com.cinema_seat_booking.dto.RoomDTO;
@@ -21,18 +16,33 @@ import com.cinema_seat_booking.model.Room;
 import com.cinema_seat_booking.service.RoomService;
 
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+/**
+ * @class RoomController
+ * @brief Exposes REST endpoints for managing cinema rooms.
+ */
 @RestController
 @RequestMapping("/api/rooms")
 public class RoomController {
 
+    /** Service for room-related business logic. */
     @Autowired
     private RoomService roomService;
 
-    @Operation(summary = "Create a new room", description = "Creates a room with 20 seats")
+    /**
+     * Creates a new room with the specified name and seat count.
+     *
+     * @param createRoomDTO The DTO containing room name and seat count
+     * @return Created {@link Room} wrapped in HTTP 201, or 400 on error
+     */
+    @Operation(summary = "Create a new room", description = "Creates a room with specified seat count")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Room created successfully"),
             @ApiResponse(responseCode = "400", description = "Invalid input data")
@@ -40,16 +50,20 @@ public class RoomController {
     @PostMapping
     public ResponseEntity<Room> createRoom(@RequestBody CreateRoomDTO createRoomDTO) {
         try {
-            System.out.println("Received request to create room: " + createRoomDTO);
-            String roomName = createRoomDTO.getName();
-            System.out.println("Creating room with name: " + roomName);
-            Room createdRoom = roomService.createRoomWithSeats(createRoomDTO.getName(), createRoomDTO.getSeatCount());
+            Room createdRoom = roomService.createRoomWithSeats(
+                    createRoomDTO.getName(), createRoomDTO.getSeatCount());
             return new ResponseEntity<>(createdRoom, HttpStatus.CREATED);
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
     }
 
+    /**
+     * Retrieves a room and its seats by its ID.
+     *
+     * @param id The ID of the room
+     * @return {@link RoomDTO} if found, or 404 if not
+     */
     @Operation(summary = "Get a room by ID", description = "Returns a room and its seats by ID")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Room found"),
@@ -66,6 +80,11 @@ public class RoomController {
         }
     }
 
+    /**
+     * Retrieves all rooms with their seat details.
+     *
+     * @return List of {@link RoomDTO}, or HTTP 204 if empty
+     */
     @Operation(summary = "Get all rooms", description = "Returns all available rooms")
     @ApiResponse(responseCode = "200", description = "Rooms retrieved successfully")
     @GetMapping
@@ -77,6 +96,12 @@ public class RoomController {
         return roomDTOs.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(roomDTOs);
     }
 
+    /**
+     * Deletes a room by its ID.
+     *
+     * @param id The ID of the room
+     * @return HTTP 204 if successful, 404 if room not found
+     */
     @Operation(summary = "Delete a room", description = "Deletes a room by ID")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "204", description = "Room deleted"),
@@ -92,6 +117,13 @@ public class RoomController {
         }
     }
 
+    /**
+     * Updates the name of a room.
+     *
+     * @param id The ID of the room to update
+     * @param updatedRoom A {@link Room} object containing the new name
+     * @return Updated {@link Room}, or appropriate error code
+     */
     @Operation(summary = "Update a room", description = "Updates the name of a room")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Room updated successfully"),
