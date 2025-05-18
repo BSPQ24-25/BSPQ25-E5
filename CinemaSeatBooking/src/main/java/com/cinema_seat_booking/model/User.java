@@ -1,10 +1,12 @@
 package com.cinema_seat_booking.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.*;
+
 
 @Entity
 @Table(name = "users")

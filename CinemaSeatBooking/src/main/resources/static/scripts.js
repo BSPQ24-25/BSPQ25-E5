@@ -178,3 +178,72 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    // === CANCEL RESERVATION ===
+    document.querySelectorAll('.cancel-button').forEach(button => {
+        button.addEventListener('click', async () => {
+            const reservationId = button.getAttribute('data-id');
+            if (!reservationId) {
+                console.error("No reservation ID found.");
+                return;
+            }
+
+            const confirmCancel = confirm("Are you sure you want to cancel this reservation?");
+            if (!confirmCancel) return;
+
+            try {
+                const response = await fetch(`/api/reservations/${reservationId}`, {
+                    method: 'DELETE'
+                });
+
+                if (response.ok) {
+                    location.reload();
+                } else {
+                    throw new Error("Failed to cancel reservation.");
+                }
+            } catch (error) {
+                alert(error.message);
+            }
+        });
+    });
+
+    // === PAY RESERVATION ===
+    document.querySelectorAll('.pay-button').forEach(button => {
+        button.addEventListener('click', async () => {
+            const reservationId = button.getAttribute('data-id');
+            const amount = button.getAttribute('data-amount') || "8.5"; // default/fallback
+
+            if (!reservationId) {
+                console.error("No reservation ID for payment.");
+                return;
+            }
+
+            try {
+                const response = await fetch("/payments/process", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    body: new URLSearchParams({
+                        reservationId,
+                        paymentMethod: "CREDIT_CARD",
+                        amount,
+                        date: new Date().toISOString().split("T")[0]
+                    })
+                });
+
+                if (response.ok) {
+                    alert("Payment successful!");
+                    location.reload();
+                } else {
+                    throw new Error("Payment failed.");
+                }
+            } catch (error) {
+                alert(error.message);
+            }
+        });
+    });
+
+});

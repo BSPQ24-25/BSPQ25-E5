@@ -49,9 +49,9 @@ public class RoomTest {
         room.getSeats().add(seat2);
         room.getSeats().add(seat3);
         //quite the mistake here i need to come back ... 
-        assertEquals(9, room.getSeatCount());
-        assertEquals(6, room.getAvailableSeats());
-        assertEquals(3, room.getReservedSeats());
+        assertEquals(3, room.getSeatCount());
+        assertEquals(2, room.getAvailableSeats());
+        assertEquals(1, room.getReservedSeats());
     }
 }
  

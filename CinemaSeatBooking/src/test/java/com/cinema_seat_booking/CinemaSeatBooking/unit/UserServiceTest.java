@@ -1,4 +1,4 @@
-package com.cinema_seat_booking.CinemaSeatBooking;
+package com.cinema_seat_booking.CinemaSeatBooking.unit;
 
 import com.cinema_seat_booking.dto.UserDTO;
 import com.cinema_seat_booking.model.Role;

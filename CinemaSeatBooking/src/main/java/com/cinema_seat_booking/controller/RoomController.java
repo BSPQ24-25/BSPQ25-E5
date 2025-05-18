@@ -43,7 +43,7 @@ public class RoomController {
             System.out.println("Received request to create room: " + createRoomDTO);
             String roomName = createRoomDTO.getName();
             System.out.println("Creating room with name: " + roomName);
-            Room createdRoom = roomService.createRoomWithSeats(roomName);
+            Room createdRoom = roomService.createRoomWithSeats(createRoomDTO.getName(), createRoomDTO.getSeatCount());
             return new ResponseEntity<>(createdRoom, HttpStatus.CREATED);
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
