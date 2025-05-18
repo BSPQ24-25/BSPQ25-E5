@@ -211,12 +211,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // === PAY RESERVATION ===
     document.querySelectorAll('.pay-button').forEach(button => {
-        button.addEventListener('click', async () => {
+        button.addEventListener('click', () => {
             const reservationId = button.getAttribute('data-id');
-            const amount = button.getAttribute('data-amount') || "8.5"; // default/fallback
-
             if (!reservationId) {
                 console.error("No reservation ID for payment.");
+                return;
+            }
+
+            // Redirigir a la página de checkout
+            window.location.href = `/payments/${reservationId}`;
+        });
+    });
+
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const paymentForm = document.getElementById("payment-form");
+
+    if (paymentForm) {
+        paymentForm.addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const reservationId = paymentForm.querySelector('input[name="reservationId"]').value;
+            const amount = paymentForm.querySelector('input[name="amount"]').value;
+            const paymentMethod = paymentForm.querySelector('select[name="paymentMethod"]').value;
+            const date = new Date().toISOString(); // Fecha actual en formato ISO
+
+            if (!paymentMethod) {
+                alert("Please select a payment method.");
                 return;
             }
 
@@ -228,22 +251,24 @@ document.addEventListener("DOMContentLoaded", function () {
                     },
                     body: new URLSearchParams({
                         reservationId,
-                        paymentMethod: "CREDIT_CARD",
                         amount,
-                        date: new Date().toISOString().split("T")[0]
+                        paymentMethod,
+                        date
                     })
                 });
 
+                console.log("Response status:", response.status); // Log the response status for debugging
+
                 if (response.ok) {
-                    alert("Payment successful!");
-                    location.reload();
+                    alert("Payment processed successfully!");
+                    window.location.href = "/myreservations";
                 } else {
-                    throw new Error("Payment failed.");
+                    const errorText = await response.text();
+                    throw new Error(errorText || "Payment failed.");
                 }
             } catch (error) {
-                alert(error.message);
+                alert("Error: " + error.message);
             }
         });
-    });
-
+    }
 });

@@ -1,5 +1,6 @@
 package com.cinema_seat_booking.controller;
 
+import com.cinema_seat_booking.model.Reservation;
 import com.cinema_seat_booking.model.Role;
 import com.cinema_seat_booking.model.User;
 import com.cinema_seat_booking.repository.MovieRepository;
@@ -13,12 +14,14 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.server.ResponseStatusException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -152,6 +155,23 @@ public class FrontendController {
         }
         model.addAttribute("reservations", reservationService.getAllReservationsOfUser(user.getUsername()));
         return "myreservations"; // myreservations.html
+    }
+
+    @GetMapping("/payments/{reservationId}")
+    public String showCheckoutPage(@PathVariable Long reservationId, HttpSession session, Model model) {
+        User user = (User) session.getAttribute("user");
+        if (user == null) {
+            return "redirect:/";
+        }
+
+        Reservation reservation = reservationService.getReservationById(reservationId);
+        if (reservation == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Reservation not found");
+        }
+
+        model.addAttribute("reservation", reservation);
+        model.addAttribute("user", user);
+        return "pay-reservation"; // pay-reservation.html
     }
 
     @GetMapping("/about")

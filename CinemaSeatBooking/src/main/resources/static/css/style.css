@@ -656,7 +656,7 @@ a {
 }
 
 .pay-button {
-	background-color: green;
+	background-color: #27ae60;
 	padding: 10px;
 	padding-left: 20px;
 	padding-right: 20px;
@@ -688,4 +688,18 @@ a {
 
 .seat.selected {
 	background-color: lightskyblue;
+}
+
+
+.pay-reservation {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	padding: 10px;
+}
+
+.pay-reservation .field {
+	display: flex;
+	flex-direction: row;
+	gap: 15px;
 }
