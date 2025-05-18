@@ -1,0 +1,7 @@
+<map id="com.cinema_seat_booking.model.Reservation.setScreening" name="com.cinema_seat_booking.model.Reservation.setScreening">
+<area shape="rect" id="Node000001" title=" " alt="" coords="301,39,520,81"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_screening.html#aabcca5f0c279edf6ff064a1de5485593" title=" " alt="" coords="19,5,239,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="285,48,239,42,240,37,285,43"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service.html#af754976d7866bca195e31144f0f9b5b7" title=" " alt="" coords="5,72,253,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="285,77,253,81,253,76,285,72"/>
+</map>

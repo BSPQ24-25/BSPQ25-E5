@@ -1,0 +1,173 @@
+\doxysection{com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Screening\+Controller Class Reference}
+\hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller}{}\label{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller}\index{com.cinema\_seat\_booking.controller.ScreeningController@{com.cinema\_seat\_booking.controller.ScreeningController}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Response\+Entity$<$ List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o}{Screening\+DTO}} $>$ $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_aa8e5809d4a106f35961b59bd5774c9f7}{get\+All\+Screenings}} ()
+\item 
+Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o}{Screening\+DTO}} $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_ab9d5f7b695db1ff4a8ce42f1ef8b0411}{get\+Screening\+By\+Id}} (@Path\+Variable Long id)
+\item 
+Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o}{Screening\+DTO}} $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_ab82c8fa666e4ec45123a0415917c5061}{schedule\+Screening}} (@Request\+Body \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} screening)
+\item 
+Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o}{Screening\+DTO}} $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_ac0f117a8c1aea894048038f964bd87e8}{update\+Screening}} (@Path\+Variable Long id, @Request\+Body \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} screening\+Details)
+\item 
+Response\+Entity$<$ Void $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_a90619de243db7506ef7a7bde6cb1e7c7}{delete\+Screening}} (@Path\+Variable Long id)
+\item 
+Response\+Entity$<$ List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o}{Screening\+DTO}} $>$ $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_a2cee15111f83770d8eb67b8a5099ac69}{get\+Screenings\+By\+Movie}} (@Path\+Variable Long movie\+Id)
+\item 
+Response\+Entity$<$ List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o}{Screening\+DTO}} $>$ $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_a49eee3b46ff617f8fbcda01c64f30800}{get\+Screenings\+By\+Date}} (@Path\+Variable String date)
+\item 
+Response\+Entity$<$ List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o}{Screening\+DTO}} $>$ $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_a1ec0cb416d229259eb038e4a8fde2729}{get\+Screenings\+By\+Location}} (@Path\+Variable String location)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_a90619de243db7506ef7a7bde6cb1e7c7}\index{com.cinema\_seat\_booking.controller.ScreeningController@{com.cinema\_seat\_booking.controller.ScreeningController}!deleteScreening@{deleteScreening}}
+\index{deleteScreening@{deleteScreening}!com.cinema\_seat\_booking.controller.ScreeningController@{com.cinema\_seat\_booking.controller.ScreeningController}}
+\doxysubsubsection{\texorpdfstring{deleteScreening()}{deleteScreening()}}
+{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_a90619de243db7506ef7a7bde6cb1e7c7} 
+Response\+Entity$<$ Void $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Screening\+Controller.\+delete\+Screening (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{id}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_a90619de243db7506ef7a7bde6cb1e7c7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_a90619de243db7506ef7a7bde6cb1e7c7_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_aa8e5809d4a106f35961b59bd5774c9f7}\index{com.cinema\_seat\_booking.controller.ScreeningController@{com.cinema\_seat\_booking.controller.ScreeningController}!getAllScreenings@{getAllScreenings}}
+\index{getAllScreenings@{getAllScreenings}!com.cinema\_seat\_booking.controller.ScreeningController@{com.cinema\_seat\_booking.controller.ScreeningController}}
+\doxysubsubsection{\texorpdfstring{getAllScreenings()}{getAllScreenings()}}
+{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_aa8e5809d4a106f35961b59bd5774c9f7} 
+Response\+Entity$<$ List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o}{Screening\+DTO}} $>$ $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Screening\+Controller.\+get\+All\+Screenings (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_ab9d5f7b695db1ff4a8ce42f1ef8b0411}\index{com.cinema\_seat\_booking.controller.ScreeningController@{com.cinema\_seat\_booking.controller.ScreeningController}!getScreeningById@{getScreeningById}}
+\index{getScreeningById@{getScreeningById}!com.cinema\_seat\_booking.controller.ScreeningController@{com.cinema\_seat\_booking.controller.ScreeningController}}
+\doxysubsubsection{\texorpdfstring{getScreeningById()}{getScreeningById()}}
+{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_ab9d5f7b695db1ff4a8ce42f1ef8b0411} 
+Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o}{Screening\+DTO}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Screening\+Controller.\+get\+Screening\+By\+Id (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{id}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_ab9d5f7b695db1ff4a8ce42f1ef8b0411_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_ab9d5f7b695db1ff4a8ce42f1ef8b0411_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_a49eee3b46ff617f8fbcda01c64f30800}\index{com.cinema\_seat\_booking.controller.ScreeningController@{com.cinema\_seat\_booking.controller.ScreeningController}!getScreeningsByDate@{getScreeningsByDate}}
+\index{getScreeningsByDate@{getScreeningsByDate}!com.cinema\_seat\_booking.controller.ScreeningController@{com.cinema\_seat\_booking.controller.ScreeningController}}
+\doxysubsubsection{\texorpdfstring{getScreeningsByDate()}{getScreeningsByDate()}}
+{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_a49eee3b46ff617f8fbcda01c64f30800} 
+Response\+Entity$<$ List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o}{Screening\+DTO}} $>$ $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Screening\+Controller.\+get\+Screenings\+By\+Date (\begin{DoxyParamCaption}\item[{@Path\+Variable String}]{date}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_a49eee3b46ff617f8fbcda01c64f30800_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_a49eee3b46ff617f8fbcda01c64f30800_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_a1ec0cb416d229259eb038e4a8fde2729}\index{com.cinema\_seat\_booking.controller.ScreeningController@{com.cinema\_seat\_booking.controller.ScreeningController}!getScreeningsByLocation@{getScreeningsByLocation}}
+\index{getScreeningsByLocation@{getScreeningsByLocation}!com.cinema\_seat\_booking.controller.ScreeningController@{com.cinema\_seat\_booking.controller.ScreeningController}}
+\doxysubsubsection{\texorpdfstring{getScreeningsByLocation()}{getScreeningsByLocation()}}
+{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_a1ec0cb416d229259eb038e4a8fde2729} 
+Response\+Entity$<$ List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o}{Screening\+DTO}} $>$ $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Screening\+Controller.\+get\+Screenings\+By\+Location (\begin{DoxyParamCaption}\item[{@Path\+Variable String}]{location}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_a1ec0cb416d229259eb038e4a8fde2729_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_a1ec0cb416d229259eb038e4a8fde2729_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_a2cee15111f83770d8eb67b8a5099ac69}\index{com.cinema\_seat\_booking.controller.ScreeningController@{com.cinema\_seat\_booking.controller.ScreeningController}!getScreeningsByMovie@{getScreeningsByMovie}}
+\index{getScreeningsByMovie@{getScreeningsByMovie}!com.cinema\_seat\_booking.controller.ScreeningController@{com.cinema\_seat\_booking.controller.ScreeningController}}
+\doxysubsubsection{\texorpdfstring{getScreeningsByMovie()}{getScreeningsByMovie()}}
+{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_a2cee15111f83770d8eb67b8a5099ac69} 
+Response\+Entity$<$ List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o}{Screening\+DTO}} $>$ $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Screening\+Controller.\+get\+Screenings\+By\+Movie (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{movie\+Id}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_a2cee15111f83770d8eb67b8a5099ac69_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_a2cee15111f83770d8eb67b8a5099ac69_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_ab82c8fa666e4ec45123a0415917c5061}\index{com.cinema\_seat\_booking.controller.ScreeningController@{com.cinema\_seat\_booking.controller.ScreeningController}!scheduleScreening@{scheduleScreening}}
+\index{scheduleScreening@{scheduleScreening}!com.cinema\_seat\_booking.controller.ScreeningController@{com.cinema\_seat\_booking.controller.ScreeningController}}
+\doxysubsubsection{\texorpdfstring{scheduleScreening()}{scheduleScreening()}}
+{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_ab82c8fa666e4ec45123a0415917c5061} 
+Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o}{Screening\+DTO}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Screening\+Controller.\+schedule\+Screening (\begin{DoxyParamCaption}\item[{@Request\+Body \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}}}]{screening}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_ac0f117a8c1aea894048038f964bd87e8}\index{com.cinema\_seat\_booking.controller.ScreeningController@{com.cinema\_seat\_booking.controller.ScreeningController}!updateScreening@{updateScreening}}
+\index{updateScreening@{updateScreening}!com.cinema\_seat\_booking.controller.ScreeningController@{com.cinema\_seat\_booking.controller.ScreeningController}}
+\doxysubsubsection{\texorpdfstring{updateScreening()}{updateScreening()}}
+{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_ac0f117a8c1aea894048038f964bd87e8} 
+Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o}{Screening\+DTO}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Screening\+Controller.\+update\+Screening (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{id}{, }\item[{@Request\+Body \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}}}]{screening\+Details}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_ac0f117a8c1aea894048038f964bd87e8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_ac0f117a8c1aea894048038f964bd87e8_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/cinema\+\_\+seat\+\_\+booking/controller/\mbox{\hyperlink{_screening_controller_8java}{Screening\+Controller.\+java}}\end{DoxyCompactItemize}

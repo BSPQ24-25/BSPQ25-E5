@@ -1,0 +1,101 @@
+\doxysection{com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Seat\+Service Class Reference}
+\hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service}{}\label{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service}\index{com.cinema\_seat\_booking.service.SeatService@{com.cinema\_seat\_booking.service.SeatService}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_ad60eedfd4ff42c922606e1d9e366beaf}{get\+All\+Seats}} ()
+\item 
+Optional$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_ad062830f5b2deab9e17f3e3179f2e951}{get\+Seat\+By\+Id}} (Long id)
+\item 
+\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_a8317ccaa339631968173919549af6e89}{create\+Seat}} (int number, Long room\+Id)
+\item 
+\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_aeca635ef71f4b117839705c214d818b6}{update\+Seat}} (Long id, int new\+Number, Long new\+Room\+Id)
+\item 
+boolean \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_a4003c208e6183dc409ec7b921ce5644b}{delete\+Seat}} (Long id)
+\item 
+List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_ae1f65f3a0fc12179b6c6fe148ce54f67}{get\+Available\+Seats}} (Long room\+Id)
+\item 
+void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_ae476bee630bb92a1938b006e099485ce}{reserve\+Seat}} (Long seat\+Id)  throws Exception 
+\item 
+void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_adb9313d1183480f24d8e5b18577b72cc}{cancel\+Seat\+Reservation}} (Long seat\+Id)  throws Exception 
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_adb9313d1183480f24d8e5b18577b72cc}\index{com.cinema\_seat\_booking.service.SeatService@{com.cinema\_seat\_booking.service.SeatService}!cancelSeatReservation@{cancelSeatReservation}}
+\index{cancelSeatReservation@{cancelSeatReservation}!com.cinema\_seat\_booking.service.SeatService@{com.cinema\_seat\_booking.service.SeatService}}
+\doxysubsubsection{\texorpdfstring{cancelSeatReservation()}{cancelSeatReservation()}}
+{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_adb9313d1183480f24d8e5b18577b72cc} 
+void com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Seat\+Service.\+cancel\+Seat\+Reservation (\begin{DoxyParamCaption}\item[{Long}]{seat\+Id}{}\end{DoxyParamCaption}) throws Exception}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_adb9313d1183480f24d8e5b18577b72cc_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_a8317ccaa339631968173919549af6e89}\index{com.cinema\_seat\_booking.service.SeatService@{com.cinema\_seat\_booking.service.SeatService}!createSeat@{createSeat}}
+\index{createSeat@{createSeat}!com.cinema\_seat\_booking.service.SeatService@{com.cinema\_seat\_booking.service.SeatService}}
+\doxysubsubsection{\texorpdfstring{createSeat()}{createSeat()}}
+{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_a8317ccaa339631968173919549af6e89} 
+\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Seat\+Service.\+create\+Seat (\begin{DoxyParamCaption}\item[{int}]{number}{, }\item[{Long}]{room\+Id}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_a4003c208e6183dc409ec7b921ce5644b}\index{com.cinema\_seat\_booking.service.SeatService@{com.cinema\_seat\_booking.service.SeatService}!deleteSeat@{deleteSeat}}
+\index{deleteSeat@{deleteSeat}!com.cinema\_seat\_booking.service.SeatService@{com.cinema\_seat\_booking.service.SeatService}}
+\doxysubsubsection{\texorpdfstring{deleteSeat()}{deleteSeat()}}
+{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_a4003c208e6183dc409ec7b921ce5644b} 
+boolean com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Seat\+Service.\+delete\+Seat (\begin{DoxyParamCaption}\item[{Long}]{id}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_ad60eedfd4ff42c922606e1d9e366beaf}\index{com.cinema\_seat\_booking.service.SeatService@{com.cinema\_seat\_booking.service.SeatService}!getAllSeats@{getAllSeats}}
+\index{getAllSeats@{getAllSeats}!com.cinema\_seat\_booking.service.SeatService@{com.cinema\_seat\_booking.service.SeatService}}
+\doxysubsubsection{\texorpdfstring{getAllSeats()}{getAllSeats()}}
+{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_ad60eedfd4ff42c922606e1d9e366beaf} 
+List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Seat\+Service.\+get\+All\+Seats (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_ae1f65f3a0fc12179b6c6fe148ce54f67}\index{com.cinema\_seat\_booking.service.SeatService@{com.cinema\_seat\_booking.service.SeatService}!getAvailableSeats@{getAvailableSeats}}
+\index{getAvailableSeats@{getAvailableSeats}!com.cinema\_seat\_booking.service.SeatService@{com.cinema\_seat\_booking.service.SeatService}}
+\doxysubsubsection{\texorpdfstring{getAvailableSeats()}{getAvailableSeats()}}
+{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_ae1f65f3a0fc12179b6c6fe148ce54f67} 
+List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Seat\+Service.\+get\+Available\+Seats (\begin{DoxyParamCaption}\item[{Long}]{room\+Id}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_ad062830f5b2deab9e17f3e3179f2e951}\index{com.cinema\_seat\_booking.service.SeatService@{com.cinema\_seat\_booking.service.SeatService}!getSeatById@{getSeatById}}
+\index{getSeatById@{getSeatById}!com.cinema\_seat\_booking.service.SeatService@{com.cinema\_seat\_booking.service.SeatService}}
+\doxysubsubsection{\texorpdfstring{getSeatById()}{getSeatById()}}
+{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_ad062830f5b2deab9e17f3e3179f2e951} 
+Optional$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Seat\+Service.\+get\+Seat\+By\+Id (\begin{DoxyParamCaption}\item[{Long}]{id}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_ae476bee630bb92a1938b006e099485ce}\index{com.cinema\_seat\_booking.service.SeatService@{com.cinema\_seat\_booking.service.SeatService}!reserveSeat@{reserveSeat}}
+\index{reserveSeat@{reserveSeat}!com.cinema\_seat\_booking.service.SeatService@{com.cinema\_seat\_booking.service.SeatService}}
+\doxysubsubsection{\texorpdfstring{reserveSeat()}{reserveSeat()}}
+{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_ae476bee630bb92a1938b006e099485ce} 
+void com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Seat\+Service.\+reserve\+Seat (\begin{DoxyParamCaption}\item[{Long}]{seat\+Id}{}\end{DoxyParamCaption}) throws Exception}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_ae476bee630bb92a1938b006e099485ce_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_aeca635ef71f4b117839705c214d818b6}\index{com.cinema\_seat\_booking.service.SeatService@{com.cinema\_seat\_booking.service.SeatService}!updateSeat@{updateSeat}}
+\index{updateSeat@{updateSeat}!com.cinema\_seat\_booking.service.SeatService@{com.cinema\_seat\_booking.service.SeatService}}
+\doxysubsubsection{\texorpdfstring{updateSeat()}{updateSeat()}}
+{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_aeca635ef71f4b117839705c214d818b6} 
+\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Seat\+Service.\+update\+Seat (\begin{DoxyParamCaption}\item[{Long}]{id}{, }\item[{int}]{new\+Number}{, }\item[{Long}]{new\+Room\+Id}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_aeca635ef71f4b117839705c214d818b6_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/cinema\+\_\+seat\+\_\+booking/service/\mbox{\hyperlink{_seat_service_8java}{Seat\+Service.\+java}}\end{DoxyCompactItemize}

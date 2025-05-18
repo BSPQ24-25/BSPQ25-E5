@@ -1,0 +1,13 @@
+<map id="com.cinema_seat_booking.model.Room.getName" name="com.cinema_seat_booking.model.Room.getName">
+<area shape="rect" id="Node000001" title=" " alt="" coords="291,153,510,196"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1controller_1_1_admin_room_controller.html#adf6dca4c10d2be6c2ace52bb67ad4e1f" title=" " alt="" coords="5,29,243,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="353,147,300,116,242,86,211,75,213,70,244,82,303,111,355,142"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1cinema__seat__booking_1_1controller_1_1_seat_controller.html#a2e3a86028858c738d446f5c21ca2a70f" title=" " alt="" coords="5,120,243,163"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="275,162,243,158,243,153,275,157"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1cinema__seat__booking_1_1dto_1_1_room_d_t_o.html#a7c2ab51fb3c7ccf4227666ced328b3df" title=" " alt="" coords="23,187,225,229"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="275,192,226,198,225,193,275,187"/>
+<area shape="rect" id="Node000005" href="$classcom_1_1cinema__seat__booking_1_1dto_1_1_seat_d_t_o.html#a68dfd8f5be43709e1823b9ade5a81f13" title=" " alt="" coords="23,253,225,296"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="339,205,244,244,208,255,206,250,242,239,337,200"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="169,16,153,10,124,8,98,10,81,15,75,21,77,28,72,29,70,19,79,10,97,5,124,3,154,5,171,11"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="169,107,153,101,124,99,98,101,81,105,75,111,77,119,72,120,70,110,79,101,97,95,124,93,154,96,171,102"/>
+</map>

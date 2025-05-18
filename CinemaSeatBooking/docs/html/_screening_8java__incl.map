@@ -1,0 +1,15 @@
+<map id="src/main/java/com/cinema_seat_booking/model/Screening.java" name="src/main/java/com/cinema_seat_booking/model/Screening.java">
+<area shape="rect" id="Node000001" title=" " alt="" coords="369,5,604,48"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,104,128,131"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="371,51,140,99,126,102,125,97,139,93,370,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="152,104,243,131"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="413,51,255,99,247,101,246,96,254,93,412,46"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="266,96,488,139"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="463,50,416,88,413,84,459,46"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="512,96,683,139"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="514,46,561,84,558,88,511,50"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="708,96,879,139"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="559,46,708,89,706,94,558,51"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="903,104,1043,131"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="604,43,742,65,891,93,910,97,908,103,890,99,741,71,604,48"/>
+</map>

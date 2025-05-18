@@ -1,0 +1,93 @@
+\doxysection{com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Reservation\+Service Class Reference}
+\hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service}{}\label{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service}\index{com.cinema\_seat\_booking.service.ReservationService@{com.cinema\_seat\_booking.service.ReservationService}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a8fa0b1b06b7c1bb114054e455a68aba5}{create\+Reservation}} (\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user}{User}} user, \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} screening, \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} seat, String payment\+Method)
+\item 
+List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_ad63d6bcfb4f4e1a16f30e57227d192f4}{get\+All\+Reservations}} ()
+\item 
+List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_ac70b4a8b7c6c601acbe84b7e3bd69978}{get\+All\+Reservations\+Of\+User}} (String username)
+\item 
+void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_af754976d7866bca195e31144f0f9b5b7}{cancel\+Reservation}} (Long reservation\+Id)
+\item 
+\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a82a564dcd0e78e76d47fdb93ecf9f812}{create\+Reservation}} (\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} reservation)
+\item 
+\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_payment}{Payment}} \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a50dde08403e1a0a6644ce4418788ca3f}{make\+Payment}} (Long reservation\+Id, String payment\+Method, double amount, String date)
+\item 
+\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a7e8911247c58f6ae92b1e306d97532fa}{get\+Reservation\+By\+Id}} (Long reservation\+Id)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_af754976d7866bca195e31144f0f9b5b7}\index{com.cinema\_seat\_booking.service.ReservationService@{com.cinema\_seat\_booking.service.ReservationService}!cancelReservation@{cancelReservation}}
+\index{cancelReservation@{cancelReservation}!com.cinema\_seat\_booking.service.ReservationService@{com.cinema\_seat\_booking.service.ReservationService}}
+\doxysubsubsection{\texorpdfstring{cancelReservation()}{cancelReservation()}}
+{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_af754976d7866bca195e31144f0f9b5b7} 
+void com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Reservation\+Service.\+cancel\+Reservation (\begin{DoxyParamCaption}\item[{Long}]{reservation\+Id}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_af754976d7866bca195e31144f0f9b5b7_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a82a564dcd0e78e76d47fdb93ecf9f812}\index{com.cinema\_seat\_booking.service.ReservationService@{com.cinema\_seat\_booking.service.ReservationService}!createReservation@{createReservation}}
+\index{createReservation@{createReservation}!com.cinema\_seat\_booking.service.ReservationService@{com.cinema\_seat\_booking.service.ReservationService}}
+\doxysubsubsection{\texorpdfstring{createReservation()}{createReservation()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a82a564dcd0e78e76d47fdb93ecf9f812} 
+\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Reservation\+Service.\+create\+Reservation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}}}]{reservation}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a8fa0b1b06b7c1bb114054e455a68aba5}\index{com.cinema\_seat\_booking.service.ReservationService@{com.cinema\_seat\_booking.service.ReservationService}!createReservation@{createReservation}}
+\index{createReservation@{createReservation}!com.cinema\_seat\_booking.service.ReservationService@{com.cinema\_seat\_booking.service.ReservationService}}
+\doxysubsubsection{\texorpdfstring{createReservation()}{createReservation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a8fa0b1b06b7c1bb114054e455a68aba5} 
+\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Reservation\+Service.\+create\+Reservation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user}{User}}}]{user}{, }\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}}}]{screening}{, }\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}}}]{seat}{, }\item[{String}]{payment\+Method}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a8fa0b1b06b7c1bb114054e455a68aba5_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_ad63d6bcfb4f4e1a16f30e57227d192f4}\index{com.cinema\_seat\_booking.service.ReservationService@{com.cinema\_seat\_booking.service.ReservationService}!getAllReservations@{getAllReservations}}
+\index{getAllReservations@{getAllReservations}!com.cinema\_seat\_booking.service.ReservationService@{com.cinema\_seat\_booking.service.ReservationService}}
+\doxysubsubsection{\texorpdfstring{getAllReservations()}{getAllReservations()}}
+{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_ad63d6bcfb4f4e1a16f30e57227d192f4} 
+List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Reservation\+Service.\+get\+All\+Reservations (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_ac70b4a8b7c6c601acbe84b7e3bd69978}\index{com.cinema\_seat\_booking.service.ReservationService@{com.cinema\_seat\_booking.service.ReservationService}!getAllReservationsOfUser@{getAllReservationsOfUser}}
+\index{getAllReservationsOfUser@{getAllReservationsOfUser}!com.cinema\_seat\_booking.service.ReservationService@{com.cinema\_seat\_booking.service.ReservationService}}
+\doxysubsubsection{\texorpdfstring{getAllReservationsOfUser()}{getAllReservationsOfUser()}}
+{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_ac70b4a8b7c6c601acbe84b7e3bd69978} 
+List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Reservation\+Service.\+get\+All\+Reservations\+Of\+User (\begin{DoxyParamCaption}\item[{String}]{username}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a7e8911247c58f6ae92b1e306d97532fa}\index{com.cinema\_seat\_booking.service.ReservationService@{com.cinema\_seat\_booking.service.ReservationService}!getReservationById@{getReservationById}}
+\index{getReservationById@{getReservationById}!com.cinema\_seat\_booking.service.ReservationService@{com.cinema\_seat\_booking.service.ReservationService}}
+\doxysubsubsection{\texorpdfstring{getReservationById()}{getReservationById()}}
+{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a7e8911247c58f6ae92b1e306d97532fa} 
+\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Reservation\+Service.\+get\+Reservation\+By\+Id (\begin{DoxyParamCaption}\item[{Long}]{reservation\+Id}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a50dde08403e1a0a6644ce4418788ca3f}\index{com.cinema\_seat\_booking.service.ReservationService@{com.cinema\_seat\_booking.service.ReservationService}!makePayment@{makePayment}}
+\index{makePayment@{makePayment}!com.cinema\_seat\_booking.service.ReservationService@{com.cinema\_seat\_booking.service.ReservationService}}
+\doxysubsubsection{\texorpdfstring{makePayment()}{makePayment()}}
+{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a50dde08403e1a0a6644ce4418788ca3f} 
+\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_payment}{Payment}} com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Reservation\+Service.\+make\+Payment (\begin{DoxyParamCaption}\item[{Long}]{reservation\+Id}{, }\item[{String}]{payment\+Method}{, }\item[{double}]{amount}{, }\item[{String}]{date}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a50dde08403e1a0a6644ce4418788ca3f_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/cinema\+\_\+seat\+\_\+booking/service/\mbox{\hyperlink{_reservation_service_8java}{Reservation\+Service.\+java}}\end{DoxyCompactItemize}

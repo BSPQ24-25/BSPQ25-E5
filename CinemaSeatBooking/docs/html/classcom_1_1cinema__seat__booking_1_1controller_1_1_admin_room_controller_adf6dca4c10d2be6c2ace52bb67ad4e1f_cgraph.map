@@ -1,0 +1,13 @@
+<map id="com.cinema_seat_booking.controller.AdminRoomController.editForm" name="com.cinema_seat_booking.controller.AdminRoomController.editForm">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,129,243,172"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="72,129,70,119,79,110,97,105,124,103,154,105,171,111,169,116,153,110,124,108,98,110,81,115,75,121,77,128"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_room.html#ae7a89ea77c228ec78629a768fa377d4a" title=" " alt="" coords="291,5,510,48"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="159,126,219,92,290,58,305,51,307,56,292,62,222,97,162,131"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_room.html#a305d0367b894461c62a70955f462553f" title=" " alt="" coords="291,96,510,139"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="243,134,275,130,275,135,243,139"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1cinema__seat__booking_1_1dto_1_1_create_room_d_t_o.html#aa54ee1e9a1fd333f035576df44ce9ccf" title=" " alt="" coords="299,163,502,205"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="243,162,284,167,283,173,243,168"/>
+<area shape="rect" id="Node000005" href="$classcom_1_1cinema__seat__booking_1_1dto_1_1_create_room_d_t_o.html#a02c23997584371f8a3734df0bcfd7d1f" title=" " alt="" coords="297,229,504,272"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="177,170,292,215,311,221,309,227,290,220,175,175"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="348,96,346,86,355,77,373,71,400,69,430,72,448,78,446,83,429,77,400,75,374,77,358,81,351,87,354,95"/>
+</map>
