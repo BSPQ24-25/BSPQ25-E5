@@ -1,10 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <title>Administratoriaus puslapis</title>
+    <meta charset="UTF-8">
+    <title>Administratoriaus sritis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: auto;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header span {
+            font-weight: bold;
+            color: #555;
+        }
+        h1 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        a {
+            text-decoration: none;
+            color: #1a73e8;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .logout-button {
+            background-color: #d9534f;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Sveiki atvykę į administratoriaus puslapį</h1>
-    <p>Valdyti repertuarą, naudotojus, ir daugiau iš čia.</p>
+    <div class="container">
+        <div class="header">
+            <span th:text="'Prisijungęs kaip: ' + ${session.user.username}">Prisijungęs kaip: adminas</span>
+            <div>
+    <button id="logoutBtn">Atsijungti</button>
+    </div>
+       
+<script>
+document.getElementById('logoutBtn').onclick = async function() {
+    const response = await fetch('/login/logout', { method: 'POST' });
+    if (response.ok) {
+        window.location.href = '/'; 
+    }
+};
+</script>
+        </div>
+
+        <h1>Administratoriaus sritis</h1>
+        <p>Valdykite sistemą su įrankiais, pateiktais žemiau:</p>
+        <ul>
+            <li><a th:href="@{/admin/movies}">Administratoriaus filmai</a></li>
+            <li><a th:href="@{/admin/rooms}">Administratoriaus kambariai</a></li>
+            <li><a th:href="@{/home}">Į pagrindinį</a></li>
+        </ul>
+    </div>
 </body>
 </html>

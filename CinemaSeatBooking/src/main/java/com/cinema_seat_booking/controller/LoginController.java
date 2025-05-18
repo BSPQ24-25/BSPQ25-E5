@@ -53,4 +53,9 @@ public class LoginController {
                 "role", user.getRole().name()
         ));
     }
+    @PostMapping("/logout")
+    public ResponseEntity<?> logout(HttpSession session) {
+        session.invalidate();
+        return ResponseEntity.ok(Map.of("message", "Logged out successfully"));
+    }
 }

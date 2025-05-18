@@ -78,7 +78,7 @@ table tbody tr:nth-child(even) {
 <body>
   <div class="container">
     <h2>Movies admin</h2>
-    <a th:href="@{/admin/movies/new}" class="button">+ Nueva Película</a>
+    <a th:href="@{/admin/movies/new}" class="button">+ New movie</a>
     <table>
       <thead>
         <tr>
@@ -93,7 +93,7 @@ table tbody tr:nth-child(even) {
         <tr th:each="movie : ${movies}">
           <td th:text="${movie.id}">1</td>
           <td th:text="${movie.title}">Name</td>
-          <td th:text="${movie.genre}">Comedy</td>
+          <td th:text="${movie.genre}">Genre</td>
           <td th:text="${movie.duration} + ' min'">120</td>
           <td>
             <a th:href="@{'/admin/movies/' + ${movie.id} + '/edit'}">Edit</a>

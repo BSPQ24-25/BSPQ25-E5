@@ -20,13 +20,28 @@
       <div id="header">
         <div class="row-1">
           <div class="fleft"><a href="#">Cinema Seat <span>Booking</span></a></div>
+          <div>
+    <button id="logoutBtn">Logout</button>
+    </div>
+    <div>
           <ul>
             <li><a href="#"><img src="images/icon1-act.gif" alt="" /></a></li>
             <li><a href="#"><img src="images/icon2.gif" alt="" /></a></li>
             <li><a href="#"><img src="images/icon3.gif" alt="" /></a></li>
             <li><a href="/home-lt"><img src="images/world.png" style="height:13px; width: 13px;" alt="" /></a></li>
             <li><a href="/home"><img src="images/united-kingdom.png" style="height:13px; width: 13px;" alt="" /></a></li>
+       
           </ul>
+          </div>
+               
+<script>
+document.getElementById('logoutBtn').onclick = async function() {
+    const response = await fetch('/login/logout', { method: 'POST' });
+    if (response.ok) {
+        window.location.href = '/'; 
+    }
+};
+</script>
         </div>
         <div class="row-2">
           <ul>
@@ -53,7 +68,7 @@
                 <h3>Welcome to <b>Cinema Seat</b> <span>Booking</span></h3>
                 <p>Do you want to see the latest hero in an iron suit demolish some bad guys or maybe see an old scientist go to the future in a cool car made out of stainless steel? Or how about having some laugh at the newest installment of a movie series from a galaxy far far away?</p>
                 <div class="img-box1"><img src="images/1page-img1.jpg" alt="" />This is a website for managing and reserving the cinema screen bookings just for you. No matter if you are a customer, or if you are a cinema looking for a reliable and good solution for managing your back end, we are your option. </div>
-                <p>Just contact us any time and we will get back to you in the shortest time possible. If you didn't get a message back, just visit us at our offices here, in US of A.</p>
+                <p>Just contact us any time and we will get back to you in the shortest time possible. If you didn't get a message back, just visit us at our offices here, in USA.</p>
               </div>
             </div>
           </div>

@@ -23,6 +23,10 @@
       <div id="header">
         <div class="row-1">
           <div class="fleft"><a href="#">Cinema Seat <span>Booking</span></a></div>
+          <div>
+          <button id="logoutBtn">Logout</button>
+    </div>
+    <div>
           <ul>
             <li><a href="#"><img src="images/icon1.gif" alt="" /></a></li>
             <li><a href="#"><img src="images/icon2.gif" alt="" /></a></li>
@@ -30,6 +34,15 @@
             <li><a href="/articles-lt"><img src="images/world.png" style="height:13px; width: 13px;" alt="" /></a></li>
             <li><a href="/articles"><img src="images/united-kingdom.png" style="height:13px; width: 13px;" alt="" /></a></li>
           </ul>
+        </div>   
+<script>
+document.getElementById('logoutBtn').onclick = async function() {
+    const response = await fetch('/login/logout', { method: 'POST' });
+    if (response.ok) {
+        window.location.href = '/'; 
+    }
+};
+</script>
         </div>
         <div class="row-2">
           <ul>
@@ -57,12 +70,12 @@
           <h3>Recent <span>Articles</span></h3>
           <ul class="list">
             <li><img src="images/3page-img1.jpg" alt="" /><a th:href="@{/article}">Article 1</a><br />
-              Rutrumcumsan faucibulus pellus pellentumsan laculis portor tor magnis facilis ligula vestibulum. Estorci consectetuer lacing tincidunt ligula lacing ac consequat nunc sus laoreet.</li>
-            <li><img src="images/3page-img2.jpg" alt="" /><a th:href="@{/article}">Article 2</a><br />
-              Rutrumcumsan faucibulus pellus pellentumsan laculis portor tor magnis facilis ligula vestibulum. Estorci consectetuer lacing tincidunt ligula lacing ac consequat nunc sus laoreet.</li>
-            <li><img src="images/3page-img3.jpg" alt="" /><a th:href="@{/article}">Article 3</a><br />
-              Rutrumcumsan faucibulus pellus pellentumsan laculis portor tor magnis facilis ligula vestibulum. Estorci consectetuer lacing tincidunt ligula lacing ac consequat nunc sus laoreet.</li>
-          </ul>
+              In the latest film, the biggest movie star portrays one of the most famous race car drivers to have ever lived. Even after retiring from racing, he still doesn't stop risking his life on the ski slopes.
+               <li><img src="images/3page-img2.jpg" alt="" /><a th:href="@{/article}">Article 2</a><br />
+             A classic film in which a pair of friends travel back and forth through time. After an unexpected accident, one of the friends travels back in time to avoid the villains and meets younger versions of the characters.
+             <li><img src="images/3page-img3.jpg" alt="" /><a th:href="@{/article}">Article 3</a><br />
+              After learning about his diagnosis, a former hitman and special agent decides to risk his life to return to the woman he loves. However, when the villains mess everything up, he chooses to take revenge on those who wronged him.
+            </ul>
         </div>
       </div>
       <div id="footer">

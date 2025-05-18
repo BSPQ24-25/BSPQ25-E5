@@ -23,6 +23,10 @@
       <div id="header">
         <div class="row-1">
           <div class="fleft"><a href="#">Kino vietų <span>Rezervacija</span></a></div>
+          <div>
+    <button id="logoutBtn">Atsijungti</button>
+    </div>
+    <div>
           <ul>
             <li><a href="#"><img src="images/icon1.gif" alt="" /></a></li>
             <li><a href="#"><img src="images/icon2.gif" alt="" /></a></li>
@@ -30,6 +34,17 @@
             <li><a href="/article-lt"><img src="images/world.png" style="height:13px; width: 13px;" alt="" /></a></li>
             <li><a href="/article"><img src="images/united-kingdom.png" style="height:13px; width: 13px;" alt="" /></a></li>
           </ul>
+          
+        </div>
+           
+<script>
+document.getElementById('logoutBtn').onclick = async function() {
+    const response = await fetch('/login/logout', { method: 'POST' });
+    if (response.ok) {
+        window.location.href = '/'; 
+    }
+};
+</script>
         </div>
         <div class="row-2">
           <ul>
@@ -48,10 +63,8 @@
             <div class="border-left">
               <div class="inner">
                 <h3>Straipsnio <span>Pavadinimas</span></h3>
-                <div class="img-box1 alt"><img src="images/4page-img.jpg" alt="" />Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae abquidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</div>
-                <p class="p1">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur. </p>
-                <p class="p1">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est.</p>
-                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur. </p>
+                <div class="img-box1 alt"><img src="images/4page-img.jpg" alt="" />Vieniša figūra brenda per neonais apšviestus ateities miesto skersgatvius, lietus kaip užklotas sruvena per blizgantį betoną ir surūdijusį metalą. Šiame filme, kuris pats nežino, ar nori būti detektyvas, romanas ar tylus apmąstymas apie atmintį, mes sekame pagrindinį herojų, kurio veidą retai matome aiškiai — apšviestą tik iš dalies, paskendusį dūmuose, nuolat ieškant kažko, kas vis lieka už rankos ribų. Garso takelis dūzgia sintezatoriais ir aidais, suteikdamas svorio pokalbiams, kurie beveik nieko nepasako, bet kažkodėl atrodo svarbūs. Yra siužetinė linija apie pamirštą nuotrauką, keistą paukštį narve ir pasikartojančią svajonę apie vandenyną. Visi kalba mįslėmis, niekas neatsako tiesiai. Kamera užsibūna šiek tiek per ilgai, o laikas lėtėja, kol galvoji — ar kažkas tuoj įvyks, ar jau įvyko, bet tu to nepastebėjai. Ilgos tylos pasako daugiau nei dialogas, o kai pasirodo titrai, tu nežinai, apie ką buvo filmas, bet kažkaip nori jį pažiūrėti dar kartą.
+</div>
               </div>
             </div>
           </div>

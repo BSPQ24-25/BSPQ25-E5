@@ -117,10 +117,10 @@ public class FrontendController {
         }
     }
 
-    @GetMapping("/logout")
+    @PostMapping("/do-logout")
     public String logout(HttpSession session) {
         session.invalidate(); // Cierra la sesión del usuario
-        return "redirect:/"; // Redirige a la página de login o home
+        return "redirect:/login"; // Redirige a la página de login o home
     }
 
     /*
@@ -156,6 +156,16 @@ public class FrontendController {
         model.addAttribute("reservations", reservationService.getAllReservationsOfUser(user.getUsername()));
         return "myreservations"; // myreservations.html
     }
+    
+    @GetMapping("/myreservations-lt")
+    public String showMyReservationsPageLT(HttpSession session, Model model) {
+        User user = (User) session.getAttribute("user");
+        if (user == null) {
+            return "redirect:/";
+        }
+        model.addAttribute("reservations", reservationService.getAllReservationsOfUser(user.getUsername()));
+        return "myreservations-lt"; // myreservations.html
+    }
 
     @GetMapping("/payments/{reservationId}")
     public String showCheckoutPage(@PathVariable Long reservationId, HttpSession session, Model model) {
@@ -172,6 +182,23 @@ public class FrontendController {
         model.addAttribute("reservation", reservation);
         model.addAttribute("user", user);
         return "pay-reservation"; // pay-reservation.html
+    }
+
+    @GetMapping("/payments-lt/{reservationId}")
+    public String showCheckoutPageLT(@PathVariable Long reservationId, HttpSession session, Model model) {
+        User user = (User) session.getAttribute("user");
+        if (user == null) {
+            return "redirect:/";
+        }
+
+        Reservation reservation = reservationService.getReservationById(reservationId);
+        if (reservation == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Reservation not found");
+        }
+
+        model.addAttribute("reservation", reservation);
+        model.addAttribute("user", user);
+        return "pay-reservation-lt"; // pay-reservation.html
     }
 
     @GetMapping("/about")
@@ -230,6 +257,16 @@ public class FrontendController {
         model.addAttribute("room", roomService.getRoomById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Room not found with ID: " + id)));
         return "room"; // room.html
+    }
+    @GetMapping("/rooms-lt/{id}")
+    public String showRoomDetailsLT(@PathVariable Long id, HttpSession session, Model model) {
+        Object user = session.getAttribute("user");
+        if (user == null) {
+            return "redirect:/";
+        }
+        model.addAttribute("room", roomService.getRoomById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Room not found with ID: " + id)));
+        return "room-lt"; // room.html
     }
 
     @GetMapping("/screenings")

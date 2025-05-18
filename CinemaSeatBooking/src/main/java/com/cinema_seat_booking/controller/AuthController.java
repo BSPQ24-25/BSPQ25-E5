@@ -71,4 +71,5 @@ public class AuthController {
             "username", user.getUsername()
         ));
     }
+
 }

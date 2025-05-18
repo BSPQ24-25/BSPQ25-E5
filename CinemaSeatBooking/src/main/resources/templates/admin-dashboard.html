@@ -58,9 +58,19 @@
     <div class="container">
         <div class="header">
             <span th:text="'Logged in as: ' + ${session.user.username}">Logged in as: admin</span>
-            <form th:action="@{/logout}" method="post">
-                <button type="submit" class="logout-button">Logout</button>
-            </form>
+            <div>
+    <button id="logoutBtn">Logout</button>
+    </div>
+       
+<script>
+document.getElementById('logoutBtn').onclick = async function() {
+    const response = await fetch('/login/logout', { method: 'POST' });
+    if (response.ok) {
+        window.location.href = '/'; 
+    }
+};
+</script>
+    <div>
         </div>
 
         <h1>Admin Dashboard</h1>

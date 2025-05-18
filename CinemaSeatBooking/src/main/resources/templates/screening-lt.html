@@ -18,6 +18,10 @@
             <div id="header">
               <div class="row-1">
                 <div class="fleft"><a href="#">Kino teatro vietų <span>rezervacija</span></a></div>
+                <div>
+    <button id="logoutBtn">Atsijungti</button>
+    </div>
+    <div>
                 <ul>
                   <li><a href="#"><img src="images/icon1.gif" alt="" /></a></li>
                   <li><a href="#"><img src="images/icon2.gif" alt="" /></a></li>
@@ -25,6 +29,17 @@
                   <li><a href="/screenings-lt"><img src="images/world.png" style="height:13px; width: 13px;" alt="" /></a></li>
                   <li><a href="/screenings"><img src="images/united-kingdom.png" style="height:13px; width: 13px;" alt="" /></a></li>    
                 </ul>
+                
+        </div>
+           
+<script>
+document.getElementById('logoutBtn').onclick = async function() {
+    const response = await fetch('/login/logout', { method: 'POST' });
+    if (response.ok) {
+        window.location.href = '/'; 
+    }
+};
+</script>
               </div>
               <div class="row-2">
                 <ul>

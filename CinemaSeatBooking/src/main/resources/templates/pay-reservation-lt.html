@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Cinema Seat Booking</title>
+<title>Kino teatro rezervacija</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css"/>
 <script th:src="@{/js/jquery-1.4.2.min.js}" type="text/javascript"></script>
@@ -23,16 +23,16 @@
     <div id="main">
       <div id="header">
         <div class="row-1">
-          <div class="fleft"><a href="#">Cinema Seat <span>Booking</span></a></div>
-          <div>
-          <button id="logoutBtn">Logout</button>
+          <div class="fleft"><a href="#">Kino teatro <span>rezervacija</span></a></div>
+               <div>
+    <button id="logoutBtn">Atsijungti</button>
     </div>
     <div>
           <ul>
             <li><a href="#"><img src="images/icon1.gif" alt="" /></a></li>
-            <li><a href="#"><img src="images/icon2-act.gif" alt="" /></a></li>
+            <li><a href="#"><img src="images/icon2.gif" alt="" /></a></li>
             <li><a href="#"><img src="images/icon3.gif" alt="" /></a></li>
-           <li><a href="/payments-lt/{reservationId}"><img src="images/world.png" style="height:13px; width: 13px;" alt="" /></a></li>
+            <li><a href="/payments-lt/{reservationId}"><img src="images/world.png" style="height:13px; width: 13px;" alt="" /></a></li>
             <li><a href="/payments/{reservationId}"><img src="images/united-kingdom.png" style="height:13px; width: 13px;" alt="" /></a></li>    
           </ul>
           
@@ -48,13 +48,12 @@ document.getElementById('logoutBtn').onclick = async function() {
 </script>
         </div>
         <div class="row-2">
-          <ul>
-            <li><a th:href="@{/home}">Home</a></li>
-            <li><a th:href="@{/screenings}">Screenings</a></li>
-            <li><a th:href="@{/myreservations}" class="active">My Reservations</a></li>
-            <li><a th:href="@{/contact}">Contacts</a></li>
-            <li class="last"><a th:href="@{/rooms}">Rooms</a></li>
-          </ul>
+                 <ul>
+            <li><a th:href="@{/home-lt}">Pradinis</a></li>
+            <li><a th:href="@{/screenings-lt}">Repertuaras</a></li>
+            <li><a th:href="@{/articles-lt}" >Straipsniai</a></li>
+            <li><a th:href="@{/contact-lt}">Kontaktai</a></li>
+            <li class="last"><a th:href="@{/rooms-lt}" class="active">Kambariai</a></li>
         </div>
       </div>
       <div id="content">
@@ -63,19 +62,19 @@ document.getElementById('logoutBtn').onclick = async function() {
           <div class="border-right">
             <div class="border-left">
               <div class="inner">
-                <h3><span>Pay</span> Your Reservation</h3>
+                <h3><span>Susimokėkite</span> už Jūsų rezervaciją</h3>
                 <div class="address">
-                  <p><strong>Movie Title:</strong> <span th:text="${reservation.screening.movie.title}">Movie Title</span></p>
-                  <p><strong>Where?</strong> <span th:text="${reservation.screening.location}">Location</span></p>
-                  <p><strong>When?</strong> <span th:text="${reservation.screening.date}">Date</span></p>
-                  <p><strong>Your Seat</strong> <span th:text="${reservation.screening.room.name}">Room</span><span> Seat </span><span th:text="${reservation.seat.seatNumber}">Seat</span></p>
+                  <p><strong>Filmo pavadinimas:</strong> <span th:text="${reservation.screening.movie.title}">Filmo pavadinimas</span></p>
+                  <p><strong>Kur?</strong> <span th:text="${reservation.screening.location}">Lokacija</span></p>
+                  <p><strong>Kada?</strong> <span th:text="${reservation.screening.date}">Data</span></p>
+                  <p><strong>Jūsų vieta:</strong> <span th:text="${reservation.screening.room.name}">Kambarys</span><span> Vieta </span><span th:text="${reservation.seat.seatNumber}">Vieta</span></p>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div class="content">
-          <h3>Payment <span>Details</span></h3>
+          <h3>Mokėjimo <span>detalės</span></h3>
           <form class="pay-reservation" id="payment-form" th:action="@{/payments/process}" method="post">
               <!-- ID de la reserva -->
               <input type="hidden" name="reservationId" th:value="${reservation.id}" />
@@ -84,22 +83,22 @@ document.getElementById('logoutBtn').onclick = async function() {
               <input type="hidden" name="amount" value="10" />
 
               <div class="field">
-                <label>Payment Method:</label>
+                <label>Mokėjimo metodas:</label>
                 <select name="paymentMethod" required>
-                  <option value="">Select</option>
-                  <option value="CREDIT_CARD">Credit Card</option>
-                  <option value="DEBIT_CARD">Debit Card</option>
+                  <option value="">Pasirinkti</option>
+                  <option value="CREDIT_CARD">Kreditinė kortelė</option>
+                  <option value="DEBIT_CARD">Debito kortelė</option>
                   <option value="PAYPAL">PayPal</option>
                 </select>
               </div>
 
               <div class="field">
-                <label>Card Number:</label>
+                <label>Kortelės numeris:</label>
                 <input type="number" name="cardNumber" required />
               </div>
 
               <div class="field">
-                <label>Expiry Date:</label>
+                <label>Galiojimo Data:</label>
                 <input type="text" name="expiryDate" placeholder="MM/YY" required />
               </div>
 
@@ -110,7 +109,7 @@ document.getElementById('logoutBtn').onclick = async function() {
 
               <div class="wrapper">
                 <button type="submit" class="pay-button">
-                  <span>Pay €10</span>
+                  <span>Mokėti €10</span>
                 </button>
               </div>
           </form>
@@ -120,9 +119,9 @@ document.getElementById('logoutBtn').onclick = async function() {
         <div class="left">
           <div class="right">
             <div class="footerlink">
-              <p class="lf">Copyright &copy; 2025 <a href="#">SiteName</a> - All Rights Reserved</p>
-              <p class="rf">Design by <a href="http://www.templatemonster.com/">TemplateMonster</a></p>
-              <div style="clear:both;"></div>
+                <p class="lf">Autorių teisės &copy; 2025 <a href="#">SiteName</a> - Visos teisės rezervuotos</p>
+                <p class="rf">Sukurta su <a href="http://www.templatemonster.com/">TemplateMonster</a></p>
+                <div style="clear:both;"></div>
             </div>
           </div>
         </div>
