@@ -28,7 +28,7 @@ public class RoomServicePT {
 
     @JUnitPerfTestActiveConfig
     private static final JUnitPerfReportingConfig PERF_CONFIG = JUnitPerfReportingConfig.builder()
-        .reportGenerator(new HtmlReportGenerator(System.getProperty("user.dir") + "/target/reports/room-service-perf-report.html"))
+        .reportGenerator(new HtmlReportGenerator(System.getProperty("user.dir") + "/target/site/performance-reports/room-service-perf-report.html"))
         .build();
 
     @BeforeAll

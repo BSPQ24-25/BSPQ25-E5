@@ -54,7 +54,7 @@ public class UserServicePT {
 
     @JUnitPerfTestActiveConfig
     private static final JUnitPerfReportingConfig PERF_CONFIG = JUnitPerfReportingConfig.builder()
-        .reportGenerator(new HtmlReportGenerator(System.getProperty("user.dir") + "/target/reports/user-service-perf-report.html"))
+        .reportGenerator(new HtmlReportGenerator(System.getProperty("user.dir") + "/target/site/performance-reports/user-service-perf-report.html"))
         .build();
 
     @BeforeEach

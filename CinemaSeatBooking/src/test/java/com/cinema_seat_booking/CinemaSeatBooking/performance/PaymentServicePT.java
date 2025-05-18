@@ -38,7 +38,7 @@ public class PaymentServicePT {
 	@JUnitPerfTestActiveConfig
 	private static final JUnitPerfReportingConfig PERF_CONFIG = JUnitPerfReportingConfig.builder()
 			.reportGenerator(new HtmlReportGenerator(
-					System.getProperty("user.dir") + "/target/reports/payment-service-perf-report.html"))
+					System.getProperty("user.dir") + "/target/site/performance-reports/payment-service-perf-report.html"))
 			.build();
 
 	@BeforeEach
