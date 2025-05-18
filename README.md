@@ -47,7 +47,109 @@ You can access the full source code and documentation at the following GitHub re
 - Java 17
 - Maven 3.8+
 - Docker & Docker Compose
-- MySQL (automatically configured via Docker)
+- MySQL
+
+---
+
+## 🔧 Technologies & Tools
+
+The project makes use of a variety of tools and frameworks configured via `pom.xml` to support development, testing, documentation, and code quality:
+
+### 🧰 Core Frameworks and Libraries
+
+- **Spring Boot**: Rapid application development with embedded Tomcat and dependency injection.
+- **Spring Data JPA**: Simplifies interaction with the database.
+- **Spring Security**: Manages authentication and authorization.
+- **Thymeleaf**: Template engine for future frontend integration.
+- **MySQL**: Used as the relational database.
+- **JWT (JSON Web Tokens)**: Used for secure stateless authentication.
+
+### 📚 API Documentation
+
+- **SpringDoc OpenAPI**: Generates interactive Swagger documentation.
+  - Accessible at: `http://localhost:8080/swagger-ui/swagger-ui/index.html` when the application is running.
+
+### 🧪 Testing Libraries
+
+- **JUnit 5**: Main testing framework.
+- **Mockito**: Used to mock dependencies and isolate unit tests.
+- **JUnitPerf**: Enables performance testing.
+- **Maven Surefire Plugin**: Executes unit tests located in `**/unit/**/*Test.java`.
+- **Maven Failsafe Plugin**: Executes integration and performance tests from `**/integration/**/*IT.java` and `**/performance/**/*PT.java`.
+
+### 🧪 Test Profiles
+
+You can run specific test groups using Maven profiles:
+
+| Profile ID       | Test Type       | Description                         |
+|------------------|------------------|-------------------------------------|
+| `unit`           | Unit Tests       | Located under `**/unit/**/*Test.java` |
+| `integration`    | Integration Tests| Located under `**/integration/**/*IT.java` |
+| `performance`    | Performance Tests| Located under `**/performance/**/*PT.java` |
+| `all-tests`      | All              | Runs all the above tests together   |
+
+Use the following commands to run tests:
+```bash
+mvn test -Punit             # Run unit tests
+mvn verify -Pintegration    # Run integration tests
+mvn verify -Pperformance    # Run performance tests
+mvn verify -Pall-tests      # Run all tests
+```
+
+---
+
+## 🛠️ Installation and Setup
+
+Follow these steps to set up and run the project locally.
+
+### 1. 📥 Clone the Repository
+
+```bash
+git clone https://github.com/BSPQ24-25/BSPQ25-E5
+cd CinemaSeatBooking
+```
+
+### 2. 📦 Install Dependencies
+
+Ensure you have the following installed:
+- Java 17
+- Maven 3.8+
+- Docker & Docker Compose
+- MySQL
+
+### 3. 📂 Create the database
+
+Create a databes with myslq named **cinema_db**
+
+### 4. ⚙️ Compile the Project
+
+Use Maven to build the project:
+```bash
+mvn clean install
+```
+> This will compile the code and download all necessary dependencies.
+
+### 5. 🚀 Run the Application
+
+#### Option A: Run with Maven
+
+You can launch the application using the Spring Boot Maven plugin:
+```bash
+mvn spring-boot:run
+```
+> The application will start at http://localhost:8080
+
+#### Option B: Run with Docker
+
+To run the project in a containerized environment:
+```bash
+docker-compose up -d --build
+```
+To stop the services and remove volumes:
+```bash
+docker-compose down -v
+```
+> This sets up the full environment, including a MySQL database, automatically.
 
 ---
 
