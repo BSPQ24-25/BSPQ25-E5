@@ -1,35 +1,4 @@
-# Site settings
 title: CinemaSeatBooking
-description: 
-baseurl: "" # Leave empty if deploying at the root of the repo (like username.github.io)
-url: ""     # Let GitHub set this automatically
-
-# Build settings
-markdown: kramdown
-theme: minima # You can change this if you're using a custom theme
-
-# Optional: if you have custom directories
-source: .        # Tells Jekyll to use the current folder as the source (avoids the "docs" error)
-destination: ./_site
-
-# Sass/SCSS settings (if using .scss files like in your error)
+source: .
 sass:
   style: compressed
-
-# Exclude these files/folders from build (optional)
-exclude:
-  - README.md
-  - node_modules
-  - Gemfile
-  - Gemfile.lock
-  - package.json
-  - package-lock.json
-
-# Plugins (GitHub allows only certain plugins)
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
-
-# Future settings (optional but clean)
-future: true
-lsi: false
