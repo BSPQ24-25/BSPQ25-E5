@@ -171,3 +171,21 @@ This project uses Maven profiles to differentiate between unit, integration, and
 
 ```bash
 mvn clean verify -Pall-tests
+```
+
+---
+
+## 📚 Documentation and Reports
+
+This project provides both source code documentation and test coverage reports for easier maintenance and quality assurance.
+
+- Github Pages: [link](https://bspq24-25.github.io/BSPQ25-E5/index.html)
+- Technical Documentation: [Doxygen](https://bspq24-25.github.io/BSPQ25-E5/CinemaSeatBooking/docs/index.html)
+- Coverage Report: [Jacoco](https://bspq24-25.github.io/BSPQ25-E5/CinemaSeatBooking/target/site/jacoco/index.html)
+- Performance Test Reports:
+  - [Payment Service](https://bspq24-25.github.io/BSPQ25-E5/CinemaSeatBooking/target/reports/payment-service-perf-report.html)
+  - [Reservation Service](https://bspq24-25.github.io/BSPQ25-E5/CinemaSeatBooking/target/reports/reservation-service-perf-report.html)
+  - [Room Service](https://bspq24-25.github.io/BSPQ25-E5/CinemaSeatBooking/target/reports/room-service-perf-report.html)
+  - [Screening Service](https://bspq24-25.github.io/BSPQ25-E5/CinemaSeatBooking/target/reports/screening-perf-report.html)
+  - [Seat Service](https://bspq24-25.github.io/BSPQ25-E5/CinemaSeatBooking/target/reports/seat-service-perf-report.html)
+  - [User Service](https://bspq24-25.github.io/BSPQ25-E5/CinemaSeatBooking/target/reports/user-service-perf-report.html)
