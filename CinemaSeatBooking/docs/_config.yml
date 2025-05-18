@@ -1,7 +1,0 @@
-title: CinemaSeatBooking
-source: .
-destination: ./_site
-sass:
-  style: compressed
-- name: Ensure docs directory exists
-  run: mkdir -p docs
