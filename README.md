@@ -164,7 +164,7 @@ This project uses Maven profiles to differentiate between unit, integration, and
 | Performance      | `mvn verify -Pperformance`               |
 | All Tests        | `mvn verify -Pall-tests`                 |
 
-> 🔍 **JaCoCo** is configured to require a minimum **40% line coverage** per package.  
+> 🔍 **JaCoCo** is configured to require a minimum **50% line coverage** per package.  
 > The `controller` and `security` packages are **excluded from this rule**.
 
 ### 📊 Generate Coverage Report
