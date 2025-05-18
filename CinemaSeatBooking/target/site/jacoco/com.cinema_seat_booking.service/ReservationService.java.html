@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ReservationService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">CinemaSeatBooking</a> &gt; <a href="index.source.html" class="el_package">com.cinema_seat_booking.service</a> &gt; <span class="el_source">ReservationService.java</span></div><h1>ReservationService.java</h1><pre class="source lang-java linenums">/**
+ * @file ReservationService.java
+ * @brief Service class for managing reservation logic in the cinema booking system.
+ *
+ * @details
+ * This class provides methods to create, cancel, retrieve, and pay for reservations.
+ * It interacts with various repositories and services, including {@link SeatRepository},
+ * {@link ReservationRepository}, {@link PaymentService}, and others.
+ *
+ * @see Reservation
+ * @see Seat
+ * @see Payment
+ * @see User
+ * @see Screening
+ * @see PaymentService
+ * @see PaymentStatus
+ * @see ReservationState
+ * 
+ * @author 
+ * BSPQ25-E5
+ * @version 1.0
+ * @since 2025-05-19
+ */
+package com.cinema_seat_booking.service;
+
+import com.cinema_seat_booking.model.*;
+import com.cinema_seat_booking.repository.PaymentRepository;
+import com.cinema_seat_booking.repository.ReservationRepository;
+import com.cinema_seat_booking.repository.ScreeningRepository;
+import com.cinema_seat_booking.repository.SeatRepository;
+import com.cinema_seat_booking.repository.UserRepository;
+
+import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+/**
+ * @class ReservationService
+ * @brief Service for creating, retrieving, and managing reservations.
+ *
+ * Handles all reservation-related operations including creation, cancellation,
+ * and payment integration.
+ */
+@Service
+<span class="nc" id="L48">public class ReservationService {</span>
+
+    @Autowired
+    private ReservationRepository reservationRepository;
+
+    @Autowired
+    private PaymentService paymentService;
+
+    @Autowired
+    private PaymentRepository paymentRepository;
+
+    @Autowired
+    private SeatRepository seatRepository;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private ScreeningRepository screeningRepository;
+
+    /**
+     * @brief Creates a new reservation for a user and a specific seat in a screening.
+     *
+     * @param user the user making the reservation
+     * @param screening the screening to reserve a seat for
+     * @param seat the seat to reserve
+     * @param paymentMethod the payment method to be used
+     * @return the created {@link Reservation} object
+     *
+     * @throws IllegalArgumentException if the seat is not found
+     * @throws IllegalStateException if the seat is already reserved
+     */
+    @Transactional
+    public Reservation createReservation(User user, Screening screening, Seat seat, String paymentMethod) {
+<span class="nc" id="L82">        Seat managedSeat = seatRepository.findById(seat.getId())</span>
+<span class="nc" id="L83">                .orElseThrow(() -&gt; new IllegalArgumentException(&quot;Seat not found&quot;));</span>
+
+<span class="nc bnc" id="L85" title="All 2 branches missed.">        if (managedSeat.isReserved()) {</span>
+<span class="nc" id="L86">            throw new IllegalStateException(&quot;Seat &quot; + managedSeat.getSeatNumber() + &quot; is already reserved!&quot;);</span>
+        }
+
+<span class="nc" id="L89">        managedSeat.setReserved(true);</span>
+<span class="nc" id="L90">        seatRepository.save(managedSeat);</span>
+
+<span class="nc" id="L92">        Reservation reservation = new Reservation(user, screening, managedSeat);</span>
+<span class="nc" id="L93">        reservation.setReservationState(ReservationState.PENDING);</span>
+
+<span class="nc" id="L95">        return reservationRepository.save(reservation);</span>
+    }
+
+    /**
+     * @brief Retrieves all reservations in the system.
+     *
+     * @return list of all {@link Reservation} objects
+     */
+    @Transactional
+    public List&lt;Reservation&gt; getAllReservations() {
+<span class="nc" id="L105">        List&lt;Reservation&gt; reservations = reservationRepository.findAll();</span>
+<span class="nc" id="L106">        reservations.forEach(res -&gt; {</span>
+<span class="nc" id="L107">            res.getScreening().getRoom().getSeats().size();</span>
+<span class="nc" id="L108">        });</span>
+<span class="nc" id="L109">        return reservations;</span>
+    }
+
+    /**
+     * @brief Retrieves all reservations associated with a specific user.
+     *
+     * @param username the username of the user
+     * @return list of {@link Reservation} objects for the given user
+     */
+    @Transactional
+    public List&lt;Reservation&gt; getAllReservationsOfUser(String username) {
+<span class="nc" id="L120">        List&lt;Reservation&gt; reservations = reservationRepository.findAll();</span>
+<span class="nc" id="L121">        reservations.forEach(res -&gt; {</span>
+<span class="nc" id="L122">            res.getScreening().getRoom().getSeats().size();</span>
+<span class="nc" id="L123">        });</span>
+
+<span class="nc bnc" id="L125" title="All 2 branches missed.">        reservations.removeIf(reservation -&gt; !reservation.getUser().getUsername().equals(username));</span>
+<span class="nc" id="L126">        return reservations;</span>
+    }
+
+    /**
+     * @brief Cancels a reservation and reverts associated entities.
+     *
+     * @param reservationId the ID of the reservation to cancel
+     *
+     * @throws IllegalArgumentException if the reservation is not found
+     */
+    @Transactional
+    public void cancelReservation(Long reservationId) {
+<span class="nc" id="L138">        Optional&lt;Reservation&gt; optionalReservation = reservationRepository.findById(reservationId);</span>
+
+<span class="nc bnc" id="L140" title="All 2 branches missed.">        if (optionalReservation.isPresent()) {</span>
+<span class="nc" id="L141">            Reservation reservation = optionalReservation.get();</span>
+<span class="nc" id="L142">            User user = reservation.getUser();</span>
+<span class="nc" id="L143">            Seat seat = reservation.getSeat();</span>
+<span class="nc" id="L144">            Screening screening = reservation.getScreening();</span>
+<span class="nc" id="L145">            Payment payment = reservation.getPayment();</span>
+
+<span class="nc" id="L147">            user.removeReservation(reservation);</span>
+<span class="nc" id="L148">            userRepository.save(user);</span>
+
+<span class="nc" id="L150">            screening.getReservations().remove(reservation);</span>
+<span class="nc" id="L151">            screeningRepository.save(screening);</span>
+
+<span class="nc" id="L153">            seat.setReserved(false);</span>
+<span class="nc" id="L154">            seat.setReservation(null);</span>
+<span class="nc" id="L155">            seatRepository.save(seat);</span>
+
+<span class="nc" id="L157">            payment.setReservation(null);</span>
+<span class="nc" id="L158">            payment.setStatus(PaymentStatus.FAILED);</span>
+<span class="nc" id="L159">            paymentRepository.save(payment);</span>
+
+<span class="nc" id="L161">            reservation.setUser(null);</span>
+<span class="nc" id="L162">            reservation.setScreening(null);</span>
+<span class="nc" id="L163">            reservation.setSeat(null);</span>
+<span class="nc" id="L164">            reservation.setPayment(null);</span>
+<span class="nc" id="L165">            reservation.setReservationState(ReservationState.CANCELLED);</span>
+<span class="nc" id="L166">            reservationRepository.deleteById(reservation.getId());</span>
+<span class="nc" id="L167">        } else {</span>
+<span class="nc" id="L168">            throw new IllegalArgumentException(&quot;Reservation not found!&quot;);</span>
+        }
+<span class="nc" id="L170">    }</span>
+
+    /**
+     * @brief Saves a pre-created reservation object.
+     *
+     * @param reservation the {@link Reservation} to save
+     * @return the saved {@link Reservation}
+     */
+    @Transactional
+    public Reservation createReservation(Reservation reservation) {
+<span class="nc" id="L180">        return reservationRepository.save(reservation);</span>
+    }
+
+    /**
+     * @brief Processes payment for a reservation.
+     *
+     * @param reservationId the ID of the reservation
+     * @param paymentMethod the payment method used
+     * @param amount the payment amount
+     * @param date the date of payment
+     * @return the {@link Payment} object created
+     *
+     * @throws IllegalArgumentException if the reservation is not found
+     */
+    @Transactional
+    public Payment makePayment(Long reservationId, String paymentMethod, double amount, String date) {
+<span class="nc" id="L196">        Reservation reservation = reservationRepository.findById(reservationId)</span>
+<span class="nc" id="L197">                .orElseThrow(() -&gt; new IllegalArgumentException(&quot;Reservation not found&quot;));</span>
+<span class="nc" id="L198">        Payment payment = paymentService.processPayment(reservation, paymentMethod, amount, date);</span>
+<span class="nc" id="L199">        paymentRepository.save(payment);</span>
+<span class="nc" id="L200">        reservation.setPayment(payment);</span>
+<span class="nc" id="L201">        reservationRepository.save(reservation);</span>
+<span class="nc" id="L202">        return payment;</span>
+    }
+
+    /**
+     * @brief Retrieves a reservation by its ID.
+     *
+     * @param reservationId the ID of the reservation
+     * @return the corresponding {@link Reservation}
+     *
+     * @throws IllegalArgumentException if the reservation is not found
+     */
+    public Reservation getReservationById(Long reservationId) {
+<span class="nc" id="L214">        return reservationRepository.findById(reservationId)</span>
+<span class="nc" id="L215">                .orElseThrow(() -&gt; new IllegalArgumentException(&quot;Reservation not found&quot;));</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

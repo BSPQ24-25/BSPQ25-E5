@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Kino teatrų rezervacija</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css"/>
+<script th:src="@{js/jquery-1.4.2.min.js}" type="text/javascript"></script>
+<script th:src="@{js/script.js}" type="text/javascript"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Limelight&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<!--[if lt IE 7]>
+<script type="text/javascript" src="js/ie_png.js"></script>
+<script type="text/javascript">ie_png.fix('.png, .link1 span, .link1');</script>
+<link href="css/ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+</head>
+<body id="page3">
+<!-- START PAGE SOURCE -->
+<div class="tail-top">
+  <div class="tail-bottom">
+    <div id="main">
+      <div id="header">
+        <div class="row-1">
+          <div class="fleft"><a href="#">Kino teatro vietų <span>rezervacija</span></a></div>
+          <ul>
+            <li><a href="#"><img src="images/icon1.gif" alt="" /></a></li>
+            <li><a href="#"><img src="images/icon2.gif" alt="" /></a></li>
+            <li><a href="#"><img src="images/icon3.gif" alt="" /></a></li>
+            <li><a href="/rooms-lt"><img src="images/world.png" style="height:13px; width: 13px;" alt="" /></a></li>
+            <li><a href="/rooms"><img src="images/united-kingdom.png" style="height:13px; width: 13px;" alt="" /></a></li>    
+          </ul>
+        </div>
+        <div class="row-2">
+          <ul>
+            <li><a th:href="@{/home-lt}">Pradinis</a></li>
+            <li><a th:href="@{/screenings-lt}">Repertuaras</a></li>
+            <li><a th:href="@{/articles-lt}" >Straipsniai</a></li>
+            <li><a th:href="@{/contact-lt}">Kontaktai</a></li>
+            <li class="last"><a th:href="@{/rooms-lt}" class="active">Kambariai</a></li>
+          </ul>
+        </div>
+      </div>
+      <div id="content">
+        <div class="line-hor"></div>
+        <div class="box">
+          <div class="border-right">
+            <div class="border-left">
+              <div class="inner">
+                <h3>Mūsų <span>Kambariai</span></h3>
+                <p>Mūsų kino teatrai turi erdvius kambarius, kiekviename yra 20 prabangių vietų. Šie kambariai yra padalinti į 2 grupes po 10 vietų, padalintų apšviestų laiptų koridoriumi. Mūsų kambariai turi naujausią technologija, įskaitant 4K projektorius ir Dolby Atmos garso sistemas. Vietos yra sukurtos vardan maksimalaus komforto ir turi tokias savybes kaip atlošiamos sėdynės ir daug vietos kojoms.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content">
+          <h3>Turimi <span>kambariai</span></h3>
+          <ul class="list" th:each="room : ${rooms}">
+            <li>
+              <div style="display: flex; align-items: center;">
+                <div style="
+                  width: 200px;
+                  height: 100px;
+                  background-image: url('images/textarea-bg.gif');
+                  background-size: 100% 100%;
+                  background-repeat: no-repeat;
+                  background-position: center;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  font-weight: bold;
+                  font-size: 18px;
+                  color: #fff;
+                  margin-right: 20px;
+                ">
+                  <span th:text="${room.name}">Kambario pavadinimas</span>
+                </div>
+                <div>
+                  <ul style="list-style: disc; padding-left: 20px;">
+                    <li style="padding-top: 0px;"><strong>Vietos:</strong> <span th:text="${room.seatCount}">Vietų numeris</span> vietos</li>
+                    <li style="padding-top: 0px;">Laisvos vietos: <span th:text="${room.availableSeats}">Tuščios vietos</span> vietos</li>
+                    <li style="padding-top: 0px;">Reserved seats: <span th:text="${room.reservedSeats}">Rezervuotos vietos</span> vietos</li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="footer">
+        <div class="left">
+          <div class="right">
+            <div class="footerlink">
+                <p class="lf">Autorių teisės &copy; 2025 <a href="#">SiteName</a> - Visos teisės rezervuotos</p>
+                <p class="rf">Sukurta su <a href="http://www.templatemonster.com/">TemplateMonster</a></p>
+                <div style="clear:both;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript"> Cufon.now(); </script>
+<!-- END PAGE SOURCE -->
+</body>
+</html>

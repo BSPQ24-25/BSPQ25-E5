@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ReservationController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">CinemaSeatBooking</a> &gt; <a href="index.source.html" class="el_package">com.cinema_seat_booking.controller</a> &gt; <span class="el_source">ReservationController.java</span></div><h1>ReservationController.java</h1><pre class="source lang-java linenums">/**
+ * @package com.cinema_seat_booking.controller
+ * @brief REST controller for managing seat reservations.
+ *
+ * Provides endpoints to create, retrieve, and cancel reservations
+ * involving users, screenings, and seats.
+ */
+package com.cinema_seat_booking.controller;
+
+import com.cinema_seat_booking.dto.ReservationDTO;
+import com.cinema_seat_booking.model.*;
+import com.cinema_seat_booking.service.ReservationService;
+import com.cinema_seat_booking.service.ScreeningService;
+import com.cinema_seat_booking.service.SeatService;
+import com.cinema_seat_booking.service.UserService;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+
+/**
+ * @class ReservationController
+ * @brief Exposes REST endpoints for reservation management.
+ */
+@RestController
+@RequestMapping(&quot;/api/reservations&quot;)
+<span class="nc" id="L33">public class ReservationController {</span>
+
+    @Autowired
+    private ReservationService reservationService;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private ScreeningService screeningService;
+
+    @Autowired
+    private SeatService seatService;
+
+    /**
+     * Creates a new reservation for a user, screening, and seat.
+     *
+     * @param username    the username of the user making the reservation
+     * @param screeningId the ID of the screening
+     * @param seatId      the ID of the seat to reserve
+     * @return the created {@link ReservationDTO}
+     */
+    @Operation(summary = &quot;Create a reservation&quot;, description = &quot;Creates a reservation for a specific user, screening, and seat.&quot;)
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = &quot;200&quot;, description = &quot;Reservation created successfully&quot;),
+            @ApiResponse(responseCode = &quot;400&quot;, description = &quot;Invalid input or seat unavailable&quot;)
+    })
+    @PostMapping
+    public ReservationDTO createReservation(
+            @RequestParam @Parameter(description = &quot;Username of the user&quot;) String username,
+            @RequestParam @Parameter(description = &quot;ID of the screening&quot;) Long screeningId,
+            @RequestParam @Parameter(description = &quot;ID of the seat&quot;) Long seatId) {
+
+<span class="nc" id="L66">        User user = userService.getUserByUsername(username);</span>
+<span class="nc" id="L67">        Screening screening = screeningService.getScreeningById(screeningId)</span>
+<span class="nc" id="L68">                .orElseThrow(() -&gt; new IllegalArgumentException(&quot;Screening not found with ID: &quot; + screeningId));</span>
+<span class="nc" id="L69">        Seat seat = seatService.getSeatById(seatId)</span>
+<span class="nc" id="L70">                .orElseThrow(() -&gt; new IllegalArgumentException(&quot;Seat not found with ID: &quot; + seatId));</span>
+
+<span class="nc" id="L72">        Reservation reservation = reservationService.createReservation(user, screening, seat, &quot;NONE&quot;);</span>
+<span class="nc" id="L73">        return new ReservationDTO(reservation);</span>
+    }
+
+    /**
+     * Retrieves all reservations in the system.
+     *
+     * @return a list of {@link ReservationDTO}
+     */
+    @Operation(summary = &quot;Get all reservations&quot;, description = &quot;Returns all reservations in the system.&quot;)
+    @ApiResponse(responseCode = &quot;200&quot;, description = &quot;Reservations retrieved successfully&quot;)
+    @GetMapping
+    public List&lt;ReservationDTO&gt; getAllReservations() {
+<span class="nc" id="L85">        List&lt;Reservation&gt; reservations = reservationService.getAllReservations();</span>
+<span class="nc" id="L86">        return reservations.stream()</span>
+<span class="nc" id="L87">                .map(ReservationDTO::new)</span>
+<span class="nc" id="L88">                .toList();</span>
+    }
+
+    /**
+     * Retrieves all reservations for a given user.
+     *
+     * @param username the username of the user
+     * @return a list of {@link ReservationDTO} for that user
+     */
+    @Operation(summary = &quot;Get reservations of a user&quot;, description = &quot;Returns all reservations for a specific user.&quot;)
+    @ApiResponse(responseCode = &quot;200&quot;, description = &quot;User's reservations retrieved successfully&quot;)
+    @GetMapping(&quot;/user/{username}&quot;)
+    public List&lt;ReservationDTO&gt; getAllReservationsOfUser(
+            @PathVariable @Parameter(description = &quot;Username of the user&quot;) String username) {
+<span class="nc" id="L102">        List&lt;Reservation&gt; reservations = reservationService.getAllReservationsOfUser(username);</span>
+<span class="nc" id="L103">        return reservations.stream()</span>
+<span class="nc" id="L104">                .map(ReservationDTO::new)</span>
+<span class="nc" id="L105">                .toList();</span>
+    }
+
+    /**
+     * Cancels an existing reservation by ID.
+     *
+     * @param reservationId the ID of the reservation to cancel
+     */
+    @Operation(summary = &quot;Cancel reservation&quot;, description = &quot;Cancels an existing reservation by its ID.&quot;)
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = &quot;200&quot;, description = &quot;Reservation cancelled successfully&quot;),
+            @ApiResponse(responseCode = &quot;404&quot;, description = &quot;Reservation not found&quot;)
+    })
+    @DeleteMapping(&quot;/{reservationId}&quot;)
+    public void cancelReservation(
+            @PathVariable @Parameter(description = &quot;ID of the reservation to cancel&quot;) Long reservationId) {
+<span class="nc" id="L121">        reservationService.cancelReservation(reservationId);</span>
+<span class="nc" id="L122">    }</span>
+
+    /**
+     * Retrieves a reservation by its ID.
+     *
+     * @param reservationId the ID of the reservation
+     * @return the {@link ReservationDTO} if found
+     */
+    @Operation(summary = &quot;Get reservation by ID&quot;, description = &quot;Fetches a reservation's details by its ID.&quot;)
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = &quot;200&quot;, description = &quot;Reservation found&quot;),
+            @ApiResponse(responseCode = &quot;404&quot;, description = &quot;Reservation not found&quot;)
+    })
+    @GetMapping(&quot;/{reservationId}&quot;)
+    public ReservationDTO getReservation(
+            @PathVariable @Parameter(description = &quot;ID of the reservation&quot;) Long reservationId) {
+<span class="nc" id="L138">        Reservation reservation = reservationService.getReservationById(reservationId);</span>
+<span class="nc" id="L139">        return new ReservationDTO(reservation);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registruotis - Kino teatro rezervacija</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>sukurti paskyrą</h2>
+        <form id="registerForm">
+            <input type="text" id="username" placeholder="Username" required/>
+            <input type="password" id="password" placeholder="Password" required/>
+            <input type="email" id="email" placeholder="Email" required/>
+            <button type="submit">Registruotis</button>
+        </form>
+        <div class="login-link">
+            <p>Jau turite paskyrą? <a th:href="@{/}">Prisijunkite čia:</a></p>
+        </div>
+    </div>
+
+<script src="scripts.js"></script>
+</body>
+</html>

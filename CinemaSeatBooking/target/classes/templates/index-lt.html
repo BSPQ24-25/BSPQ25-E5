@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Kino vietų rezervacija</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+<script th:src="@{/js/jquery-1.4.2.min.js}"></script>
+<script src="js/script.js" type="text/javascript"></script>
+<!--[if lt IE 7]>
+<script type="text/javascript" src="js/ie_png.js"></script>
+<script type="text/javascript">ie_png.fix('.png, .link1 span, .link1');</script>
+<link href="css/ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+</head>
+<body id="page1">
+<!-- START PAGE SOURCE -->
+<div class="tail-top">
+  <div class="tail-bottom">
+    <div id="main">
+      <div id="header">
+        <div class="row-1">
+            <div class="fleft"><a href="#">Kino vietų <span>Rezervacija</span></a></div>
+          <ul>
+            <li><a href="#"><img src="images/icon1-act.gif" alt="" /></a></li>
+            <li><a href="#"><img src="images/icon2.gif" alt="" /></a></li>
+            <li><a href="#"><img src="images/icon3.gif" alt="" /></a></li>
+            <li><a href="/home-lt"><img src="images/world.png" style="height:13px; width: 13px;" alt="" /></a></li>
+            <li><a href="/home"><img src="images/united-kingdom.png" style="height:13px; width: 13px;" alt="" /></a></li>
+          </ul>
+        </div>
+        <div class="row-2">
+          <ul>
+            <li><a th:href="@{/home-lt}" class="active">Pradinis</a></li>
+            <li><a th:href="@{/screenings-lt}">Repertuaras</a></li>
+            <li><a th:href="@{/articles-lt}" >Straipsniai</a></li>
+            <li><a th:href="@{/contact-lt}">Kontaktai</a></li>
+            <li class="last"><a th:href="@{/rooms-lt}">Kambariai</a></li>
+          </ul>
+        </div>
+      </div>
+      <div id="content">
+        <div id="slogan">
+          <div class="image png"></div>
+          <div class="inside">
+            <h2>Mes skaldome <span>visus apribojimus</span></h2>
+            <p>Mes esame grupė numeris 5 ir čia yra mūsų modulio Software process and Quality projektas.<br />Tikimės kad jums patiks</p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="border-right">
+            <div class="border-left">
+              <div class="inner">
+                <h3>Sveiki atvykę į <b>Kino teatro vietų</b> <span>rezervaciją</span></h3>
+                <p>Ar norite pamatyti naujausią superherojų filmą apie žmogų geležiniame kostiume kuris sunaikina blogiukus ar galbūt pamatyti kaip mokslininkas keliauja į ateitį su kieta mašina, kuri yra pagaminta iš nerūdijančio metalo? O gal norite pamatyti naujausia filmą filmų serijoje iš galaktikos toli toli?</p>
+                <div class="img-box1"><img src="images/1page-img1.jpg" alt="" />Ši svetainė yra kino teatro valdymui ir kino teatro rezervacijų rezervavimui. Nesvarbu, ar esate klientas, ar esate kino teatras, kuris ieško patikimo ir gero sprendimo valdyti jūsų operacijas, mes esame jūsų sprendimas. </div>
+                <p>Tiesiog susisiekite su mumis betkuriuo metu ir mes su jumis susisieksime atgal per trumpiausią įmanomą laiką. Jeigu negaunate žinutės atgal, tiesiog atvykite į mūsų ofisą JAV.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <div class="border-right">
+            <div class="border-left">
+              <div class="inner">
+                  <h3>Nauji <span>filmai</span></h3>
+                  <ul class="movies" th:if="${!#lists.isEmpty(movies)}"
+                      th:each="movie : ${movies}">
+                    <li>
+                      <h4 th:text="${movie.title}">Filmo pavadinimas</h4>
+                      <p><strong>Žanras:</strong> <span th:text="${movie.genre}">Žanras</span></p>
+                      <p><strong>Trukmė:</strong> <span th:text="${movie.duration}">120</span> min</p>
+                      <p><strong>Aktoriai:</strong> <span th:text="${movie.cast}">Aktorių sąrašas</span></p>
+                      <div class="wrapper">
+                        <a th:href="@{/screenings}" class="link2">
+                          <span><span>Peržiūrėti seansus</span></span>
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                  <p th:if="${#lists.isEmpty(movies)}">Nėra jokių prieinamų filmų.</p>
+                  <div style="height: 300px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div id="footer">
+      <div class="left">
+        <div class="right">
+          <div class="footerlink">
+            <p class="lf">Autorių teisės &copy; 2025 <a href="#">SiteName</a> - Visos teisės rezervuotos</p>
+            <p class="rf">Sukurta su <a href="http://www.templatemonster.com/">TemplateMonster</a></p>
+            <div style="clear:both;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript"> Cufon.now(); </script>
+<!-- END PAGE SOURCE -->
+</body>
+</html>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SeatController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">CinemaSeatBooking</a> &gt; <a href="index.source.html" class="el_package">com.cinema_seat_booking.controller</a> &gt; <span class="el_source">SeatController.java</span></div><h1>SeatController.java</h1><pre class="source lang-java linenums">/**
+ * @package com.cinema_seat_booking.controller
+ * @brief REST controller providing endpoints for managing cinema seat operations.
+ *
+ * This controller handles seat creation, retrieval, updating, deletion,
+ * as well as reservation and availability checking, interacting with the {@link SeatService}.
+ */
+package com.cinema_seat_booking.controller;
+
+import com.cinema_seat_booking.dto.SeatDTO;
+import com.cinema_seat_booking.model.Seat;
+import com.cinema_seat_booking.service.SeatService;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+/**
+ * @class SeatController
+ * @brief REST controller for handling seat management operations.
+ *
+ * Exposes endpoints for CRUD operations and business logic related to cinema seat reservations.
+ */
+@RestController
+@RequestMapping(&quot;/api/seats&quot;)
+<span class="nc" id="L33">public class SeatController {</span>
+
+    /** Service for seat-related operations. */
+    @Autowired
+    private SeatService seatService;
+
+    /**
+     * Retrieves all seats including their reservation status and room name.
+     *
+     * @return A list of {@link SeatDTO} objects.
+     */
+    @Operation(summary = &quot;Get all seats&quot;, description = &quot;Returns a list of all seats with room information&quot;)
+    @GetMapping
+    public List&lt;SeatDTO&gt; getAllSeats() {
+<span class="nc" id="L47">        List&lt;Seat&gt; seats = seatService.getAllSeats();</span>
+<span class="nc" id="L48">        return seats.stream()</span>
+<span class="nc" id="L49">                .map(seat -&gt; new SeatDTO(</span>
+<span class="nc" id="L50">                        seat.getId(),</span>
+<span class="nc" id="L51">                        seat.getSeatNumber(),</span>
+<span class="nc" id="L52">                        seat.isReserved(),</span>
+<span class="nc" id="L53">                        seat.getRoom().getName()))</span>
+<span class="nc" id="L54">                .collect(Collectors.toList());</span>
+    }
+
+    /**
+     * Retrieves a seat by its ID.
+     *
+     * @param id The seat ID
+     * @return A {@link ResponseEntity} containing a {@link SeatDTO} if found, or 404 if not
+     */
+    @Operation(summary = &quot;Get seat by ID&quot;)
+    @ApiResponses({
+            @ApiResponse(responseCode = &quot;200&quot;, description = &quot;Seat found&quot;),
+            @ApiResponse(responseCode = &quot;404&quot;, description = &quot;Seat not found&quot;)
+    })
+    @GetMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;SeatDTO&gt; getSeatById(@PathVariable Long id) {
+        try {
+<span class="nc" id="L71">            Seat seat = seatService.getSeatById(id).orElseThrow(() -&gt; new RuntimeException(&quot;Seat not found&quot;));</span>
+<span class="nc" id="L72">            SeatDTO seatDTO = new SeatDTO(</span>
+<span class="nc" id="L73">                    seat.getId(),</span>
+<span class="nc" id="L74">                    seat.getSeatNumber(),</span>
+<span class="nc" id="L75">                    seat.isReserved(),</span>
+<span class="nc" id="L76">                    seat.getRoom().getName());</span>
+<span class="nc" id="L77">            return ResponseEntity.ok(seatDTO);</span>
+<span class="nc" id="L78">        } catch (Exception e) {</span>
+<span class="nc" id="L79">            return ResponseEntity.notFound().build();</span>
+        }
+    }
+
+    /**
+     * Creates a new seat associated with a room.
+     *
+     * @param number The seat number
+     * @param roomId The ID of the room the seat belongs to
+     * @return A {@link ResponseEntity} containing the created {@link Seat}
+     */
+    @Operation(summary = &quot;Create a seat&quot;, description = &quot;Creates a new seat and links it to a room&quot;)
+    @PostMapping
+    public ResponseEntity&lt;Seat&gt; createSeat(@RequestParam int number, @RequestParam Long roomId) {
+        try {
+<span class="nc" id="L94">            Seat seat = seatService.createSeat(number, roomId);</span>
+<span class="nc" id="L95">            return ResponseEntity.status(201).body(seat);</span>
+<span class="nc" id="L96">        } catch (IllegalArgumentException e) {</span>
+<span class="nc" id="L97">            return ResponseEntity.badRequest().body(null);</span>
+        }
+    }
+
+    /**
+     * Updates an existing seat's number and room.
+     *
+     * @param id The ID of the seat to update
+     * @param number The new seat number
+     * @param roomId The new room ID
+     * @return A {@link ResponseEntity} containing the updated {@link Seat} or 404 if not found
+     */
+    @Operation(summary = &quot;Update a seat&quot;, description = &quot;Updates the seat number or room&quot;)
+    @PutMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;Seat&gt; updateSeat(@PathVariable Long id,
+                                           @RequestParam int number,
+                                           @RequestParam Long roomId) {
+        try {
+<span class="nc" id="L115">            Seat updatedSeat = seatService.updateSeat(id, number, roomId);</span>
+<span class="nc" id="L116">            return ResponseEntity.ok(updatedSeat);</span>
+<span class="nc" id="L117">        } catch (IllegalArgumentException e) {</span>
+<span class="nc" id="L118">            return ResponseEntity.notFound().build();</span>
+        }
+    }
+
+    /**
+     * Deletes a seat by ID.
+     *
+     * @param id The ID of the seat
+     * @return HTTP 204 if deleted, 404 if not found
+     */
+    @Operation(summary = &quot;Delete a seat by ID&quot;)
+    @DeleteMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;Void&gt; deleteSeat(@PathVariable Long id) {
+<span class="nc bnc" id="L131" title="All 2 branches missed.">        if (seatService.deleteSeat(id)) {</span>
+<span class="nc" id="L132">            return ResponseEntity.noContent().build();</span>
+        } else {
+<span class="nc" id="L134">            return ResponseEntity.notFound().build();</span>
+        }
+    }
+
+    /**
+     * Retrieves all available (non-reserved) seats for a specific room.
+     *
+     * @param roomId The room ID
+     * @return A list of available {@link Seat} objects
+     */
+    @Operation(summary = &quot;Get available (non-reserved) seats by room ID&quot;)
+    @GetMapping(&quot;/available&quot;)
+    public ResponseEntity&lt;List&lt;Seat&gt;&gt; getAvailableSeats(@RequestParam Long roomId) {
+<span class="nc" id="L147">        return ResponseEntity.ok(seatService.getAvailableSeats(roomId));</span>
+    }
+
+    /**
+     * Reserves a seat by ID.
+     *
+     * @param id The ID of the seat to reserve
+     * @return HTTP 200 if successful, 400 if reservation fails
+     */
+    @Operation(summary = &quot;Reserve a seat&quot;)
+    @PutMapping(&quot;/{id}/reserve&quot;)
+    public ResponseEntity&lt;Void&gt; reserveSeat(@PathVariable Long id) {
+        try {
+<span class="nc" id="L160">            seatService.reserveSeat(id);</span>
+<span class="nc" id="L161">            return ResponseEntity.ok().build();</span>
+<span class="nc" id="L162">        } catch (Exception e) {</span>
+<span class="nc" id="L163">            return ResponseEntity.badRequest().build();</span>
+        }
+    }
+
+    /**
+     * Cancels a reservation for a specific seat.
+     *
+     * @param id The ID of the seat
+     * @return HTTP 200 if successful, 400 if cancellation fails
+     */
+    @Operation(summary = &quot;Cancel reservation of a seat&quot;)
+    @PutMapping(&quot;/{id}/cancel&quot;)
+    public ResponseEntity&lt;Void&gt; cancelSeatReservation(@PathVariable Long id) {
+        try {
+<span class="nc" id="L177">            seatService.cancelSeatReservation(id);</span>
+<span class="nc" id="L178">            return ResponseEntity.ok().build();</span>
+<span class="nc" id="L179">        } catch (Exception e) {</span>
+<span class="nc" id="L180">            return ResponseEntity.badRequest().build();</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

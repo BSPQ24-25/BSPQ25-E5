@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>User.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">CinemaSeatBooking</a> &gt; <a href="index.source.html" class="el_package">com.cinema_seat_booking.model</a> &gt; <span class="el_source">User.java</span></div><h1>User.java</h1><pre class="source lang-java linenums">package com.cinema_seat_booking.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.*;
+
+/**
+ * @class User
+ * @brief Represents a user of the cinema seat booking system.
+ *
+ * @details
+ * The {@code User} entity models users who can make reservations in the system.
+ * It stores authentication information, user role, and the list of reservations
+ * made by the user.
+ * 
+ * @author BSPQ25-E5
+ * @version 1.0
+ * @since 2025-05-19
+ */
+@Entity
+@Table(name = &quot;users&quot;)
+public class User {
+    /**
+     * @brief Unique identifier for the user.
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    /**
+     * @brief Unique username for login.
+     */
+    @Column(nullable = false, unique = true)
+    private String username;
+
+    /**
+     * @brief Password for authentication.
+     */
+    @Column(nullable = false)
+    private String password;
+
+    /**
+     * @brief Email address of the user.
+     */
+    @Column(nullable = false)
+    private String email;
+
+    /**
+     * @brief Role of the user (e.g., ADMIN, CLIENT).
+     */
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    /**
+     * @brief List of reservations made by the user.
+     *
+     * @details
+     * One user can have many reservations.
+     * Cascade all operations, and fetch eagerly.
+     */
+    @OneToMany(mappedBy = &quot;user&quot;, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List&lt;Reservation&gt; reservations;
+
+    /**
+     * @brief Gets the unique ID of the user.
+     * @return the user ID
+     */
+    public Long getId() {
+<span class="nc" id="L72">        return id;</span>
+    }
+
+    /**
+     * @brief Gets the username.
+     * @return the username
+     */
+    public String getUsername() {
+<span class="nc" id="L80">        return username;</span>
+    }
+
+    /**
+     * @brief Gets the password.
+     * @return the password
+     */
+    public String getPassword() {
+<span class="nc" id="L88">        return password;</span>
+    }
+
+    /**
+     * @brief Gets the email address.
+     * @return the email
+     */
+    public String getEmail() {
+<span class="nc" id="L96">        return email;</span>
+    }
+
+    /**
+     * @brief Gets the role of the user.
+     * @return the role
+     */
+    public Role getRole() {
+<span class="nc" id="L104">        return role;</span>
+    }
+
+    /**
+     * @brief Gets the list of reservations made by the user.
+     * @return list of reservations
+     */
+    public List&lt;Reservation&gt; getReservations() {
+<span class="nc" id="L112">        return reservations;</span>
+    }
+
+    /**
+     * @brief Sets the unique ID of the user.
+     * @param id the user ID to set
+     */
+    public void setId(Long id) {
+<span class="nc" id="L120">        this.id = id;</span>
+<span class="nc" id="L121">    }</span>
+
+    /**
+     * @brief Sets the username.
+     * @param username the username to set
+     */
+    public void setUsername(String username) {
+<span class="nc" id="L128">        this.username = username;</span>
+<span class="nc" id="L129">    }</span>
+
+    /**
+     * @brief Sets the password.
+     * @param password the password to set
+     */
+    public void setPassword(String password) {
+<span class="nc" id="L136">        this.password = password;</span>
+<span class="nc" id="L137">    }</span>
+
+    /**
+     * @brief Sets the email address.
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+<span class="nc" id="L144">        this.email = email;</span>
+<span class="nc" id="L145">    }</span>
+
+    /**
+     * @brief Sets the user role.
+     * @param role the role to set
+     */
+    public void setRole(Role role) {
+<span class="nc" id="L152">        this.role = role;</span>
+<span class="nc" id="L153">    }</span>
+
+    /**
+     * @brief Sets the list of reservations.
+     * 
+     * @details
+     * Marked with @JsonIgnore to avoid serialization recursion issues.
+     * 
+     * @param reservations the reservations list to set
+     */
+    @JsonIgnore
+    public void setReservations(List&lt;Reservation&gt; reservations) {
+<span class="nc" id="L165">        this.reservations = reservations;</span>
+<span class="nc" id="L166">    }</span>
+
+    /**
+     * @brief Adds a reservation to the user.
+     *
+     * @details
+     * Adds the reservation to the list and sets this user on the reservation.
+     *
+     * @param reservation the reservation to add
+     */
+    public void addReservation(Reservation reservation) {
+<span class="nc bnc" id="L177" title="All 2 branches missed.">        if (this.reservations == null) {</span>
+<span class="nc" id="L178">            this.reservations = new ArrayList&lt;&gt;();</span>
+        }
+<span class="nc" id="L180">        this.reservations.add(reservation);</span>
+<span class="nc" id="L181">        reservation.setUser(this);</span>
+<span class="nc" id="L182">    }</span>
+
+    /**
+     * @brief Removes a reservation from the user.
+     *
+     * @details
+     * Removes the reservation from the list and clears the user on the reservation.
+     *
+     * @param reservation the reservation to remove
+     */
+    public void removeReservation(Reservation reservation) {
+<span class="nc bnc" id="L193" title="All 2 branches missed.">        if (this.reservations != null) {</span>
+<span class="nc" id="L194">            this.reservations.remove(reservation);</span>
+<span class="nc" id="L195">            reservation.setUser(null);</span>
+        }
+<span class="nc" id="L197">    }</span>
+
+    /**
+     * @brief Default constructor required by JPA.
+     */
+<span class="nc" id="L202">    public User() {</span>
+        // Required by JPA
+<span class="nc" id="L204">    }</span>
+
+    /**
+     * @brief Constructor with all fields.
+     * @param username the username
+     * @param password the password
+     * @param email the email address
+     * @param role the user role
+     * @param reservations initial list of reservations
+     */
+<span class="nc" id="L214">    public User(String username, String password, String email, Role role, List&lt;Reservation&gt; reservations) {</span>
+<span class="nc" id="L215">        this.username = username;</span>
+<span class="nc" id="L216">        this.password = password;</span>
+<span class="nc" id="L217">        this.email = email;</span>
+<span class="nc" id="L218">        this.role = role;</span>
+<span class="nc" id="L219">        this.reservations = reservations;</span>
+<span class="nc" id="L220">    }</span>
+
+    /**
+     * @brief Constructor without reservations.
+     * @param username the username
+     * @param password the password
+     * @param email the email address
+     * @param role the user role
+     */
+    public User(String username, String password, String email, Role role) {
+<span class="nc" id="L230">        this(username, password, email, role, null);</span>
+<span class="nc" id="L231">    }</span>
+
+    /**
+     * @brief Constructor with default role CLIENT.
+     * @param username the username
+     * @param password the password
+     * @param email the email address
+     */
+    public User(String username, String password, String email) {
+<span class="nc" id="L240">        this(username, password, email, Role.CLIENT, null);</span>
+<span class="nc" id="L241">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

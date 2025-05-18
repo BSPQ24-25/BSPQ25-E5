@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RoomController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">CinemaSeatBooking</a> &gt; <a href="index.source.html" class="el_package">com.cinema_seat_booking.controller</a> &gt; <span class="el_source">RoomController.java</span></div><h1>RoomController.java</h1><pre class="source lang-java linenums">/**
+ * @package com.cinema_seat_booking.controller
+ * @brief REST controller for managing cinema rooms and their seats.
+ *
+ * Provides endpoints to create, read, update, and delete rooms,
+ * along with retrieving rooms and their associated seats.
+ */
+package com.cinema_seat_booking.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.cinema_seat_booking.dto.CreateRoomDTO;
+import com.cinema_seat_booking.dto.RoomDTO;
+import com.cinema_seat_booking.model.Room;
+import com.cinema_seat_booking.service.RoomService;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+/**
+ * @class RoomController
+ * @brief Exposes REST endpoints for managing cinema rooms.
+ */
+@RestController
+@RequestMapping(&quot;/api/rooms&quot;)
+<span class="nc" id="L33">public class RoomController {</span>
+
+    /** Service for room-related business logic. */
+    @Autowired
+    private RoomService roomService;
+
+    /**
+     * Creates a new room with the specified name and seat count.
+     *
+     * @param createRoomDTO The DTO containing room name and seat count
+     * @return Created {@link Room} wrapped in HTTP 201, or 400 on error
+     */
+    @Operation(summary = &quot;Create a new room&quot;, description = &quot;Creates a room with specified seat count&quot;)
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = &quot;201&quot;, description = &quot;Room created successfully&quot;),
+            @ApiResponse(responseCode = &quot;400&quot;, description = &quot;Invalid input data&quot;)
+    })
+    @PostMapping
+    public ResponseEntity&lt;Room&gt; createRoom(@RequestBody CreateRoomDTO createRoomDTO) {
+        try {
+<span class="nc" id="L53">            Room createdRoom = roomService.createRoomWithSeats(</span>
+<span class="nc" id="L54">                    createRoomDTO.getName(), createRoomDTO.getSeatCount());</span>
+<span class="nc" id="L55">            return new ResponseEntity&lt;&gt;(createdRoom, HttpStatus.CREATED);</span>
+<span class="nc" id="L56">        } catch (Exception e) {</span>
+<span class="nc" id="L57">            return ResponseEntity.badRequest().build();</span>
+        }
+    }
+
+    /**
+     * Retrieves a room and its seats by its ID.
+     *
+     * @param id The ID of the room
+     * @return {@link RoomDTO} if found, or 404 if not
+     */
+    @Operation(summary = &quot;Get a room by ID&quot;, description = &quot;Returns a room and its seats by ID&quot;)
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = &quot;200&quot;, description = &quot;Room found&quot;),
+            @ApiResponse(responseCode = &quot;404&quot;, description = &quot;Room not found&quot;)
+    })
+    @GetMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;RoomDTO&gt; getRoomById(@PathVariable Long id) {
+<span class="nc" id="L74">        Optional&lt;Room&gt; room = roomService.getRoomById(id);</span>
+<span class="nc bnc" id="L75" title="All 2 branches missed.">        if (room.isPresent()) {</span>
+<span class="nc" id="L76">            RoomDTO roomDTO = new RoomDTO(room.get().getId(), room.get().getName(), room.get().getSeats());</span>
+<span class="nc" id="L77">            return ResponseEntity.ok(roomDTO);</span>
+        } else {
+<span class="nc" id="L79">            return ResponseEntity.notFound().build();</span>
+        }
+    }
+
+    /**
+     * Retrieves all rooms with their seat details.
+     *
+     * @return List of {@link RoomDTO}, or HTTP 204 if empty
+     */
+    @Operation(summary = &quot;Get all rooms&quot;, description = &quot;Returns all available rooms&quot;)
+    @ApiResponse(responseCode = &quot;200&quot;, description = &quot;Rooms retrieved successfully&quot;)
+    @GetMapping
+    public ResponseEntity&lt;List&lt;RoomDTO&gt;&gt; getAllRooms() {
+<span class="nc" id="L92">        List&lt;Room&gt; rooms = roomService.getAllRooms();</span>
+<span class="nc" id="L93">        List&lt;RoomDTO&gt; roomDTOs = rooms.stream()</span>
+<span class="nc" id="L94">                .map(room -&gt; new RoomDTO(room.getId(), room.getName(), room.getSeats()))</span>
+<span class="nc" id="L95">                .toList();</span>
+<span class="nc bnc" id="L96" title="All 2 branches missed.">        return roomDTOs.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(roomDTOs);</span>
+    }
+
+    /**
+     * Deletes a room by its ID.
+     *
+     * @param id The ID of the room
+     * @return HTTP 204 if successful, 404 if room not found
+     */
+    @Operation(summary = &quot;Delete a room&quot;, description = &quot;Deletes a room by ID&quot;)
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = &quot;204&quot;, description = &quot;Room deleted&quot;),
+            @ApiResponse(responseCode = &quot;404&quot;, description = &quot;Room not found&quot;)
+    })
+    @DeleteMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;Void&gt; deleteRoom(@PathVariable Long id) {
+<span class="nc bnc" id="L112" title="All 2 branches missed.">        if (roomService.getRoomById(id).isPresent()) {</span>
+<span class="nc" id="L113">            roomService.deleteRoom(id);</span>
+<span class="nc" id="L114">            return ResponseEntity.noContent().build();</span>
+        } else {
+<span class="nc" id="L116">            return ResponseEntity.notFound().build();</span>
+        }
+    }
+
+    /**
+     * Updates the name of a room.
+     *
+     * @param id The ID of the room to update
+     * @param updatedRoom A {@link Room} object containing the new name
+     * @return Updated {@link Room}, or appropriate error code
+     */
+    @Operation(summary = &quot;Update a room&quot;, description = &quot;Updates the name of a room&quot;)
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = &quot;200&quot;, description = &quot;Room updated successfully&quot;),
+            @ApiResponse(responseCode = &quot;404&quot;, description = &quot;Room not found&quot;),
+            @ApiResponse(responseCode = &quot;400&quot;, description = &quot;Invalid update data&quot;)
+    })
+    @PutMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;Room&gt; updateRoom(@PathVariable Long id, @RequestBody Room updatedRoom) {
+        try {
+<span class="nc" id="L136">            Room room = roomService.updateRoom(id, updatedRoom.getName());</span>
+<span class="nc" id="L137">            return ResponseEntity.ok(room);</span>
+<span class="nc" id="L138">        } catch (IllegalArgumentException e) {</span>
+<span class="nc" id="L139">            return ResponseEntity.notFound().build();</span>
+<span class="nc" id="L140">        } catch (Exception e) {</span>
+<span class="nc" id="L141">            return ResponseEntity.badRequest().build();</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

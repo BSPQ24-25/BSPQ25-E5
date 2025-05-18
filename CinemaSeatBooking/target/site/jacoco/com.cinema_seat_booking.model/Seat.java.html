@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Seat.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">CinemaSeatBooking</a> &gt; <a href="index.source.html" class="el_package">com.cinema_seat_booking.model</a> &gt; <span class="el_source">Seat.java</span></div><h1>Seat.java</h1><pre class="source lang-java linenums">package com.cinema_seat_booking.model;
+
+import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+/**
+ * @class Seat
+ * @brief Represents a seat within a cinema room.
+ *
+ * @details
+ * The {@code Seat} entity represents an individual seat in a {@link Room}. It tracks
+ * the seat number, reservation status, and maintains relationships with the {@link Room}
+ * it belongs to and the {@link Reservation} (if any) linked to this seat.
+ * 
+ * @author BSPQ25-E5
+ * @version 1.0
+ * @since 2025-05-19
+ */
+@Entity
+public class Seat {
+    /**
+     * @brief Unique identifier for the seat.
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    /**
+     * @brief The seat number within the room.
+     */
+    @Column(nullable = false)
+    private int seatNumber;
+
+    /**
+     * @brief Whether this seat is currently reserved.
+     */
+    @Column(nullable = false)
+    private boolean isReserved;
+
+    /**
+     * @brief The room this seat belongs to.
+     *
+     * @details
+     * Many seats belong to one room.
+     * Cascade delete is enabled, so deleting a room deletes its seats.
+     */
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = &quot;room_id&quot;)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Room room;
+
+    /**
+     * @brief The reservation associated with this seat, if any.
+     *
+     * @details
+     * One seat may be linked to one reservation.
+     */
+    @OneToOne(mappedBy = &quot;seat&quot;)
+    private Reservation reservation;
+
+    /**
+     * @brief Gets the unique ID of the seat.
+     * @return the seat ID
+     */
+    public Long getId() {
+<span class="nc" id="L67">        return id;</span>
+    }
+
+    /**
+     * @brief Sets the unique ID of the seat.
+     * @param id the seat ID to set
+     */
+    public void setId(Long id) {
+<span class="nc" id="L75">        this.id = id;</span>
+<span class="nc" id="L76">    }</span>
+
+    /**
+     * @brief Gets the seat number.
+     * @return the seat number
+     */
+    public int getSeatNumber() {
+<span class="nc" id="L83">        return seatNumber;</span>
+    }
+
+    /**
+     * @brief Sets the seat number.
+     * @param seatNumber the seat number to set
+     */
+    public void setSeatNumber(int seatNumber) {
+<span class="nc" id="L91">        this.seatNumber = seatNumber;</span>
+<span class="nc" id="L92">    }</span>
+
+    /**
+     * @brief Checks if the seat is reserved.
+     * @return true if reserved, false otherwise
+     */
+    public boolean isReserved() {
+<span class="nc" id="L99">        return isReserved;</span>
+    }
+
+    /**
+     * @brief Sets the reserved status of the seat.
+     * @param isReserved true to mark as reserved, false otherwise
+     */
+    public void setReserved(boolean isReserved) {
+<span class="nc" id="L107">        this.isReserved = isReserved;</span>
+<span class="nc" id="L108">    }</span>
+
+    /**
+     * @brief Gets the room of the seat.
+     * @return the room
+     */
+    public Room getRoom() {
+<span class="nc" id="L115">        return room;</span>
+    }
+
+    /**
+     * @brief Sets the room for this seat.
+     * @param room the room to set
+     */
+    public void setRoom(Room room) {
+<span class="nc" id="L123">        this.room = room;</span>
+<span class="nc" id="L124">    }</span>
+
+    /**
+     * @brief Gets the reservation associated with this seat.
+     * @return the reservation
+     */
+    public Reservation getReservation() {
+<span class="nc" id="L131">        return reservation;</span>
+    }
+
+    /**
+     * @brief Sets the reservation for this seat.
+     * @param reservation the reservation to set
+     */
+    public void setReservation(Reservation reservation) {
+<span class="nc" id="L139">        this.reservation = reservation;</span>
+<span class="nc" id="L140">    }</span>
+
+    /**
+     * @brief Default constructor required by JPA.
+     */
+<span class="nc" id="L145">    public Seat() {</span>
+        // Required by JPA
+<span class="nc" id="L147">    }</span>
+
+    /**
+     * @brief Constructor with all fields except id.
+     * @param seatNumber the seat number
+     * @param isReserved the reserved status
+     * @param room the room this seat belongs to
+     */
+<span class="nc" id="L155">    public Seat(int seatNumber, boolean isReserved, Room room) {</span>
+<span class="nc" id="L156">        this.seatNumber = seatNumber;</span>
+<span class="nc" id="L157">        this.isReserved = isReserved;</span>
+<span class="nc" id="L158">        this.room = room;</span>
+<span class="nc" id="L159">    }</span>
+
+    /**
+     * @brief Constructor without reserved status (defaults to false).
+     * @param seatNumber the seat number
+     * @param room the room this seat belongs to
+     */
+    public Seat(int seatNumber, Room room) {
+<span class="nc" id="L167">        this(seatNumber, false, room);</span>
+<span class="nc" id="L168">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

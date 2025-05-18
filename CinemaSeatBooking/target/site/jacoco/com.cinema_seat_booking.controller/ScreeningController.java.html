@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ScreeningController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">CinemaSeatBooking</a> &gt; <a href="index.source.html" class="el_package">com.cinema_seat_booking.controller</a> &gt; <span class="el_source">ScreeningController.java</span></div><h1>ScreeningController.java</h1><pre class="source lang-java linenums">/**
+ * @package com.cinema_seat_booking.controller
+ * @brief REST controller for managing movie screening-related operations.
+ *
+ * This controller provides endpoints for CRUD operations and search functionalities
+ * for movie screenings. It interacts with the {@link ScreeningService}.
+ */
+package com.cinema_seat_booking.controller;
+
+import com.cinema_seat_booking.dto.ScreeningDTO;
+import com.cinema_seat_booking.model.Screening;
+import com.cinema_seat_booking.service.ScreeningService;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
+
+/**
+ * @class ScreeningController
+ * @brief Handles HTTP requests related to movie screenings.
+ */
+@RestController
+@RequestMapping(&quot;/api/screenings&quot;)
+<span class="nc" id="L32">public class ScreeningController {</span>
+
+    /** Service class for screening logic and data access. */
+    @Autowired
+    private ScreeningService screeningService;
+
+    /**
+     * Retrieves all screenings.
+     *
+     * @return List of {@link ScreeningDTO} wrapped in {@link ResponseEntity}
+     */
+    @Operation(summary = &quot;Return all screenings&quot;, description = &quot;Returns all the screenings available in the app&quot;)
+    @ApiResponse(responseCode = &quot;200&quot;, description = &quot;List of screenings retrieved successfully&quot;)
+    @GetMapping
+    public ResponseEntity&lt;List&lt;ScreeningDTO&gt;&gt; getAllScreenings() {
+<span class="nc" id="L47">        List&lt;Screening&gt; screenings = screeningService.getAllScreenings();</span>
+<span class="nc" id="L48">        List&lt;ScreeningDTO&gt; screeningDTOs = screenings.stream()</span>
+<span class="nc" id="L49">                .map(ScreeningDTO::new)</span>
+<span class="nc" id="L50">                .toList();</span>
+<span class="nc" id="L51">        return ResponseEntity.ok(screeningDTOs);</span>
+    }
+
+    /**
+     * Retrieves a screening by its ID.
+     *
+     * @param id The ID of the screening
+     * @return {@link ScreeningDTO} if found, 404 otherwise
+     */
+    @Operation(summary = &quot;Get screening by ID&quot;, description = &quot;Retrieves a specific screening by its ID&quot;)
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = &quot;200&quot;, description = &quot;Screening found&quot;),
+            @ApiResponse(responseCode = &quot;404&quot;, description = &quot;Screening not found&quot;)
+    })
+    @GetMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;ScreeningDTO&gt; getScreeningById(@PathVariable Long id) {
+<span class="nc" id="L67">        Optional&lt;Screening&gt; screening = screeningService.getScreeningById(id);</span>
+<span class="nc bnc" id="L68" title="All 2 branches missed.">        if (screening.isEmpty()) return ResponseEntity.notFound().build();</span>
+
+<span class="nc" id="L70">        ScreeningDTO screeningDTO = new ScreeningDTO(screening.get());</span>
+<span class="nc" id="L71">        return ResponseEntity.ok(screeningDTO);</span>
+    }
+
+    /**
+     * Schedules a new movie screening.
+     *
+     * @param screening The screening entity to be created
+     * @return Created {@link ScreeningDTO} or HTTP 400 on error
+     */
+    @Operation(summary = &quot;Schedule a new screening&quot;, description = &quot;Creates and schedules a new movie screening&quot;)
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = &quot;201&quot;, description = &quot;Screening created successfully&quot;),
+            @ApiResponse(responseCode = &quot;400&quot;, description = &quot;Invalid input data&quot;)
+    })
+    @PostMapping
+    public ResponseEntity&lt;ScreeningDTO&gt; scheduleScreening(@RequestBody Screening screening) {
+        try {
+<span class="nc" id="L88">            Screening createdScreening = screeningService.scheduleScreening(screening);</span>
+<span class="nc" id="L89">            ScreeningDTO screeningDTO = new ScreeningDTO(createdScreening);</span>
+<span class="nc" id="L90">            return new ResponseEntity&lt;&gt;(screeningDTO, HttpStatus.CREATED);</span>
+<span class="nc" id="L91">        } catch (Exception e) {</span>
+<span class="nc" id="L92">            return ResponseEntity.badRequest().build();</span>
+        }
+    }
+
+    /**
+     * Updates the details of an existing screening.
+     *
+     * @param id The ID of the screening
+     * @param screeningDetails The updated screening data
+     * @return Updated {@link ScreeningDTO} or error status
+     */
+    @Operation(summary = &quot;Update an existing screening&quot;, description = &quot;Modifies the details of an existing screening&quot;)
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = &quot;200&quot;, description = &quot;Screening updated successfully&quot;),
+            @ApiResponse(responseCode = &quot;400&quot;, description = &quot;Invalid input data or update failed&quot;),
+            @ApiResponse(responseCode = &quot;404&quot;, description = &quot;Screening not found&quot;)
+    })
+    @PutMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;ScreeningDTO&gt; updateScreening(@PathVariable Long id,
+                                                        @RequestBody Screening screeningDetails) {
+        try {
+<span class="nc" id="L113">            Screening updatedScreening = screeningService.updateScreening(id, screeningDetails);</span>
+<span class="nc" id="L114">            ScreeningDTO screeningDTO = new ScreeningDTO(updatedScreening);</span>
+<span class="nc" id="L115">            return ResponseEntity.ok(screeningDTO);</span>
+<span class="nc" id="L116">        } catch (Exception e) {</span>
+<span class="nc" id="L117">            return ResponseEntity.badRequest().build();</span>
+        }
+    }
+
+    /**
+     * Deletes a screening by ID.
+     *
+     * @param id The ID of the screening
+     * @return HTTP 204 if successful, 404 if not found
+     */
+    @Operation(summary = &quot;Delete a screening&quot;, description = &quot;Deletes a screening by its ID&quot;)
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = &quot;204&quot;, description = &quot;Screening deleted successfully&quot;),
+            @ApiResponse(responseCode = &quot;404&quot;, description = &quot;Screening not found&quot;)
+    })
+    @DeleteMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;Void&gt; deleteScreening(@PathVariable Long id) {
+<span class="nc" id="L134">        Optional&lt;Screening&gt; screening = screeningService.getScreeningById(id);</span>
+<span class="nc bnc" id="L135" title="All 2 branches missed.">        if (screening.isPresent()) {</span>
+<span class="nc" id="L136">            screeningService.deleteScreening(id);</span>
+<span class="nc" id="L137">            return ResponseEntity.noContent().build();</span>
+        } else {
+<span class="nc" id="L139">            return ResponseEntity.notFound().build();</span>
+        }
+    }
+
+    /**
+     * Retrieves screenings by movie ID.
+     *
+     * @param movieId The ID of the movie
+     * @return List of {@link ScreeningDTO} for the given movie
+     */
+    @Operation(summary = &quot;Get screenings by movie&quot;, description = &quot;Retrieves all screenings for a specific movie&quot;)
+    @ApiResponse(responseCode = &quot;200&quot;, description = &quot;List of screenings retrieved successfully&quot;)
+    @GetMapping(&quot;/movie/{movieId}&quot;)
+    public ResponseEntity&lt;List&lt;ScreeningDTO&gt;&gt; getScreeningsByMovie(@PathVariable Long movieId) {
+<span class="nc" id="L153">        List&lt;Screening&gt; screenings = screeningService.getScreeningsByMovie(movieId);</span>
+<span class="nc" id="L154">        List&lt;ScreeningDTO&gt; screeningDTOs = screenings.stream()</span>
+<span class="nc" id="L155">                .map(ScreeningDTO::new)</span>
+<span class="nc" id="L156">                .toList();</span>
+<span class="nc" id="L157">        return ResponseEntity.ok(screeningDTOs);</span>
+    }
+
+    /**
+     * Retrieves screenings by date.
+     *
+     * @param date The screening date in string format (e.g., &quot;2025-05-18&quot;)
+     * @return List of {@link ScreeningDTO} for that date
+     */
+    @Operation(summary = &quot;Get screenings by date&quot;, description = &quot;Retrieves all screenings for a specific date&quot;)
+    @ApiResponse(responseCode = &quot;200&quot;, description = &quot;List of screenings retrieved successfully&quot;)
+    @GetMapping(&quot;/date/{date}&quot;)
+    public ResponseEntity&lt;List&lt;ScreeningDTO&gt;&gt; getScreeningsByDate(@PathVariable String date) {
+<span class="nc" id="L170">        List&lt;Screening&gt; screenings = screeningService.getScreeningsByDate(date);</span>
+<span class="nc" id="L171">        List&lt;ScreeningDTO&gt; screeningDTOs = screenings.stream()</span>
+<span class="nc" id="L172">                .map(ScreeningDTO::new)</span>
+<span class="nc" id="L173">                .toList();</span>
+<span class="nc" id="L174">        return ResponseEntity.ok(screeningDTOs);</span>
+    }
+
+    /**
+     * Retrieves screenings by location.
+     *
+     * @param location The location of the screening (e.g., cinema name or branch)
+     * @return List of {@link ScreeningDTO} for that location
+     */
+    @Operation(summary = &quot;Get screenings by location&quot;, description = &quot;Retrieves all screenings at a specific location&quot;)
+    @ApiResponse(responseCode = &quot;200&quot;, description = &quot;List of screenings retrieved successfully&quot;)
+    @GetMapping(&quot;/location/{location}&quot;)
+    public ResponseEntity&lt;List&lt;ScreeningDTO&gt;&gt; getScreeningsByLocation(@PathVariable String location) {
+<span class="nc" id="L187">        List&lt;Screening&gt; screenings = screeningService.getScreeningsByLocation(location);</span>
+<span class="nc" id="L188">        List&lt;ScreeningDTO&gt; screeningDTOs = screenings.stream()</span>
+<span class="nc" id="L189">                .map(ScreeningDTO::new)</span>
+<span class="nc" id="L190">                .toList();</span>
+<span class="nc" id="L191">        return ResponseEntity.ok(screeningDTOs);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

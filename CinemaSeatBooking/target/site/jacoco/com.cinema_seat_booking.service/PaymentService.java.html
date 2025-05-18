@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PaymentService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">CinemaSeatBooking</a> &gt; <a href="index.source.html" class="el_package">com.cinema_seat_booking.service</a> &gt; <span class="el_source">PaymentService.java</span></div><h1>PaymentService.java</h1><pre class="source lang-java linenums">/**
+ * @file PaymentService.java
+ * @brief Service class for managing payment processing in the cinema booking system.
+ *
+ * @details
+ * This class provides methods to process payments for reservations,
+ * interacting with {@link PaymentRepository} and {@link ReservationRepository}.
+ * It handles updating payment status and reservation state accordingly.
+ *
+ * @see Payment
+ * @see Reservation
+ * @see PaymentStatus
+ * @see ReservationState
+ * 
+ * @author 
+ * BSPQ25-E5
+ * @version 1.0
+ * @since 2025-05-19
+ */
+package com.cinema_seat_booking.service;
+
+import com.cinema_seat_booking.model.Payment;
+import com.cinema_seat_booking.model.Reservation;
+import com.cinema_seat_booking.model.PaymentStatus;
+import com.cinema_seat_booking.model.ReservationState;
+import com.cinema_seat_booking.repository.PaymentRepository;
+import com.cinema_seat_booking.repository.ReservationRepository;
+
+import jakarta.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+/**
+ * @class PaymentService
+ * @brief Service responsible for processing payments related to reservations.
+ *
+ * Handles the payment workflow, including updating payment status and reservation states.
+ */
+@Service
+@Transactional
+<span class="nc" id="L42">public class PaymentService {</span>
+
+    @Autowired
+    private PaymentRepository paymentRepository;
+
+    @Autowired
+    private ReservationRepository reservationRepository;
+
+    /**
+     * @brief Processes a payment for a given reservation.
+     *
+     * @param reservation the {@link Reservation} object for which payment is being processed
+     * @param paymentMethod the payment method used (e.g., credit card, PayPal)
+     * @param amount the amount to be paid
+     * @param date the date of the payment (as a string)
+     * @return the updated {@link Payment} entity after processing
+     *
+     * @details
+     * This method simulates a payment gateway interaction. If the payment
+     * is successful, it updates the payment status to COMPLETED and the reservation
+     * state to PAID. Otherwise, the payment status is set to FAILED.
+     */
+    public Payment processPayment(Reservation reservation, String paymentMethod, double amount, String date) {
+<span class="nc" id="L65">        Payment payment = reservation.getPayment();</span>
+<span class="nc" id="L66">        boolean paymentSuccessful = simulatePaymentGateway();</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">        if (paymentSuccessful) {</span>
+<span class="nc" id="L68">            payment.setStatus(PaymentStatus.COMPLETED);</span>
+<span class="nc" id="L69">            reservation.setReservationState(ReservationState.PAID);</span>
+<span class="nc" id="L70">            reservation.setPayment(payment);</span>
+<span class="nc" id="L71">            reservationRepository.save(reservation);</span>
+        } else {
+<span class="nc" id="L73">            payment.setStatus(PaymentStatus.FAILED);</span>
+        }
+<span class="nc" id="L75">        return paymentRepository.save(payment);</span>
+    }
+
+    /**
+     * @brief Simulates the interaction with a payment gateway.
+     *
+     * @return always returns true to indicate a successful payment in this simulation.
+     *
+     * @details
+     * In a real application, this method would integrate with an external payment provider.
+     */
+    public boolean simulatePaymentGateway() {
+<span class="nc" id="L87">        return true;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

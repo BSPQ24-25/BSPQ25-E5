@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Reservation.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">CinemaSeatBooking</a> &gt; <a href="index.source.html" class="el_package">com.cinema_seat_booking.model</a> &gt; <span class="el_source">Reservation.java</span></div><h1>Reservation.java</h1><pre class="source lang-java linenums">package com.cinema_seat_booking.model;
+
+import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+/**
+ * @class Reservation
+ * @brief Entity class representing a seat reservation made by a user for a screening.
+ *
+ * @details
+ * The {@code Reservation} class maps to a reservation record in the database,
+ * linking a {@link User}, a {@link Screening}, a {@link Seat}, and a {@link Payment}.
+ * It tracks the reservation state and enforces cascading delete behavior.
+ * 
+ * @author BSPQ25-E5
+ * @version 1.0
+ * @since 2025-05-19
+ */
+@Entity
+public class Reservation {
+    /**
+     * @brief Unique identifier for the reservation.
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    /**
+     * @brief The user who made the reservation.
+     *
+     * @details
+     * Many-to-one relationship to the {@link User} entity.
+     * On user deletion, cascade deletion of reservations.
+     */
+    @ManyToOne
+    @JoinColumn(name = &quot;user_id&quot;)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private User user;
+
+    /**
+     * @brief The screening for which the reservation is made.
+     *
+     * @details
+     * Many-to-one relationship to the {@link Screening} entity.
+     * On screening deletion, cascade deletion of reservations.
+     */
+    @ManyToOne
+    @JoinColumn(name = &quot;screening_id&quot;)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Screening screening;
+
+    /**
+     * @brief The seat reserved.
+     *
+     * @details
+     * One-to-one relationship to the {@link Seat} entity.
+     * Cascade all changes to the seat.
+     */
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = &quot;seat_id&quot;)
+    private Seat seat;
+
+    /**
+     * @brief The state of the reservation.
+     *
+     * @details
+     * Uses the {@link ReservationState} enum to represent states like PENDING, CONFIRMED, CANCELLED.
+     */
+    @Enumerated(EnumType.STRING)
+    private ReservationState reservationState;
+
+    /**
+     * @brief The payment associated with this reservation.
+     *
+     * @details
+     * One-to-one relationship with the {@link Payment} entity.
+     * Cascade all changes to the payment.
+     */
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = &quot;payment_id&quot;)
+    private Payment payment;
+
+    /**
+     * @brief Gets the reservation ID.
+     *
+     * @return the reservation ID
+     */
+    public Long getId() {
+<span class="nc" id="L90">        return id;</span>
+    }
+
+    /**
+     * @brief Gets the user who made the reservation.
+     *
+     * @return the user
+     */
+    public User getUser() {
+<span class="nc" id="L99">        return user;</span>
+    }
+
+    /**
+     * @brief Gets the screening linked to this reservation.
+     *
+     * @return the screening
+     */
+    public Screening getScreening() {
+<span class="nc" id="L108">        return screening;</span>
+    }
+
+    /**
+     * @brief Gets the reserved seat.
+     *
+     * @return the seat
+     */
+    public Seat getSeat() {
+<span class="nc" id="L117">        return seat;</span>
+    }
+
+    /**
+     * @brief Gets the reservation state.
+     *
+     * @return the reservation state
+     */
+    public ReservationState getReservationState() {
+<span class="nc" id="L126">        return reservationState;</span>
+    }
+
+    /**
+     * @brief Gets the payment linked to this reservation.
+     *
+     * @return the payment
+     */
+    public Payment getPayment() {
+<span class="nc" id="L135">        return payment;</span>
+    }
+
+    /**
+     * @brief Sets the reservation ID.
+     *
+     * @param id the ID to set
+     */
+    public void setId(Long id) {
+<span class="nc" id="L144">        this.id = id;</span>
+<span class="nc" id="L145">    }</span>
+
+    /**
+     * @brief Sets the user for the reservation.
+     *
+     * @param user the user to set
+     */
+    public void setUser(User user) {
+<span class="nc" id="L153">        this.user = user;</span>
+<span class="nc" id="L154">    }</span>
+
+    /**
+     * @brief Sets the screening for the reservation.
+     *
+     * @param screening the screening to set
+     */
+    public void setScreening(Screening screening) {
+<span class="nc" id="L162">        this.screening = screening;</span>
+<span class="nc" id="L163">    }</span>
+
+    /**
+     * @brief Sets the seat for the reservation.
+     *
+     * @details
+     * Marks the seat as reserved and links back to this reservation.
+     *
+     * @param seat the seat to set
+     */
+    public void setSeat(Seat seat) {
+<span class="nc" id="L174">        this.seat = seat;</span>
+<span class="nc bnc" id="L175" title="All 2 branches missed.">        if (seat != null) {</span>
+<span class="nc" id="L176">            seat.setReserved(true);</span>
+<span class="nc" id="L177">            seat.setReservation(this);</span>
+        }
+<span class="nc" id="L179">    }</span>
+
+    /**
+     * @brief Sets the reservation state.
+     *
+     * @param reservationState the reservation state to set
+     */
+    public void setReservationState(ReservationState reservationState) {
+<span class="nc" id="L187">        this.reservationState = reservationState;</span>
+<span class="nc" id="L188">    }</span>
+
+    /**
+     * @brief Sets the payment for the reservation.
+     *
+     * @details
+     * Links the payment back to this reservation.
+     *
+     * @param payment the payment to set
+     */
+    public void setPayment(Payment payment) {
+<span class="nc" id="L199">        this.payment = payment;</span>
+<span class="nc bnc" id="L200" title="All 2 branches missed.">        if (payment != null) {</span>
+<span class="nc" id="L201">            payment.setReservation(this);</span>
+        }
+<span class="nc" id="L203">    }</span>
+
+    /**
+     * @brief Default constructor required by JPA.
+     *
+     * @details
+     * Initializes reservation state to PENDING.
+     */
+<span class="nc" id="L211">    public Reservation() {</span>
+<span class="nc" id="L212">        this.reservationState = ReservationState.PENDING;</span>
+<span class="nc" id="L213">    }</span>
+
+    /**
+     * @brief Constructs a reservation with all main entities.
+     *
+     * @param user the user making the reservation
+     * @param screening the screening reserved
+     * @param payment the payment associated
+     * @param seat the seat reserved
+     */
+<span class="nc" id="L223">    public Reservation(User user, Screening screening, Payment payment, Seat seat) {</span>
+<span class="nc" id="L224">        this.user = user;</span>
+<span class="nc" id="L225">        this.screening = screening;</span>
+<span class="nc" id="L226">        this.reservationState = ReservationState.PENDING;</span>
+<span class="nc" id="L227">        this.setPayment(payment);</span>
+<span class="nc" id="L228">        this.setSeat(seat);</span>
+<span class="nc" id="L229">    }</span>
+
+    /**
+     * @brief Constructs a reservation without a payment, creates a new payment instance.
+     *
+     * @param user the user making the reservation
+     * @param screening the screening reserved
+     * @param seat the seat reserved
+     */
+<span class="nc" id="L238">    public Reservation(User user, Screening screening, Seat seat) {</span>
+<span class="nc" id="L239">        this.user = user;</span>
+<span class="nc" id="L240">        this.screening = screening;</span>
+<span class="nc" id="L241">        this.reservationState = ReservationState.PENDING;</span>
+
+<span class="nc" id="L243">        Payment newPayment = new Payment();</span>
+<span class="nc" id="L244">        this.payment = newPayment;</span>
+<span class="nc" id="L245">        newPayment.setReservation(this);</span>
+
+<span class="nc" id="L247">        this.setSeat(seat);</span>
+<span class="nc" id="L248">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

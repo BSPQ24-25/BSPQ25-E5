@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SeatService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">CinemaSeatBooking</a> &gt; <a href="index.source.html" class="el_package">com.cinema_seat_booking.service</a> &gt; <span class="el_source">SeatService.java</span></div><h1>SeatService.java</h1><pre class="source lang-java linenums">/**
+ * @file SeatService.java
+ * @brief Service class for managing seats in cinema rooms.
+ *
+ * @details
+ * This service handles all CRUD operations and business logic related to
+ * seat management, including reservation and availability within rooms.
+ *
+ * @author
+ * BSPQ25-E5
+ * @version 1.0
+ * @since 2025-05-19
+ */
+package com.cinema_seat_booking.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.cinema_seat_booking.model.Room;
+import com.cinema_seat_booking.model.Seat;
+import com.cinema_seat_booking.repository.RoomRepository;
+import com.cinema_seat_booking.repository.SeatRepository;
+
+/**
+ * @class SeatService
+ * @brief Service layer for seat operations including creation, updating, deletion, and reservation logic.
+ */
+@Service
+<span class="nc" id="L32">public class SeatService {</span>
+
+    @Autowired
+    private SeatRepository seatRepository;
+
+    @Autowired
+    private RoomRepository roomRepository;
+
+    /**
+     * @brief Retrieves all seats.
+     * @return List of all {@link Seat} entities.
+     */
+    public List&lt;Seat&gt; getAllSeats() {
+<span class="nc" id="L45">        return seatRepository.findAll();</span>
+    }
+
+    /**
+     * @brief Retrieves a seat by its ID.
+     * @param id The ID of the seat.
+     * @return An {@link Optional} containing the seat if found.
+     */
+    public Optional&lt;Seat&gt; getSeatById(Long id) {
+<span class="nc" id="L54">        return seatRepository.findById(id);</span>
+    }
+
+    /**
+     * @brief Creates a new seat in the specified room.
+     * @param number The seat number.
+     * @param roomId The ID of the room.
+     * @return The saved {@link Seat} object.
+     * @throws IllegalArgumentException if the room is not found.
+     */
+    public Seat createSeat(int number, Long roomId) {
+<span class="nc" id="L65">        Room room = roomRepository.findById(roomId)</span>
+<span class="nc" id="L66">                .orElseThrow(() -&gt; new IllegalArgumentException(&quot;Room not found with ID: &quot; + roomId));</span>
+<span class="nc" id="L67">        Seat seat = new Seat(number, room);</span>
+<span class="nc" id="L68">        return seatRepository.save(seat);</span>
+    }
+
+    /**
+     * @brief Updates an existing seat with a new number and room.
+     * @param id The ID of the seat to update.
+     * @param newNumber The new seat number.
+     * @param newRoomId The ID of the new room.
+     * @return The updated {@link Seat} object.
+     * @throws IllegalArgumentException if the seat or new room is not found.
+     */
+    public Seat updateSeat(Long id, int newNumber, Long newRoomId) {
+<span class="nc" id="L80">        Seat seat = seatRepository.findById(id)</span>
+<span class="nc" id="L81">                .orElseThrow(() -&gt; new IllegalArgumentException(&quot;Seat not found with ID: &quot; + id));</span>
+<span class="nc" id="L82">        Room newRoom = roomRepository.findById(newRoomId)</span>
+<span class="nc" id="L83">                .orElseThrow(() -&gt; new IllegalArgumentException(&quot;Room not found with ID: &quot; + newRoomId));</span>
+<span class="nc" id="L84">        seat.setSeatNumber(newNumber);</span>
+<span class="nc" id="L85">        seat.setRoom(newRoom);</span>
+<span class="nc" id="L86">        return seatRepository.save(seat);</span>
+    }
+
+    /**
+     * @brief Deletes a seat by ID.
+     * @param id The ID of the seat.
+     * @return true if the seat was deleted, false if it was not found.
+     */
+    public boolean deleteSeat(Long id) {
+<span class="nc bnc" id="L95" title="All 2 branches missed.">        if (seatRepository.existsById(id)) {</span>
+<span class="nc" id="L96">            seatRepository.deleteById(id);</span>
+<span class="nc" id="L97">            return true;</span>
+        }
+<span class="nc" id="L99">        return false;</span>
+    }
+
+    /**
+     * @brief Retrieves all available (unreserved) seats in a room.
+     * @param roomId The ID of the room.
+     * @return List of available {@link Seat} objects.
+     */
+    public List&lt;Seat&gt; getAvailableSeats(Long roomId) {
+<span class="nc" id="L108">        return seatRepository.findByRoomIdAndIsReservedFalse(roomId);</span>
+    }
+
+    /**
+     * @brief Reserves a seat by ID.
+     * @param seatId The ID of the seat to reserve.
+     * @throws Exception if the seat is not found or is already reserved.
+     */
+    public void reserveSeat(Long seatId) throws Exception {
+<span class="nc" id="L117">        Seat seat = seatRepository.findById(seatId)</span>
+<span class="nc" id="L118">                .orElseThrow(() -&gt; new Exception(&quot;Seat not found&quot;));</span>
+
+<span class="nc bnc" id="L120" title="All 2 branches missed.">        if (seat.isReserved()) {</span>
+<span class="nc" id="L121">            throw new Exception(&quot;Seat is already reserved&quot;);</span>
+        }
+
+<span class="nc" id="L124">        seat.setReserved(true);</span>
+<span class="nc" id="L125">        seatRepository.save(seat);</span>
+<span class="nc" id="L126">    }</span>
+
+    /**
+     * @brief Cancels a reservation for a seat.
+     * @param seatId The ID of the seat to unreserve.
+     * @throws Exception if the seat is not found or is not reserved.
+     */
+    public void cancelSeatReservation(Long seatId) throws Exception {
+<span class="nc" id="L134">        Seat seat = seatRepository.findById(seatId)</span>
+<span class="nc" id="L135">                .orElseThrow(() -&gt; new Exception(&quot;Seat not found&quot;));</span>
+
+<span class="nc bnc" id="L137" title="All 2 branches missed.">        if (!seat.isReserved()) {</span>
+<span class="nc" id="L138">            throw new Exception(&quot;Seat is not reserved&quot;);</span>
+        }
+
+<span class="nc" id="L141">        seat.setReserved(false);</span>
+<span class="nc" id="L142">        seatRepository.save(seat);</span>
+<span class="nc" id="L143">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

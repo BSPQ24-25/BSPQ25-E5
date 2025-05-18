@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">CinemaSeatBooking</a> &gt; <a href="index.source.html" class="el_package">com.cinema_seat_booking.controller</a> &gt; <span class="el_source">UserController.java</span></div><h1>UserController.java</h1><pre class="source lang-java linenums">/**
+ * @package com.cinema_seat_booking.controller
+ * @brief This package contains REST controllers for handling user operations in the cinema seat booking system.
+ *
+ * It includes {@link UserController} for managing user registration, profile management, and authentication.
+ */
+package com.cinema_seat_booking.controller;
+
+import com.cinema_seat_booking.dto.UserDTO;
+import com.cinema_seat_booking.model.User;
+import com.cinema_seat_booking.service.UserService;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+
+/**
+ * @class UserController
+ * @brief REST controller that provides endpoints for user registration, profile viewing, updating, and deletion.
+ *
+ * This controller interacts with the {@link UserService} to perform business logic and database operations.
+ */
+@Controller
+@RequestMapping(&quot;/api/users&quot;)
+<span class="nc" id="L31">public class UserController {</span>
+
+    /** Service that handles all user-related operations. */
+    @Autowired
+    private UserService userService;
+
+    /**
+     * Registers a new user account.
+     *
+     * @param userDTO The user registration data (username, email, password)
+     * @return A {@link ResponseEntity} containing the registered user and HTTP 201 status
+     */
+    @Operation(summary = &quot;Register a new user&quot;, description = &quot;Registers a new user by providing user details&quot;)
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = &quot;201&quot;, description = &quot;User successfully registered&quot;),
+        @ApiResponse(responseCode = &quot;400&quot;, description = &quot;Invalid input&quot;)
+    })
+    @PostMapping(&quot;/register&quot;)
+    public ResponseEntity&lt;User&gt; register(@RequestBody UserDTO userDTO) {
+<span class="nc" id="L50">        User user = userService.registerUser(userDTO);</span>
+<span class="nc" id="L51">        return new ResponseEntity&lt;&gt;(user, HttpStatus.CREATED);</span>
+    }
+
+    /**
+     * Retrieves the user profile by username.
+     *
+     * @param username The username of the user
+     * @return A {@link ResponseEntity} containing the user data and HTTP 200 status, or HTTP 404 if not found
+     */
+    @Operation(summary = &quot;View user profile&quot;, description = &quot;Fetch the profile of a user by username&quot;)
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = &quot;200&quot;, description = &quot;User profile retrieved successfully&quot;),
+        @ApiResponse(responseCode = &quot;404&quot;, description = &quot;User not found&quot;)
+    })
+    @GetMapping(&quot;/profile&quot;)
+    public ResponseEntity&lt;User&gt; viewProfile(@RequestParam String username) {
+<span class="nc" id="L67">        User user = userService.getUserByUsername(username);</span>
+<span class="nc bnc" id="L68" title="All 2 branches missed.">        if (user != null) {</span>
+<span class="nc" id="L69">            return new ResponseEntity&lt;&gt;(user, HttpStatus.OK);</span>
+        } else {
+<span class="nc" id="L71">            return new ResponseEntity&lt;&gt;(HttpStatus.NOT_FOUND);</span>
+        }
+    }
+
+    /**
+     * Updates the profile information of an existing user.
+     *
+     * @param userDTO The updated user details
+     * @return A {@link ResponseEntity} containing the updated user and HTTP 200 status, or HTTP 400 if update failed
+     */
+    @Operation(summary = &quot;Update user profile&quot;, description = &quot;Update the profile details of a user&quot;)
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = &quot;200&quot;, description = &quot;User profile updated successfully&quot;),
+        @ApiResponse(responseCode = &quot;400&quot;, description = &quot;Invalid input or update failed&quot;)
+    })
+    @PutMapping(&quot;/profile&quot;)
+    public ResponseEntity&lt;User&gt; updateProfile(@RequestBody UserDTO userDTO) {
+<span class="nc" id="L88">        User updatedUser = userService.updateUserProfile(userDTO);</span>
+<span class="nc bnc" id="L89" title="All 2 branches missed.">        if (updatedUser != null) {</span>
+<span class="nc" id="L90">            return new ResponseEntity&lt;&gt;(updatedUser, HttpStatus.OK);</span>
+        } else {
+<span class="nc" id="L92">            return new ResponseEntity&lt;&gt;(HttpStatus.BAD_REQUEST);</span>
+        }
+    }
+
+    /**
+     * Deletes a user account based on username and password.
+     *
+     * @param username The username of the account
+     * @param password The password for verification
+     * @return A {@link ResponseEntity} with HTTP 204 if deleted, or HTTP 400 if credentials are invalid
+     */
+    @Operation(summary = &quot;Delete user profile&quot;, description = &quot;Deletes a user profile based on username and password&quot;)
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = &quot;204&quot;, description = &quot;User profile successfully deleted&quot;),
+        @ApiResponse(responseCode = &quot;400&quot;, description = &quot;Invalid input or credentials&quot;)
+    })
+    @DeleteMapping(&quot;/profile&quot;)
+    public ResponseEntity&lt;Void&gt; deleteProfile(@RequestParam String username, @RequestParam String password) {
+<span class="nc" id="L110">        boolean deleted = userService.deleteUser(username, password);</span>
+<span class="nc bnc" id="L111" title="All 2 branches missed.">        if (deleted) {</span>
+<span class="nc" id="L112">            return new ResponseEntity&lt;&gt;(HttpStatus.NO_CONTENT);</span>
+        } else {
+<span class="nc" id="L114">            return new ResponseEntity&lt;&gt;(HttpStatus.BAD_REQUEST);</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

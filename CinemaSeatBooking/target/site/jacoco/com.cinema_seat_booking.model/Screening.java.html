@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Screening.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">CinemaSeatBooking</a> &gt; <a href="index.source.html" class="el_package">com.cinema_seat_booking.model</a> &gt; <span class="el_source">Screening.java</span></div><h1>Screening.java</h1><pre class="source lang-java linenums">package com.cinema_seat_booking.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import jakarta.persistence.*;
+
+/**
+ * @class Screening
+ * @brief Represents a movie screening event within a cinema system.
+ *
+ * @details
+ * The {@code Screening} entity represents a scheduled showing of a movie in a specific room at a specific date and location.
+ * It maintains relationships with the {@link Movie} being shown, the {@link Room} where it takes place, and the {@link Reservation} entities
+ * associated with bookings for this screening.
+ *
+ * @author BSPQ25-E5
+ * @version 1.0
+ * @since 2025-05-19
+ */
+@Entity
+public class Screening {
+    /**
+     * @brief Unique identifier for the screening.
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    /**
+     * @brief Movie associated with the screening.
+     *
+     * @details
+     * Many screenings can be associated with one movie.
+     * Cascade delete is enabled, so deleting a movie deletes associated screenings.
+     */
+    @ManyToOne
+    @JoinColumn(name = &quot;movie_id&quot;)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Movie movie;
+
+    /**
+     * @brief Date of the screening.
+     */
+    @Column(nullable = false)
+    private String date;
+
+    /**
+     * @brief Location of the screening (e.g., cinema branch or hall name).
+     */
+    @Column(nullable = false)
+    private String location;
+
+    /**
+     * @brief Room in which the screening takes place.
+     *
+     * @details
+     * Many screenings can be scheduled in one room.
+     * Cascade delete is enabled, so deleting a room deletes associated screenings.
+     */
+    @ManyToOne
+    @JoinColumn(name = &quot;room_id&quot;)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Room room;
+
+    /**
+     * @brief List of reservations for this screening.
+     *
+     * @details
+     * One screening can have many reservations.
+     * Cascade all operations and remove orphans.
+     * Ignored in JSON serialization to avoid recursion.
+     */
+    @OneToMany(mappedBy = &quot;screening&quot;, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List&lt;Reservation&gt; reservations;
+
+    /**
+     * @brief Gets the unique ID of the screening.
+     * @return the screening ID
+     */
+    public Long getId() {
+<span class="nc" id="L87">        return id;</span>
+    }
+
+    /**
+     * @brief Sets the unique ID of the screening.
+     * @param id the screening ID to set
+     */
+    public void setId(Long id) {
+<span class="nc" id="L95">        this.id = id;</span>
+<span class="nc" id="L96">    }</span>
+
+    /**
+     * @brief Gets the movie associated with this screening.
+     * @return the movie
+     */
+    public Movie getMovie() {
+<span class="nc" id="L103">        return movie;</span>
+    }
+
+    /**
+     * @brief Sets the movie associated with this screening.
+     * @param movie the movie to set
+     */
+    public void setMovie(Movie movie) {
+<span class="nc" id="L111">        this.movie = movie;</span>
+<span class="nc" id="L112">    }</span>
+
+    /**
+     * @brief Gets the date of the screening.
+     * @return the date string
+     */
+    public String getDate() {
+<span class="nc" id="L119">        return date;</span>
+    }
+
+    /**
+     * @brief Sets the date of the screening.
+     * @param date the date string to set
+     */
+    public void setDate(String date) {
+<span class="nc" id="L127">        this.date = date;</span>
+<span class="nc" id="L128">    }</span>
+
+    /**
+     * @brief Gets the location of the screening.
+     * @return the location string
+     */
+    public String getLocation() {
+<span class="nc" id="L135">        return location;</span>
+    }
+
+    /**
+     * @brief Sets the location of the screening.
+     * @param location the location string to set
+     */
+    public void setLocation(String location) {
+<span class="nc" id="L143">        this.location = location;</span>
+<span class="nc" id="L144">    }</span>
+
+    /**
+     * @brief Gets the room where the screening takes place.
+     * @return the room
+     */
+    public Room getRoom() {
+<span class="nc" id="L151">        return room;</span>
+    }
+
+    /**
+     * @brief Sets the room where the screening takes place.
+     * @param room the room to set
+     */
+    public void setRoom(Room room) {
+<span class="nc" id="L159">        this.room = room;</span>
+<span class="nc" id="L160">    }</span>
+
+    /**
+     * @brief Gets the list of reservations for this screening.
+     * @return list of reservations
+     */
+    public List&lt;Reservation&gt; getReservations() {
+<span class="nc" id="L167">        return reservations;</span>
+    }
+
+    /**
+     * @brief Sets the list of reservations for this screening.
+     * @param reservations the reservations list to set
+     */
+    public void setReservations(List&lt;Reservation&gt; reservations) {
+<span class="nc" id="L175">        this.reservations = reservations;</span>
+<span class="nc" id="L176">    }</span>
+
+    /**
+     * @brief Adds a reservation to this screening.
+     *
+     * @details
+     * Adds the reservation to the list and sets this screening on the reservation.
+     *
+     * @param reservation the reservation to add
+     */
+    public void addReservation(Reservation reservation) {
+<span class="nc bnc" id="L187" title="All 2 branches missed.">        if (this.reservations == null) {</span>
+<span class="nc" id="L188">            this.reservations = new ArrayList&lt;&gt;();</span>
+        }
+<span class="nc" id="L190">        this.reservations.add(reservation);</span>
+<span class="nc" id="L191">        reservation.setScreening(this);</span>
+<span class="nc" id="L192">    }</span>
+
+    /**
+     * @brief Default constructor required by JPA.
+     *
+     * @details Initializes the reservations list.
+     */
+<span class="nc" id="L199">    public Screening() {</span>
+<span class="nc" id="L200">        this.reservations = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L201">    }</span>
+
+    /**
+     * @brief Constructor with all fields.
+     *
+     * @param movie the movie shown in the screening
+     * @param date the date of the screening
+     * @param location the location of the screening
+     * @param room the room where the screening takes place
+     * @param reservations the initial list of reservations
+     */
+    public Screening(Movie movie, String date, String location, Room room, List&lt;Reservation&gt; reservations) {
+<span class="nc" id="L213">        super();</span>
+<span class="nc" id="L214">        this.movie = movie;</span>
+<span class="nc" id="L215">        this.date = date;</span>
+<span class="nc" id="L216">        this.location = location;</span>
+<span class="nc" id="L217">        this.room = room;</span>
+<span class="nc bnc" id="L218" title="All 2 branches missed.">        this.reservations = reservations != null ? reservations : new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L219">    }</span>
+
+    /**
+     * @brief Constructor without reservations list.
+     *
+     * @param movie the movie shown in the screening
+     * @param date the date of the screening
+     * @param location the location of the screening
+     * @param room the room where the screening takes place
+     */
+<span class="nc" id="L229">    public Screening(Movie movie, String date, String location, Room room) {</span>
+<span class="nc" id="L230">        this.movie = movie;</span>
+<span class="nc" id="L231">        this.date = date;</span>
+<span class="nc" id="L232">        this.location = location;</span>
+<span class="nc" id="L233">        this.room = room;</span>
+<span class="nc" id="L234">        this.reservations = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L235">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

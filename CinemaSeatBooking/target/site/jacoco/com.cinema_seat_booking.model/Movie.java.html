@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Movie.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">CinemaSeatBooking</a> &gt; <a href="index.source.html" class="el_package">com.cinema_seat_booking.model</a> &gt; <span class="el_source">Movie.java</span></div><h1>Movie.java</h1><pre class="source lang-java linenums">package com.cinema_seat_booking.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.*;
+
+/**
+ * @class Movie
+ * @brief Entity class representing a movie.
+ *
+ * @details
+ * The {@code Movie} class maps to the &quot;movie&quot; table in the database.
+ * It stores details about a movie such as title, duration, genre, cast,
+ * and its related screenings.
+ *
+ * @author BSPQ25-E5
+ * @version 1.0
+ * @since 2025-05-19
+ */
+@Entity
+public class Movie {
+    /**
+     * @brief Unique identifier for the movie.
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    /**
+     * @brief Title of the movie.
+     *
+     * @details
+     * This field is unique and cannot be null.
+     */
+    @Column(nullable = false, unique = true)
+    private String title;
+
+    /**
+     * @brief Duration of the movie in minutes.
+     */
+    @Column(nullable = false)
+    private int duration;
+
+    /**
+     * @brief Genre of the movie.
+     */
+    @Column(nullable = false)
+    private String genre;
+
+    /**
+     * @brief Cast of the movie.
+     *
+     * @details
+     * Stored in the database column named &quot;movie_cast&quot;.
+     */
+    @Column(nullable = false, name = &quot;movie_cast&quot;)
+    private String cast;
+
+    /**
+     * @brief List of screenings associated with this movie.
+     *
+     * @details
+     * One-to-many relationship; a movie can have multiple screenings.
+     * Screenings are ignored in JSON serialization to avoid circular references.
+     */
+    @OneToMany(mappedBy = &quot;movie&quot;, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List&lt;Screening&gt; screenings;
+
+    /**
+     * @brief Default constructor required by JPA.
+     *
+     * @details
+     * Initializes the screenings list.
+     */
+<span class="nc" id="L79">    public Movie() {</span>
+<span class="nc" id="L80">        this.screenings = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L81">    }</span>
+
+    /**
+     * @brief Constructs a movie with all fields.
+     *
+     * @param title the movie title
+     * @param duration the movie duration in minutes
+     * @param genre the movie genre
+     * @param cast the movie cast
+     * @param screenings the list of screenings for this movie
+     */
+    public Movie(String title, int duration, String genre, String cast, List&lt;Screening&gt; screenings) {
+<span class="nc" id="L93">        super();</span>
+<span class="nc" id="L94">        this.title = title;</span>
+<span class="nc" id="L95">        this.duration = duration;</span>
+<span class="nc" id="L96">        this.genre = genre;</span>
+<span class="nc" id="L97">        this.cast = cast;</span>
+<span class="nc bnc" id="L98" title="All 2 branches missed.">        this.screenings = screenings != null ? screenings : new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L99">    }</span>
+
+    /**
+     * @brief Constructs a movie without screenings.
+     *
+     * @param title the movie title
+     * @param duration the movie duration in minutes
+     * @param genre the movie genre
+     * @param cast the movie cast
+     */
+<span class="nc" id="L109">    public Movie(String title, int duration, String genre, String cast) {</span>
+<span class="nc" id="L110">        this.title = title;</span>
+<span class="nc" id="L111">        this.duration = duration;</span>
+<span class="nc" id="L112">        this.genre = genre;</span>
+<span class="nc" id="L113">        this.cast = cast;</span>
+<span class="nc" id="L114">        this.screenings = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L115">    }</span>
+
+    /**
+     * @brief Gets the ID of the movie.
+     *
+     * @return the movie ID
+     */
+    public Long getId() {
+<span class="nc" id="L123">        return id;</span>
+    }
+
+    /**
+     * @brief Sets the ID of the movie.
+     *
+     * @param id the movie ID to set
+     */
+    public void setId(Long id) {
+<span class="nc" id="L132">        this.id = id;</span>
+<span class="nc" id="L133">    }</span>
+
+    /**
+     * @brief Gets the title of the movie.
+     *
+     * @return the movie title
+     */
+    public String getTitle() {
+<span class="nc" id="L141">        return title;</span>
+    }
+
+    /**
+     * @brief Sets the title of the movie.
+     *
+     * @param title the movie title to set
+     */
+    public void setTitle(String title) {
+<span class="nc" id="L150">        this.title = title;</span>
+<span class="nc" id="L151">    }</span>
+
+    /**
+     * @brief Gets the duration of the movie.
+     *
+     * @return the movie duration in minutes
+     */
+    public int getDuration() {
+<span class="nc" id="L159">        return duration;</span>
+    }
+
+    /**
+     * @brief Sets the duration of the movie.
+     *
+     * @param duration the movie duration in minutes to set
+     */
+    public void setDuration(int duration) {
+<span class="nc" id="L168">        this.duration = duration;</span>
+<span class="nc" id="L169">    }</span>
+
+    /**
+     * @brief Gets the genre of the movie.
+     *
+     * @return the movie genre
+     */
+    public String getGenre() {
+<span class="nc" id="L177">        return genre;</span>
+    }
+
+    /**
+     * @brief Sets the genre of the movie.
+     *
+     * @param genre the movie genre to set
+     */
+    public void setGenre(String genre) {
+<span class="nc" id="L186">        this.genre = genre;</span>
+<span class="nc" id="L187">    }</span>
+
+    /**
+     * @brief Gets the cast of the movie.
+     *
+     * @return the movie cast
+     */
+    public String getCast() {
+<span class="nc" id="L195">        return cast;</span>
+    }
+
+    /**
+     * @brief Sets the cast of the movie.
+     *
+     * @param cast the movie cast to set
+     */
+    public void setCast(String cast) {
+<span class="nc" id="L204">        this.cast = cast;</span>
+<span class="nc" id="L205">    }</span>
+
+    /**
+     * @brief Gets the list of screenings for the movie.
+     *
+     * @return the list of screenings
+     */
+    public List&lt;Screening&gt; getScreenings() {
+<span class="nc" id="L213">        return screenings;</span>
+    }
+
+    /**
+     * @brief Sets the list of screenings for the movie.
+     *
+     * @param screenings the list of screenings to set
+     */
+    public void setScreenings(List&lt;Screening&gt; screenings) {
+<span class="nc" id="L222">        this.screenings = screenings;</span>
+<span class="nc" id="L223">    }</span>
+
+    /**
+     * @brief Adds a screening to this movie.
+     *
+     * @param screening the screening to add
+     *
+     * @details
+     * Initializes the screenings list if null, then adds the screening
+     * and sets the movie of the screening to this instance.
+     */
+    public void addScreening(Screening screening) {
+<span class="nc bnc" id="L235" title="All 2 branches missed.">        if (this.screenings == null) {</span>
+<span class="nc" id="L236">            this.screenings = new ArrayList&lt;&gt;();</span>
+        }
+<span class="nc" id="L238">        this.screenings.add(screening);</span>
+<span class="nc" id="L239">        screening.setMovie(this);</span>
+<span class="nc" id="L240">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

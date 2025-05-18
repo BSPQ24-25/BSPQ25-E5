@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AuthController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">CinemaSeatBooking</a> &gt; <a href="index.source.html" class="el_package">com.cinema_seat_booking.controller</a> &gt; <span class="el_source">AuthController.java</span></div><h1>AuthController.java</h1><pre class="source lang-java linenums">package com.cinema_seat_booking.controller;
+
+import com.cinema_seat_booking.model.Role;
+import com.cinema_seat_booking.model.User;
+import com.cinema_seat_booking.repository.UserRepository;
+import jakarta.servlet.http.HttpSession;
+import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+/**
+ * @class AuthController
+ * @brief REST controller for user authentication and registration.
+ * 
+ * Handles user registration and login endpoints.
+ */
+@RestController
+<span class="nc" id="L20">public class AuthController {</span>
+
+    @Autowired
+    private UserRepository userRepository;
+
+    /**
+     * Registers a new user.
+     * 
+     * If the username already exists, returns a bad request.
+     * If no role is specified, assigns the CLIENT role by default.
+     *
+     * @param user The user object to register, provided in the request body.
+     * @return ResponseEntity with success or error message.
+     */
+    @PostMapping(&quot;/register&quot;)
+    public ResponseEntity&lt;String&gt; register(@RequestBody User user) {
+<span class="nc bnc" id="L36" title="All 2 branches missed.">        if (userRepository.findByUsername(user.getUsername()) != null) {</span>
+<span class="nc" id="L37">            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(&quot;User already exists&quot;);</span>
+        }
+
+<span class="nc bnc" id="L40" title="All 2 branches missed.">        if (user.getRole() == null) {</span>
+<span class="nc" id="L41">            user.setRole(Role.CLIENT);</span>
+        }
+
+<span class="nc" id="L44">        userRepository.save(user);</span>
+<span class="nc" id="L45">        return ResponseEntity.ok(&quot;User registered successfully&quot;);</span>
+    }
+
+    /**
+     * Authenticates a user with username and password.
+     * 
+     * On successful authentication, stores the user in the HTTP session.
+     * Returns the user's role and username.
+     * 
+     * @param loginRequest Map containing &quot;username&quot; and &quot;password&quot; keys.
+     * @param session HTTP session for storing user info on successful login.
+     * @return ResponseEntity containing user info or error message.
+     */
+    @PostMapping(&quot;/api/auth/login&quot;)
+    public ResponseEntity&lt;Map&lt;String, String&gt;&gt; login(@RequestBody Map&lt;String, String&gt; loginRequest, HttpSession session) {
+<span class="nc" id="L60">        String username = loginRequest.get(&quot;username&quot;);</span>
+<span class="nc" id="L61">        String password = loginRequest.get(&quot;password&quot;);</span>
+
+<span class="nc" id="L63">        User user = userRepository.findByUsername(username);</span>
+<span class="nc bnc" id="L64" title="All 4 branches missed.">        if (user == null || !user.getPassword().equals(password)) {</span>
+<span class="nc" id="L65">            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of(&quot;error&quot;, &quot;Invalid credentials&quot;));</span>
+        }
+
+<span class="nc" id="L68">        session.setAttribute(&quot;user&quot;, user);</span>
+<span class="nc" id="L69">        return ResponseEntity.ok(Map.of(</span>
+<span class="nc" id="L70">            &quot;role&quot;, user.getRole().name(),</span>
+<span class="nc" id="L71">            &quot;username&quot;, user.getUsername()</span>
+        ));
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

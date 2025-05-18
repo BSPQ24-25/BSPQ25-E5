@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CreateRoomDTO.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">CinemaSeatBooking</a> &gt; <a href="index.source.html" class="el_package">com.cinema_seat_booking.dto</a> &gt; <span class="el_source">CreateRoomDTO.java</span></div><h1>CreateRoomDTO.java</h1><pre class="source lang-java linenums">package com.cinema_seat_booking.dto;
+
+public class CreateRoomDTO {
+
+    private String name;
+    private int seatCount;
+
+<span class="nc" id="L8">    public CreateRoomDTO() {</span>
+<span class="nc" id="L9">    }</span>
+
+<span class="nc" id="L11">    public CreateRoomDTO(String name, int seatCount) {</span>
+<span class="nc" id="L12">        this.name = name;</span>
+<span class="nc" id="L13">        this.seatCount = seatCount;</span>
+<span class="nc" id="L14">    }</span>
+
+    public String getName() {
+<span class="nc" id="L17">        return name;</span>
+    }
+
+    public void setName(String name) {
+<span class="nc" id="L21">        this.name = name;</span>
+<span class="nc" id="L22">    }</span>
+
+    public int getSeatCount() {
+<span class="nc" id="L25">        return seatCount;</span>
+    }
+
+    public void setSeatCount(int seatCount) {
+<span class="nc" id="L29">        this.seatCount = seatCount;</span>
+<span class="nc" id="L30">    }</span>
+
+    @Override
+    public String toString() {
+<span class="nc" id="L34">        return &quot;CreateRoomDTO{&quot; +</span>
+               &quot;name='&quot; + name + '\'' +
+               &quot;, seatCount=&quot; + seatCount +
+               '}';
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

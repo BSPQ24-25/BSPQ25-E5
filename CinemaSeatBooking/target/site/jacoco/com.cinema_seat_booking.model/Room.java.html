@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Room.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">CinemaSeatBooking</a> &gt; <a href="index.source.html" class="el_package">com.cinema_seat_booking.model</a> &gt; <span class="el_source">Room.java</span></div><h1>Room.java</h1><pre class="source lang-java linenums">package com.cinema_seat_booking.model;
+
+import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+/**
+ * @class Room
+ * @brief Entity class representing a cinema room where screenings take place.
+ *
+ * @details
+ * The {@code Room} class maps to a database entity representing a cinema room.
+ * It contains a list of {@link Seat} objects representing seats in the room
+ * and a list of {@link Screening} objects representing scheduled screenings.
+ * It provides convenience methods to get counts of total, available, and reserved seats.
+ * 
+ * @author BSPQ25-E5
+ * @version 1.0
+ * @since 2025-05-19
+ */
+@Entity
+public class Room {
+    /**
+     * @brief Unique identifier for the room.
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    /**
+     * @brief The unique name of the room.
+     */
+    @Column(nullable = false, unique = true)
+    private String name;
+
+    /**
+     * @brief List of seats in the room.
+     *
+     * @details
+     * One-to-many relationship with {@link Seat}.
+     * Seats are cascade removed if the room is deleted.
+     */
+    @OneToMany(mappedBy = &quot;room&quot;, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List&lt;Seat&gt; seats;
+
+    /**
+     * @brief List of screenings scheduled in this room.
+     *
+     * @details
+     * One-to-many relationship with {@link Screening}.
+     * Cascade persist and merge operations.
+     */
+    @OneToMany(mappedBy = &quot;room&quot;, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JsonIgnore
+    private List&lt;Screening&gt; screenings;
+
+    /**
+     * @brief Gets the unique ID of the room.
+     *
+     * @return the room ID
+     */
+    public Long getId() {
+<span class="nc" id="L67">        return id;</span>
+    }
+
+    /**
+     * @brief Sets the unique ID of the room.
+     *
+     * @param id the room ID to set
+     */
+    public void setId(Long id) {
+<span class="nc" id="L76">        this.id = id;</span>
+<span class="nc" id="L77">    }</span>
+
+    /**
+     * @brief Gets the name of the room.
+     *
+     * @return the room name
+     */
+    public String getName() {
+<span class="nc" id="L85">        return name;</span>
+    }
+
+    /**
+     * @brief Sets the name of the room.
+     *
+     * @param name the room name to set
+     */
+    public void setName(String name) {
+<span class="nc" id="L94">        this.name = name;</span>
+<span class="nc" id="L95">    }</span>
+
+    /**
+     * @brief Gets the list of seats in the room.
+     *
+     * @return the list of seats
+     */
+    public List&lt;Seat&gt; getSeats() {
+<span class="nc" id="L103">        return seats;</span>
+    }
+
+    /**
+     * @brief Sets the list of seats in the room.
+     *
+     * @param seats the list of seats to set
+     */
+    public void setSeats(List&lt;Seat&gt; seats) {
+<span class="nc" id="L112">        this.seats = seats;</span>
+<span class="nc" id="L113">    }</span>
+
+    /**
+     * @brief Gets the list of screenings in the room.
+     *
+     * @return the list of screenings
+     */
+    public List&lt;Screening&gt; getScreenings() {
+<span class="nc" id="L121">        return screenings;</span>
+    }
+
+    /**
+     * @brief Sets the list of screenings in the room.
+     *
+     * @param screenings the list of screenings to set
+     */
+    public void setScreenings(List&lt;Screening&gt; screenings) {
+<span class="nc" id="L130">        this.screenings = screenings;</span>
+<span class="nc" id="L131">    }</span>
+
+    /**
+     * @brief Adds a seat to the room.
+     *
+     * @details
+     * Adds the seat to the seat list and sets the room on the seat.
+     *
+     * @param seat the seat to add
+     */
+    public void addSeat(Seat seat) {
+<span class="nc bnc" id="L142" title="All 2 branches missed.">        if (this.seats == null) {</span>
+<span class="nc" id="L143">            this.seats = new ArrayList&lt;&gt;();</span>
+        }
+<span class="nc bnc" id="L145" title="All 2 branches missed.">        if (!this.seats.contains(seat)) {</span>
+<span class="nc" id="L146">            this.seats.add(seat);</span>
+<span class="nc" id="L147">            seat.setRoom(this);</span>
+        }
+<span class="nc" id="L149">    }</span>
+
+    /**
+     * @brief Adds a screening to the room.
+     *
+     * @details
+     * Adds the screening to the screening list and sets the room on the screening.
+     *
+     * @param screening the screening to add
+     */
+    public void addScreening(Screening screening) {
+<span class="nc bnc" id="L160" title="All 2 branches missed.">        if (this.screenings == null) {</span>
+<span class="nc" id="L161">            this.screenings = new ArrayList&lt;&gt;();</span>
+        }
+<span class="nc bnc" id="L163" title="All 2 branches missed.">        if (!this.screenings.contains(screening)) {</span>
+<span class="nc" id="L164">            this.screenings.add(screening);</span>
+<span class="nc" id="L165">            screening.setRoom(this);</span>
+        }
+<span class="nc" id="L167">    }</span>
+
+    /**
+     * @brief Gets the total number of seats in the room.
+     *
+     * @return the seat count
+     */
+    @Transient
+    @JsonProperty(&quot;seatCount&quot;)
+    public int getSeatCount() {
+<span class="nc bnc" id="L177" title="All 2 branches missed.">        return seats != null ? seats.size() : 0;</span>
+    }
+
+    /**
+     * @brief Gets the number of available (not reserved) seats.
+     *
+     * @return the count of available seats
+     */
+    @Transient
+    @JsonProperty(&quot;availableSeats&quot;)
+    public int getAvailableSeats() {
+<span class="nc" id="L188">        int availableSeats = 0;</span>
+<span class="nc bnc" id="L189" title="All 2 branches missed.">        if (seats != null) {</span>
+<span class="nc bnc" id="L190" title="All 2 branches missed.">            for (Seat seat : seats) {</span>
+<span class="nc bnc" id="L191" title="All 2 branches missed.">                if (!seat.isReserved()) {</span>
+<span class="nc" id="L192">                    availableSeats++;</span>
+                }
+<span class="nc" id="L194">            }</span>
+        }
+<span class="nc" id="L196">        return availableSeats;</span>
+    }
+
+    /**
+     * @brief Gets the number of reserved seats.
+     *
+     * @return the count of reserved seats
+     */
+    @Transient
+    @JsonProperty(&quot;reservedSeats&quot;)
+    public int getReservedSeats() {
+<span class="nc" id="L207">        int reservedSeats = 0;</span>
+<span class="nc bnc" id="L208" title="All 2 branches missed.">        if (seats != null) {</span>
+<span class="nc bnc" id="L209" title="All 2 branches missed.">            for (Seat seat : seats) {</span>
+<span class="nc bnc" id="L210" title="All 2 branches missed.">                if (seat.isReserved()) {</span>
+<span class="nc" id="L211">                    reservedSeats++;</span>
+                }
+<span class="nc" id="L213">            }</span>
+        }
+<span class="nc" id="L215">        return reservedSeats;</span>
+    }
+
+    /**
+     * @brief Default constructor required by JPA.
+     *
+     * @details
+     * Initializes seats and screenings lists to empty lists.
+     */
+<span class="nc" id="L224">    public Room() {</span>
+<span class="nc" id="L225">        this.seats = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L226">        this.screenings = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L227">    }</span>
+
+    /**
+     * @brief Constructor to create a room with a name and initial list of seats.
+     *
+     * @param name the name of the room
+     * @param seats the initial list of seats
+     */
+    public Room(String name, List&lt;Seat&gt; seats) {
+<span class="nc" id="L236">        super();</span>
+<span class="nc" id="L237">        this.name = name;</span>
+<span class="nc" id="L238">        this.seats = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L239">        this.screenings = new ArrayList&lt;&gt;();</span>
+
+<span class="nc bnc" id="L241" title="All 2 branches missed.">        if (seats != null) {</span>
+<span class="nc bnc" id="L242" title="All 2 branches missed.">            for (Seat seat : seats) {</span>
+<span class="nc" id="L243">                this.addSeat(seat);</span>
+<span class="nc" id="L244">            }</span>
+        }
+<span class="nc" id="L246">    }</span>
+
+    /**
+     * @brief Constructor to create a room with a name and default 20 seats.
+     *
+     * @param name the name of the room
+     */
+<span class="nc" id="L253">    public Room(String name) {</span>
+<span class="nc" id="L254">        this.name = name;</span>
+<span class="nc" id="L255">        this.seats = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L256">        this.screenings = new ArrayList&lt;&gt;();</span>
+
+<span class="nc bnc" id="L258" title="All 2 branches missed.">        for (int i = 1; i &lt;= 20; i++) {</span>
+<span class="nc" id="L259">            Seat seat = new Seat(i, false, this);</span>
+<span class="nc" id="L260">            this.seats.add(seat);</span>
+        }
+<span class="nc" id="L262">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

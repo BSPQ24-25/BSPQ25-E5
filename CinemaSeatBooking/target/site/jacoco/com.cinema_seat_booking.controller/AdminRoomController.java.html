@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AdminRoomController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">CinemaSeatBooking</a> &gt; <a href="index.source.html" class="el_package">com.cinema_seat_booking.controller</a> &gt; <span class="el_source">AdminRoomController.java</span></div><h1>AdminRoomController.java</h1><pre class="source lang-java linenums">package com.cinema_seat_booking.controller;
+
+import com.cinema_seat_booking.dto.ScreeningDTO;
+import com.cinema_seat_booking.model.Room;
+import com.cinema_seat_booking.dto.CreateRoomDTO;
+import com.cinema_seat_booking.dto.RoomDTO;
+import com.cinema_seat_booking.service.RoomService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+@Controller
+@RequestMapping(&quot;/admin/rooms&quot;)
+@PreAuthorize(&quot;hasRole('ADMIN')&quot;)
+<span class="nc" id="L17">public class AdminRoomController {</span>
+
+    @Autowired
+    private RoomService roomService;
+
+    @GetMapping
+    public String list(Model model) {
+<span class="nc" id="L24">        model.addAttribute(&quot;rooms&quot;, roomService.getAllRooms());</span>
+<span class="nc" id="L25">        return &quot;admin/admin-rooms&quot;;</span>
+    }
+
+    @GetMapping(&quot;/new&quot;)
+    public String createForm(Model model) {
+<span class="nc" id="L30">        model.addAttribute(&quot;room&quot;, new CreateRoomDTO());</span>
+<span class="nc" id="L31">        return &quot;admin/admin-room-form&quot;;</span>
+    }
+
+    @PostMapping
+    public String save(@ModelAttribute(&quot;room&quot;) CreateRoomDTO dto) {
+<span class="nc" id="L36">        roomService.createRoomWithSeats(dto.getName(), dto.getSeatCount());</span>
+<span class="nc" id="L37">        return &quot;redirect:/admin/rooms&quot;;</span>
+    }
+
+    @GetMapping(&quot;/{id}/edit&quot;)
+    public String editForm(@PathVariable Long id, Model model) {
+<span class="nc" id="L42">        Room room = roomService.getRoomById(id)</span>
+<span class="nc" id="L43">            .orElseThrow(() -&gt; new IllegalArgumentException(&quot;Sala no encontrada: &quot; + id));</span>
+
+<span class="nc" id="L45">        CreateRoomDTO form = new CreateRoomDTO();</span>
+<span class="nc" id="L46">        form.setName(room.getName());</span>
+<span class="nc" id="L47">        form.setSeatCount(room.getSeatCount());</span>
+
+<span class="nc" id="L49">        model.addAttribute(&quot;room&quot;, form);</span>
+<span class="nc" id="L50">        model.addAttribute(&quot;id&quot;, id);</span>
+<span class="nc" id="L51">        return &quot;admin/admin-room-form&quot;;</span>
+    }
+
+    @PostMapping(&quot;/{id}&quot;)
+    public String update(@PathVariable Long id, @ModelAttribute(&quot;room&quot;) CreateRoomDTO dto) {
+<span class="nc" id="L56">        roomService.updateRoom(id, dto.getName());</span>
+<span class="nc" id="L57">        return &quot;redirect:/admin/rooms&quot;;</span>
+    }
+
+    @PostMapping(&quot;/{id}/delete&quot;)
+    public String delete(@PathVariable Long id) {
+<span class="nc" id="L62">        roomService.deleteRoom(id);</span>
+<span class="nc" id="L63">        return &quot;redirect:/admin/rooms&quot;;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
