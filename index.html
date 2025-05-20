@@ -128,7 +128,7 @@
     perfReports.forEach(report => {
       const li = document.createElement("li");
       const a = document.createElement("a");
-      a.href = `CinemaSeatBooking/target/reports/${report.file}`;
+      a.href = `CinemaSeatBooking/target/site/reports/performance-reports/${report.file}`;
       a.textContent = report.name;
       li.appendChild(a);
       list.appendChild(li);
