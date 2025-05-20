@@ -64,7 +64,7 @@ public class Seat {
      * @return the seat ID
      */
     public Long getId() {
-<span class="nc" id="L67">        return id;</span>
+<span class="fc" id="L67">        return id;</span>
     }
 
     /**
@@ -72,15 +72,15 @@ public class Seat {
      * @param id the seat ID to set
      */
     public void setId(Long id) {
-<span class="nc" id="L75">        this.id = id;</span>
-<span class="nc" id="L76">    }</span>
+<span class="fc" id="L75">        this.id = id;</span>
+<span class="fc" id="L76">    }</span>
 
     /**
      * @brief Gets the seat number.
      * @return the seat number
      */
     public int getSeatNumber() {
-<span class="nc" id="L83">        return seatNumber;</span>
+<span class="fc" id="L83">        return seatNumber;</span>
     }
 
     /**
@@ -88,15 +88,15 @@ public class Seat {
      * @param seatNumber the seat number to set
      */
     public void setSeatNumber(int seatNumber) {
-<span class="nc" id="L91">        this.seatNumber = seatNumber;</span>
-<span class="nc" id="L92">    }</span>
+<span class="fc" id="L91">        this.seatNumber = seatNumber;</span>
+<span class="fc" id="L92">    }</span>
 
     /**
      * @brief Checks if the seat is reserved.
      * @return true if reserved, false otherwise
      */
     public boolean isReserved() {
-<span class="nc" id="L99">        return isReserved;</span>
+<span class="fc" id="L99">        return isReserved;</span>
     }
 
     /**
@@ -104,15 +104,15 @@ public class Seat {
      * @param isReserved true to mark as reserved, false otherwise
      */
     public void setReserved(boolean isReserved) {
-<span class="nc" id="L107">        this.isReserved = isReserved;</span>
-<span class="nc" id="L108">    }</span>
+<span class="fc" id="L107">        this.isReserved = isReserved;</span>
+<span class="fc" id="L108">    }</span>
 
     /**
      * @brief Gets the room of the seat.
      * @return the room
      */
     public Room getRoom() {
-<span class="nc" id="L115">        return room;</span>
+<span class="fc" id="L115">        return room;</span>
     }
 
     /**
@@ -120,15 +120,15 @@ public class Seat {
      * @param room the room to set
      */
     public void setRoom(Room room) {
-<span class="nc" id="L123">        this.room = room;</span>
-<span class="nc" id="L124">    }</span>
+<span class="fc" id="L123">        this.room = room;</span>
+<span class="fc" id="L124">    }</span>
 
     /**
      * @brief Gets the reservation associated with this seat.
      * @return the reservation
      */
     public Reservation getReservation() {
-<span class="nc" id="L131">        return reservation;</span>
+<span class="fc" id="L131">        return reservation;</span>
     }
 
     /**
@@ -136,15 +136,15 @@ public class Seat {
      * @param reservation the reservation to set
      */
     public void setReservation(Reservation reservation) {
-<span class="nc" id="L139">        this.reservation = reservation;</span>
-<span class="nc" id="L140">    }</span>
+<span class="fc" id="L139">        this.reservation = reservation;</span>
+<span class="fc" id="L140">    }</span>
 
     /**
      * @brief Default constructor required by JPA.
      */
-<span class="nc" id="L145">    public Seat() {</span>
+<span class="fc" id="L145">    public Seat() {</span>
         // Required by JPA
-<span class="nc" id="L147">    }</span>
+<span class="fc" id="L147">    }</span>
 
     /**
      * @brief Constructor with all fields except id.
@@ -152,11 +152,11 @@ public class Seat {
      * @param isReserved the reserved status
      * @param room the room this seat belongs to
      */
-<span class="nc" id="L155">    public Seat(int seatNumber, boolean isReserved, Room room) {</span>
-<span class="nc" id="L156">        this.seatNumber = seatNumber;</span>
-<span class="nc" id="L157">        this.isReserved = isReserved;</span>
-<span class="nc" id="L158">        this.room = room;</span>
-<span class="nc" id="L159">    }</span>
+<span class="fc" id="L155">    public Seat(int seatNumber, boolean isReserved, Room room) {</span>
+<span class="fc" id="L156">        this.seatNumber = seatNumber;</span>
+<span class="fc" id="L157">        this.isReserved = isReserved;</span>
+<span class="fc" id="L158">        this.room = room;</span>
+<span class="fc" id="L159">    }</span>
 
     /**
      * @brief Constructor without reserved status (defaults to false).
@@ -164,7 +164,7 @@ public class Seat {
      * @param room the room this seat belongs to
      */
     public Seat(int seatNumber, Room room) {
-<span class="nc" id="L167">        this(seatNumber, false, room);</span>
-<span class="nc" id="L168">    }</span>
+<span class="fc" id="L167">        this(seatNumber, false, room);</span>
+<span class="fc" id="L168">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

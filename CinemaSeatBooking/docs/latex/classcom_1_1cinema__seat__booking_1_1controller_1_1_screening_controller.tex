@@ -1,5 +1,10 @@
 \doxysection{com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Screening\+Controller Class Reference}
 \hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller}{}\label{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller}\index{com.cinema\_seat\_booking.controller.ScreeningController@{com.cinema\_seat\_booking.controller.ScreeningController}}
+
+
+Handles HTTP requests related to movie screenings.  
+
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -21,6 +26,9 @@ Response\+Entity$<$ List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+Handles HTTP requests related to movie screenings. 
+
 \doxysubsection{Member Function Documentation}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_a90619de243db7506ef7a7bde6cb1e7c7}\index{com.cinema\_seat\_booking.controller.ScreeningController@{com.cinema\_seat\_booking.controller.ScreeningController}!deleteScreening@{deleteScreening}}
 \index{deleteScreening@{deleteScreening}!com.cinema\_seat\_booking.controller.ScreeningController@{com.cinema\_seat\_booking.controller.ScreeningController}}
@@ -28,16 +36,24 @@ Response\+Entity$<$ List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_a90619de243db7506ef7a7bde6cb1e7c7} 
 Response\+Entity$<$ Void $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Screening\+Controller.\+delete\+Screening (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{id}{}\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-\nopagebreak
+Deletes a screening by ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the screening \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+HTTP 204 if successful, 404 if not found 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=258pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_a90619de243db7506ef7a7bde6cb1e7c7_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -50,22 +66,35 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_aa8e5809d4a106f35961b59bd5774c9f7} 
 Response\+Entity$<$ List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o}{Screening\+DTO}} $>$ $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Screening\+Controller.\+get\+All\+Screenings (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+Retrieves all screenings.
+
+\begin{DoxyReturn}{Returns}
+List of {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o}{Screening\+DTO}} wrapped in {\ttfamily \doxylink{}{Response\+Entity}} 
+\end{DoxyReturn}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_ab9d5f7b695db1ff4a8ce42f1ef8b0411}\index{com.cinema\_seat\_booking.controller.ScreeningController@{com.cinema\_seat\_booking.controller.ScreeningController}!getScreeningById@{getScreeningById}}
 \index{getScreeningById@{getScreeningById}!com.cinema\_seat\_booking.controller.ScreeningController@{com.cinema\_seat\_booking.controller.ScreeningController}}
 \doxysubsubsection{\texorpdfstring{getScreeningById()}{getScreeningById()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_ab9d5f7b695db1ff4a8ce42f1ef8b0411} 
 Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o}{Screening\+DTO}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Screening\+Controller.\+get\+Screening\+By\+Id (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{id}{}\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-\nopagebreak
+Retrieves a screening by its ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the screening \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o}{Screening\+DTO}} if found, 404 otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=262pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_ab9d5f7b695db1ff4a8ce42f1ef8b0411_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -78,16 +107,24 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_a49eee3b46ff617f8fbcda01c64f30800} 
 Response\+Entity$<$ List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o}{Screening\+DTO}} $>$ $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Screening\+Controller.\+get\+Screenings\+By\+Date (\begin{DoxyParamCaption}\item[{@Path\+Variable String}]{date}{}\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-\nopagebreak
+Retrieves screenings by date.
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & The screening date in string format (e.\+g., "{}2025-\/05-\/18"{}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o}{Screening\+DTO}} for that date 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=280pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_a49eee3b46ff617f8fbcda01c64f30800_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -100,16 +137,24 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_a1ec0cb416d229259eb038e4a8fde2729} 
 Response\+Entity$<$ List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o}{Screening\+DTO}} $>$ $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Screening\+Controller.\+get\+Screenings\+By\+Location (\begin{DoxyParamCaption}\item[{@Path\+Variable String}]{location}{}\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-\nopagebreak
+Retrieves screenings by location.
+
+
+\begin{DoxyParams}{Parameters}
+{\em location} & The location of the screening (e.\+g., cinema name or branch) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o}{Screening\+DTO}} for that location 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=296pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_a1ec0cb416d229259eb038e4a8fde2729_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -122,16 +167,24 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_a2cee15111f83770d8eb67b8a5099ac69} 
 Response\+Entity$<$ List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o}{Screening\+DTO}} $>$ $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Screening\+Controller.\+get\+Screenings\+By\+Movie (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{movie\+Id}{}\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-\nopagebreak
+Retrieves screenings by movie ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em movie\+Id} & The ID of the movie \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o}{Screening\+DTO}} for the given movie 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=285pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_a2cee15111f83770d8eb67b8a5099ac69_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -144,22 +197,42 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_ab82c8fa666e4ec45123a0415917c5061} 
 Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o}{Screening\+DTO}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Screening\+Controller.\+schedule\+Screening (\begin{DoxyParamCaption}\item[{@Request\+Body \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}}}]{screening}{}\end{DoxyParamCaption})}
 
+Schedules a new movie screening.
+
+
+\begin{DoxyParams}{Parameters}
+{\em screening} & The screening entity to be created \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Created {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o}{Screening\+DTO}} or HTTP 400 on error 
+\end{DoxyReturn}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_ac0f117a8c1aea894048038f964bd87e8}\index{com.cinema\_seat\_booking.controller.ScreeningController@{com.cinema\_seat\_booking.controller.ScreeningController}!updateScreening@{updateScreening}}
 \index{updateScreening@{updateScreening}!com.cinema\_seat\_booking.controller.ScreeningController@{com.cinema\_seat\_booking.controller.ScreeningController}}
 \doxysubsubsection{\texorpdfstring{updateScreening()}{updateScreening()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_ac0f117a8c1aea894048038f964bd87e8} 
 Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o}{Screening\+DTO}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Screening\+Controller.\+update\+Screening (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{id}{, }\item[{@Request\+Body \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}}}]{screening\+Details}{}\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-\nopagebreak
+Updates the details of an existing screening.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the screening \\
+\hline
+{\em screening\+Details} & The updated screening data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Updated {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o}{Screening\+DTO}} or error status 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=258pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller_ac0f117a8c1aea894048038f964bd87e8_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

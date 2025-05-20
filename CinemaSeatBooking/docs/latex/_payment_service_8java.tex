@@ -1,10 +1,18 @@
 \doxysection{src/main/java/com/cinema\+\_\+seat\+\_\+booking/service/\+Payment\+Service.java File Reference}
 \hypertarget{_payment_service_8java}{}\label{_payment_service_8java}\index{src/main/java/com/cinema\_seat\_booking/service/PaymentService.java@{src/main/java/com/cinema\_seat\_booking/service/PaymentService.java}}
+
+
+Service class for managing payment processing in the cinema booking system.  
+
+
 {\ttfamily import com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Payment;}\newline
 {\ttfamily import com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Reservation;}\newline
 {\ttfamily import com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Payment\+Status;}\newline
 {\ttfamily import com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Reservation\+State;}\newline
+{\ttfamily import com.\+cinema\+\_\+seat\+\_\+booking.\+repository.\+Payment\+Repository;}\newline
+{\ttfamily import com.\+cinema\+\_\+seat\+\_\+booking.\+repository.\+Reservation\+Repository;}\newline
 {\ttfamily import jakarta.\+transaction.\+Transactional;}\newline
+{\ttfamily import org.\+springframework.\+beans.\+factory.\+annotation.\+Autowired;}\newline
 {\ttfamily import org.\+springframework.\+stereotype.\+Service;}\newline
 Include dependency graph for Payment\+Service.\+java\+:
 \nopagebreak
@@ -18,9 +26,34 @@ Include dependency graph for Payment\+Service.\+java\+:
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_payment_service}{com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Payment\+Service}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Service responsible for processing payments related to reservations. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Packages}
 \begin{DoxyCompactItemize}
 \item 
 package \mbox{\hyperlink{namespacecom_1_1cinema__seat__booking_1_1service}{com.\+cinema\+\_\+seat\+\_\+booking.\+service}}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Service class for managing payment processing in the cinema booking system. 
+
+This class provides methods to process payments for reservations, interacting with {\ttfamily \doxylink{}{Payment\+Repository}} and {\ttfamily \doxylink{}{Reservation\+Repository}}. It handles updating payment status and reservation state accordingly.
+
+\begin{DoxySeeAlso}{See also}
+Payment 
+
+Reservation 
+
+Payment\+Status 
+
+Reservation\+State
+\end{DoxySeeAlso}
+\begin{DoxyAuthor}{Author}
+BSPQ25-\/\+E5 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+2025-\/05-\/19 
+\end{DoxySince}

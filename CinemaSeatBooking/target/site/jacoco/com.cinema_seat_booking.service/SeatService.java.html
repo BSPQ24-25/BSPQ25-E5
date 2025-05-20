@@ -29,7 +29,7 @@ import com.cinema_seat_booking.repository.SeatRepository;
  * @brief Service layer for seat operations including creation, updating, deletion, and reservation logic.
  */
 @Service
-<span class="nc" id="L32">public class SeatService {</span>
+<span class="fc" id="L32">public class SeatService {</span>
 
     @Autowired
     private SeatRepository seatRepository;
@@ -51,7 +51,7 @@ import com.cinema_seat_booking.repository.SeatRepository;
      * @return An {@link Optional} containing the seat if found.
      */
     public Optional&lt;Seat&gt; getSeatById(Long id) {
-<span class="nc" id="L54">        return seatRepository.findById(id);</span>
+<span class="fc" id="L54">        return seatRepository.findById(id);</span>
     }
 
     /**
@@ -105,7 +105,7 @@ import com.cinema_seat_booking.repository.SeatRepository;
      * @return List of available {@link Seat} objects.
      */
     public List&lt;Seat&gt; getAvailableSeats(Long roomId) {
-<span class="nc" id="L108">        return seatRepository.findByRoomIdAndIsReservedFalse(roomId);</span>
+<span class="fc" id="L108">        return seatRepository.findByRoomIdAndIsReservedFalse(roomId);</span>
     }
 
     /**
@@ -114,16 +114,16 @@ import com.cinema_seat_booking.repository.SeatRepository;
      * @throws Exception if the seat is not found or is already reserved.
      */
     public void reserveSeat(Long seatId) throws Exception {
-<span class="nc" id="L117">        Seat seat = seatRepository.findById(seatId)</span>
-<span class="nc" id="L118">                .orElseThrow(() -&gt; new Exception(&quot;Seat not found&quot;));</span>
+<span class="fc" id="L117">        Seat seat = seatRepository.findById(seatId)</span>
+<span class="pc" id="L118">                .orElseThrow(() -&gt; new Exception(&quot;Seat not found&quot;));</span>
 
-<span class="nc bnc" id="L120" title="All 2 branches missed.">        if (seat.isReserved()) {</span>
-<span class="nc" id="L121">            throw new Exception(&quot;Seat is already reserved&quot;);</span>
+<span class="fc bfc" id="L120" title="All 2 branches covered.">        if (seat.isReserved()) {</span>
+<span class="fc" id="L121">            throw new Exception(&quot;Seat is already reserved&quot;);</span>
         }
 
-<span class="nc" id="L124">        seat.setReserved(true);</span>
-<span class="nc" id="L125">        seatRepository.save(seat);</span>
-<span class="nc" id="L126">    }</span>
+<span class="fc" id="L124">        seat.setReserved(true);</span>
+<span class="fc" id="L125">        seatRepository.save(seat);</span>
+<span class="fc" id="L126">    }</span>
 
     /**
      * @brief Cancels a reservation for a seat.
@@ -131,15 +131,15 @@ import com.cinema_seat_booking.repository.SeatRepository;
      * @throws Exception if the seat is not found or is not reserved.
      */
     public void cancelSeatReservation(Long seatId) throws Exception {
-<span class="nc" id="L134">        Seat seat = seatRepository.findById(seatId)</span>
-<span class="nc" id="L135">                .orElseThrow(() -&gt; new Exception(&quot;Seat not found&quot;));</span>
+<span class="fc" id="L134">        Seat seat = seatRepository.findById(seatId)</span>
+<span class="fc" id="L135">                .orElseThrow(() -&gt; new Exception(&quot;Seat not found&quot;));</span>
 
-<span class="nc bnc" id="L137" title="All 2 branches missed.">        if (!seat.isReserved()) {</span>
-<span class="nc" id="L138">            throw new Exception(&quot;Seat is not reserved&quot;);</span>
+<span class="fc bfc" id="L137" title="All 2 branches covered.">        if (!seat.isReserved()) {</span>
+<span class="fc" id="L138">            throw new Exception(&quot;Seat is not reserved&quot;);</span>
         }
 
-<span class="nc" id="L141">        seat.setReserved(false);</span>
-<span class="nc" id="L142">        seatRepository.save(seat);</span>
-<span class="nc" id="L143">    }</span>
+<span class="fc" id="L141">        seat.setReserved(false);</span>
+<span class="fc" id="L142">        seatRepository.save(seat);</span>
+<span class="fc" id="L143">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

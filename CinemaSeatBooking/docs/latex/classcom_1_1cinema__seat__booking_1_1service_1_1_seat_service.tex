@@ -1,25 +1,33 @@
 \doxysection{com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Seat\+Service Class Reference}
 \hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service}{}\label{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service}\index{com.cinema\_seat\_booking.service.SeatService@{com.cinema\_seat\_booking.service.SeatService}}
+
+
+Service layer for seat operations including creation, updating, deletion, and reservation logic.  
+
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_ad60eedfd4ff42c922606e1d9e366beaf}{get\+All\+Seats}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Retrieves all seats. \end{DoxyCompactList}\item 
 Optional$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_ad062830f5b2deab9e17f3e3179f2e951}{get\+Seat\+By\+Id}} (Long id)
-\item 
+\begin{DoxyCompactList}\small\item\em Retrieves a seat by its ID. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_a8317ccaa339631968173919549af6e89}{create\+Seat}} (int number, Long room\+Id)
-\item 
+\begin{DoxyCompactList}\small\item\em Creates a new seat in the specified room. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_aeca635ef71f4b117839705c214d818b6}{update\+Seat}} (Long id, int new\+Number, Long new\+Room\+Id)
-\item 
+\begin{DoxyCompactList}\small\item\em Updates an existing seat with a new number and room. \end{DoxyCompactList}\item 
 boolean \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_a4003c208e6183dc409ec7b921ce5644b}{delete\+Seat}} (Long id)
-\item 
+\begin{DoxyCompactList}\small\item\em Deletes a seat by ID. \end{DoxyCompactList}\item 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_ae1f65f3a0fc12179b6c6fe148ce54f67}{get\+Available\+Seats}} (Long room\+Id)
-\item 
+\begin{DoxyCompactList}\small\item\em Retrieves all available (unreserved) seats in a room. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_ae476bee630bb92a1938b006e099485ce}{reserve\+Seat}} (Long seat\+Id)  throws Exception 
-\item 
+\begin{DoxyCompactList}\small\item\em Reserves a seat by ID. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_adb9313d1183480f24d8e5b18577b72cc}{cancel\+Seat\+Reservation}} (Long seat\+Id)  throws Exception 
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Cancels a reservation for a seat. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Service layer for seat operations including creation, updating, deletion, and reservation logic. 
 
 \doxysubsection{Member Function Documentation}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_adb9313d1183480f24d8e5b18577b72cc}\index{com.cinema\_seat\_booking.service.SeatService@{com.cinema\_seat\_booking.service.SeatService}!cancelSeatReservation@{cancelSeatReservation}}
@@ -28,6 +36,20 @@ void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_serv
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_adb9313d1183480f24d8e5b18577b72cc} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Seat\+Service.\+cancel\+Seat\+Reservation (\begin{DoxyParamCaption}\item[{Long}]{seat\+Id}{}\end{DoxyParamCaption}) throws Exception}
 
+
+
+Cancels a reservation for a seat. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em seat\+Id} & The ID of the seat to unreserve. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & if the seat is not found or is not reserved. \\
+\hline
+\end{DoxyExceptions}
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -42,36 +64,112 @@ Here is the call graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_a8317ccaa339631968173919549af6e89} 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Seat\+Service.\+create\+Seat (\begin{DoxyParamCaption}\item[{int}]{number}{, }\item[{Long}]{room\+Id}{}\end{DoxyParamCaption})}
 
+
+
+Creates a new seat in the specified room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em number} & The seat number. \\
+\hline
+{\em room\+Id} & The ID of the room. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The saved {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} object. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\+Argument\+Exception} & if the room is not found. \\
+\hline
+\end{DoxyExceptions}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_a4003c208e6183dc409ec7b921ce5644b}\index{com.cinema\_seat\_booking.service.SeatService@{com.cinema\_seat\_booking.service.SeatService}!deleteSeat@{deleteSeat}}
 \index{deleteSeat@{deleteSeat}!com.cinema\_seat\_booking.service.SeatService@{com.cinema\_seat\_booking.service.SeatService}}
 \doxysubsubsection{\texorpdfstring{deleteSeat()}{deleteSeat()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_a4003c208e6183dc409ec7b921ce5644b} 
 boolean com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Seat\+Service.\+delete\+Seat (\begin{DoxyParamCaption}\item[{Long}]{id}{}\end{DoxyParamCaption})}
 
+
+
+Deletes a seat by ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the seat. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the seat was deleted, false if it was not found. 
+\end{DoxyReturn}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_ad60eedfd4ff42c922606e1d9e366beaf}\index{com.cinema\_seat\_booking.service.SeatService@{com.cinema\_seat\_booking.service.SeatService}!getAllSeats@{getAllSeats}}
 \index{getAllSeats@{getAllSeats}!com.cinema\_seat\_booking.service.SeatService@{com.cinema\_seat\_booking.service.SeatService}}
 \doxysubsubsection{\texorpdfstring{getAllSeats()}{getAllSeats()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_ad60eedfd4ff42c922606e1d9e366beaf} 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Seat\+Service.\+get\+All\+Seats (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Retrieves all seats. 
+
+\begin{DoxyReturn}{Returns}
+List of all {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} entities. 
+\end{DoxyReturn}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_ae1f65f3a0fc12179b6c6fe148ce54f67}\index{com.cinema\_seat\_booking.service.SeatService@{com.cinema\_seat\_booking.service.SeatService}!getAvailableSeats@{getAvailableSeats}}
 \index{getAvailableSeats@{getAvailableSeats}!com.cinema\_seat\_booking.service.SeatService@{com.cinema\_seat\_booking.service.SeatService}}
 \doxysubsubsection{\texorpdfstring{getAvailableSeats()}{getAvailableSeats()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_ae1f65f3a0fc12179b6c6fe148ce54f67} 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Seat\+Service.\+get\+Available\+Seats (\begin{DoxyParamCaption}\item[{Long}]{room\+Id}{}\end{DoxyParamCaption})}
 
+
+
+Retrieves all available (unreserved) seats in a room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em room\+Id} & The ID of the room. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of available {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} objects. 
+\end{DoxyReturn}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_ad062830f5b2deab9e17f3e3179f2e951}\index{com.cinema\_seat\_booking.service.SeatService@{com.cinema\_seat\_booking.service.SeatService}!getSeatById@{getSeatById}}
 \index{getSeatById@{getSeatById}!com.cinema\_seat\_booking.service.SeatService@{com.cinema\_seat\_booking.service.SeatService}}
 \doxysubsubsection{\texorpdfstring{getSeatById()}{getSeatById()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_ad062830f5b2deab9e17f3e3179f2e951} 
 Optional$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Seat\+Service.\+get\+Seat\+By\+Id (\begin{DoxyParamCaption}\item[{Long}]{id}{}\end{DoxyParamCaption})}
 
+
+
+Retrieves a seat by its ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the seat. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An {\ttfamily \doxylink{}{Optional}} containing the seat if found. 
+\end{DoxyReturn}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_ae476bee630bb92a1938b006e099485ce}\index{com.cinema\_seat\_booking.service.SeatService@{com.cinema\_seat\_booking.service.SeatService}!reserveSeat@{reserveSeat}}
 \index{reserveSeat@{reserveSeat}!com.cinema\_seat\_booking.service.SeatService@{com.cinema\_seat\_booking.service.SeatService}}
 \doxysubsubsection{\texorpdfstring{reserveSeat()}{reserveSeat()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_ae476bee630bb92a1938b006e099485ce} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Seat\+Service.\+reserve\+Seat (\begin{DoxyParamCaption}\item[{Long}]{seat\+Id}{}\end{DoxyParamCaption}) throws Exception}
 
+
+
+Reserves a seat by ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em seat\+Id} & The ID of the seat to reserve. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & if the seat is not found or is already reserved. \\
+\hline
+\end{DoxyExceptions}
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -86,6 +184,27 @@ Here is the call graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_aeca635ef71f4b117839705c214d818b6} 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Seat\+Service.\+update\+Seat (\begin{DoxyParamCaption}\item[{Long}]{id}{, }\item[{int}]{new\+Number}{, }\item[{Long}]{new\+Room\+Id}{}\end{DoxyParamCaption})}
 
+
+
+Updates an existing seat with a new number and room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the seat to update. \\
+\hline
+{\em new\+Number} & The new seat number. \\
+\hline
+{\em new\+Room\+Id} & The ID of the new room. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The updated {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} object. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\+Argument\+Exception} & if the seat or new room is not found. \\
+\hline
+\end{DoxyExceptions}
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]

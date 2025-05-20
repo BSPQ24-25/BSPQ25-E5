@@ -1,5 +1,5 @@
 <map id="src/main/java/com/cinema_seat_booking/service/ScreeningService.java" name="src/main/java/com/cinema_seat_booking/service/ScreeningService.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="784,5,998,64"/>
+<area shape="rect" id="Node000001" title="Service class responsible for managing movie screenings." alt="" coords="784,5,998,64"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,112,225,155"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="785,49,540,76,240,114,239,109,539,71,784,44"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="248,112,488,155"/>

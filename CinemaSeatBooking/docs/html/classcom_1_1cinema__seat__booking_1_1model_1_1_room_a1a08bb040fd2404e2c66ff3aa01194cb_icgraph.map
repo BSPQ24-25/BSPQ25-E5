@@ -1,5 +1,5 @@
 <map id="com.cinema_seat_booking.model.Room.setSeats" name="com.cinema_seat_booking.model.Room.setSeats">
-<area shape="rect" id="Node000001" title=" " alt="" coords="290,5,509,48"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1service_1_1_room_service.html#a9c5f9ebc8b8970886ef9d5e7977123ce" title=" " alt="" coords="5,5,242,48"/>
+<area shape="rect" id="Node000001" title="Sets the list of seats in the room." alt="" coords="290,5,509,48"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1service_1_1_room_service.html#a9c5f9ebc8b8970886ef9d5e7977123ce" title="Creates a new room and generates seats for it." alt="" coords="5,5,242,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="274,29,242,29,242,24,274,24"/>
 </map>

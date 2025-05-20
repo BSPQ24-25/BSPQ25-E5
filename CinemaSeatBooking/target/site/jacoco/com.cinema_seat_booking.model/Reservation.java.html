@@ -87,7 +87,7 @@ public class Reservation {
      * @return the reservation ID
      */
     public Long getId() {
-<span class="nc" id="L90">        return id;</span>
+<span class="fc" id="L90">        return id;</span>
     }
 
     /**
@@ -96,7 +96,7 @@ public class Reservation {
      * @return the user
      */
     public User getUser() {
-<span class="nc" id="L99">        return user;</span>
+<span class="fc" id="L99">        return user;</span>
     }
 
     /**
@@ -105,7 +105,7 @@ public class Reservation {
      * @return the screening
      */
     public Screening getScreening() {
-<span class="nc" id="L108">        return screening;</span>
+<span class="fc" id="L108">        return screening;</span>
     }
 
     /**
@@ -114,7 +114,7 @@ public class Reservation {
      * @return the seat
      */
     public Seat getSeat() {
-<span class="nc" id="L117">        return seat;</span>
+<span class="fc" id="L117">        return seat;</span>
     }
 
     /**
@@ -123,7 +123,7 @@ public class Reservation {
      * @return the reservation state
      */
     public ReservationState getReservationState() {
-<span class="nc" id="L126">        return reservationState;</span>
+<span class="fc" id="L126">        return reservationState;</span>
     }
 
     /**
@@ -132,7 +132,7 @@ public class Reservation {
      * @return the payment
      */
     public Payment getPayment() {
-<span class="nc" id="L135">        return payment;</span>
+<span class="fc" id="L135">        return payment;</span>
     }
 
     /**
@@ -141,8 +141,8 @@ public class Reservation {
      * @param id the ID to set
      */
     public void setId(Long id) {
-<span class="nc" id="L144">        this.id = id;</span>
-<span class="nc" id="L145">    }</span>
+<span class="fc" id="L144">        this.id = id;</span>
+<span class="fc" id="L145">    }</span>
 
     /**
      * @brief Sets the user for the reservation.
@@ -150,8 +150,8 @@ public class Reservation {
      * @param user the user to set
      */
     public void setUser(User user) {
-<span class="nc" id="L153">        this.user = user;</span>
-<span class="nc" id="L154">    }</span>
+<span class="fc" id="L153">        this.user = user;</span>
+<span class="fc" id="L154">    }</span>
 
     /**
      * @brief Sets the screening for the reservation.
@@ -159,8 +159,8 @@ public class Reservation {
      * @param screening the screening to set
      */
     public void setScreening(Screening screening) {
-<span class="nc" id="L162">        this.screening = screening;</span>
-<span class="nc" id="L163">    }</span>
+<span class="fc" id="L162">        this.screening = screening;</span>
+<span class="fc" id="L163">    }</span>
 
     /**
      * @brief Sets the seat for the reservation.
@@ -171,12 +171,12 @@ public class Reservation {
      * @param seat the seat to set
      */
     public void setSeat(Seat seat) {
-<span class="nc" id="L174">        this.seat = seat;</span>
-<span class="nc bnc" id="L175" title="All 2 branches missed.">        if (seat != null) {</span>
-<span class="nc" id="L176">            seat.setReserved(true);</span>
-<span class="nc" id="L177">            seat.setReservation(this);</span>
+<span class="fc" id="L174">        this.seat = seat;</span>
+<span class="fc bfc" id="L175" title="All 2 branches covered.">        if (seat != null) {</span>
+<span class="fc" id="L176">            seat.setReserved(true);</span>
+<span class="fc" id="L177">            seat.setReservation(this);</span>
         }
-<span class="nc" id="L179">    }</span>
+<span class="fc" id="L179">    }</span>
 
     /**
      * @brief Sets the reservation state.
@@ -184,8 +184,8 @@ public class Reservation {
      * @param reservationState the reservation state to set
      */
     public void setReservationState(ReservationState reservationState) {
-<span class="nc" id="L187">        this.reservationState = reservationState;</span>
-<span class="nc" id="L188">    }</span>
+<span class="fc" id="L187">        this.reservationState = reservationState;</span>
+<span class="fc" id="L188">    }</span>
 
     /**
      * @brief Sets the payment for the reservation.
@@ -196,11 +196,11 @@ public class Reservation {
      * @param payment the payment to set
      */
     public void setPayment(Payment payment) {
-<span class="nc" id="L199">        this.payment = payment;</span>
-<span class="nc bnc" id="L200" title="All 2 branches missed.">        if (payment != null) {</span>
-<span class="nc" id="L201">            payment.setReservation(this);</span>
+<span class="fc" id="L199">        this.payment = payment;</span>
+<span class="fc bfc" id="L200" title="All 2 branches covered.">        if (payment != null) {</span>
+<span class="fc" id="L201">            payment.setReservation(this);</span>
         }
-<span class="nc" id="L203">    }</span>
+<span class="fc" id="L203">    }</span>
 
     /**
      * @brief Default constructor required by JPA.
@@ -208,9 +208,9 @@ public class Reservation {
      * @details
      * Initializes reservation state to PENDING.
      */
-<span class="nc" id="L211">    public Reservation() {</span>
-<span class="nc" id="L212">        this.reservationState = ReservationState.PENDING;</span>
-<span class="nc" id="L213">    }</span>
+<span class="fc" id="L211">    public Reservation() {</span>
+<span class="fc" id="L212">        this.reservationState = ReservationState.PENDING;</span>
+<span class="fc" id="L213">    }</span>
 
     /**
      * @brief Constructs a reservation with all main entities.
@@ -220,13 +220,13 @@ public class Reservation {
      * @param payment the payment associated
      * @param seat the seat reserved
      */
-<span class="nc" id="L223">    public Reservation(User user, Screening screening, Payment payment, Seat seat) {</span>
-<span class="nc" id="L224">        this.user = user;</span>
-<span class="nc" id="L225">        this.screening = screening;</span>
-<span class="nc" id="L226">        this.reservationState = ReservationState.PENDING;</span>
-<span class="nc" id="L227">        this.setPayment(payment);</span>
-<span class="nc" id="L228">        this.setSeat(seat);</span>
-<span class="nc" id="L229">    }</span>
+<span class="fc" id="L223">    public Reservation(User user, Screening screening, Payment payment, Seat seat) {</span>
+<span class="fc" id="L224">        this.user = user;</span>
+<span class="fc" id="L225">        this.screening = screening;</span>
+<span class="fc" id="L226">        this.reservationState = ReservationState.PENDING;</span>
+<span class="fc" id="L227">        this.setPayment(payment);</span>
+<span class="fc" id="L228">        this.setSeat(seat);</span>
+<span class="fc" id="L229">    }</span>
 
     /**
      * @brief Constructs a reservation without a payment, creates a new payment instance.
@@ -235,16 +235,16 @@ public class Reservation {
      * @param screening the screening reserved
      * @param seat the seat reserved
      */
-<span class="nc" id="L238">    public Reservation(User user, Screening screening, Seat seat) {</span>
-<span class="nc" id="L239">        this.user = user;</span>
-<span class="nc" id="L240">        this.screening = screening;</span>
-<span class="nc" id="L241">        this.reservationState = ReservationState.PENDING;</span>
+<span class="fc" id="L238">    public Reservation(User user, Screening screening, Seat seat) {</span>
+<span class="fc" id="L239">        this.user = user;</span>
+<span class="fc" id="L240">        this.screening = screening;</span>
+<span class="fc" id="L241">        this.reservationState = ReservationState.PENDING;</span>
 
-<span class="nc" id="L243">        Payment newPayment = new Payment();</span>
-<span class="nc" id="L244">        this.payment = newPayment;</span>
-<span class="nc" id="L245">        newPayment.setReservation(this);</span>
+<span class="fc" id="L243">        Payment newPayment = new Payment();</span>
+<span class="fc" id="L244">        this.payment = newPayment;</span>
+<span class="fc" id="L245">        newPayment.setReservation(this);</span>
 
-<span class="nc" id="L247">        this.setSeat(seat);</span>
-<span class="nc" id="L248">    }</span>
+<span class="fc" id="L247">        this.setSeat(seat);</span>
+<span class="fc" id="L248">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

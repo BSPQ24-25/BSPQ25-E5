@@ -40,7 +40,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @Transactional
-<span class="nc" id="L43">public class PaymentService {</span>
+<span class="fc" id="L43">public class PaymentService {</span>
 
     @Autowired
     private PaymentRepository paymentRepository;
@@ -65,20 +65,20 @@ import org.springframework.stereotype.Service;
      *          state to PAID. Otherwise, the payment status is set to FAILED.
      */
     public Payment processPayment(Reservation reservation, String paymentMethod, double amount, String date) {
-<span class="nc" id="L68">        Payment payment = reservation.getPayment();</span>
-<span class="nc" id="L69">        boolean paymentSuccessful = simulatePaymentGateway();</span>
-<span class="nc bnc" id="L70" title="All 2 branches missed.">        if (paymentSuccessful) {</span>
-<span class="nc bnc" id="L71" title="All 2 branches missed.">            if (reservation.getReservationState() == ReservationState.PAID) {</span>
-<span class="nc" id="L72">                throw new IllegalStateException(&quot;Reservation is already paid.&quot;);</span>
+<span class="fc" id="L68">        Payment payment = reservation.getPayment();</span>
+<span class="fc" id="L69">        boolean paymentSuccessful = simulatePaymentGateway();</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">        if (paymentSuccessful) {</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">            if (reservation.getReservationState() == ReservationState.PAID) {</span>
+<span class="fc" id="L72">                throw new IllegalStateException(&quot;Reservation is already paid.&quot;);</span>
             }
-<span class="nc" id="L74">            payment.setStatus(PaymentStatus.COMPLETED);</span>
-<span class="nc" id="L75">            reservation.setReservationState(ReservationState.PAID);</span>
-<span class="nc" id="L76">            reservation.setPayment(payment);</span>
-<span class="nc" id="L77">            reservationRepository.save(reservation);</span>
+<span class="fc" id="L74">            payment.setStatus(PaymentStatus.COMPLETED);</span>
+<span class="fc" id="L75">            reservation.setReservationState(ReservationState.PAID);</span>
+<span class="fc" id="L76">            reservation.setPayment(payment);</span>
+<span class="fc" id="L77">            reservationRepository.save(reservation);</span>
         } else {
-<span class="nc" id="L79">            payment.setStatus(PaymentStatus.FAILED);</span>
+<span class="fc" id="L79">            payment.setStatus(PaymentStatus.FAILED);</span>
         }
-<span class="nc" id="L81">        return paymentRepository.save(payment);</span>
+<span class="fc" id="L81">        return paymentRepository.save(payment);</span>
     }
 
     /**
@@ -92,7 +92,7 @@ import org.springframework.stereotype.Service;
      *          payment provider.
      */
     public boolean simulatePaymentGateway() {
-<span class="nc" id="L95">        return true;</span>
+<span class="fc" id="L95">        return true;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

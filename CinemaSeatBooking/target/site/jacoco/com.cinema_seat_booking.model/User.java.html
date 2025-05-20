@@ -69,7 +69,7 @@ public class User {
      * @return the user ID
      */
     public Long getId() {
-<span class="nc" id="L72">        return id;</span>
+<span class="fc" id="L72">        return id;</span>
     }
 
     /**
@@ -77,7 +77,7 @@ public class User {
      * @return the username
      */
     public String getUsername() {
-<span class="nc" id="L80">        return username;</span>
+<span class="fc" id="L80">        return username;</span>
     }
 
     /**
@@ -85,7 +85,7 @@ public class User {
      * @return the password
      */
     public String getPassword() {
-<span class="nc" id="L88">        return password;</span>
+<span class="fc" id="L88">        return password;</span>
     }
 
     /**
@@ -93,7 +93,7 @@ public class User {
      * @return the email
      */
     public String getEmail() {
-<span class="nc" id="L96">        return email;</span>
+<span class="fc" id="L96">        return email;</span>
     }
 
     /**
@@ -101,7 +101,7 @@ public class User {
      * @return the role
      */
     public Role getRole() {
-<span class="nc" id="L104">        return role;</span>
+<span class="fc" id="L104">        return role;</span>
     }
 
     /**
@@ -109,7 +109,7 @@ public class User {
      * @return list of reservations
      */
     public List&lt;Reservation&gt; getReservations() {
-<span class="nc" id="L112">        return reservations;</span>
+<span class="fc" id="L112">        return reservations;</span>
     }
 
     /**
@@ -117,40 +117,40 @@ public class User {
      * @param id the user ID to set
      */
     public void setId(Long id) {
-<span class="nc" id="L120">        this.id = id;</span>
-<span class="nc" id="L121">    }</span>
+<span class="fc" id="L120">        this.id = id;</span>
+<span class="fc" id="L121">    }</span>
 
     /**
      * @brief Sets the username.
      * @param username the username to set
      */
     public void setUsername(String username) {
-<span class="nc" id="L128">        this.username = username;</span>
-<span class="nc" id="L129">    }</span>
+<span class="fc" id="L128">        this.username = username;</span>
+<span class="fc" id="L129">    }</span>
 
     /**
      * @brief Sets the password.
      * @param password the password to set
      */
     public void setPassword(String password) {
-<span class="nc" id="L136">        this.password = password;</span>
-<span class="nc" id="L137">    }</span>
+<span class="fc" id="L136">        this.password = password;</span>
+<span class="fc" id="L137">    }</span>
 
     /**
      * @brief Sets the email address.
      * @param email the email to set
      */
     public void setEmail(String email) {
-<span class="nc" id="L144">        this.email = email;</span>
-<span class="nc" id="L145">    }</span>
+<span class="fc" id="L144">        this.email = email;</span>
+<span class="fc" id="L145">    }</span>
 
     /**
      * @brief Sets the user role.
      * @param role the role to set
      */
     public void setRole(Role role) {
-<span class="nc" id="L152">        this.role = role;</span>
-<span class="nc" id="L153">    }</span>
+<span class="fc" id="L152">        this.role = role;</span>
+<span class="fc" id="L153">    }</span>
 
     /**
      * @brief Sets the list of reservations.
@@ -162,8 +162,8 @@ public class User {
      */
     @JsonIgnore
     public void setReservations(List&lt;Reservation&gt; reservations) {
-<span class="nc" id="L165">        this.reservations = reservations;</span>
-<span class="nc" id="L166">    }</span>
+<span class="fc" id="L165">        this.reservations = reservations;</span>
+<span class="fc" id="L166">    }</span>
 
     /**
      * @brief Adds a reservation to the user.
@@ -174,12 +174,12 @@ public class User {
      * @param reservation the reservation to add
      */
     public void addReservation(Reservation reservation) {
-<span class="nc bnc" id="L177" title="All 2 branches missed.">        if (this.reservations == null) {</span>
-<span class="nc" id="L178">            this.reservations = new ArrayList&lt;&gt;();</span>
+<span class="pc bpc" id="L177" title="1 of 2 branches missed.">        if (this.reservations == null) {</span>
+<span class="fc" id="L178">            this.reservations = new ArrayList&lt;&gt;();</span>
         }
-<span class="nc" id="L180">        this.reservations.add(reservation);</span>
-<span class="nc" id="L181">        reservation.setUser(this);</span>
-<span class="nc" id="L182">    }</span>
+<span class="fc" id="L180">        this.reservations.add(reservation);</span>
+<span class="fc" id="L181">        reservation.setUser(this);</span>
+<span class="fc" id="L182">    }</span>
 
     /**
      * @brief Removes a reservation from the user.
@@ -190,18 +190,18 @@ public class User {
      * @param reservation the reservation to remove
      */
     public void removeReservation(Reservation reservation) {
-<span class="nc bnc" id="L193" title="All 2 branches missed.">        if (this.reservations != null) {</span>
-<span class="nc" id="L194">            this.reservations.remove(reservation);</span>
-<span class="nc" id="L195">            reservation.setUser(null);</span>
+<span class="pc bpc" id="L193" title="1 of 2 branches missed.">        if (this.reservations != null) {</span>
+<span class="fc" id="L194">            this.reservations.remove(reservation);</span>
+<span class="fc" id="L195">            reservation.setUser(null);</span>
         }
-<span class="nc" id="L197">    }</span>
+<span class="fc" id="L197">    }</span>
 
     /**
      * @brief Default constructor required by JPA.
      */
-<span class="nc" id="L202">    public User() {</span>
+<span class="fc" id="L202">    public User() {</span>
         // Required by JPA
-<span class="nc" id="L204">    }</span>
+<span class="fc" id="L204">    }</span>
 
     /**
      * @brief Constructor with all fields.
@@ -211,13 +211,13 @@ public class User {
      * @param role the user role
      * @param reservations initial list of reservations
      */
-<span class="nc" id="L214">    public User(String username, String password, String email, Role role, List&lt;Reservation&gt; reservations) {</span>
-<span class="nc" id="L215">        this.username = username;</span>
-<span class="nc" id="L216">        this.password = password;</span>
-<span class="nc" id="L217">        this.email = email;</span>
-<span class="nc" id="L218">        this.role = role;</span>
-<span class="nc" id="L219">        this.reservations = reservations;</span>
-<span class="nc" id="L220">    }</span>
+<span class="fc" id="L214">    public User(String username, String password, String email, Role role, List&lt;Reservation&gt; reservations) {</span>
+<span class="fc" id="L215">        this.username = username;</span>
+<span class="fc" id="L216">        this.password = password;</span>
+<span class="fc" id="L217">        this.email = email;</span>
+<span class="fc" id="L218">        this.role = role;</span>
+<span class="fc" id="L219">        this.reservations = reservations;</span>
+<span class="fc" id="L220">    }</span>
 
     /**
      * @brief Constructor without reservations.
@@ -227,8 +227,8 @@ public class User {
      * @param role the user role
      */
     public User(String username, String password, String email, Role role) {
-<span class="nc" id="L230">        this(username, password, email, role, null);</span>
-<span class="nc" id="L231">    }</span>
+<span class="fc" id="L230">        this(username, password, email, role, null);</span>
+<span class="fc" id="L231">    }</span>
 
     /**
      * @brief Constructor with default role CLIENT.
@@ -237,7 +237,7 @@ public class User {
      * @param email the email address
      */
     public User(String username, String password, String email) {
-<span class="nc" id="L240">        this(username, password, email, Role.CLIENT, null);</span>
-<span class="nc" id="L241">    }</span>
+<span class="fc" id="L240">        this(username, password, email, Role.CLIENT, null);</span>
+<span class="fc" id="L241">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

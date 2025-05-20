@@ -1,5 +1,5 @@
 <map id="src/main/java/com/cinema_seat_booking/service/ReservationService.java" name="src/main/java/com/cinema_seat_booking/service/ReservationService.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="1317,5,1542,64"/>
+<area shape="rect" id="Node000001" title="Service class for managing reservation logic in the cinema booking system." alt="" coords="1317,5,1542,64"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,120,230,147"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1317,42,847,65,546,86,242,115,203,120,203,114,241,109,546,80,847,59,1316,37"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="253,112,494,155"/>

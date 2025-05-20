@@ -1,33 +1,48 @@
 \doxysection{com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Reservation\+Controller Class Reference}
 \hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller}{}\label{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller}\index{com.cinema\_seat\_booking.controller.ReservationController@{com.cinema\_seat\_booking.controller.ReservationController}}
+
+
+Exposes REST endpoints for reservation management.  
+
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o}{Reservation\+DTO}} \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a2c0b6fa84d026bd1a4031d84eff33bd2}{create\+Reservation}} ( @Request\+Param String username, @Request\+Param Long screening\+Id, @Request\+Param Long seat\+Id)
+\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o}{Reservation\+DTO}} \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a974bb51edf3a7ac8833ed054c7792add}{create\+Reservation}} ( @Request\+Param @Parameter(description="{}Username of the user"{}) String username, @Request\+Param @Parameter(description="{}ID of the screening"{}) Long screening\+Id, @Request\+Param @Parameter(description="{}ID of the seat"{}) Long seat\+Id)
 \item 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o}{Reservation\+DTO}} $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_af434da11e4d63f31173ec3b5dbc857b1}{get\+All\+Reservations}} ()
 \item 
-List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o}{Reservation\+DTO}} $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a120d3a3eb4663825831a0c824159647a}{get\+All\+Reservations\+Of\+User}} (@Request\+Param String username)
+List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o}{Reservation\+DTO}} $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a144ce82cbc5d0d261d88aaa7c00d26fb}{get\+All\+Reservations\+Of\+User}} ( @Path\+Variable @Parameter(description="{}Username of the user"{}) String username)
 \item 
-void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a52572e21e8329683e42de9ab877b39c7}{cancel\+Reservation}} (@Path\+Variable Long reservation\+Id)
+void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a0cf1a33392867a2d5f223b44acbfc8bb}{cancel\+Reservation}} ( @Path\+Variable @Parameter(description="{}ID of the reservation to cancel"{}) Long reservation\+Id)
 \item 
-\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o}{Reservation\+DTO}} \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_afa046864b6f4b11c171673f771fe443c}{get\+Reservation}} (@Path\+Variable Long reservation\+Id)
+\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o}{Reservation\+DTO}} \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a924bfd7637d938c3e0907f75ad3dada8}{get\+Reservation}} ( @Path\+Variable @Parameter(description="{}ID of the reservation"{}) Long reservation\+Id)
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+Exposes REST endpoints for reservation management. 
+
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a52572e21e8329683e42de9ab877b39c7}\index{com.cinema\_seat\_booking.controller.ReservationController@{com.cinema\_seat\_booking.controller.ReservationController}!cancelReservation@{cancelReservation}}
+\Hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a0cf1a33392867a2d5f223b44acbfc8bb}\index{com.cinema\_seat\_booking.controller.ReservationController@{com.cinema\_seat\_booking.controller.ReservationController}!cancelReservation@{cancelReservation}}
 \index{cancelReservation@{cancelReservation}!com.cinema\_seat\_booking.controller.ReservationController@{com.cinema\_seat\_booking.controller.ReservationController}}
 \doxysubsubsection{\texorpdfstring{cancelReservation()}{cancelReservation()}}
-{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a52572e21e8329683e42de9ab877b39c7} 
-void com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Reservation\+Controller.\+cancel\+Reservation (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{reservation\+Id}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a0cf1a33392867a2d5f223b44acbfc8bb} 
+void com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Reservation\+Controller.\+cancel\+Reservation (\begin{DoxyParamCaption}\item[{@Path\+Variable @Parameter(description="{}ID of the reservation to cancel"{}) Long}]{reservation\+Id}{}\end{DoxyParamCaption})}
 
+Cancels an existing reservation by ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em reservation\+Id} & the ID of the reservation to cancel \\
+\hline
+\end{DoxyParams}
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=275pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a52572e21e8329683e42de9ab877b39c7_cgraph}
+\includegraphics[width=275pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a0cf1a33392867a2d5f223b44acbfc8bb_cgraph}
 \end{center}
 \end{figure}
 Here is the caller graph for this function\+:
@@ -35,33 +50,62 @@ Here is the caller graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=275pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a52572e21e8329683e42de9ab877b39c7_icgraph}
+\includegraphics[width=275pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a0cf1a33392867a2d5f223b44acbfc8bb_icgraph}
 \end{center}
 \end{figure}
-\Hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a2c0b6fa84d026bd1a4031d84eff33bd2}\index{com.cinema\_seat\_booking.controller.ReservationController@{com.cinema\_seat\_booking.controller.ReservationController}!createReservation@{createReservation}}
+\Hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a974bb51edf3a7ac8833ed054c7792add}\index{com.cinema\_seat\_booking.controller.ReservationController@{com.cinema\_seat\_booking.controller.ReservationController}!createReservation@{createReservation}}
 \index{createReservation@{createReservation}!com.cinema\_seat\_booking.controller.ReservationController@{com.cinema\_seat\_booking.controller.ReservationController}}
 \doxysubsubsection{\texorpdfstring{createReservation()}{createReservation()}}
-{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a2c0b6fa84d026bd1a4031d84eff33bd2} 
-\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o}{Reservation\+DTO}} com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Reservation\+Controller.\+create\+Reservation (\begin{DoxyParamCaption}\item[{@Request\+Param String}]{username}{, }\item[{@Request\+Param Long}]{screening\+Id}{, }\item[{@Request\+Param Long}]{seat\+Id}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a974bb51edf3a7ac8833ed054c7792add} 
+\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o}{Reservation\+DTO}} com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Reservation\+Controller.\+create\+Reservation (\begin{DoxyParamCaption}\item[{@Request\+Param @Parameter(description="{}Username of the user"{}) String}]{username}{, }\item[{@Request\+Param @Parameter(description="{}ID of the screening"{}) Long}]{screening\+Id}{, }\item[{@Request\+Param @Parameter(description="{}ID of the seat"{}) Long}]{seat\+Id}{}\end{DoxyParamCaption})}
 
+Creates a new reservation for a user, screening, and seat.
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & the username of the user making the reservation \\
+\hline
+{\em screening\+Id} & the ID of the screening \\
+\hline
+{\em seat\+Id} & the ID of the seat to reserve \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the created {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o}{Reservation\+DTO}} 
+\end{DoxyReturn}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_af434da11e4d63f31173ec3b5dbc857b1}\index{com.cinema\_seat\_booking.controller.ReservationController@{com.cinema\_seat\_booking.controller.ReservationController}!getAllReservations@{getAllReservations}}
 \index{getAllReservations@{getAllReservations}!com.cinema\_seat\_booking.controller.ReservationController@{com.cinema\_seat\_booking.controller.ReservationController}}
 \doxysubsubsection{\texorpdfstring{getAllReservations()}{getAllReservations()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_af434da11e4d63f31173ec3b5dbc857b1} 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o}{Reservation\+DTO}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Reservation\+Controller.\+get\+All\+Reservations (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-\Hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a120d3a3eb4663825831a0c824159647a}\index{com.cinema\_seat\_booking.controller.ReservationController@{com.cinema\_seat\_booking.controller.ReservationController}!getAllReservationsOfUser@{getAllReservationsOfUser}}
+Retrieves all reservations in the system.
+
+\begin{DoxyReturn}{Returns}
+a list of {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o}{Reservation\+DTO}} 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a144ce82cbc5d0d261d88aaa7c00d26fb}\index{com.cinema\_seat\_booking.controller.ReservationController@{com.cinema\_seat\_booking.controller.ReservationController}!getAllReservationsOfUser@{getAllReservationsOfUser}}
 \index{getAllReservationsOfUser@{getAllReservationsOfUser}!com.cinema\_seat\_booking.controller.ReservationController@{com.cinema\_seat\_booking.controller.ReservationController}}
 \doxysubsubsection{\texorpdfstring{getAllReservationsOfUser()}{getAllReservationsOfUser()}}
-{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a120d3a3eb4663825831a0c824159647a} 
-List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o}{Reservation\+DTO}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Reservation\+Controller.\+get\+All\+Reservations\+Of\+User (\begin{DoxyParamCaption}\item[{@Request\+Param String}]{username}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a144ce82cbc5d0d261d88aaa7c00d26fb} 
+List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o}{Reservation\+DTO}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Reservation\+Controller.\+get\+All\+Reservations\+Of\+User (\begin{DoxyParamCaption}\item[{@Path\+Variable @Parameter(description="{}Username of the user"{}) String}]{username}{}\end{DoxyParamCaption})}
 
+Retrieves all reservations for a given user.
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & the username of the user \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a list of {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o}{Reservation\+DTO}} for that user 
+\end{DoxyReturn}
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=308pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a120d3a3eb4663825831a0c824159647a_cgraph}
+\includegraphics[width=308pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a144ce82cbc5d0d261d88aaa7c00d26fb_cgraph}
 \end{center}
 \end{figure}
 Here is the caller graph for this function\+:
@@ -69,21 +113,31 @@ Here is the caller graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=308pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a120d3a3eb4663825831a0c824159647a_icgraph}
+\includegraphics[width=308pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a144ce82cbc5d0d261d88aaa7c00d26fb_icgraph}
 \end{center}
 \end{figure}
-\Hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_afa046864b6f4b11c171673f771fe443c}\index{com.cinema\_seat\_booking.controller.ReservationController@{com.cinema\_seat\_booking.controller.ReservationController}!getReservation@{getReservation}}
+\Hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a924bfd7637d938c3e0907f75ad3dada8}\index{com.cinema\_seat\_booking.controller.ReservationController@{com.cinema\_seat\_booking.controller.ReservationController}!getReservation@{getReservation}}
 \index{getReservation@{getReservation}!com.cinema\_seat\_booking.controller.ReservationController@{com.cinema\_seat\_booking.controller.ReservationController}}
 \doxysubsubsection{\texorpdfstring{getReservation()}{getReservation()}}
-{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_afa046864b6f4b11c171673f771fe443c} 
-\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o}{Reservation\+DTO}} com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Reservation\+Controller.\+get\+Reservation (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{reservation\+Id}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a924bfd7637d938c3e0907f75ad3dada8} 
+\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o}{Reservation\+DTO}} com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Reservation\+Controller.\+get\+Reservation (\begin{DoxyParamCaption}\item[{@Path\+Variable @Parameter(description="{}ID of the reservation"{}) Long}]{reservation\+Id}{}\end{DoxyParamCaption})}
 
+Retrieves a reservation by its ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em reservation\+Id} & the ID of the reservation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o}{Reservation\+DTO}} if found 
+\end{DoxyReturn}
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=260pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_afa046864b6f4b11c171673f771fe443c_cgraph}
+\includegraphics[width=260pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a924bfd7637d938c3e0907f75ad3dada8_cgraph}
 \end{center}
 \end{figure}
 Here is the caller graph for this function\+:
@@ -91,7 +145,7 @@ Here is the caller graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=260pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_afa046864b6f4b11c171673f771fe443c_icgraph}
+\includegraphics[width=260pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a924bfd7637d938c3e0907f75ad3dada8_icgraph}
 \end{center}
 \end{figure}
 

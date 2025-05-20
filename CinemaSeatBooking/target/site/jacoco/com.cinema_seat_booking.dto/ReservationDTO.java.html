@@ -13,55 +13,55 @@ public class ReservationDTO {
     private String reservationState;
 
     // Constructor que mapea desde la entidad Reservation
-<span class="nc" id="L16">    public ReservationDTO(Reservation reservation) {</span>
-<span class="nc" id="L17">        this.reservationId = reservation.getId();</span>
-<span class="nc" id="L18">        this.user = reservation.getUser();</span>
-<span class="nc" id="L19">        this.screening = new ScreeningDTO(reservation.getScreening());</span>
-<span class="nc" id="L20">        this.seat = new SeatDTO(reservation.getSeat());</span>
-<span class="nc bnc" id="L21" title="All 2 branches missed.">        if (reservation.getReservationState() != null) {</span>
-<span class="nc" id="L22">            this.reservationState = reservation.getReservationState().name();</span>
+<span class="fc" id="L16">    public ReservationDTO(Reservation reservation) {</span>
+<span class="fc" id="L17">        this.reservationId = reservation.getId();</span>
+<span class="fc" id="L18">        this.user = reservation.getUser();</span>
+<span class="fc" id="L19">        this.screening = new ScreeningDTO(reservation.getScreening());</span>
+<span class="fc" id="L20">        this.seat = new SeatDTO(reservation.getSeat());</span>
+<span class="pc bpc" id="L21" title="1 of 2 branches missed.">        if (reservation.getReservationState() != null) {</span>
+<span class="fc" id="L22">            this.reservationState = reservation.getReservationState().name();</span>
         }
-<span class="nc" id="L24">    }</span>
+<span class="fc" id="L24">    }</span>
 
     // Getters
     public Long getReservationId() {
-<span class="nc" id="L28">        return reservationId;</span>
+<span class="fc" id="L28">        return reservationId;</span>
     }
 
     public void setReservationId(Long reservationId) {
-<span class="nc" id="L32">        this.reservationId = reservationId;</span>
-<span class="nc" id="L33">    }</span>
+<span class="fc" id="L32">        this.reservationId = reservationId;</span>
+<span class="fc" id="L33">    }</span>
 
     public User getUser() {
-<span class="nc" id="L36">        return user;</span>
+<span class="fc" id="L36">        return user;</span>
     }
 
     public void setUser(User user) {
-<span class="nc" id="L40">        this.user = user;</span>
-<span class="nc" id="L41">    }</span>
+<span class="fc" id="L40">        this.user = user;</span>
+<span class="fc" id="L41">    }</span>
 
     public ScreeningDTO getScreening() {
-<span class="nc" id="L44">        return screening;</span>
+<span class="fc" id="L44">        return screening;</span>
     }
 
     public void setScreening(ScreeningDTO screening) {
-<span class="nc" id="L48">        this.screening = screening;</span>
-<span class="nc" id="L49">    }</span>
+<span class="fc" id="L48">        this.screening = screening;</span>
+<span class="fc" id="L49">    }</span>
 
     public SeatDTO getSeat() {
-<span class="nc" id="L52">        return seat;</span>
+<span class="fc" id="L52">        return seat;</span>
     }
 
     public void setSeat(SeatDTO seat) {
-<span class="nc" id="L56">        this.seat = seat;</span>
-<span class="nc" id="L57">    }</span>
+<span class="fc" id="L56">        this.seat = seat;</span>
+<span class="fc" id="L57">    }</span>
 
     public String getReservationState() {
-<span class="nc" id="L60">        return reservationState;</span>
+<span class="fc" id="L60">        return reservationState;</span>
     }
 
     public void setReservationState(String reservationState) {
-<span class="nc" id="L64">        this.reservationState = reservationState;</span>
-<span class="nc" id="L65">    }</span>
+<span class="fc" id="L64">        this.reservationState = reservationState;</span>
+<span class="fc" id="L65">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

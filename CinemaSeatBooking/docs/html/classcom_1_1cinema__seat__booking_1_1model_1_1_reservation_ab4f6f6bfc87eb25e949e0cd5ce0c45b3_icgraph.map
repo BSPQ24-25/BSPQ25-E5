@@ -1,5 +1,7 @@
 <map id="com.cinema_seat_booking.model.Reservation.getReservationState" name="com.cinema_seat_booking.model.Reservation.getReservationState">
-<area shape="rect" id="Node000001" title=" " alt="" coords="275,5,494,48"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o.html#a4c51800d9eb5d29a3e9ab2288afd62d3" title=" " alt="" coords="5,5,227,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="259,29,227,29,227,24,259,24"/>
+<area shape="rect" id="Node000001" title="Gets the reservation state." alt="" coords="280,39,499,81"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1service_1_1_payment_service.html#a45a32f0c30c3c01b8cd68ae21b253c6d" title="Processes a payment for a given reservation." alt="" coords="5,5,232,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="264,47,232,43,232,38,265,42"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o.html#a4c51800d9eb5d29a3e9ab2288afd62d3" title=" " alt="" coords="8,72,229,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="265,78,230,82,229,77,264,73"/>
 </map>

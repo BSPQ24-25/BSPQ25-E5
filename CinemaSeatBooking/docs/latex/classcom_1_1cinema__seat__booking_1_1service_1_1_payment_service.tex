@@ -1,13 +1,26 @@
 \doxysection{com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Payment\+Service Class Reference}
 \hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_payment_service}{}\label{classcom_1_1cinema__seat__booking_1_1service_1_1_payment_service}\index{com.cinema\_seat\_booking.service.PaymentService@{com.cinema\_seat\_booking.service.PaymentService}}
+
+
+Service responsible for processing payments related to reservations.  
+
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_payment}{Payment}} \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_payment_service_a45a32f0c30c3c01b8cd68ae21b253c6d}{process\+Payment}} (\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} reservation, String payment\+Method, double amount, String date)
-\item 
+\begin{DoxyCompactList}\small\item\em Processes a payment for a given reservation. \end{DoxyCompactList}\item 
 boolean \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_payment_service_a24bf16acf33484636844506c9cdacab4}{simulate\+Payment\+Gateway}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Simulates the interaction with a payment gateway. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Service responsible for processing payments related to reservations. 
+
+\begin{DoxyVerb}   Handles the payment workflow, including updating payment status and
+   reservation states.
+\end{DoxyVerb}
+ 
 
 \doxysubsection{Member Function Documentation}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_payment_service_a45a32f0c30c3c01b8cd68ae21b253c6d}\index{com.cinema\_seat\_booking.service.PaymentService@{com.cinema\_seat\_booking.service.PaymentService}!processPayment@{processPayment}}
@@ -16,7 +29,25 @@ boolean \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_paymen
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_payment_service_a45a32f0c30c3c01b8cd68ae21b253c6d} 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_payment}{Payment}} com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Payment\+Service.\+process\+Payment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}}}]{reservation}{, }\item[{String}]{payment\+Method}{, }\item[{double}]{amount}{, }\item[{String}]{date}{}\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
+
+
+Processes a payment for a given reservation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reservation} & the {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} object for which payment is being processed \\
+\hline
+{\em payment\+Method} & the payment method used (e.\+g., credit card, Pay\+Pal) \\
+\hline
+{\em amount} & the amount to be paid \\
+\hline
+{\em date} & the date of the payment (as a string) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the updated {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_payment}{Payment}} entity after processing
+\end{DoxyReturn}
+This method simulates a payment gateway interaction. If the payment is successful, it updates the payment status to COMPLETED and the reservation state to PAID. Otherwise, the payment status is set to FAILED. Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -30,7 +61,14 @@ Here is the call graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_payment_service_a24bf16acf33484636844506c9cdacab4} 
 boolean com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Payment\+Service.\+simulate\+Payment\+Gateway (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-Here is the caller graph for this function\+:
+
+
+Simulates the interaction with a payment gateway. 
+
+\begin{DoxyReturn}{Returns}
+always returns true to indicate a successful payment in this simulation.
+\end{DoxyReturn}
+In a real application, this method would integrate with an external payment provider. Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}

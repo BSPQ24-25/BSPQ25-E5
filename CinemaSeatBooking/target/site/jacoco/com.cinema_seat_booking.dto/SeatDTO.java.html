@@ -8,59 +8,59 @@ public class SeatDTO {
     private boolean isReserved;
     private String roomName;
 
-<span class="nc" id="L11">    public SeatDTO() {</span>
+<span class="fc" id="L11">    public SeatDTO() {</span>
         // Default constructor
-<span class="nc" id="L13">    }</span>
+<span class="fc" id="L13">    }</span>
 
-<span class="nc" id="L15">    public SeatDTO(Long id, int seatNumber, boolean isReserved, String roomName) {</span>
-<span class="nc" id="L16">        this.id = id;</span>
-<span class="nc" id="L17">        this.seatNumber = seatNumber;</span>
-<span class="nc" id="L18">        this.isReserved = isReserved;</span>
-<span class="nc" id="L19">        this.roomName = roomName;</span>
-<span class="nc" id="L20">    }</span>
+<span class="fc" id="L15">    public SeatDTO(Long id, int seatNumber, boolean isReserved, String roomName) {</span>
+<span class="fc" id="L16">        this.id = id;</span>
+<span class="fc" id="L17">        this.seatNumber = seatNumber;</span>
+<span class="fc" id="L18">        this.isReserved = isReserved;</span>
+<span class="fc" id="L19">        this.roomName = roomName;</span>
+<span class="fc" id="L20">    }</span>
 
-<span class="nc" id="L22">    public SeatDTO(Seat seat) {</span>
-<span class="nc" id="L23">        this.id = seat.getId();</span>
-<span class="nc" id="L24">        this.seatNumber = seat.getSeatNumber();</span>
-<span class="nc" id="L25">        this.isReserved = seat.isReserved();</span>
-<span class="nc bnc" id="L26" title="All 2 branches missed.">        this.roomName = seat.getRoom() != null ? seat.getRoom().getName() : null;</span>
-<span class="nc" id="L27">    }</span>
+<span class="fc" id="L22">    public SeatDTO(Seat seat) {</span>
+<span class="fc" id="L23">        this.id = seat.getId();</span>
+<span class="fc" id="L24">        this.seatNumber = seat.getSeatNumber();</span>
+<span class="fc" id="L25">        this.isReserved = seat.isReserved();</span>
+<span class="pc bpc" id="L26" title="1 of 2 branches missed.">        this.roomName = seat.getRoom() != null ? seat.getRoom().getName() : null;</span>
+<span class="fc" id="L27">    }</span>
 
     public Long getId() {
-<span class="nc" id="L30">        return id;</span>
+<span class="fc" id="L30">        return id;</span>
     }
 
     public void setId(Long id) {
-<span class="nc" id="L34">        this.id = id;</span>
-<span class="nc" id="L35">    }</span>
+<span class="fc" id="L34">        this.id = id;</span>
+<span class="fc" id="L35">    }</span>
 
     public int getSeatNumber() {
-<span class="nc" id="L38">        return seatNumber;</span>
+<span class="fc" id="L38">        return seatNumber;</span>
     }
 
     public void setSeatNumber(int seatNumber) {
-<span class="nc" id="L42">        this.seatNumber = seatNumber;</span>
-<span class="nc" id="L43">    }</span>
+<span class="fc" id="L42">        this.seatNumber = seatNumber;</span>
+<span class="fc" id="L43">    }</span>
 
     public boolean isReserved() {
-<span class="nc" id="L46">        return isReserved;</span>
+<span class="fc" id="L46">        return isReserved;</span>
     }
 
     public void setReserved(boolean isReserved) {
-<span class="nc" id="L50">        this.isReserved = isReserved;</span>
-<span class="nc" id="L51">    }</span>
+<span class="fc" id="L50">        this.isReserved = isReserved;</span>
+<span class="fc" id="L51">    }</span>
 
     public String getRoomName() {
-<span class="nc" id="L54">        return roomName;</span>
+<span class="fc" id="L54">        return roomName;</span>
     }
 
     public void setRoomName(String roomName) {
-<span class="nc" id="L58">        this.roomName = roomName;</span>
-<span class="nc" id="L59">    }</span>
+<span class="fc" id="L58">        this.roomName = roomName;</span>
+<span class="fc" id="L59">    }</span>
 
     @Override
     public String toString() {
-<span class="nc" id="L63">        return &quot;SeatDTO{&quot; +</span>
+<span class="fc" id="L63">        return &quot;SeatDTO{&quot; +</span>
                 &quot;id=&quot; + id +
                 &quot;, seatNumber=&quot; + seatNumber +
                 &quot;, isReserved=&quot; + isReserved +

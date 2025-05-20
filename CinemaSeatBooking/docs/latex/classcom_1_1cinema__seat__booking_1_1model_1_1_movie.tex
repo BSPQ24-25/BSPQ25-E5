@@ -1,40 +1,61 @@
 \doxysection{com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Movie Class Reference}
 \hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_movie}{}\label{classcom_1_1cinema__seat__booking_1_1model_1_1_movie}\index{com.cinema\_seat\_booking.model.Movie@{com.cinema\_seat\_booking.model.Movie}}
+
+
+Entity class representing a movie.  
+
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-Long \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a9a80ea7eb2062281ead3ef2b8ae558a1}{get\+Id}} ()
-\item 
-void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a96c2755838d1f2faa7731b06b5be84fd}{set\+Id}} (Long id)
-\item 
-String \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_ae2f11425c18654a98689c70b3efed863}{get\+Title}} ()
-\item 
-void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a03a37fef657e5ec9b41a8b8a459eb517}{set\+Title}} (String title)
-\item 
-int \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_ab97c3cdfa01f285149c2d2aebbf5f8ee}{get\+Duration}} ()
-\item 
-void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a4d73dbfb0e60c92683df2610b5694848}{set\+Duration}} (int duration)
-\item 
-String \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_ab2f64393ca6e879717f5778bb42d1d77}{get\+Genre}} ()
-\item 
-void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_adeb8644d7b1c6dab841980e4a43f02d2}{set\+Genre}} (String genre)
-\item 
-String \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a618f7f5c8c98bcf3c1e8929e92eaf5c1}{get\+Cast}} ()
-\item 
-void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a40660376a6a441c8e75e4eb0b51356ba}{set\+Cast}} (String cast)
-\item 
-List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a28d88a996348ec9a9c696480d36e9adc}{get\+Screenings}} ()
-\item 
-void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_ac342ff5229949cd3daccd44deca6b964}{set\+Screenings}} (List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} $>$ screenings)
-\item 
-void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a7e5f5bc8bb3000761acc48d9f94c20d8}{add\+Screening}} (\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} screening)
-\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_aa8287d39168fcb582a92f6309baef8e6}{Movie}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Default constructor required by JPA. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_aa3d1f62e5a8c19c72894558861289fc2}{Movie}} (String title, int duration, String genre, String cast, List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} $>$ screenings)
-\item 
+\begin{DoxyCompactList}\small\item\em Constructs a movie with all fields. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a00c37c19246c46ba6f7fc4a99f6efc60}{Movie}} (String title, int duration, String genre, String cast)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Constructs a movie without screenings. \end{DoxyCompactList}\item 
+Long \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a9a80ea7eb2062281ead3ef2b8ae558a1}{get\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Gets the ID of the movie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a96c2755838d1f2faa7731b06b5be84fd}{set\+Id}} (Long id)
+\begin{DoxyCompactList}\small\item\em Sets the ID of the movie. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_ae2f11425c18654a98689c70b3efed863}{get\+Title}} ()
+\begin{DoxyCompactList}\small\item\em Gets the title of the movie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a03a37fef657e5ec9b41a8b8a459eb517}{set\+Title}} (String title)
+\begin{DoxyCompactList}\small\item\em Sets the title of the movie. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_ab97c3cdfa01f285149c2d2aebbf5f8ee}{get\+Duration}} ()
+\begin{DoxyCompactList}\small\item\em Gets the duration of the movie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a4d73dbfb0e60c92683df2610b5694848}{set\+Duration}} (int duration)
+\begin{DoxyCompactList}\small\item\em Sets the duration of the movie. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_ab2f64393ca6e879717f5778bb42d1d77}{get\+Genre}} ()
+\begin{DoxyCompactList}\small\item\em Gets the genre of the movie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_adeb8644d7b1c6dab841980e4a43f02d2}{set\+Genre}} (String genre)
+\begin{DoxyCompactList}\small\item\em Sets the genre of the movie. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a618f7f5c8c98bcf3c1e8929e92eaf5c1}{get\+Cast}} ()
+\begin{DoxyCompactList}\small\item\em Gets the cast of the movie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a40660376a6a441c8e75e4eb0b51356ba}{set\+Cast}} (String cast)
+\begin{DoxyCompactList}\small\item\em Sets the cast of the movie. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a28d88a996348ec9a9c696480d36e9adc}{get\+Screenings}} ()
+\begin{DoxyCompactList}\small\item\em Gets the list of screenings for the movie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_ac342ff5229949cd3daccd44deca6b964}{set\+Screenings}} (List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} $>$ screenings)
+\begin{DoxyCompactList}\small\item\em Sets the list of screenings for the movie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a7e5f5bc8bb3000761acc48d9f94c20d8}{add\+Screening}} (\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} screening)
+\begin{DoxyCompactList}\small\item\em Adds a screening to this movie. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Entity class representing a movie. 
+
+The {\ttfamily Movie} class maps to the "{}movie"{} table in the database. It stores details about a movie such as title, duration, genre, cast, and its related screenings.
+
+\begin{DoxyAuthor}{Author}
+BSPQ25-\/\+E5 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+2025-\/05-\/19 
+\end{DoxySince}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -44,18 +65,54 @@ void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a7e5f
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_aa8287d39168fcb582a92f6309baef8e6} 
 com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Movie.\+Movie (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-\Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_aa3d1f62e5a8c19c72894558861289fc2}\index{com.cinema\_seat\_booking.model.Movie@{com.cinema\_seat\_booking.model.Movie}!Movie@{Movie}}
+
+
+Default constructor required by JPA. 
+
+Initializes the screenings list. \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_aa3d1f62e5a8c19c72894558861289fc2}\index{com.cinema\_seat\_booking.model.Movie@{com.cinema\_seat\_booking.model.Movie}!Movie@{Movie}}
 \index{Movie@{Movie}!com.cinema\_seat\_booking.model.Movie@{com.cinema\_seat\_booking.model.Movie}}
 \doxysubsubsection{\texorpdfstring{Movie()}{Movie()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_aa3d1f62e5a8c19c72894558861289fc2} 
 com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Movie.\+Movie (\begin{DoxyParamCaption}\item[{String}]{title}{, }\item[{int}]{duration}{, }\item[{String}]{genre}{, }\item[{String}]{cast}{, }\item[{List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} $>$}]{screenings}{}\end{DoxyParamCaption})}
 
+
+
+Constructs a movie with all fields. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & the movie title \\
+\hline
+{\em duration} & the movie duration in minutes \\
+\hline
+{\em genre} & the movie genre \\
+\hline
+{\em cast} & the movie cast \\
+\hline
+{\em screenings} & the list of screenings for this movie \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a00c37c19246c46ba6f7fc4a99f6efc60}\index{com.cinema\_seat\_booking.model.Movie@{com.cinema\_seat\_booking.model.Movie}!Movie@{Movie}}
 \index{Movie@{Movie}!com.cinema\_seat\_booking.model.Movie@{com.cinema\_seat\_booking.model.Movie}}
 \doxysubsubsection{\texorpdfstring{Movie()}{Movie()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a00c37c19246c46ba6f7fc4a99f6efc60} 
 com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Movie.\+Movie (\begin{DoxyParamCaption}\item[{String}]{title}{, }\item[{int}]{duration}{, }\item[{String}]{genre}{, }\item[{String}]{cast}{}\end{DoxyParamCaption})}
 
+
+
+Constructs a movie without screenings. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & the movie title \\
+\hline
+{\em duration} & the movie duration in minutes \\
+\hline
+{\em genre} & the movie genre \\
+\hline
+{\em cast} & the movie cast \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
@@ -65,7 +122,16 @@ com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Movie.\+Movie (\begin{DoxyParamCap
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a7e5f5bc8bb3000761acc48d9f94c20d8} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Movie.\+add\+Screening (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}}}]{screening}{}\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
+
+
+Adds a screening to this movie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em screening} & the screening to add\\
+\hline
+\end{DoxyParams}
+Initializes the screenings list if null, then adds the screening and sets the movie of the screening to this instance. Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -79,72 +145,168 @@ Here is the call graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a618f7f5c8c98bcf3c1e8929e92eaf5c1} 
 String com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Movie.\+get\+Cast (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the cast of the movie. 
+
+\begin{DoxyReturn}{Returns}
+the movie cast 
+\end{DoxyReturn}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_ab97c3cdfa01f285149c2d2aebbf5f8ee}\index{com.cinema\_seat\_booking.model.Movie@{com.cinema\_seat\_booking.model.Movie}!getDuration@{getDuration}}
 \index{getDuration@{getDuration}!com.cinema\_seat\_booking.model.Movie@{com.cinema\_seat\_booking.model.Movie}}
 \doxysubsubsection{\texorpdfstring{getDuration()}{getDuration()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_ab97c3cdfa01f285149c2d2aebbf5f8ee} 
 int com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Movie.\+get\+Duration (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the duration of the movie. 
+
+\begin{DoxyReturn}{Returns}
+the movie duration in minutes 
+\end{DoxyReturn}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_ab2f64393ca6e879717f5778bb42d1d77}\index{com.cinema\_seat\_booking.model.Movie@{com.cinema\_seat\_booking.model.Movie}!getGenre@{getGenre}}
 \index{getGenre@{getGenre}!com.cinema\_seat\_booking.model.Movie@{com.cinema\_seat\_booking.model.Movie}}
 \doxysubsubsection{\texorpdfstring{getGenre()}{getGenre()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_ab2f64393ca6e879717f5778bb42d1d77} 
 String com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Movie.\+get\+Genre (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the genre of the movie. 
+
+\begin{DoxyReturn}{Returns}
+the movie genre 
+\end{DoxyReturn}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a9a80ea7eb2062281ead3ef2b8ae558a1}\index{com.cinema\_seat\_booking.model.Movie@{com.cinema\_seat\_booking.model.Movie}!getId@{getId}}
 \index{getId@{getId}!com.cinema\_seat\_booking.model.Movie@{com.cinema\_seat\_booking.model.Movie}}
 \doxysubsubsection{\texorpdfstring{getId()}{getId()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a9a80ea7eb2062281ead3ef2b8ae558a1} 
 Long com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Movie.\+get\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the ID of the movie. 
+
+\begin{DoxyReturn}{Returns}
+the movie ID 
+\end{DoxyReturn}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a28d88a996348ec9a9c696480d36e9adc}\index{com.cinema\_seat\_booking.model.Movie@{com.cinema\_seat\_booking.model.Movie}!getScreenings@{getScreenings}}
 \index{getScreenings@{getScreenings}!com.cinema\_seat\_booking.model.Movie@{com.cinema\_seat\_booking.model.Movie}}
 \doxysubsubsection{\texorpdfstring{getScreenings()}{getScreenings()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a28d88a996348ec9a9c696480d36e9adc} 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Movie.\+get\+Screenings (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the list of screenings for the movie. 
+
+\begin{DoxyReturn}{Returns}
+the list of screenings 
+\end{DoxyReturn}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_ae2f11425c18654a98689c70b3efed863}\index{com.cinema\_seat\_booking.model.Movie@{com.cinema\_seat\_booking.model.Movie}!getTitle@{getTitle}}
 \index{getTitle@{getTitle}!com.cinema\_seat\_booking.model.Movie@{com.cinema\_seat\_booking.model.Movie}}
 \doxysubsubsection{\texorpdfstring{getTitle()}{getTitle()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_ae2f11425c18654a98689c70b3efed863} 
 String com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Movie.\+get\+Title (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the title of the movie. 
+
+\begin{DoxyReturn}{Returns}
+the movie title 
+\end{DoxyReturn}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a40660376a6a441c8e75e4eb0b51356ba}\index{com.cinema\_seat\_booking.model.Movie@{com.cinema\_seat\_booking.model.Movie}!setCast@{setCast}}
 \index{setCast@{setCast}!com.cinema\_seat\_booking.model.Movie@{com.cinema\_seat\_booking.model.Movie}}
 \doxysubsubsection{\texorpdfstring{setCast()}{setCast()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a40660376a6a441c8e75e4eb0b51356ba} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Movie.\+set\+Cast (\begin{DoxyParamCaption}\item[{String}]{cast}{}\end{DoxyParamCaption})}
 
+
+
+Sets the cast of the movie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cast} & the movie cast to set \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a4d73dbfb0e60c92683df2610b5694848}\index{com.cinema\_seat\_booking.model.Movie@{com.cinema\_seat\_booking.model.Movie}!setDuration@{setDuration}}
 \index{setDuration@{setDuration}!com.cinema\_seat\_booking.model.Movie@{com.cinema\_seat\_booking.model.Movie}}
 \doxysubsubsection{\texorpdfstring{setDuration()}{setDuration()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a4d73dbfb0e60c92683df2610b5694848} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Movie.\+set\+Duration (\begin{DoxyParamCaption}\item[{int}]{duration}{}\end{DoxyParamCaption})}
 
+
+
+Sets the duration of the movie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em duration} & the movie duration in minutes to set \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_adeb8644d7b1c6dab841980e4a43f02d2}\index{com.cinema\_seat\_booking.model.Movie@{com.cinema\_seat\_booking.model.Movie}!setGenre@{setGenre}}
 \index{setGenre@{setGenre}!com.cinema\_seat\_booking.model.Movie@{com.cinema\_seat\_booking.model.Movie}}
 \doxysubsubsection{\texorpdfstring{setGenre()}{setGenre()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_adeb8644d7b1c6dab841980e4a43f02d2} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Movie.\+set\+Genre (\begin{DoxyParamCaption}\item[{String}]{genre}{}\end{DoxyParamCaption})}
 
+
+
+Sets the genre of the movie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em genre} & the movie genre to set \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a96c2755838d1f2faa7731b06b5be84fd}\index{com.cinema\_seat\_booking.model.Movie@{com.cinema\_seat\_booking.model.Movie}!setId@{setId}}
 \index{setId@{setId}!com.cinema\_seat\_booking.model.Movie@{com.cinema\_seat\_booking.model.Movie}}
 \doxysubsubsection{\texorpdfstring{setId()}{setId()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a96c2755838d1f2faa7731b06b5be84fd} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Movie.\+set\+Id (\begin{DoxyParamCaption}\item[{Long}]{id}{}\end{DoxyParamCaption})}
 
+
+
+Sets the ID of the movie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the movie ID to set \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_ac342ff5229949cd3daccd44deca6b964}\index{com.cinema\_seat\_booking.model.Movie@{com.cinema\_seat\_booking.model.Movie}!setScreenings@{setScreenings}}
 \index{setScreenings@{setScreenings}!com.cinema\_seat\_booking.model.Movie@{com.cinema\_seat\_booking.model.Movie}}
 \doxysubsubsection{\texorpdfstring{setScreenings()}{setScreenings()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_ac342ff5229949cd3daccd44deca6b964} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Movie.\+set\+Screenings (\begin{DoxyParamCaption}\item[{List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} $>$}]{screenings}{}\end{DoxyParamCaption})}
 
+
+
+Sets the list of screenings for the movie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em screenings} & the list of screenings to set \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a03a37fef657e5ec9b41a8b8a459eb517}\index{com.cinema\_seat\_booking.model.Movie@{com.cinema\_seat\_booking.model.Movie}!setTitle@{setTitle}}
 \index{setTitle@{setTitle}!com.cinema\_seat\_booking.model.Movie@{com.cinema\_seat\_booking.model.Movie}}
 \doxysubsubsection{\texorpdfstring{setTitle()}{setTitle()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_movie_a03a37fef657e5ec9b41a8b8a459eb517} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Movie.\+set\+Title (\begin{DoxyParamCaption}\item[{String}]{title}{}\end{DoxyParamCaption})}
 
+
+
+Sets the title of the movie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & the movie title to set \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

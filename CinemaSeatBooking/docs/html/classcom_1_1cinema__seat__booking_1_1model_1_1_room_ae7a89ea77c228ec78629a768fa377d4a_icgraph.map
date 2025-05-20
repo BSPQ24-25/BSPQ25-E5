@@ -1,5 +1,5 @@
 <map id="com.cinema_seat_booking.model.Room.getName" name="com.cinema_seat_booking.model.Room.getName">
-<area shape="rect" id="Node000001" title=" " alt="" coords="291,153,510,196"/>
+<area shape="rect" id="Node000001" title="Gets the name of the room." alt="" coords="291,153,510,196"/>
 <area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1controller_1_1_admin_room_controller.html#adf6dca4c10d2be6c2ace52bb67ad4e1f" title=" " alt="" coords="5,29,243,72"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="353,147,300,116,242,86,211,75,213,70,244,82,303,111,355,142"/>
 <area shape="rect" id="Node000003" href="$classcom_1_1cinema__seat__booking_1_1controller_1_1_seat_controller.html#a2e3a86028858c738d446f5c21ca2a70f" title=" " alt="" coords="5,120,243,163"/>

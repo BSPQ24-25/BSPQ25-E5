@@ -102,6 +102,9 @@ $(function(){initNavTree('classcom_1_1cinema__seat__booking_1_1controller_1_1_ro
   <div class="headertitle"><div class="title">com.cinema_seat_booking.controller.RoomController Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Exposes REST endpoints for managing cinema rooms.  
+ <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -116,7 +119,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9f384e798859b533ab3ccc214d7cf17c" id="r_a9f384e798859b533ab3ccc214d7cf17c"><td class="memItemLeft" align="right" valign="top">ResponseEntity&lt; <a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_room.html">Room</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f384e798859b533ab3ccc214d7cf17c">updateRoom</a> (@PathVariable Long id, @RequestBody <a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_room.html">Room</a> updatedRoom)</td></tr>
 <tr class="separator:a9f384e798859b533ab3ccc214d7cf17c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Exposes REST endpoints for managing cinema rooms. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a2bb8a3b7c58bdeccb8aa621dc2941f6e" name="a2bb8a3b7c58bdeccb8aa621dc2941f6e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2bb8a3b7c58bdeccb8aa621dc2941f6e">&#9670;&#160;</a></span>createRoom()</h2>
 
@@ -131,6 +136,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Creates a new room with the specified name and seat count.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">createRoomDTO</td><td>The DTO containing room name and seat count </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Created <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_room.html">Room</a></code> wrapped in HTTP 201, or 400 on error </dd></dl>
 
 </div>
 </div>
@@ -148,6 +161,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Deletes a room by its ID.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The ID of the room </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>HTTP 204 if successful, 404 if room not found </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -183,6 +204,8 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Retrieves all rooms with their seat details.</p>
+<dl class="section return"><dt>Returns</dt><dd>List of <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_room_d_t_o.html">RoomDTO</a></code>, or HTTP 204 if empty </dd></dl>
 
 </div>
 </div>
@@ -200,6 +223,14 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Retrieves a room and its seats by its ID.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The ID of the room </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code><a class="el" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_room_d_t_o.html">RoomDTO</a></code> if found, or 404 if not </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -239,6 +270,15 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Updates the name of a room.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The ID of the room to update </td></tr>
+    <tr><td class="paramname">updatedRoom</td><td>A <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_room.html">Room</a></code> object containing the new name </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Updated <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_room.html">Room</a></code>, or appropriate error code </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

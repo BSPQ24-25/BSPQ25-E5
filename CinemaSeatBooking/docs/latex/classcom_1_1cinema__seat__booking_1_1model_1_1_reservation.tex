@@ -1,38 +1,59 @@
 \doxysection{com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Reservation Class Reference}
 \hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{}\label{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}\index{com.cinema\_seat\_booking.model.Reservation@{com.cinema\_seat\_booking.model.Reservation}}
+
+
+Entity class representing a seat reservation made by a user for a screening.  
+
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 Long \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_a600cf33b0ba7646ffeaf0085542d8b40}{get\+Id}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the reservation ID. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user}{User}} \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_ad04edcad932eb70afd6a861b14c345c9}{get\+User}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the user who made the reservation. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_a0c1135aefc294e95bad6df6f3a1b57b7}{get\+Screening}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the screening linked to this reservation. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_a4a7b3bcd2775490e16347fd8446fe0c3}{get\+Seat}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the reserved seat. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{enumcom_1_1cinema__seat__booking_1_1model_1_1_reservation_state}{Reservation\+State}} \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_ab4f6f6bfc87eb25e949e0cd5ce0c45b3}{get\+Reservation\+State}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the reservation state. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_payment}{Payment}} \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_a08d2daecfb916157e63571b58fdb938e}{get\+Payment}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the payment linked to this reservation. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_a801f810dad8ec640273b2fb277837378}{set\+Id}} (Long id)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the reservation ID. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_a39a580e1eeab2630f08d22016022312f}{set\+User}} (\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user}{User}} user)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the user for the reservation. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_a7dfa56c999addc733ba7940485a46898}{set\+Screening}} (\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} screening)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the screening for the reservation. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_a91b6dd855a7ba755c7af17f18cafdc37}{set\+Seat}} (\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} seat)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the seat for the reservation. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_afdaaad63ef2e75d82075d3a7d7df9716}{set\+Reservation\+State}} (\mbox{\hyperlink{enumcom_1_1cinema__seat__booking_1_1model_1_1_reservation_state}{Reservation\+State}} reservation\+State)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the reservation state. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_a855b27cdb0ac9b03a6726dcc91842a3e}{set\+Payment}} (\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_payment}{Payment}} payment)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the payment for the reservation. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_a72aca99feb0ab1ebfe3f45202b8ef043}{Reservation}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Default constructor required by JPA. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_a7304e3a6967120257a665c54cf0e7f3b}{Reservation}} (\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user}{User}} user, \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} screening, \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_payment}{Payment}} payment, \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} seat)
-\item 
+\begin{DoxyCompactList}\small\item\em Constructs a reservation with all main entities. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_a4baf5a8ec962dbf0f9f6ba1ba6e53561}{Reservation}} (\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user}{User}} user, \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} screening, \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} seat)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Constructs a reservation without a payment, creates a new payment instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Entity class representing a seat reservation made by a user for a screening. 
+
+The {\ttfamily Reservation} class maps to a reservation record in the database, linking a {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_user}{User}}, a {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}}, a {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}}, and a {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_payment}{Payment}}. It tracks the reservation state and enforces cascading delete behavior.
+
+\begin{DoxyAuthor}{Author}
+BSPQ25-\/\+E5 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+2025-\/05-\/19 
+\end{DoxySince}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -42,12 +63,31 @@ void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_a72aca99feb0ab1ebfe3f45202b8ef043} 
 com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Reservation.\+Reservation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-\Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_a7304e3a6967120257a665c54cf0e7f3b}\index{com.cinema\_seat\_booking.model.Reservation@{com.cinema\_seat\_booking.model.Reservation}!Reservation@{Reservation}}
+
+
+Default constructor required by JPA. 
+
+Initializes reservation state to PENDING. \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_a7304e3a6967120257a665c54cf0e7f3b}\index{com.cinema\_seat\_booking.model.Reservation@{com.cinema\_seat\_booking.model.Reservation}!Reservation@{Reservation}}
 \index{Reservation@{Reservation}!com.cinema\_seat\_booking.model.Reservation@{com.cinema\_seat\_booking.model.Reservation}}
 \doxysubsubsection{\texorpdfstring{Reservation()}{Reservation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_a7304e3a6967120257a665c54cf0e7f3b} 
 com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Reservation.\+Reservation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user}{User}}}]{user}{, }\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}}}]{screening}{, }\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_payment}{Payment}}}]{payment}{, }\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}}}]{seat}{}\end{DoxyParamCaption})}
 
+
+
+Constructs a reservation with all main entities. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & the user making the reservation \\
+\hline
+{\em screening} & the screening reserved \\
+\hline
+{\em payment} & the payment associated \\
+\hline
+{\em seat} & the seat reserved \\
+\hline
+\end{DoxyParams}
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -62,6 +102,19 @@ Here is the call graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_a4baf5a8ec962dbf0f9f6ba1ba6e53561} 
 com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Reservation.\+Reservation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user}{User}}}]{user}{, }\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}}}]{screening}{, }\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}}}]{seat}{}\end{DoxyParamCaption})}
 
+
+
+Constructs a reservation without a payment, creates a new payment instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & the user making the reservation \\
+\hline
+{\em screening} & the screening reserved \\
+\hline
+{\em seat} & the seat reserved \\
+\hline
+\end{DoxyParams}
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -79,6 +132,13 @@ Here is the call graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_a600cf33b0ba7646ffeaf0085542d8b40} 
 Long com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Reservation.\+get\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the reservation ID. 
+
+\begin{DoxyReturn}{Returns}
+the reservation ID 
+\end{DoxyReturn}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -93,6 +153,13 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_a08d2daecfb916157e63571b58fdb938e} 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_payment}{Payment}} com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Reservation.\+get\+Payment (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the payment linked to this reservation. 
+
+\begin{DoxyReturn}{Returns}
+the payment 
+\end{DoxyReturn}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -107,6 +174,13 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_ab4f6f6bfc87eb25e949e0cd5ce0c45b3} 
 \mbox{\hyperlink{enumcom_1_1cinema__seat__booking_1_1model_1_1_reservation_state}{Reservation\+State}} com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Reservation.\+get\+Reservation\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the reservation state. 
+
+\begin{DoxyReturn}{Returns}
+the reservation state 
+\end{DoxyReturn}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -121,6 +195,13 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_a0c1135aefc294e95bad6df6f3a1b57b7} 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Reservation.\+get\+Screening (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the screening linked to this reservation. 
+
+\begin{DoxyReturn}{Returns}
+the screening 
+\end{DoxyReturn}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -135,6 +216,13 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_a4a7b3bcd2775490e16347fd8446fe0c3} 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Reservation.\+get\+Seat (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the reserved seat. 
+
+\begin{DoxyReturn}{Returns}
+the seat 
+\end{DoxyReturn}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -149,6 +237,13 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_ad04edcad932eb70afd6a861b14c345c9} 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user}{User}} com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Reservation.\+get\+User (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the user who made the reservation. 
+
+\begin{DoxyReturn}{Returns}
+the user 
+\end{DoxyReturn}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -163,12 +258,32 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_a801f810dad8ec640273b2fb277837378} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Reservation.\+set\+Id (\begin{DoxyParamCaption}\item[{Long}]{id}{}\end{DoxyParamCaption})}
 
+
+
+Sets the reservation ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the ID to set \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_a855b27cdb0ac9b03a6726dcc91842a3e}\index{com.cinema\_seat\_booking.model.Reservation@{com.cinema\_seat\_booking.model.Reservation}!setPayment@{setPayment}}
 \index{setPayment@{setPayment}!com.cinema\_seat\_booking.model.Reservation@{com.cinema\_seat\_booking.model.Reservation}}
 \doxysubsubsection{\texorpdfstring{setPayment()}{setPayment()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_a855b27cdb0ac9b03a6726dcc91842a3e} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Reservation.\+set\+Payment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_payment}{Payment}}}]{payment}{}\end{DoxyParamCaption})}
 
+
+
+Sets the payment for the reservation. 
+
+Links the payment back to this reservation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em payment} & the payment to set \\
+\hline
+\end{DoxyParams}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -183,6 +298,15 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_afdaaad63ef2e75d82075d3a7d7df9716} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Reservation.\+set\+Reservation\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumcom_1_1cinema__seat__booking_1_1model_1_1_reservation_state}{Reservation\+State}}}]{reservation\+State}{}\end{DoxyParamCaption})}
 
+
+
+Sets the reservation state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reservation\+State} & the reservation state to set \\
+\hline
+\end{DoxyParams}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -197,6 +321,15 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_a7dfa56c999addc733ba7940485a46898} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Reservation.\+set\+Screening (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}}}]{screening}{}\end{DoxyParamCaption})}
 
+
+
+Sets the screening for the reservation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em screening} & the screening to set \\
+\hline
+\end{DoxyParams}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -211,6 +344,17 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_a91b6dd855a7ba755c7af17f18cafdc37} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Reservation.\+set\+Seat (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}}}]{seat}{}\end{DoxyParamCaption})}
 
+
+
+Sets the seat for the reservation. 
+
+Marks the seat as reserved and links back to this reservation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em seat} & the seat to set \\
+\hline
+\end{DoxyParams}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -225,6 +369,15 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation_a39a580e1eeab2630f08d22016022312f} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Reservation.\+set\+User (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user}{User}}}]{user}{}\end{DoxyParamCaption})}
 
+
+
+Sets the user for the reservation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & the user to set \\
+\hline
+\end{DoxyParams}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]

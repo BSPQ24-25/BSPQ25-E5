@@ -1,5 +1,5 @@
 <map id="com.cinema_seat_booking.service.PaymentService.simulatePaymentGateway" name="com.cinema_seat_booking.service.PaymentService.simulatePaymentGateway">
-<area shape="rect" id="Node000001" title=" " alt="" coords="280,5,554,48"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1service_1_1_payment_service.html#a45a32f0c30c3c01b8cd68ae21b253c6d" title=" " alt="" coords="5,5,232,48"/>
+<area shape="rect" id="Node000001" title="Simulates the interaction with a payment gateway." alt="" coords="280,5,554,48"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1service_1_1_payment_service.html#a45a32f0c30c3c01b8cd68ae21b253c6d" title="Processes a payment for a given reservation." alt="" coords="5,5,232,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="264,29,232,29,232,24,264,24"/>
 </map>

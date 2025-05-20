@@ -102,27 +102,40 @@ $(function(){initNavTree('classcom_1_1cinema__seat__booking_1_1service_1_1_seat_
   <div class="headertitle"><div class="title">com.cinema_seat_booking.service.SeatService Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Service layer for seat operations including creation, updating, deletion, and reservation logic.  
+ <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad60eedfd4ff42c922606e1d9e366beaf" id="r_ad60eedfd4ff42c922606e1d9e366beaf"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html">Seat</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad60eedfd4ff42c922606e1d9e366beaf">getAllSeats</a> ()</td></tr>
+<tr class="memdesc:ad60eedfd4ff42c922606e1d9e366beaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves all seats.  <br /></td></tr>
 <tr class="separator:ad60eedfd4ff42c922606e1d9e366beaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad062830f5b2deab9e17f3e3179f2e951" id="r_ad062830f5b2deab9e17f3e3179f2e951"><td class="memItemLeft" align="right" valign="top">Optional&lt; <a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html">Seat</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad062830f5b2deab9e17f3e3179f2e951">getSeatById</a> (Long id)</td></tr>
+<tr class="memdesc:ad062830f5b2deab9e17f3e3179f2e951"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a seat by its ID.  <br /></td></tr>
 <tr class="separator:ad062830f5b2deab9e17f3e3179f2e951"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8317ccaa339631968173919549af6e89" id="r_a8317ccaa339631968173919549af6e89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html">Seat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8317ccaa339631968173919549af6e89">createSeat</a> (int number, Long roomId)</td></tr>
+<tr class="memdesc:a8317ccaa339631968173919549af6e89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new seat in the specified room.  <br /></td></tr>
 <tr class="separator:a8317ccaa339631968173919549af6e89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeca635ef71f4b117839705c214d818b6" id="r_aeca635ef71f4b117839705c214d818b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html">Seat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeca635ef71f4b117839705c214d818b6">updateSeat</a> (Long id, int newNumber, Long newRoomId)</td></tr>
+<tr class="memdesc:aeca635ef71f4b117839705c214d818b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates an existing seat with a new number and room.  <br /></td></tr>
 <tr class="separator:aeca635ef71f4b117839705c214d818b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4003c208e6183dc409ec7b921ce5644b" id="r_a4003c208e6183dc409ec7b921ce5644b"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4003c208e6183dc409ec7b921ce5644b">deleteSeat</a> (Long id)</td></tr>
+<tr class="memdesc:a4003c208e6183dc409ec7b921ce5644b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes a seat by ID.  <br /></td></tr>
 <tr class="separator:a4003c208e6183dc409ec7b921ce5644b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1f65f3a0fc12179b6c6fe148ce54f67" id="r_ae1f65f3a0fc12179b6c6fe148ce54f67"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html">Seat</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae1f65f3a0fc12179b6c6fe148ce54f67">getAvailableSeats</a> (Long roomId)</td></tr>
+<tr class="memdesc:ae1f65f3a0fc12179b6c6fe148ce54f67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves all available (unreserved) seats in a room.  <br /></td></tr>
 <tr class="separator:ae1f65f3a0fc12179b6c6fe148ce54f67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae476bee630bb92a1938b006e099485ce" id="r_ae476bee630bb92a1938b006e099485ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae476bee630bb92a1938b006e099485ce">reserveSeat</a> (Long seatId)  throws Exception </td></tr>
+<tr class="memdesc:ae476bee630bb92a1938b006e099485ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reserves a seat by ID.  <br /></td></tr>
 <tr class="separator:ae476bee630bb92a1938b006e099485ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb9313d1183480f24d8e5b18577b72cc" id="r_adb9313d1183480f24d8e5b18577b72cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb9313d1183480f24d8e5b18577b72cc">cancelSeatReservation</a> (Long seatId)  throws Exception </td></tr>
+<tr class="memdesc:adb9313d1183480f24d8e5b18577b72cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cancels a reservation for a seat.  <br /></td></tr>
 <tr class="separator:adb9313d1183480f24d8e5b18577b72cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Service layer for seat operations including creation, updating, deletion, and reservation logic. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="adb9313d1183480f24d8e5b18577b72cc" name="adb9313d1183480f24d8e5b18577b72cc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adb9313d1183480f24d8e5b18577b72cc">&#9670;&#160;</a></span>cancelSeatReservation()</h2>
 
@@ -137,13 +150,27 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Cancels a reservation for a seat. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">seatId</td><td>The ID of the seat to unreserve. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">Exception</td><td>if the seat is not found or is not reserved. </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_adb9313d1183480f24d8e5b18577b72cc_cgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1service_1_1_seat_service_adb9313d1183480f24d8e5b18577b72cc_cgraph" alt=""/></div>
 <map name="aclasscom_1_1cinema__seat__booking_1_1service_1_1_seat_service_adb9313d1183480f24d8e5b18577b72cc_cgraph" id="aclasscom_1_1cinema__seat__booking_1_1service_1_1_seat_service_adb9313d1183480f24d8e5b18577b72cc_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,237,48"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a8003ff7cf8511684dcfc4f3eef08bdda" title=" " alt="" coords="285,5,504,48"/>
+<area shape="rect" title="Cancels a reservation for a seat." alt="" coords="5,5,237,48"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a8003ff7cf8511684dcfc4f3eef08bdda" title="Sets the reserved status of the seat." alt="" coords="285,5,504,48"/>
 <area shape="poly" title=" " alt="" coords="237,24,269,24,269,29,237,29"/>
 </map>
 </div>
@@ -169,6 +196,22 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Creates a new seat in the specified room. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">number</td><td>The seat number. </td></tr>
+    <tr><td class="paramname">roomId</td><td>The ID of the room. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The saved <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html">Seat</a></code> object. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">IllegalArgumentException</td><td>if the room is not found. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a4003c208e6183dc409ec7b921ce5644b" name="a4003c208e6183dc409ec7b921ce5644b"></a>
@@ -185,6 +228,15 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Deletes a seat by ID. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The ID of the seat. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the seat was deleted, false if it was not found. </dd></dl>
 
 </div>
 </div>
@@ -203,6 +255,9 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Retrieves all seats. </p>
+<dl class="section return"><dt>Returns</dt><dd>List of all <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html">Seat</a></code> entities. </dd></dl>
+
 </div>
 </div>
 <a id="ae1f65f3a0fc12179b6c6fe148ce54f67" name="ae1f65f3a0fc12179b6c6fe148ce54f67"></a>
@@ -219,6 +274,15 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Retrieves all available (unreserved) seats in a room. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">roomId</td><td>The ID of the room. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>List of available <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html">Seat</a></code> objects. </dd></dl>
 
 </div>
 </div>
@@ -237,6 +301,15 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Retrieves a seat by its ID. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The ID of the seat. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An <code><a class="el" href="">Optional</a></code> containing the seat if found. </dd></dl>
+
 </div>
 </div>
 <a id="ae476bee630bb92a1938b006e099485ce" name="ae476bee630bb92a1938b006e099485ce"></a>
@@ -253,13 +326,27 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Reserves a seat by ID. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">seatId</td><td>The ID of the seat to reserve. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">Exception</td><td>if the seat is not found or is already reserved. </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_ae476bee630bb92a1938b006e099485ce_cgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1service_1_1_seat_service_ae476bee630bb92a1938b006e099485ce_cgraph" alt=""/></div>
 <map name="aclasscom_1_1cinema__seat__booking_1_1service_1_1_seat_service_ae476bee630bb92a1938b006e099485ce_cgraph" id="aclasscom_1_1cinema__seat__booking_1_1service_1_1_seat_service_ae476bee630bb92a1938b006e099485ce_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,232,48"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a8003ff7cf8511684dcfc4f3eef08bdda" title=" " alt="" coords="280,5,499,48"/>
+<area shape="rect" title="Reserves a seat by ID." alt="" coords="5,5,232,48"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a8003ff7cf8511684dcfc4f3eef08bdda" title="Sets the reserved status of the seat." alt="" coords="280,5,499,48"/>
 <area shape="poly" title=" " alt="" coords="232,24,264,24,264,29,232,29"/>
 </map>
 </div>
@@ -289,15 +376,32 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Updates an existing seat with a new number and room. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The ID of the seat to update. </td></tr>
+    <tr><td class="paramname">newNumber</td><td>The new seat number. </td></tr>
+    <tr><td class="paramname">newRoomId</td><td>The ID of the new room. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The updated <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html">Seat</a></code> object. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">IllegalArgumentException</td><td>if the seat or new room is not found. </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service_aeca635ef71f4b117839705c214d818b6_cgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1service_1_1_seat_service_aeca635ef71f4b117839705c214d818b6_cgraph" alt=""/></div>
 <map name="aclasscom_1_1cinema__seat__booking_1_1service_1_1_seat_service_aeca635ef71f4b117839705c214d818b6_cgraph" id="aclasscom_1_1cinema__seat__booking_1_1service_1_1_seat_service_aeca635ef71f4b117839705c214d818b6_cgraph">
-<area shape="rect" title=" " alt="" coords="5,39,232,81"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a012e1fe2ca9df3e658dd13ec2c64a309" title=" " alt="" coords="280,5,499,48"/>
+<area shape="rect" title="Updates an existing seat with a new number and room." alt="" coords="5,39,232,81"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a012e1fe2ca9df3e658dd13ec2c64a309" title="Sets the room for this seat." alt="" coords="280,5,499,48"/>
 <area shape="poly" title=" " alt="" coords="232,43,264,39,265,45,232,49"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a2da4524edacf0031321feaf2fcd99bc1" title=" " alt="" coords="280,72,499,115"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a2da4524edacf0031321feaf2fcd99bc1" title="Sets the seat number." alt="" coords="280,72,499,115"/>
 <area shape="poly" title=" " alt="" coords="232,71,265,75,264,81,232,77"/>
 </map>
 </div>

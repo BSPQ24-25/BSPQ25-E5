@@ -1,19 +1,29 @@
 \doxysection{com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Room\+Service Class Reference}
 \hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_room_service}{}\label{classcom_1_1cinema__seat__booking_1_1service_1_1_room_service}\index{com.cinema\_seat\_booking.service.RoomService@{com.cinema\_seat\_booking.service.RoomService}}
+
+
+Provides functionality to manage rooms and seats.  
+
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room}{Room}} \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_room_service_a9c5f9ebc8b8970886ef9d5e7977123ce}{create\+Room\+With\+Seats}} (String name, int seat\+Count)
-\item 
+\begin{DoxyCompactList}\small\item\em Creates a new room and generates seats for it. \end{DoxyCompactList}\item 
 Optional$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room}{Room}} $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_room_service_a97b60d8680628e4261310af506830d07}{get\+Room\+By\+Id}} (Long id)
-\item 
+\begin{DoxyCompactList}\small\item\em Retrieves a room by its ID with seats initialized. \end{DoxyCompactList}\item 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room}{Room}} $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_room_service_a3bfe70081f1b43eccebdf5f800407087}{get\+All\+Rooms}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Retrieves all rooms with seat collections initialized. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_room_service_a1afaeb202c2bf6c0a18f4b19532e3dc6}{delete\+Room}} (Long id)
-\item 
+\begin{DoxyCompactList}\small\item\em Deletes a room by its ID. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room}{Room}} \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_room_service_a4c5eca3aacca32beea47f959acb97eb5}{update\+Room}} (Long id, String new\+Name)  throws No\+Such\+Element\+Exception 
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Updates the name of an existing room. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Provides functionality to manage rooms and seats. 
+
+Handles creation, update, deletion, and retrieval of rooms and automatically generates associated seats when a room is created. 
 
 \doxysubsection{Member Function Documentation}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_room_service_a9c5f9ebc8b8970886ef9d5e7977123ce}\index{com.cinema\_seat\_booking.service.RoomService@{com.cinema\_seat\_booking.service.RoomService}!createRoomWithSeats@{createRoomWithSeats}}
@@ -22,6 +32,20 @@ void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_room_serv
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_room_service_a9c5f9ebc8b8970886ef9d5e7977123ce} 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room}{Room}} com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Room\+Service.\+create\+Room\+With\+Seats (\begin{DoxyParamCaption}\item[{String}]{name}{, }\item[{int}]{seat\+Count}{}\end{DoxyParamCaption})}
 
+
+
+Creates a new room and generates seats for it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & the name of the room \\
+\hline
+{\em seat\+Count} & the number of seats to generate (currently fixed at 20 in logic) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the created {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_room}{Room}} with seats assigned 
+\end{DoxyReturn}
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -36,12 +60,28 @@ Here is the call graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_room_service_a1afaeb202c2bf6c0a18f4b19532e3dc6} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Room\+Service.\+delete\+Room (\begin{DoxyParamCaption}\item[{Long}]{id}{}\end{DoxyParamCaption})}
 
+
+
+Deletes a room by its ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the ID of the room to delete \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_room_service_a3bfe70081f1b43eccebdf5f800407087}\index{com.cinema\_seat\_booking.service.RoomService@{com.cinema\_seat\_booking.service.RoomService}!getAllRooms@{getAllRooms}}
 \index{getAllRooms@{getAllRooms}!com.cinema\_seat\_booking.service.RoomService@{com.cinema\_seat\_booking.service.RoomService}}
 \doxysubsubsection{\texorpdfstring{getAllRooms()}{getAllRooms()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_room_service_a3bfe70081f1b43eccebdf5f800407087} 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room}{Room}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Room\+Service.\+get\+All\+Rooms (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Retrieves all rooms with seat collections initialized. 
+
+\begin{DoxyReturn}{Returns}
+list of all {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_room}{Room}} objects 
+\end{DoxyReturn}
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -64,6 +104,18 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_room_service_a97b60d8680628e4261310af506830d07} 
 Optional$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room}{Room}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Room\+Service.\+get\+Room\+By\+Id (\begin{DoxyParamCaption}\item[{Long}]{id}{}\end{DoxyParamCaption})}
 
+
+
+Retrieves a room by its ID with seats initialized. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the ID of the room \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an {\ttfamily \doxylink{}{Optional}} containing the room if found 
+\end{DoxyReturn}
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -86,6 +138,25 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_room_service_a4c5eca3aacca32beea47f959acb97eb5} 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room}{Room}} com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Room\+Service.\+update\+Room (\begin{DoxyParamCaption}\item[{Long}]{id}{, }\item[{String}]{new\+Name}{}\end{DoxyParamCaption}) throws No\+Such\+Element\+Exception}
 
+
+
+Updates the name of an existing room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the ID of the room to update \\
+\hline
+{\em new\+Name} & the new name for the room \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the updated {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_room}{Room}}
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em No\+Such\+Element\+Exception} & if the room is not found \\
+\hline
+\end{DoxyExceptions}
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]

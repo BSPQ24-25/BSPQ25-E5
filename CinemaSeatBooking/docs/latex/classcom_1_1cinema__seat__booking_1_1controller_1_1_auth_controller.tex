@@ -1,5 +1,10 @@
 \doxysection{com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Auth\+Controller Class Reference}
 \hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_auth_controller}{}\label{classcom_1_1cinema__seat__booking_1_1controller_1_1_auth_controller}\index{com.cinema\_seat\_booking.controller.AuthController@{com.cinema\_seat\_booking.controller.AuthController}}
+
+
+REST controller for user authentication and registration.  
+
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -9,6 +14,11 @@ Response\+Entity$<$ Map$<$ String, String $>$ $>$ \mbox{\hyperlink{classcom_1_1c
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+REST controller for user authentication and registration. 
+
+Handles user registration and login endpoints. 
+
 \doxysubsection{Member Function Documentation}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_auth_controller_ac92b63ec9c6fc2ef4a9a566d234b070e}\index{com.cinema\_seat\_booking.controller.AuthController@{com.cinema\_seat\_booking.controller.AuthController}!login@{login}}
 \index{login@{login}!com.cinema\_seat\_booking.controller.AuthController@{com.cinema\_seat\_booking.controller.AuthController}}
@@ -16,6 +26,20 @@ Response\+Entity$<$ Map$<$ String, String $>$ $>$ \mbox{\hyperlink{classcom_1_1c
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_auth_controller_ac92b63ec9c6fc2ef4a9a566d234b070e} 
 Response\+Entity$<$ Map$<$ String, String $>$ $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Auth\+Controller.\+login (\begin{DoxyParamCaption}\item[{@Request\+Body Map$<$ String, String $>$}]{login\+Request}{, }\item[{Http\+Session}]{session}{}\end{DoxyParamCaption})}
 
+Authenticates a user with username and password.
+
+On successful authentication, stores the user in the HTTP session. Returns the user\textquotesingle{}s role and username.
+
+
+\begin{DoxyParams}{Parameters}
+{\em login\+Request} & Map containing "{}username"{} and "{}password"{} keys. \\
+\hline
+{\em session} & HTTP session for storing user info on successful login. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response\+Entity containing user info or error message. 
+\end{DoxyReturn}
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -24,8 +48,7 @@ Here is the call graph for this function\+:
 \includegraphics[width=350pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_auth_controller_ac92b63ec9c6fc2ef4a9a566d234b070e_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -38,16 +61,26 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_auth_controller_af234f3f6a8088f8aff75e82d27ae8a25} 
 Response\+Entity$<$ String $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Auth\+Controller.\+register (\begin{DoxyParamCaption}\item[{@Request\+Body \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user}{User}}}]{user}{}\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-\nopagebreak
+Registers a new user.
+
+If the username already exists, returns a bad request. If no role is specified, assigns the CLIENT role by default.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & The user object to register, provided in the request body. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response\+Entity with success or error message. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=258pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_auth_controller_af234f3f6a8088f8aff75e82d27ae8a25_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

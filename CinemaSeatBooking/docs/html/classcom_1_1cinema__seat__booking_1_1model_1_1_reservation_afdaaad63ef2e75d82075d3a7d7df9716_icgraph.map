@@ -1,9 +1,9 @@
 <map id="com.cinema_seat_booking.model.Reservation.setReservationState" name="com.cinema_seat_booking.model.Reservation.setReservationState">
-<area shape="rect" id="Node000001" title=" " alt="" coords="301,72,520,115"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service.html#af754976d7866bca195e31144f0f9b5b7" title=" " alt="" coords="5,5,253,48"/>
+<area shape="rect" id="Node000001" title="Sets the reservation state." alt="" coords="301,72,520,115"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service.html#af754976d7866bca195e31144f0f9b5b7" title="Cancels a reservation and reverts associated entities." alt="" coords="5,5,253,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="302,71,221,51,223,46,303,65"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service.html#a8fa0b1b06b7c1bb114054e455a68aba5" title=" " alt="" coords="6,72,252,115"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service.html#a8fa0b1b06b7c1bb114054e455a68aba5" title="Creates a new reservation for a user and a specific seat in a screening." alt="" coords="6,72,252,115"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="285,96,252,96,252,91,285,91"/>
-<area shape="rect" id="Node000004" href="$classcom_1_1cinema__seat__booking_1_1service_1_1_payment_service.html#a45a32f0c30c3c01b8cd68ae21b253c6d" title=" " alt="" coords="16,139,242,181"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1cinema__seat__booking_1_1service_1_1_payment_service.html#a45a32f0c30c3c01b8cd68ae21b253c6d" title="Processes a payment for a given reservation." alt="" coords="16,139,242,181"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="303,121,223,141,221,135,302,116"/>
 </map>

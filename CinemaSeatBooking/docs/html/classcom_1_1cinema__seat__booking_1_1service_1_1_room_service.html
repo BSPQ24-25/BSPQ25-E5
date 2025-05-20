@@ -102,21 +102,32 @@ $(function(){initNavTree('classcom_1_1cinema__seat__booking_1_1service_1_1_room_
   <div class="headertitle"><div class="title">com.cinema_seat_booking.service.RoomService Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Provides functionality to manage rooms and seats.  
+ <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9c5f9ebc8b8970886ef9d5e7977123ce" id="r_a9c5f9ebc8b8970886ef9d5e7977123ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_room.html">Room</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c5f9ebc8b8970886ef9d5e7977123ce">createRoomWithSeats</a> (String name, int seatCount)</td></tr>
+<tr class="memdesc:a9c5f9ebc8b8970886ef9d5e7977123ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new room and generates seats for it.  <br /></td></tr>
 <tr class="separator:a9c5f9ebc8b8970886ef9d5e7977123ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97b60d8680628e4261310af506830d07" id="r_a97b60d8680628e4261310af506830d07"><td class="memItemLeft" align="right" valign="top">Optional&lt; <a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_room.html">Room</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97b60d8680628e4261310af506830d07">getRoomById</a> (Long id)</td></tr>
+<tr class="memdesc:a97b60d8680628e4261310af506830d07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a room by its ID with seats initialized.  <br /></td></tr>
 <tr class="separator:a97b60d8680628e4261310af506830d07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bfe70081f1b43eccebdf5f800407087" id="r_a3bfe70081f1b43eccebdf5f800407087"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_room.html">Room</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3bfe70081f1b43eccebdf5f800407087">getAllRooms</a> ()</td></tr>
+<tr class="memdesc:a3bfe70081f1b43eccebdf5f800407087"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves all rooms with seat collections initialized.  <br /></td></tr>
 <tr class="separator:a3bfe70081f1b43eccebdf5f800407087"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1afaeb202c2bf6c0a18f4b19532e3dc6" id="r_a1afaeb202c2bf6c0a18f4b19532e3dc6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1afaeb202c2bf6c0a18f4b19532e3dc6">deleteRoom</a> (Long id)</td></tr>
+<tr class="memdesc:a1afaeb202c2bf6c0a18f4b19532e3dc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes a room by its ID.  <br /></td></tr>
 <tr class="separator:a1afaeb202c2bf6c0a18f4b19532e3dc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c5eca3aacca32beea47f959acb97eb5" id="r_a4c5eca3aacca32beea47f959acb97eb5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_room.html">Room</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c5eca3aacca32beea47f959acb97eb5">updateRoom</a> (Long id, String newName)  throws NoSuchElementException </td></tr>
+<tr class="memdesc:a4c5eca3aacca32beea47f959acb97eb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the name of an existing room.  <br /></td></tr>
 <tr class="separator:a4c5eca3aacca32beea47f959acb97eb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Provides functionality to manage rooms and seats. </p>
+<p>Handles creation, update, deletion, and retrieval of rooms and automatically generates associated seats when a room is created. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a9c5f9ebc8b8970886ef9d5e7977123ce" name="a9c5f9ebc8b8970886ef9d5e7977123ce"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9c5f9ebc8b8970886ef9d5e7977123ce">&#9670;&#160;</a></span>createRoomWithSeats()</h2>
 
@@ -135,13 +146,23 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates a new room and generates seats for it. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>the name of the room </td></tr>
+    <tr><td class="paramname">seatCount</td><td>the number of seats to generate (currently fixed at 20 in logic) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the created <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_room.html">Room</a></code> with seats assigned </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classcom_1_1cinema__seat__booking_1_1service_1_1_room_service_a9c5f9ebc8b8970886ef9d5e7977123ce_cgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1service_1_1_room_service_a9c5f9ebc8b8970886ef9d5e7977123ce_cgraph" alt=""/></div>
 <map name="aclasscom_1_1cinema__seat__booking_1_1service_1_1_room_service_a9c5f9ebc8b8970886ef9d5e7977123ce_cgraph" id="aclasscom_1_1cinema__seat__booking_1_1service_1_1_room_service_a9c5f9ebc8b8970886ef9d5e7977123ce_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,242,48"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_room.html#a1a08bb040fd2404e2c66ff3aa01194cb" title=" " alt="" coords="290,5,509,48"/>
+<area shape="rect" title="Creates a new room and generates seats for it." alt="" coords="5,5,242,48"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_room.html#a1a08bb040fd2404e2c66ff3aa01194cb" title="Sets the list of seats in the room." alt="" coords="290,5,509,48"/>
 <area shape="poly" title=" " alt="" coords="242,24,274,24,274,29,242,29"/>
 </map>
 </div>
@@ -163,6 +184,14 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Deletes a room by its ID. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>the ID of the room to delete </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a3bfe70081f1b43eccebdf5f800407087" name="a3bfe70081f1b43eccebdf5f800407087"></a>
@@ -179,12 +208,15 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Retrieves all rooms with seat collections initialized. </p>
+<dl class="section return"><dt>Returns</dt><dd>list of all <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_room.html">Room</a></code> objects </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classcom_1_1cinema__seat__booking_1_1service_1_1_room_service_a3bfe70081f1b43eccebdf5f800407087_cgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1service_1_1_room_service_a3bfe70081f1b43eccebdf5f800407087_cgraph" alt=""/></div>
 <map name="aclasscom_1_1cinema__seat__booking_1_1service_1_1_room_service_a3bfe70081f1b43eccebdf5f800407087_cgraph" id="aclasscom_1_1cinema__seat__booking_1_1service_1_1_room_service_a3bfe70081f1b43eccebdf5f800407087_cgraph">
-<area shape="rect" title=" " alt="" coords="5,29,232,72"/>
+<area shape="rect" title="Retrieves all rooms with seat collections initialized." alt="" coords="5,29,232,72"/>
 <area shape="poly" title=" " alt="" coords="75,29,74,19,81,10,96,5,119,3,143,5,157,11,155,16,141,10,118,8,97,10,84,15,79,21,81,28"/>
 </map>
 </div>
@@ -193,7 +225,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classcom_1_1cinema__seat__booking_1_1service_1_1_room_service_a3bfe70081f1b43eccebdf5f800407087_icgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1service_1_1_room_service_a3bfe70081f1b43eccebdf5f800407087_icgraph" alt=""/></div>
 <map name="aclasscom_1_1cinema__seat__booking_1_1service_1_1_room_service_a3bfe70081f1b43eccebdf5f800407087_icgraph" id="aclasscom_1_1cinema__seat__booking_1_1service_1_1_room_service_a3bfe70081f1b43eccebdf5f800407087_icgraph">
-<area shape="rect" title=" " alt="" coords="5,29,232,72"/>
+<area shape="rect" title="Retrieves all rooms with seat collections initialized." alt="" coords="5,29,232,72"/>
 <area shape="poly" title=" " alt="" coords="155,16,141,10,118,8,97,10,84,15,79,21,81,28,75,29,74,19,81,10,96,5,119,3,143,5,157,11"/>
 </map>
 </div>
@@ -214,12 +246,21 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Retrieves a room by its ID with seats initialized. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>the ID of the room </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>an <code><a class="el" href="">Optional</a></code> containing the room if found </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classcom_1_1cinema__seat__booking_1_1service_1_1_room_service_a97b60d8680628e4261310af506830d07_cgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1service_1_1_room_service_a97b60d8680628e4261310af506830d07_cgraph" alt=""/></div>
 <map name="aclasscom_1_1cinema__seat__booking_1_1service_1_1_room_service_a97b60d8680628e4261310af506830d07_cgraph" id="aclasscom_1_1cinema__seat__booking_1_1service_1_1_room_service_a97b60d8680628e4261310af506830d07_cgraph">
-<area shape="rect" title=" " alt="" coords="5,29,232,72"/>
+<area shape="rect" title="Retrieves a room by its ID with seats initialized." alt="" coords="5,29,232,72"/>
 <area shape="poly" title=" " alt="" coords="75,29,74,19,81,10,96,5,119,3,143,5,157,11,155,16,141,10,118,8,97,10,84,15,79,21,81,28"/>
 </map>
 </div>
@@ -228,7 +269,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classcom_1_1cinema__seat__booking_1_1service_1_1_room_service_a97b60d8680628e4261310af506830d07_icgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1service_1_1_room_service_a97b60d8680628e4261310af506830d07_icgraph" alt=""/></div>
 <map name="aclasscom_1_1cinema__seat__booking_1_1service_1_1_room_service_a97b60d8680628e4261310af506830d07_icgraph" id="aclasscom_1_1cinema__seat__booking_1_1service_1_1_room_service_a97b60d8680628e4261310af506830d07_icgraph">
-<area shape="rect" title=" " alt="" coords="5,29,232,72"/>
+<area shape="rect" title="Retrieves a room by its ID with seats initialized." alt="" coords="5,29,232,72"/>
 <area shape="poly" title=" " alt="" coords="155,16,141,10,118,8,97,10,84,15,79,21,81,28,75,29,74,19,81,10,96,5,119,3,143,5,157,11"/>
 </map>
 </div>
@@ -253,13 +294,29 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Updates the name of an existing room. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>the ID of the room to update </td></tr>
+    <tr><td class="paramname">newName</td><td>the new name for the room </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the updated <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_room.html">Room</a></code></dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">NoSuchElementException</td><td>if the room is not found </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classcom_1_1cinema__seat__booking_1_1service_1_1_room_service_a4c5eca3aacca32beea47f959acb97eb5_cgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1service_1_1_room_service_a4c5eca3aacca32beea47f959acb97eb5_cgraph" alt=""/></div>
 <map name="aclasscom_1_1cinema__seat__booking_1_1service_1_1_room_service_a4c5eca3aacca32beea47f959acb97eb5_cgraph" id="aclasscom_1_1cinema__seat__booking_1_1service_1_1_room_service_a4c5eca3aacca32beea47f959acb97eb5_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,232,48"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_room.html#ac25aa30147d27b26469b0c5cbef8727e" title=" " alt="" coords="280,5,499,48"/>
+<area shape="rect" title="Updates the name of an existing room." alt="" coords="5,5,232,48"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_room.html#ac25aa30147d27b26469b0c5cbef8727e" title="Sets the name of the room." alt="" coords="280,5,499,48"/>
 <area shape="poly" title=" " alt="" coords="232,24,264,24,264,29,232,29"/>
 </map>
 </div>

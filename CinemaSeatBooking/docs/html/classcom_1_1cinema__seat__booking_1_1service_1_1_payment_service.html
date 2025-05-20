@@ -102,15 +102,24 @@ $(function(){initNavTree('classcom_1_1cinema__seat__booking_1_1service_1_1_payme
   <div class="headertitle"><div class="title">com.cinema_seat_booking.service.PaymentService Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Service responsible for processing payments related to reservations.  
+ <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a45a32f0c30c3c01b8cd68ae21b253c6d" id="r_a45a32f0c30c3c01b8cd68ae21b253c6d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_payment.html">Payment</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a45a32f0c30c3c01b8cd68ae21b253c6d">processPayment</a> (<a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html">Reservation</a> reservation, String paymentMethod, double amount, String date)</td></tr>
+<tr class="memdesc:a45a32f0c30c3c01b8cd68ae21b253c6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes a payment for a given reservation.  <br /></td></tr>
 <tr class="separator:a45a32f0c30c3c01b8cd68ae21b253c6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24bf16acf33484636844506c9cdacab4" id="r_a24bf16acf33484636844506c9cdacab4"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24bf16acf33484636844506c9cdacab4">simulatePaymentGateway</a> ()</td></tr>
+<tr class="memdesc:a24bf16acf33484636844506c9cdacab4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulates the interaction with a payment gateway.  <br /></td></tr>
 <tr class="separator:a24bf16acf33484636844506c9cdacab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Service responsible for processing payments related to reservations. </p>
+<pre class="fragment">   Handles the payment workflow, including updating payment status and
+   reservation states.
+</pre> </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a45a32f0c30c3c01b8cd68ae21b253c6d" name="a45a32f0c30c3c01b8cd68ae21b253c6d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a45a32f0c30c3c01b8cd68ae21b253c6d">&#9670;&#160;</a></span>processPayment()</h2>
 
@@ -139,20 +148,37 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Processes a payment for a given reservation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reservation</td><td>the <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html">Reservation</a></code> object for which payment is being processed </td></tr>
+    <tr><td class="paramname">paymentMethod</td><td>the payment method used (e.g., credit card, PayPal) </td></tr>
+    <tr><td class="paramname">amount</td><td>the amount to be paid </td></tr>
+    <tr><td class="paramname">date</td><td>the date of the payment (as a string) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the updated <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_payment.html">Payment</a></code> entity after processing</dd></dl>
+<p>This method simulates a payment gateway interaction. If the payment is successful, it updates the payment status to COMPLETED and the reservation state to PAID. Otherwise, the payment status is set to FAILED. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classcom_1_1cinema__seat__booking_1_1service_1_1_payment_service_a45a32f0c30c3c01b8cd68ae21b253c6d_cgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1service_1_1_payment_service_a45a32f0c30c3c01b8cd68ae21b253c6d_cgraph" alt=""/></div>
 <map name="aclasscom_1_1cinema__seat__booking_1_1service_1_1_payment_service_a45a32f0c30c3c01b8cd68ae21b253c6d_cgraph" id="aclasscom_1_1cinema__seat__booking_1_1service_1_1_payment_service_a45a32f0c30c3c01b8cd68ae21b253c6d_cgraph">
-<area shape="rect" title=" " alt="" coords="5,105,232,148"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#a855b27cdb0ac9b03a6726dcc91842a3e" title=" " alt="" coords="307,5,526,48"/>
-<area shape="poly" title=" " alt="" coords="166,102,279,57,303,50,304,55,281,63,168,107"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#afdaaad63ef2e75d82075d3a7d7df9716" title=" " alt="" coords="307,72,526,115"/>
-<area shape="poly" title=" " alt="" coords="232,111,291,105,292,110,232,117"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_payment.html#a627443ab4d4ad9508224ef7901dc8dec" title=" " alt="" coords="307,139,526,181"/>
-<area shape="poly" title=" " alt="" coords="232,137,292,143,291,149,232,142"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1service_1_1_payment_service.html#a24bf16acf33484636844506c9cdacab4" title=" " alt="" coords="280,205,554,248"/>
-<area shape="poly" title=" " alt="" coords="168,146,281,191,304,198,303,203,279,196,166,151"/>
+<area shape="rect" title="Processes a payment for a given reservation." alt="" coords="5,172,232,215"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#a08d2daecfb916157e63571b58fdb938e" title="Gets the payment linked to this reservation." alt="" coords="307,5,526,48"/>
+<area shape="poly" title=" " alt="" coords="137,170,197,114,236,83,278,58,291,52,294,57,281,62,239,88,200,118,141,174"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#ab4f6f6bfc87eb25e949e0cd5ce0c45b3" title="Gets the reservation state." alt="" coords="307,72,526,115"/>
+<area shape="poly" title=" " alt="" coords="166,169,279,124,303,117,304,122,281,129,168,174"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#a855b27cdb0ac9b03a6726dcc91842a3e" title="Sets the payment for the reservation." alt="" coords="307,139,526,181"/>
+<area shape="poly" title=" " alt="" coords="232,178,291,171,292,177,232,183"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#afdaaad63ef2e75d82075d3a7d7df9716" title="Sets the reservation state." alt="" coords="307,205,526,248"/>
+<area shape="poly" title=" " alt="" coords="232,203,292,210,291,215,232,209"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_payment.html#a627443ab4d4ad9508224ef7901dc8dec" title="Sets the payment status." alt="" coords="307,272,526,315"/>
+<area shape="poly" title=" " alt="" coords="168,213,281,257,304,265,303,270,279,263,166,218"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1service_1_1_payment_service.html#a24bf16acf33484636844506c9cdacab4" title="Simulates the interaction with a payment gateway." alt="" coords="280,339,554,381"/>
+<area shape="poly" title=" " alt="" coords="141,213,200,269,239,299,281,324,294,330,291,335,278,329,236,303,197,273,137,217"/>
 </map>
 </div>
 
@@ -172,13 +198,17 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Simulates the interaction with a payment gateway. </p>
+<dl class="section return"><dt>Returns</dt><dd>always returns true to indicate a successful payment in this simulation.</dd></dl>
+<p>In a real application, this method would integrate with an external payment provider. </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classcom_1_1cinema__seat__booking_1_1service_1_1_payment_service_a24bf16acf33484636844506c9cdacab4_icgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1service_1_1_payment_service_a24bf16acf33484636844506c9cdacab4_icgraph" alt=""/></div>
 <map name="aclasscom_1_1cinema__seat__booking_1_1service_1_1_payment_service_a24bf16acf33484636844506c9cdacab4_icgraph" id="aclasscom_1_1cinema__seat__booking_1_1service_1_1_payment_service_a24bf16acf33484636844506c9cdacab4_icgraph">
-<area shape="rect" title=" " alt="" coords="280,5,554,48"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1service_1_1_payment_service.html#a45a32f0c30c3c01b8cd68ae21b253c6d" title=" " alt="" coords="5,5,232,48"/>
+<area shape="rect" title="Simulates the interaction with a payment gateway." alt="" coords="280,5,554,48"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1service_1_1_payment_service.html#a45a32f0c30c3c01b8cd68ae21b253c6d" title="Processes a payment for a given reservation." alt="" coords="5,5,232,48"/>
 <area shape="poly" title=" " alt="" coords="264,29,232,29,232,24,264,24"/>
 </map>
 </div>

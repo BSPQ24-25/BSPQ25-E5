@@ -12,6 +12,5 @@ var classcom_1_1cinema__seat__booking_1_1model_1_1_seat =
     [ "setReservation", "classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a71e3c9a2352419357f194c2299136982", null ],
     [ "setReserved", "classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a8003ff7cf8511684dcfc4f3eef08bdda", null ],
     [ "setRoom", "classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a012e1fe2ca9df3e658dd13ec2c64a309", null ],
-    [ "setSeatNumber", "classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a2da4524edacf0031321feaf2fcd99bc1", null ],
-    [ "setSeatNumber", "classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a1dcd954df17ca1654556406db9ae976a", null ]
+    [ "setSeatNumber", "classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a2da4524edacf0031321feaf2fcd99bc1", null ]
 ];

@@ -76,9 +76,9 @@ public class Movie {
      * @details
      * Initializes the screenings list.
      */
-<span class="nc" id="L79">    public Movie() {</span>
-<span class="nc" id="L80">        this.screenings = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L81">    }</span>
+<span class="fc" id="L79">    public Movie() {</span>
+<span class="fc" id="L80">        this.screenings = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L81">    }</span>
 
     /**
      * @brief Constructs a movie with all fields.
@@ -90,13 +90,13 @@ public class Movie {
      * @param screenings the list of screenings for this movie
      */
     public Movie(String title, int duration, String genre, String cast, List&lt;Screening&gt; screenings) {
-<span class="nc" id="L93">        super();</span>
-<span class="nc" id="L94">        this.title = title;</span>
-<span class="nc" id="L95">        this.duration = duration;</span>
-<span class="nc" id="L96">        this.genre = genre;</span>
-<span class="nc" id="L97">        this.cast = cast;</span>
-<span class="nc bnc" id="L98" title="All 2 branches missed.">        this.screenings = screenings != null ? screenings : new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L99">    }</span>
+<span class="fc" id="L93">        super();</span>
+<span class="fc" id="L94">        this.title = title;</span>
+<span class="fc" id="L95">        this.duration = duration;</span>
+<span class="fc" id="L96">        this.genre = genre;</span>
+<span class="fc" id="L97">        this.cast = cast;</span>
+<span class="pc bpc" id="L98" title="1 of 2 branches missed.">        this.screenings = screenings != null ? screenings : new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L99">    }</span>
 
     /**
      * @brief Constructs a movie without screenings.
@@ -106,13 +106,13 @@ public class Movie {
      * @param genre the movie genre
      * @param cast the movie cast
      */
-<span class="nc" id="L109">    public Movie(String title, int duration, String genre, String cast) {</span>
-<span class="nc" id="L110">        this.title = title;</span>
-<span class="nc" id="L111">        this.duration = duration;</span>
-<span class="nc" id="L112">        this.genre = genre;</span>
-<span class="nc" id="L113">        this.cast = cast;</span>
-<span class="nc" id="L114">        this.screenings = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L115">    }</span>
+<span class="fc" id="L109">    public Movie(String title, int duration, String genre, String cast) {</span>
+<span class="fc" id="L110">        this.title = title;</span>
+<span class="fc" id="L111">        this.duration = duration;</span>
+<span class="fc" id="L112">        this.genre = genre;</span>
+<span class="fc" id="L113">        this.cast = cast;</span>
+<span class="fc" id="L114">        this.screenings = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L115">    }</span>
 
     /**
      * @brief Gets the ID of the movie.
@@ -120,7 +120,7 @@ public class Movie {
      * @return the movie ID
      */
     public Long getId() {
-<span class="nc" id="L123">        return id;</span>
+<span class="fc" id="L123">        return id;</span>
     }
 
     /**
@@ -129,8 +129,8 @@ public class Movie {
      * @param id the movie ID to set
      */
     public void setId(Long id) {
-<span class="nc" id="L132">        this.id = id;</span>
-<span class="nc" id="L133">    }</span>
+<span class="fc" id="L132">        this.id = id;</span>
+<span class="fc" id="L133">    }</span>
 
     /**
      * @brief Gets the title of the movie.
@@ -138,7 +138,7 @@ public class Movie {
      * @return the movie title
      */
     public String getTitle() {
-<span class="nc" id="L141">        return title;</span>
+<span class="fc" id="L141">        return title;</span>
     }
 
     /**
@@ -147,8 +147,8 @@ public class Movie {
      * @param title the movie title to set
      */
     public void setTitle(String title) {
-<span class="nc" id="L150">        this.title = title;</span>
-<span class="nc" id="L151">    }</span>
+<span class="fc" id="L150">        this.title = title;</span>
+<span class="fc" id="L151">    }</span>
 
     /**
      * @brief Gets the duration of the movie.
@@ -156,7 +156,7 @@ public class Movie {
      * @return the movie duration in minutes
      */
     public int getDuration() {
-<span class="nc" id="L159">        return duration;</span>
+<span class="fc" id="L159">        return duration;</span>
     }
 
     /**
@@ -165,8 +165,8 @@ public class Movie {
      * @param duration the movie duration in minutes to set
      */
     public void setDuration(int duration) {
-<span class="nc" id="L168">        this.duration = duration;</span>
-<span class="nc" id="L169">    }</span>
+<span class="fc" id="L168">        this.duration = duration;</span>
+<span class="fc" id="L169">    }</span>
 
     /**
      * @brief Gets the genre of the movie.
@@ -174,7 +174,7 @@ public class Movie {
      * @return the movie genre
      */
     public String getGenre() {
-<span class="nc" id="L177">        return genre;</span>
+<span class="fc" id="L177">        return genre;</span>
     }
 
     /**
@@ -183,8 +183,8 @@ public class Movie {
      * @param genre the movie genre to set
      */
     public void setGenre(String genre) {
-<span class="nc" id="L186">        this.genre = genre;</span>
-<span class="nc" id="L187">    }</span>
+<span class="fc" id="L186">        this.genre = genre;</span>
+<span class="fc" id="L187">    }</span>
 
     /**
      * @brief Gets the cast of the movie.
@@ -192,7 +192,7 @@ public class Movie {
      * @return the movie cast
      */
     public String getCast() {
-<span class="nc" id="L195">        return cast;</span>
+<span class="fc" id="L195">        return cast;</span>
     }
 
     /**
@@ -201,8 +201,8 @@ public class Movie {
      * @param cast the movie cast to set
      */
     public void setCast(String cast) {
-<span class="nc" id="L204">        this.cast = cast;</span>
-<span class="nc" id="L205">    }</span>
+<span class="fc" id="L204">        this.cast = cast;</span>
+<span class="fc" id="L205">    }</span>
 
     /**
      * @brief Gets the list of screenings for the movie.
@@ -210,7 +210,7 @@ public class Movie {
      * @return the list of screenings
      */
     public List&lt;Screening&gt; getScreenings() {
-<span class="nc" id="L213">        return screenings;</span>
+<span class="fc" id="L213">        return screenings;</span>
     }
 
     /**
@@ -219,8 +219,8 @@ public class Movie {
      * @param screenings the list of screenings to set
      */
     public void setScreenings(List&lt;Screening&gt; screenings) {
-<span class="nc" id="L222">        this.screenings = screenings;</span>
-<span class="nc" id="L223">    }</span>
+<span class="fc" id="L222">        this.screenings = screenings;</span>
+<span class="fc" id="L223">    }</span>
 
     /**
      * @brief Adds a screening to this movie.
@@ -232,11 +232,11 @@ public class Movie {
      * and sets the movie of the screening to this instance.
      */
     public void addScreening(Screening screening) {
-<span class="nc bnc" id="L235" title="All 2 branches missed.">        if (this.screenings == null) {</span>
-<span class="nc" id="L236">            this.screenings = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L235" title="All 2 branches covered.">        if (this.screenings == null) {</span>
+<span class="fc" id="L236">            this.screenings = new ArrayList&lt;&gt;();</span>
         }
-<span class="nc" id="L238">        this.screenings.add(screening);</span>
-<span class="nc" id="L239">        screening.setMovie(this);</span>
-<span class="nc" id="L240">    }</span>
+<span class="fc" id="L238">        this.screenings.add(screening);</span>
+<span class="fc" id="L239">        screening.setMovie(this);</span>
+<span class="fc" id="L240">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

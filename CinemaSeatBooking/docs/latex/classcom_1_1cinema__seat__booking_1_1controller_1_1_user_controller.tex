@@ -1,5 +1,10 @@
 \doxysection{com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+User\+Controller Class Reference}
 \hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_user_controller}{}\label{classcom_1_1cinema__seat__booking_1_1controller_1_1_user_controller}\index{com.cinema\_seat\_booking.controller.UserController@{com.cinema\_seat\_booking.controller.UserController}}
+
+
+REST controller that provides endpoints for user registration, profile viewing, updating, and deletion.  
+
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -13,6 +18,11 @@ Response\+Entity$<$ Void $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+REST controller that provides endpoints for user registration, profile viewing, updating, and deletion. 
+
+This controller interacts with the {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1service_1_1_user_service}{User\+Service}} to perform business logic and database operations. 
+
 \doxysubsection{Member Function Documentation}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_user_controller_a8c19f8477288e166ec7e836211102e3a}\index{com.cinema\_seat\_booking.controller.UserController@{com.cinema\_seat\_booking.controller.UserController}!deleteProfile@{deleteProfile}}
 \index{deleteProfile@{deleteProfile}!com.cinema\_seat\_booking.controller.UserController@{com.cinema\_seat\_booking.controller.UserController}}
@@ -20,16 +30,26 @@ Response\+Entity$<$ Void $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_user_controller_a8c19f8477288e166ec7e836211102e3a} 
 Response\+Entity$<$ Void $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+User\+Controller.\+delete\+Profile (\begin{DoxyParamCaption}\item[{@Request\+Param String}]{username}{, }\item[{@Request\+Param String}]{password}{}\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-\nopagebreak
+Deletes a user account based on username and password.
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & The username of the account \\
+\hline
+{\em password} & The password for verification \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A {\ttfamily \doxylink{}{Response\+Entity}} with HTTP 204 if deleted, or HTTP 400 if credentials are invalid 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=258pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_user_controller_a8c19f8477288e166ec7e836211102e3a_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -42,16 +62,24 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_user_controller_ac3e03d22ff475efcdc41c83f475ce5e7} 
 Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user}{User}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+User\+Controller.\+register (\begin{DoxyParamCaption}\item[{@Request\+Body \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_user_d_t_o}{User\+DTO}}}]{user\+DTO}{}\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-\nopagebreak
+Registers a new user account.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+DTO} & The user registration data (username, email, password) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A {\ttfamily \doxylink{}{Response\+Entity}} containing the registered user and HTTP 201 status 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=258pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_user_controller_ac3e03d22ff475efcdc41c83f475ce5e7_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -64,16 +92,24 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_user_controller_a29b8bcc5365be932d67b7d9816f9520d} 
 Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user}{User}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+User\+Controller.\+update\+Profile (\begin{DoxyParamCaption}\item[{@Request\+Body \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_user_d_t_o}{User\+DTO}}}]{user\+DTO}{}\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-\nopagebreak
+Updates the profile information of an existing user.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+DTO} & The updated user details \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A {\ttfamily \doxylink{}{Response\+Entity}} containing the updated user and HTTP 200 status, or HTTP 400 if update failed 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=258pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_user_controller_a29b8bcc5365be932d67b7d9816f9520d_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -86,16 +122,24 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_user_controller_abef7b9e04e8408ecf89ebecbc1199547} 
 Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user}{User}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+User\+Controller.\+view\+Profile (\begin{DoxyParamCaption}\item[{@Request\+Param String}]{username}{}\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-\nopagebreak
+Retrieves the user profile by username.
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & The username of the user \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A {\ttfamily \doxylink{}{Response\+Entity}} containing the user data and HTTP 200 status, or HTTP 404 if not found 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=258pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_user_controller_abef7b9e04e8408ecf89ebecbc1199547_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

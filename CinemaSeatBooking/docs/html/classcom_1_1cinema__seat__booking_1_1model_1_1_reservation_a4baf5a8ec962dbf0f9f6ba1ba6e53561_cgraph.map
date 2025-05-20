@@ -1,7 +1,7 @@
 <map id="com.cinema_seat_booking.model.Reservation.Reservation" name="com.cinema_seat_booking.model.Reservation.Reservation">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,39,225,81"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_payment.html#a549b5f53c2984534deb9cbe31dedab29" title=" " alt="" coords="273,5,492,48"/>
+<area shape="rect" id="Node000001" title="Constructs a reservation without a payment, creates a new payment instance." alt="" coords="5,39,225,81"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_payment.html#a549b5f53c2984534deb9cbe31dedab29" title="Sets the associated reservation." alt="" coords="273,5,492,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="225,44,257,40,257,45,225,49"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#a91b6dd855a7ba755c7af17f18cafdc37" title=" " alt="" coords="273,72,492,115"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#a91b6dd855a7ba755c7af17f18cafdc37" title="Sets the seat for the reservation." alt="" coords="273,72,492,115"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="225,71,257,75,257,80,225,76"/>
 </map>

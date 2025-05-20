@@ -1,5 +1,5 @@
 <map id="com.cinema_seat_booking.service.UserService.deleteUser" name="com.cinema_seat_booking.service.UserService.deleteUser">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,232,48"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#af8d178bee1b988cc841fc7957a934cd6" title=" " alt="" coords="280,5,499,48"/>
+<area shape="rect" id="Node000001" title="Deletes a user account if username and password match." alt="" coords="5,5,232,48"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#af8d178bee1b988cc841fc7957a934cd6" title="Gets the password." alt="" coords="280,5,499,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="232,24,264,24,264,29,232,29"/>
 </map>

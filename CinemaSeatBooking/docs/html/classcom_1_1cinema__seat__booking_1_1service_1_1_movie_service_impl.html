@@ -108,7 +108,7 @@ Inheritance diagram for com.cinema_seat_booking.service.MovieServiceImpl:</div>
 <div class="center"><img src="classcom_1_1cinema__seat__booking_1_1service_1_1_movie_service_impl__inherit__graph.png" border="0" usemap="#acom_8cinema__seat__booking_8service_8_movie_service_impl_inherit__map" alt="Inheritance graph"/></div>
 <map name="acom_8cinema__seat__booking_8service_8_movie_service_impl_inherit__map" id="acom_8cinema__seat__booking_8service_8_movie_service_impl_inherit__map">
 <area shape="rect" title=" " alt="" coords="5,96,232,139"/>
-<area shape="rect" href="interfacecom_1_1cinema__seat__booking_1_1service_1_1_movie_service.html" title=" " alt="" coords="5,5,232,48"/>
+<area shape="rect" href="interfacecom_1_1cinema__seat__booking_1_1service_1_1_movie_service.html" title="Defines the service contract for movie&#45;related functionality." alt="" coords="5,5,232,48"/>
 <area shape="poly" title=" " alt="" coords="121,64,121,96,116,96,116,64"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
@@ -118,7 +118,7 @@ Collaboration diagram for com.cinema_seat_booking.service.MovieServiceImpl:</div
 <div class="center"><img src="classcom_1_1cinema__seat__booking_1_1service_1_1_movie_service_impl__coll__graph.png" border="0" usemap="#acom_8cinema__seat__booking_8service_8_movie_service_impl_coll__map" alt="Collaboration graph"/></div>
 <map name="acom_8cinema__seat__booking_8service_8_movie_service_impl_coll__map" id="acom_8cinema__seat__booking_8service_8_movie_service_impl_coll__map">
 <area shape="rect" title=" " alt="" coords="5,96,232,139"/>
-<area shape="rect" href="interfacecom_1_1cinema__seat__booking_1_1service_1_1_movie_service.html" title=" " alt="" coords="5,5,232,48"/>
+<area shape="rect" href="interfacecom_1_1cinema__seat__booking_1_1service_1_1_movie_service.html" title="Defines the service contract for movie&#45;related functionality." alt="" coords="5,5,232,48"/>
 <area shape="poly" title=" " alt="" coords="121,64,121,96,116,96,116,64"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
@@ -126,12 +126,16 @@ Collaboration diagram for com.cinema_seat_booking.service.MovieServiceImpl:</div
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6b20075b980dea63a13c448286a9ac7f" id="r_a6b20075b980dea63a13c448286a9ac7f"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_movie.html">Movie</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b20075b980dea63a13c448286a9ac7f">getAllMovies</a> ()</td></tr>
+<tr class="memdesc:a6b20075b980dea63a13c448286a9ac7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves all movies.  <br /></td></tr>
 <tr class="separator:a6b20075b980dea63a13c448286a9ac7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3d9205663a97885423628689bcb3b65" id="r_aa3d9205663a97885423628689bcb3b65"><td class="memItemLeft" align="right" valign="top">Optional&lt; <a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_movie.html">Movie</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3d9205663a97885423628689bcb3b65">findById</a> (Long id)</td></tr>
+<tr class="memdesc:aa3d9205663a97885423628689bcb3b65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds a movie by its ID.  <br /></td></tr>
 <tr class="separator:aa3d9205663a97885423628689bcb3b65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a071d57508a544092b90a00b110a2b036" id="r_a071d57508a544092b90a00b110a2b036"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_movie.html">Movie</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a071d57508a544092b90a00b110a2b036">save</a> (<a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_movie.html">Movie</a> movie)</td></tr>
+<tr class="memdesc:a071d57508a544092b90a00b110a2b036"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves or updates a movie.  <br /></td></tr>
 <tr class="separator:a071d57508a544092b90a00b110a2b036"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b596ac9feefdb85ebc683b68d886971" id="r_a0b596ac9feefdb85ebc683b68d886971"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b596ac9feefdb85ebc683b68d886971">delete</a> (Long id)</td></tr>
+<tr class="memdesc:a0b596ac9feefdb85ebc683b68d886971"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes a movie by its ID.  <br /></td></tr>
 <tr class="separator:a0b596ac9feefdb85ebc683b68d886971"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -149,6 +153,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Deletes a movie by its ID. </p>
+<p>Removes the movie with the specified ID from the data source.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>the unique identifier of the movie to delete </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implements <a class="el" href="interfacecom_1_1cinema__seat__booking_1_1service_1_1_movie_service.html#a7852beac277a097479310024b7016c53">com.cinema_seat_booking.service.MovieService</a>.</p>
 
@@ -169,6 +182,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Finds a movie by its ID. </p>
+<p>Searches for a movie with the given ID. If the movie exists, it is returned wrapped in an <code><a class="el" href="">Optional</a></code>; otherwise, an empty <code class="JavaDocCode">Optional</code> is returned.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>the unique identifier of the movie </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>an <code><a class="el" href="">Optional</a></code> containing the found <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_movie.html">Movie</a></code>, or empty if not found </dd></dl>
+
 <p>Implements <a class="el" href="interfacecom_1_1cinema__seat__booking_1_1service_1_1_movie_service.html#ae4e08148b16bc821628b55dbc1f453f8">com.cinema_seat_booking.service.MovieService</a>.</p>
 
 </div>
@@ -188,6 +211,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Retrieves all movies. </p>
+<p>Fetches a list of all available movies from the data source.</p>
+<dl class="section return"><dt>Returns</dt><dd>a list of all <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_movie.html">Movie</a></code> objects </dd></dl>
+
 <p>Implements <a class="el" href="interfacecom_1_1cinema__seat__booking_1_1service_1_1_movie_service.html#ac24ab31614a9383ea89f01b7f503d272">com.cinema_seat_booking.service.MovieService</a>.</p>
 
 </div>
@@ -206,6 +233,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Saves or updates a movie. </p>
+<p>Persists a new movie to the database or updates an existing one.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">movie</td><td>the <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_movie.html">Movie</a></code> object to be saved </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the saved <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_movie.html">Movie</a></code> instance </dd></dl>
 
 <p>Implements <a class="el" href="interfacecom_1_1cinema__seat__booking_1_1service_1_1_movie_service.html#abcdde6392543ced4e2cc0617b4ad6875">com.cinema_seat_booking.service.MovieService</a>.</p>
 

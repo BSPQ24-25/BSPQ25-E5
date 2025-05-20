@@ -1,7 +1,7 @@
 <map id="com.cinema_seat_booking.model.Room.Room" name="com.cinema_seat_booking.model.Room.Room">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,225,48"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_room.html#ada4dc69adeb61a71c3c75b58b2048498" title=" " alt="" coords="273,5,492,48"/>
+<area shape="rect" id="Node000001" title="Constructor to create a room with a name and initial list of seats." alt="" coords="5,5,225,48"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_room.html#ada4dc69adeb61a71c3c75b58b2048498" title="Adds a seat to the room." alt="" coords="273,5,492,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="225,24,257,24,257,29,225,29"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a012e1fe2ca9df3e658dd13ec2c64a309" title=" " alt="" coords="540,5,759,48"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a012e1fe2ca9df3e658dd13ec2c64a309" title="Sets the room for this seat." alt="" coords="540,5,759,48"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="492,24,524,24,524,29,492,29"/>
 </map>

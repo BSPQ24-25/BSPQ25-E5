@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"classcom_1_1cinema__seat__booking_1_1model_1_1_screening.html#a34b99a18f7aa63f10a053503f28ebc41":[1,0,0,0,2,7,6],
+"classcom_1_1cinema__seat__booking_1_1model_1_1_screening.html#a41a686b3e31d07e7d3570726bad94fa7":[0,0,0,0,2,7,0],
 "classcom_1_1cinema__seat__booking_1_1model_1_1_screening.html#a41a686b3e31d07e7d3570726bad94fa7":[1,0,0,0,2,7,0],
 "classcom_1_1cinema__seat__booking_1_1model_1_1_screening.html#a571dd159ae5fc948511d23973e7d8f23":[0,0,0,0,2,7,14],
 "classcom_1_1cinema__seat__booking_1_1model_1_1_screening.html#a571dd159ae5fc948511d23973e7d8f23":[1,0,0,0,2,7,14],
@@ -31,8 +33,6 @@ var NAVTREEINDEX2 =
 "classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a012e1fe2ca9df3e658dd13ec2c64a309":[1,0,0,0,2,8,11],
 "classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a0a44b40e8bf38f65ffc4d572497958da":[0,0,0,0,2,8,4],
 "classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a0a44b40e8bf38f65ffc4d572497958da":[1,0,0,0,2,8,4],
-"classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a1dcd954df17ca1654556406db9ae976a":[0,0,0,0,2,8,13],
-"classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a1dcd954df17ca1654556406db9ae976a":[1,0,0,0,2,8,13],
 "classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a2da4524edacf0031321feaf2fcd99bc1":[0,0,0,0,2,8,12],
 "classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a2da4524edacf0031321feaf2fcd99bc1":[1,0,0,0,2,8,12],
 "classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a611ce8e09942ec1fe035b76d432ab7a9":[0,0,0,0,2,8,2],

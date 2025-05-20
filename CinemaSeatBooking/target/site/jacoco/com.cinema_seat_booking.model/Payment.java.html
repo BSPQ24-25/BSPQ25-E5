@@ -66,9 +66,9 @@ public class Payment {
     /**
      * @brief Default constructor required by JPA.
      */
-<span class="nc" id="L69">    public Payment() {</span>
+<span class="fc" id="L69">    public Payment() {</span>
         // Required by JPA
-<span class="nc" id="L71">    }</span>
+<span class="fc" id="L71">    }</span>
 
     /**
      * @brief Constructs a payment with all fields except reservation.
@@ -79,12 +79,12 @@ public class Payment {
      * @param status the status of the payment
      */
     public Payment(String paymentMethod, double amount, String paymentDate, PaymentStatus status) {
-<span class="nc" id="L82">        super();</span>
-<span class="nc" id="L83">        this.paymentMethod = paymentMethod;</span>
-<span class="nc" id="L84">        this.amount = amount;</span>
-<span class="nc" id="L85">        this.paymentDate = paymentDate;</span>
-<span class="nc" id="L86">        this.status = status;</span>
-<span class="nc" id="L87">    }</span>
+<span class="fc" id="L82">        super();</span>
+<span class="fc" id="L83">        this.paymentMethod = paymentMethod;</span>
+<span class="fc" id="L84">        this.amount = amount;</span>
+<span class="fc" id="L85">        this.paymentDate = paymentDate;</span>
+<span class="fc" id="L86">        this.status = status;</span>
+<span class="fc" id="L87">    }</span>
 
     /**
      * @brief Constructs a payment without status.
@@ -93,11 +93,11 @@ public class Payment {
      * @param amount the payment amount
      * @param paymentDate the date of payment
      */
-<span class="nc" id="L96">    public Payment(String paymentMethod, double amount, String paymentDate) {</span>
-<span class="nc" id="L97">        this.paymentMethod = paymentMethod;</span>
-<span class="nc" id="L98">        this.amount = amount;</span>
-<span class="nc" id="L99">        this.paymentDate = paymentDate;</span>
-<span class="nc" id="L100">    }</span>
+<span class="fc" id="L96">    public Payment(String paymentMethod, double amount, String paymentDate) {</span>
+<span class="fc" id="L97">        this.paymentMethod = paymentMethod;</span>
+<span class="fc" id="L98">        this.amount = amount;</span>
+<span class="fc" id="L99">        this.paymentDate = paymentDate;</span>
+<span class="fc" id="L100">    }</span>
 
     /**
      * @brief Gets the payment ID.
@@ -105,7 +105,7 @@ public class Payment {
      * @return the payment ID
      */
     public Long getId() {
-<span class="nc" id="L108">        return id;</span>
+<span class="fc" id="L108">        return id;</span>
     }
 
     /**
@@ -114,8 +114,8 @@ public class Payment {
      * @param id the ID to set
      */
     public void setId(Long id) {
-<span class="nc" id="L117">        this.id = id;</span>
-<span class="nc" id="L118">    }</span>
+<span class="fc" id="L117">        this.id = id;</span>
+<span class="fc" id="L118">    }</span>
 
     /**
      * @brief Gets the payment method.
@@ -123,7 +123,7 @@ public class Payment {
      * @return the payment method
      */
     public String getPaymentMethod() {
-<span class="nc" id="L126">        return paymentMethod;</span>
+<span class="fc" id="L126">        return paymentMethod;</span>
     }
 
     /**
@@ -132,8 +132,8 @@ public class Payment {
      * @param paymentMethod the payment method to set
      */
     public void setPaymentMethod(String paymentMethod) {
-<span class="nc" id="L135">        this.paymentMethod = paymentMethod;</span>
-<span class="nc" id="L136">    }</span>
+<span class="fc" id="L135">        this.paymentMethod = paymentMethod;</span>
+<span class="fc" id="L136">    }</span>
 
     /**
      * @brief Gets the payment amount.
@@ -141,7 +141,7 @@ public class Payment {
      * @return the amount
      */
     public double getAmount() {
-<span class="nc" id="L144">        return amount;</span>
+<span class="fc" id="L144">        return amount;</span>
     }
 
     /**
@@ -150,8 +150,8 @@ public class Payment {
      * @param amount the amount to set
      */
     public void setAmount(double amount) {
-<span class="nc" id="L153">        this.amount = amount;</span>
-<span class="nc" id="L154">    }</span>
+<span class="fc" id="L153">        this.amount = amount;</span>
+<span class="fc" id="L154">    }</span>
 
     /**
      * @brief Gets the payment date.
@@ -159,7 +159,7 @@ public class Payment {
      * @return the payment date
      */
     public String getPaymentDate() {
-<span class="nc" id="L162">        return paymentDate;</span>
+<span class="fc" id="L162">        return paymentDate;</span>
     }
 
     /**
@@ -168,8 +168,8 @@ public class Payment {
      * @param paymentDate the payment date to set
      */
     public void setPaymentDate(String paymentDate) {
-<span class="nc" id="L171">        this.paymentDate = paymentDate;</span>
-<span class="nc" id="L172">    }</span>
+<span class="fc" id="L171">        this.paymentDate = paymentDate;</span>
+<span class="fc" id="L172">    }</span>
 
     /**
      * @brief Gets the payment status.
@@ -177,7 +177,7 @@ public class Payment {
      * @return the payment status
      */
     public PaymentStatus getStatus() {
-<span class="nc" id="L180">        return status;</span>
+<span class="fc" id="L180">        return status;</span>
     }
 
     /**
@@ -186,8 +186,8 @@ public class Payment {
      * @param status the payment status to set
      */
     public void setStatus(PaymentStatus status) {
-<span class="nc" id="L189">        this.status = status;</span>
-<span class="nc" id="L190">    }</span>
+<span class="fc" id="L189">        this.status = status;</span>
+<span class="fc" id="L190">    }</span>
 
     /**
      * @brief Gets the associated reservation.
@@ -195,7 +195,7 @@ public class Payment {
      * @return the reservation linked to this payment
      */
     public Reservation getReservation() {
-<span class="nc" id="L198">        return reservation;</span>
+<span class="fc" id="L198">        return reservation;</span>
     }
 
     /**
@@ -204,7 +204,7 @@ public class Payment {
      * @param reservation the reservation to link with this payment
      */
     public void setReservation(Reservation reservation) {
-<span class="nc" id="L207">        this.reservation = reservation;</span>
-<span class="nc" id="L208">    }</span>
+<span class="fc" id="L207">        this.reservation = reservation;</span>
+<span class="fc" id="L208">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

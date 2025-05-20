@@ -102,21 +102,31 @@ $(function(){initNavTree('classcom_1_1cinema__seat__booking_1_1service_1_1_user_
   <div class="headertitle"><div class="title">com.cinema_seat_booking.service.UserService Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Business logic for user operations such as registration, authentication, and profile management.  
+ <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a16ce8375585661c4af7829b5d16b3b8c" id="r_a16ce8375585661c4af7829b5d16b3b8c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html">User</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16ce8375585661c4af7829b5d16b3b8c">registerUser</a> (<a class="el" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_user_d_t_o.html">UserDTO</a> user)</td></tr>
+<tr class="memdesc:a16ce8375585661c4af7829b5d16b3b8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a new user with CLIENT role.  <br /></td></tr>
 <tr class="separator:a16ce8375585661c4af7829b5d16b3b8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29a77bdf1297584bfc2121c9311a3baa" id="r_a29a77bdf1297584bfc2121c9311a3baa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html">User</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29a77bdf1297584bfc2121c9311a3baa">getUserByUsername</a> (String username)</td></tr>
+<tr class="memdesc:a29a77bdf1297584bfc2121c9311a3baa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a user by their username.  <br /></td></tr>
 <tr class="separator:a29a77bdf1297584bfc2121c9311a3baa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af975ea6c166689b27bb874c49cc698f2" id="r_af975ea6c166689b27bb874c49cc698f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html">User</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af975ea6c166689b27bb874c49cc698f2">updateUserProfile</a> (<a class="el" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_user_d_t_o.html">UserDTO</a> userDTO)</td></tr>
+<tr class="memdesc:af975ea6c166689b27bb874c49cc698f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the profile of an existing user.  <br /></td></tr>
 <tr class="separator:af975ea6c166689b27bb874c49cc698f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86f3a5db57bebae52b99ee16cf8cb158" id="r_a86f3a5db57bebae52b99ee16cf8cb158"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86f3a5db57bebae52b99ee16cf8cb158">deleteUser</a> (String username, String password)</td></tr>
+<tr class="memdesc:a86f3a5db57bebae52b99ee16cf8cb158"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes a user account if username and password match.  <br /></td></tr>
 <tr class="separator:a86f3a5db57bebae52b99ee16cf8cb158"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2b38cd1bd4442b52f34ead9c5b776e7" id="r_af2b38cd1bd4442b52f34ead9c5b776e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html">User</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2b38cd1bd4442b52f34ead9c5b776e7">authenticate</a> (String username, String password)</td></tr>
+<tr class="memdesc:af2b38cd1bd4442b52f34ead9c5b776e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Authenticates a user using username and password.  <br /></td></tr>
 <tr class="separator:af2b38cd1bd4442b52f34ead9c5b776e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Business logic for user operations such as registration, authentication, and profile management. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="af2b38cd1bd4442b52f34ead9c5b776e7" name="af2b38cd1bd4442b52f34ead9c5b776e7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af2b38cd1bd4442b52f34ead9c5b776e7">&#9670;&#160;</a></span>authenticate()</h2>
 
@@ -135,6 +145,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Authenticates a user using username and password. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">username</td><td>The user's username. </td></tr>
+    <tr><td class="paramname">password</td><td>The user's password. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html">User</a></code> if authentication is successful, otherwise null. </dd></dl>
 
 </div>
 </div>
@@ -156,13 +176,23 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Deletes a user account if username and password match. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">username</td><td>The username of the account to delete. </td></tr>
+    <tr><td class="paramname">password</td><td>The password for authentication. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if deletion is successful, false otherwise. </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classcom_1_1cinema__seat__booking_1_1service_1_1_user_service_a86f3a5db57bebae52b99ee16cf8cb158_cgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1service_1_1_user_service_a86f3a5db57bebae52b99ee16cf8cb158_cgraph" alt=""/></div>
 <map name="aclasscom_1_1cinema__seat__booking_1_1service_1_1_user_service_a86f3a5db57bebae52b99ee16cf8cb158_cgraph" id="aclasscom_1_1cinema__seat__booking_1_1service_1_1_user_service_a86f3a5db57bebae52b99ee16cf8cb158_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,232,48"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#af8d178bee1b988cc841fc7957a934cd6" title=" " alt="" coords="280,5,499,48"/>
+<area shape="rect" title="Deletes a user account if username and password match." alt="" coords="5,5,232,48"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#af8d178bee1b988cc841fc7957a934cd6" title="Gets the password." alt="" coords="280,5,499,48"/>
 <area shape="poly" title=" " alt="" coords="232,24,264,24,264,29,232,29"/>
 </map>
 </div>
@@ -184,6 +214,21 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Retrieves a user by their username. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">username</td><td>The username to search for. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html">User</a></code> if found. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">RuntimeException</td><td>if the user is not found. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a16ce8375585661c4af7829b5d16b3b8c" name="a16ce8375585661c4af7829b5d16b3b8c"></a>
@@ -200,25 +245,34 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Registers a new user with CLIENT role. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">user</td><td>A DTO containing user registration data. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The saved <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html">User</a></code> entity. </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classcom_1_1cinema__seat__booking_1_1service_1_1_user_service_a16ce8375585661c4af7829b5d16b3b8c_cgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1service_1_1_user_service_a16ce8375585661c4af7829b5d16b3b8c_cgraph" alt=""/></div>
 <map name="aclasscom_1_1cinema__seat__booking_1_1service_1_1_user_service_a16ce8375585661c4af7829b5d16b3b8c_cgraph" id="aclasscom_1_1cinema__seat__booking_1_1service_1_1_user_service_a16ce8375585661c4af7829b5d16b3b8c_cgraph">
-<area shape="rect" title=" " alt="" coords="5,205,232,248"/>
+<area shape="rect" title="Registers a new user with CLIENT role." alt="" coords="5,205,232,248"/>
 <area shape="rect" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_user_d_t_o.html#a2d8b1cc123e0c95b1539098413bad264" title=" " alt="" coords="288,5,490,48"/>
 <area shape="poly" title=" " alt="" coords="133,203,191,132,232,92,278,58,287,53,290,57,281,62,236,96,195,136,137,207"/>
 <area shape="rect" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_user_d_t_o.html#a190323bea6c6087a4cde3d97626b4b75" title=" " alt="" coords="288,72,490,115"/>
 <area shape="poly" title=" " alt="" coords="148,203,207,164,279,124,293,118,295,123,281,129,209,168,151,207"/>
 <area shape="rect" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_user_d_t_o.html#a4c56ae4308763a5f4aa814fdf5b45191" title=" " alt="" coords="288,139,490,181"/>
 <area shape="poly" title=" " alt="" coords="207,202,284,183,286,188,209,207"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#a793aef0eff9d4e123336012b0fb84680" title=" " alt="" coords="280,205,499,248"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#a793aef0eff9d4e123336012b0fb84680" title="Sets the email address." alt="" coords="280,205,499,248"/>
 <area shape="poly" title=" " alt="" coords="232,224,264,224,264,229,232,229"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#a505deb007d6ab7d73987e77f93348e23" title=" " alt="" coords="280,272,499,315"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#a505deb007d6ab7d73987e77f93348e23" title="Sets the password." alt="" coords="280,272,499,315"/>
 <area shape="poly" title=" " alt="" coords="209,246,286,265,284,270,207,251"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#a045d39435d8b3b3813b939109ebe29da" title=" " alt="" coords="280,339,499,381"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#a045d39435d8b3b3813b939109ebe29da" title="Sets the user role." alt="" coords="280,339,499,381"/>
 <area shape="poly" title=" " alt="" coords="151,246,209,285,281,324,295,330,293,335,279,329,207,290,148,251"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#a776e5e171dfe2c3bfdca5aac062b8e57" title=" " alt="" coords="280,405,499,448"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#a776e5e171dfe2c3bfdca5aac062b8e57" title="Sets the username." alt="" coords="280,405,499,448"/>
 <area shape="poly" title=" " alt="" coords="137,247,195,318,236,357,281,391,290,396,287,401,278,396,232,361,191,321,133,250"/>
 </map>
 </div>
@@ -239,21 +293,36 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Updates the profile of an existing user. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">userDTO</td><td>DTO containing updated user details. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The updated <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html">User</a></code> entity. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">RuntimeException</td><td>if the user is not found. </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classcom_1_1cinema__seat__booking_1_1service_1_1_user_service_af975ea6c166689b27bb874c49cc698f2_cgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1service_1_1_user_service_af975ea6c166689b27bb874c49cc698f2_cgraph" alt=""/></div>
 <map name="aclasscom_1_1cinema__seat__booking_1_1service_1_1_user_service_af975ea6c166689b27bb874c49cc698f2_cgraph" id="aclasscom_1_1cinema__seat__booking_1_1service_1_1_user_service_af975ea6c166689b27bb874c49cc698f2_cgraph">
-<area shape="rect" title=" " alt="" coords="5,139,232,181"/>
+<area shape="rect" title="Updates the profile of an existing user." alt="" coords="5,139,232,181"/>
 <area shape="rect" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_user_d_t_o.html#a2d8b1cc123e0c95b1539098413bad264" title=" " alt="" coords="288,5,490,48"/>
 <area shape="poly" title=" " alt="" coords="148,136,207,97,279,58,293,51,295,56,281,62,209,101,151,141"/>
 <area shape="rect" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_user_d_t_o.html#a190323bea6c6087a4cde3d97626b4b75" title=" " alt="" coords="288,72,490,115"/>
 <area shape="poly" title=" " alt="" coords="207,135,284,116,286,122,209,141"/>
 <area shape="rect" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_user_d_t_o.html#a4c56ae4308763a5f4aa814fdf5b45191" title=" " alt="" coords="288,139,490,181"/>
 <area shape="poly" title=" " alt="" coords="232,157,273,157,273,163,232,163"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#a793aef0eff9d4e123336012b0fb84680" title=" " alt="" coords="280,205,499,248"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#a793aef0eff9d4e123336012b0fb84680" title="Sets the email address." alt="" coords="280,205,499,248"/>
 <area shape="poly" title=" " alt="" coords="209,179,286,198,284,204,207,185"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#a505deb007d6ab7d73987e77f93348e23" title=" " alt="" coords="280,272,499,315"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#a505deb007d6ab7d73987e77f93348e23" title="Sets the password." alt="" coords="280,272,499,315"/>
 <area shape="poly" title=" " alt="" coords="151,179,209,219,281,258,295,264,293,269,279,262,207,223,148,184"/>
 </map>
 </div>

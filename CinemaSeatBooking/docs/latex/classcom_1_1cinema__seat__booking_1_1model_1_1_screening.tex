@@ -1,40 +1,61 @@
 \doxysection{com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Screening Class Reference}
 \hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{}\label{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}\index{com.cinema\_seat\_booking.model.Screening@{com.cinema\_seat\_booking.model.Screening}}
+
+
+Represents a movie screening event within a cinema system.  
+
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 Long \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_ab4e6086d07975f609b8dfaf03b5b3355}{get\+Id}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the unique ID of the screening. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_aafc1e36a49c87ce700b864330e8aee51}{set\+Id}} (Long id)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the unique ID of the screening. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie}{Movie}} \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_a8c9186ce488df969beaea5843db0a16c}{get\+Movie}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the movie associated with this screening. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_ae88d73f3199c33dcb158cf0464d1e63a}{set\+Movie}} (\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie}{Movie}} movie)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the movie associated with this screening. \end{DoxyCompactList}\item 
 String \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_a0e5510006bd9c1c35c0b13e63f7c0d56}{get\+Date}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the date of the screening. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_aa70b1bd84702df08ae1bfbce4632153f}{set\+Date}} (String date)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the date of the screening. \end{DoxyCompactList}\item 
 String \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_a34b99a18f7aa63f10a053503f28ebc41}{get\+Location}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the location of the screening. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_ad89091838b1015bf755c9e4ed7755d0c}{set\+Location}} (String location)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the location of the screening. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room}{Room}} \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_a7c5c24dd850670edcba8421717918c06}{get\+Room}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the room where the screening takes place. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_a29d940384af033f4fd27d24950c6ec68}{set\+Room}} (\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room}{Room}} room)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the room where the screening takes place. \end{DoxyCompactList}\item 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_a89b8274013d63c6d78c0b85324a45bfb}{get\+Reservations}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the list of reservations for this screening. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_a571dd159ae5fc948511d23973e7d8f23}{set\+Reservations}} (List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} $>$ reservations)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the list of reservations for this screening. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_aabcca5f0c279edf6ff064a1de5485593}{add\+Reservation}} (\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} reservation)
-\item 
+\begin{DoxyCompactList}\small\item\em Adds a reservation to this screening. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_a41a686b3e31d07e7d3570726bad94fa7}{Screening}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Default constructor required by JPA. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_a739a3193feab7afcd7aff99882d421df}{Screening}} (\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie}{Movie}} movie, String date, String location, \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room}{Room}} room, List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} $>$ reservations)
-\item 
+\begin{DoxyCompactList}\small\item\em Constructor with all fields. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_a9167eaa8fb22cf80ae7746f42dbfdf78}{Screening}} (\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie}{Movie}} movie, String date, String location, \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room}{Room}} room)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Constructor without reservations list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a movie screening event within a cinema system. 
+
+The {\ttfamily Screening} entity represents a scheduled showing of a movie in a specific room at a specific date and location. It maintains relationships with the {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie}{Movie}} being shown, the {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_room}{Room}} where it takes place, and the {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} entities associated with bookings for this screening.
+
+\begin{DoxyAuthor}{Author}
+BSPQ25-\/\+E5 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+2025-\/05-\/19 
+\end{DoxySince}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -44,18 +65,54 @@ void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_a
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_a41a686b3e31d07e7d3570726bad94fa7} 
 com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Screening.\+Screening (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-\Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_a739a3193feab7afcd7aff99882d421df}\index{com.cinema\_seat\_booking.model.Screening@{com.cinema\_seat\_booking.model.Screening}!Screening@{Screening}}
+
+
+Default constructor required by JPA. 
+
+Initializes the reservations list. \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_a739a3193feab7afcd7aff99882d421df}\index{com.cinema\_seat\_booking.model.Screening@{com.cinema\_seat\_booking.model.Screening}!Screening@{Screening}}
 \index{Screening@{Screening}!com.cinema\_seat\_booking.model.Screening@{com.cinema\_seat\_booking.model.Screening}}
 \doxysubsubsection{\texorpdfstring{Screening()}{Screening()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_a739a3193feab7afcd7aff99882d421df} 
 com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Screening.\+Screening (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie}{Movie}}}]{movie}{, }\item[{String}]{date}{, }\item[{String}]{location}{, }\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room}{Room}}}]{room}{, }\item[{List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} $>$}]{reservations}{}\end{DoxyParamCaption})}
 
+
+
+Constructor with all fields. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em movie} & the movie shown in the screening \\
+\hline
+{\em date} & the date of the screening \\
+\hline
+{\em location} & the location of the screening \\
+\hline
+{\em room} & the room where the screening takes place \\
+\hline
+{\em reservations} & the initial list of reservations \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_a9167eaa8fb22cf80ae7746f42dbfdf78}\index{com.cinema\_seat\_booking.model.Screening@{com.cinema\_seat\_booking.model.Screening}!Screening@{Screening}}
 \index{Screening@{Screening}!com.cinema\_seat\_booking.model.Screening@{com.cinema\_seat\_booking.model.Screening}}
 \doxysubsubsection{\texorpdfstring{Screening()}{Screening()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_a9167eaa8fb22cf80ae7746f42dbfdf78} 
 com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Screening.\+Screening (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie}{Movie}}}]{movie}{, }\item[{String}]{date}{, }\item[{String}]{location}{, }\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room}{Room}}}]{room}{}\end{DoxyParamCaption})}
 
+
+
+Constructor without reservations list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em movie} & the movie shown in the screening \\
+\hline
+{\em date} & the date of the screening \\
+\hline
+{\em location} & the location of the screening \\
+\hline
+{\em room} & the room where the screening takes place \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
@@ -65,6 +122,17 @@ com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Screening.\+Screening (\begin{Doxy
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_aabcca5f0c279edf6ff064a1de5485593} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Screening.\+add\+Reservation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}}}]{reservation}{}\end{DoxyParamCaption})}
 
+
+
+Adds a reservation to this screening. 
+
+Adds the reservation to the list and sets this screening on the reservation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em reservation} & the reservation to add \\
+\hline
+\end{DoxyParams}
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -79,6 +147,13 @@ Here is the call graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_a0e5510006bd9c1c35c0b13e63f7c0d56} 
 String com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Screening.\+get\+Date (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the date of the screening. 
+
+\begin{DoxyReturn}{Returns}
+the date string 
+\end{DoxyReturn}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -93,6 +168,13 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_ab4e6086d07975f609b8dfaf03b5b3355} 
 Long com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Screening.\+get\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the unique ID of the screening. 
+
+\begin{DoxyReturn}{Returns}
+the screening ID 
+\end{DoxyReturn}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -107,6 +189,13 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_a34b99a18f7aa63f10a053503f28ebc41} 
 String com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Screening.\+get\+Location (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the location of the screening. 
+
+\begin{DoxyReturn}{Returns}
+the location string 
+\end{DoxyReturn}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -121,6 +210,13 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_a8c9186ce488df969beaea5843db0a16c} 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie}{Movie}} com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Screening.\+get\+Movie (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the movie associated with this screening. 
+
+\begin{DoxyReturn}{Returns}
+the movie 
+\end{DoxyReturn}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -135,6 +231,13 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_a89b8274013d63c6d78c0b85324a45bfb} 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Screening.\+get\+Reservations (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the list of reservations for this screening. 
+
+\begin{DoxyReturn}{Returns}
+list of reservations 
+\end{DoxyReturn}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -149,6 +252,13 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_a7c5c24dd850670edcba8421717918c06} 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room}{Room}} com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Screening.\+get\+Room (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the room where the screening takes place. 
+
+\begin{DoxyReturn}{Returns}
+the room 
+\end{DoxyReturn}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -163,24 +273,60 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_aa70b1bd84702df08ae1bfbce4632153f} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Screening.\+set\+Date (\begin{DoxyParamCaption}\item[{String}]{date}{}\end{DoxyParamCaption})}
 
+
+
+Sets the date of the screening. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & the date string to set \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_aafc1e36a49c87ce700b864330e8aee51}\index{com.cinema\_seat\_booking.model.Screening@{com.cinema\_seat\_booking.model.Screening}!setId@{setId}}
 \index{setId@{setId}!com.cinema\_seat\_booking.model.Screening@{com.cinema\_seat\_booking.model.Screening}}
 \doxysubsubsection{\texorpdfstring{setId()}{setId()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_aafc1e36a49c87ce700b864330e8aee51} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Screening.\+set\+Id (\begin{DoxyParamCaption}\item[{Long}]{id}{}\end{DoxyParamCaption})}
 
+
+
+Sets the unique ID of the screening. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the screening ID to set \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_ad89091838b1015bf755c9e4ed7755d0c}\index{com.cinema\_seat\_booking.model.Screening@{com.cinema\_seat\_booking.model.Screening}!setLocation@{setLocation}}
 \index{setLocation@{setLocation}!com.cinema\_seat\_booking.model.Screening@{com.cinema\_seat\_booking.model.Screening}}
 \doxysubsubsection{\texorpdfstring{setLocation()}{setLocation()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_ad89091838b1015bf755c9e4ed7755d0c} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Screening.\+set\+Location (\begin{DoxyParamCaption}\item[{String}]{location}{}\end{DoxyParamCaption})}
 
+
+
+Sets the location of the screening. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em location} & the location string to set \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_ae88d73f3199c33dcb158cf0464d1e63a}\index{com.cinema\_seat\_booking.model.Screening@{com.cinema\_seat\_booking.model.Screening}!setMovie@{setMovie}}
 \index{setMovie@{setMovie}!com.cinema\_seat\_booking.model.Screening@{com.cinema\_seat\_booking.model.Screening}}
 \doxysubsubsection{\texorpdfstring{setMovie()}{setMovie()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_ae88d73f3199c33dcb158cf0464d1e63a} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Screening.\+set\+Movie (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie}{Movie}}}]{movie}{}\end{DoxyParamCaption})}
 
+
+
+Sets the movie associated with this screening. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em movie} & the movie to set \\
+\hline
+\end{DoxyParams}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -195,12 +341,30 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_a571dd159ae5fc948511d23973e7d8f23} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Screening.\+set\+Reservations (\begin{DoxyParamCaption}\item[{List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} $>$}]{reservations}{}\end{DoxyParamCaption})}
 
+
+
+Sets the list of reservations for this screening. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reservations} & the reservations list to set \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_a29d940384af033f4fd27d24950c6ec68}\index{com.cinema\_seat\_booking.model.Screening@{com.cinema\_seat\_booking.model.Screening}!setRoom@{setRoom}}
 \index{setRoom@{setRoom}!com.cinema\_seat\_booking.model.Screening@{com.cinema\_seat\_booking.model.Screening}}
 \doxysubsubsection{\texorpdfstring{setRoom()}{setRoom()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_screening_a29d940384af033f4fd27d24950c6ec68} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Screening.\+set\+Room (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room}{Room}}}]{room}{}\end{DoxyParamCaption})}
 
+
+
+Sets the room where the screening takes place. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em room} & the room to set \\
+\hline
+\end{DoxyParams}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]

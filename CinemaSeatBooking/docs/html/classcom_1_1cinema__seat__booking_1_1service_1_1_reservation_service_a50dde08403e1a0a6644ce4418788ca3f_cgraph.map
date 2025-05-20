@@ -1,5 +1,5 @@
 <map id="com.cinema_seat_booking.service.ReservationService.makePayment" name="com.cinema_seat_booking.service.ReservationService.makePayment">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,232,48"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#a855b27cdb0ac9b03a6726dcc91842a3e" title=" " alt="" coords="280,5,499,48"/>
+<area shape="rect" id="Node000001" title="Processes payment for a reservation." alt="" coords="5,5,232,48"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#a855b27cdb0ac9b03a6726dcc91842a3e" title="Sets the payment for the reservation." alt="" coords="280,5,499,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="232,24,264,24,264,29,232,29"/>
 </map>

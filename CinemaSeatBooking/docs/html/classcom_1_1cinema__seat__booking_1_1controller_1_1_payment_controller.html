@@ -102,15 +102,21 @@ $(function(){initNavTree('classcom_1_1cinema__seat__booking_1_1controller_1_1_pa
   <div class="headertitle"><div class="title">com.cinema_seat_booking.controller.PaymentController Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Controller responsible for managing payment operations.  
+ <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a90cb09ebb2fcea0efd3c8f515af9fd49" id="r_a90cb09ebb2fcea0efd3c8f515af9fd49"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_payment.html">Payment</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90cb09ebb2fcea0efd3c8f515af9fd49">processPayment</a> (@RequestParam Long reservationId, @RequestParam String paymentMethod, @RequestParam double amount, @RequestParam String date)</td></tr>
-<tr class="separator:a90cb09ebb2fcea0efd3c8f515af9fd49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1562b33a813554a46f314dc6ab0a455a" id="r_a1562b33a813554a46f314dc6ab0a455a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_payment.html">Payment</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1562b33a813554a46f314dc6ab0a455a">processPayment</a> ( @RequestParam Long reservationId, @RequestParam String paymentMethod, @RequestParam double amount, @RequestParam String date)</td></tr>
+<tr class="separator:a1562b33a813554a46f314dc6ab0a455a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a90cb09ebb2fcea0efd3c8f515af9fd49" name="a90cb09ebb2fcea0efd3c8f515af9fd49"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90cb09ebb2fcea0efd3c8f515af9fd49">&#9670;&#160;</a></span>processPayment()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Controller responsible for managing payment operations. </p>
+<p>This controller exposes REST endpoints related to payment processing for reservations made in the cinema seat booking system. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1562b33a813554a46f314dc6ab0a455a" name="a1562b33a813554a46f314dc6ab0a455a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1562b33a813554a46f314dc6ab0a455a">&#9670;&#160;</a></span>processPayment()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -137,11 +143,22 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Processes a payment for a given reservation.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reservationId</td><td>the ID of the reservation to be paid </td></tr>
+    <tr><td class="paramname">paymentMethod</td><td>the method used for payment (e.g., credit card, PayPal) </td></tr>
+    <tr><td class="paramname">amount</td><td>the payment amount </td></tr>
+    <tr><td class="paramname">date</td><td>the date of the payment in string format (e.g., "2024-05-01") </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the processed <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_payment.html">Payment</a></code> object </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classcom_1_1cinema__seat__booking_1_1controller_1_1_payment_controller_a90cb09ebb2fcea0efd3c8f515af9fd49_cgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1controller_1_1_payment_controller_a90cb09ebb2fcea0efd3c8f515af9fd49_cgraph" alt=""/></div>
-<map name="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_payment_controller_a90cb09ebb2fcea0efd3c8f515af9fd49_cgraph" id="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_payment_controller_a90cb09ebb2fcea0efd3c8f515af9fd49_cgraph">
+<div class="center"><img src="classcom_1_1cinema__seat__booking_1_1controller_1_1_payment_controller_a1562b33a813554a46f314dc6ab0a455a_cgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1controller_1_1_payment_controller_a1562b33a813554a46f314dc6ab0a455a_cgraph" alt=""/></div>
+<map name="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_payment_controller_a1562b33a813554a46f314dc6ab0a455a_cgraph" id="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_payment_controller_a1562b33a813554a46f314dc6ab0a455a_cgraph">
 <area shape="rect" title=" " alt="" coords="5,29,243,72"/>
 <area shape="poly" title=" " alt="" coords="79,29,77,19,85,10,100,5,124,3,149,5,165,11,163,16,148,10,124,8,102,10,88,15,82,21,84,28"/>
 </map>
@@ -149,8 +166,8 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classcom_1_1cinema__seat__booking_1_1controller_1_1_payment_controller_a90cb09ebb2fcea0efd3c8f515af9fd49_icgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1controller_1_1_payment_controller_a90cb09ebb2fcea0efd3c8f515af9fd49_icgraph" alt=""/></div>
-<map name="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_payment_controller_a90cb09ebb2fcea0efd3c8f515af9fd49_icgraph" id="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_payment_controller_a90cb09ebb2fcea0efd3c8f515af9fd49_icgraph">
+<div class="center"><img src="classcom_1_1cinema__seat__booking_1_1controller_1_1_payment_controller_a1562b33a813554a46f314dc6ab0a455a_icgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1controller_1_1_payment_controller_a1562b33a813554a46f314dc6ab0a455a_icgraph" alt=""/></div>
+<map name="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_payment_controller_a1562b33a813554a46f314dc6ab0a455a_icgraph" id="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_payment_controller_a1562b33a813554a46f314dc6ab0a455a_icgraph">
 <area shape="rect" title=" " alt="" coords="5,29,243,72"/>
 <area shape="poly" title=" " alt="" coords="163,16,148,10,124,8,102,10,88,15,82,21,84,28,79,29,77,19,85,10,100,5,124,3,149,5,165,11"/>
 </map>

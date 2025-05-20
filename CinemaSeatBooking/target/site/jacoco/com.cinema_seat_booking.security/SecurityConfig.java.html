@@ -16,14 +16,14 @@ import com.cinema_seat_booking.model.User;
 
 @Configuration
 @EnableWebSecurity
-<span class="nc" id="L19">public class SecurityConfig {</span>
+<span class="fc" id="L19">public class SecurityConfig {</span>
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-<span class="nc" id="L22">        http.csrf().disable()</span>
-<span class="nc" id="L23">            .authorizeHttpRequests()</span>
-<span class="nc" id="L24">            .anyRequest().permitAll(); // Todo está permitido de momento</span>
+<span class="fc" id="L22">        http.csrf().disable()</span>
+<span class="fc" id="L23">            .authorizeHttpRequests()</span>
+<span class="fc" id="L24">            .anyRequest().permitAll(); // Todo está permitido de momento</span>
 
-<span class="nc" id="L26">        return http.build();</span>
+<span class="fc" id="L26">        return http.build();</span>
     }
     
 

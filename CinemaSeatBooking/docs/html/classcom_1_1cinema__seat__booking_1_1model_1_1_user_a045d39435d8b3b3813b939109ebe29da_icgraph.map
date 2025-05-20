@@ -1,5 +1,5 @@
 <map id="com.cinema_seat_booking.model.User.setRole" name="com.cinema_seat_booking.model.User.setRole">
-<area shape="rect" id="Node000001" title=" " alt="" coords="280,5,499,48"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1service_1_1_user_service.html#a16ce8375585661c4af7829b5d16b3b8c" title=" " alt="" coords="5,5,232,48"/>
+<area shape="rect" id="Node000001" title="Sets the user role." alt="" coords="280,5,499,48"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1service_1_1_user_service.html#a16ce8375585661c4af7829b5d16b3b8c" title="Registers a new user with CLIENT role." alt="" coords="5,5,232,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="264,29,232,29,232,24,264,24"/>
 </map>

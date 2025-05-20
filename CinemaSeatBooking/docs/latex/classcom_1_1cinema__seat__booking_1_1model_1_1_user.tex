@@ -1,44 +1,65 @@
 \doxysection{com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+User Class Reference}
 \hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_user}{}\label{classcom_1_1cinema__seat__booking_1_1model_1_1_user}\index{com.cinema\_seat\_booking.model.User@{com.cinema\_seat\_booking.model.User}}
+
+
+Represents a user of the cinema seat booking system.  
+
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 Long \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user_a72cdce7ff1320f9078eb04aac0a3ed9f}{get\+Id}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the unique ID of the user. \end{DoxyCompactList}\item 
 String \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user_adab648a97119a28b920d9e9022f7d389}{get\+Username}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the username. \end{DoxyCompactList}\item 
 String \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user_af8d178bee1b988cc841fc7957a934cd6}{get\+Password}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the password. \end{DoxyCompactList}\item 
 String \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user_ab30f9021b01b393d66c7014e251b98c1}{get\+Email}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the email address. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{enumcom_1_1cinema__seat__booking_1_1model_1_1_role}{Role}} \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user_ac8787e000f085ecbdd62a037a0a03cdd}{get\+Role}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the role of the user. \end{DoxyCompactList}\item 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user_afa8e7af40e465db44442f157a874d697}{get\+Reservations}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the list of reservations made by the user. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user_a300862149e0d64d645cdb2b6939a2bab}{set\+Id}} (Long id)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the unique ID of the user. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user_a776e5e171dfe2c3bfdca5aac062b8e57}{set\+Username}} (String username)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the username. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user_a505deb007d6ab7d73987e77f93348e23}{set\+Password}} (String password)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the password. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user_a793aef0eff9d4e123336012b0fb84680}{set\+Email}} (String email)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the email address. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user_a045d39435d8b3b3813b939109ebe29da}{set\+Role}} (\mbox{\hyperlink{enumcom_1_1cinema__seat__booking_1_1model_1_1_role}{Role}} role)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the user role. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user_a132567bfdeb8bceb694fb89bde033bbf}{set\+Reservations}} (List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} $>$ reservations)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the list of reservations. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user_afbfc55bea56c756f3b229145247fecd1}{add\+Reservation}} (\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} reservation)
-\item 
+\begin{DoxyCompactList}\small\item\em Adds a reservation to the user. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user_af7e506532deb2916de7a631ddb980951}{remove\+Reservation}} (\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} reservation)
-\item 
+\begin{DoxyCompactList}\small\item\em Removes a reservation from the user. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user_a952148ad7a2d81b6075d222632c074a1}{User}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Default constructor required by JPA. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user_a9f80ea4d026f72e96dccb3dd62f6f745}{User}} (String username, String password, String email, \mbox{\hyperlink{enumcom_1_1cinema__seat__booking_1_1model_1_1_role}{Role}} role, List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} $>$ reservations)
-\item 
+\begin{DoxyCompactList}\small\item\em Constructor with all fields. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user_aa86a40709cfe8fc897bb17ee1ac7f02d}{User}} (String username, String password, String email, \mbox{\hyperlink{enumcom_1_1cinema__seat__booking_1_1model_1_1_role}{Role}} role)
-\item 
+\begin{DoxyCompactList}\small\item\em Constructor without reservations. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user_a3184fcef1afa03697405bf32ddcae624}{User}} (String username, String password, String email)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Constructor with default role CLIENT. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a user of the cinema seat booking system. 
+
+The {\ttfamily User} entity models users who can make reservations in the system. It stores authentication information, user role, and the list of reservations made by the user.
+
+\begin{DoxyAuthor}{Author}
+BSPQ25-\/\+E5 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+2025-\/05-\/19 
+\end{DoxySince}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -48,24 +69,73 @@ void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user_af7e50
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_user_a952148ad7a2d81b6075d222632c074a1} 
 com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+User.\+User (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Default constructor required by JPA. 
+
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_user_a9f80ea4d026f72e96dccb3dd62f6f745}\index{com.cinema\_seat\_booking.model.User@{com.cinema\_seat\_booking.model.User}!User@{User}}
 \index{User@{User}!com.cinema\_seat\_booking.model.User@{com.cinema\_seat\_booking.model.User}}
 \doxysubsubsection{\texorpdfstring{User()}{User()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_user_a9f80ea4d026f72e96dccb3dd62f6f745} 
 com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+User.\+User (\begin{DoxyParamCaption}\item[{String}]{username}{, }\item[{String}]{password}{, }\item[{String}]{email}{, }\item[{\mbox{\hyperlink{enumcom_1_1cinema__seat__booking_1_1model_1_1_role}{Role}}}]{role}{, }\item[{List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} $>$}]{reservations}{}\end{DoxyParamCaption})}
 
+
+
+Constructor with all fields. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & the username \\
+\hline
+{\em password} & the password \\
+\hline
+{\em email} & the email address \\
+\hline
+{\em role} & the user role \\
+\hline
+{\em reservations} & initial list of reservations \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_user_aa86a40709cfe8fc897bb17ee1ac7f02d}\index{com.cinema\_seat\_booking.model.User@{com.cinema\_seat\_booking.model.User}!User@{User}}
 \index{User@{User}!com.cinema\_seat\_booking.model.User@{com.cinema\_seat\_booking.model.User}}
 \doxysubsubsection{\texorpdfstring{User()}{User()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_user_aa86a40709cfe8fc897bb17ee1ac7f02d} 
 com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+User.\+User (\begin{DoxyParamCaption}\item[{String}]{username}{, }\item[{String}]{password}{, }\item[{String}]{email}{, }\item[{\mbox{\hyperlink{enumcom_1_1cinema__seat__booking_1_1model_1_1_role}{Role}}}]{role}{}\end{DoxyParamCaption})}
 
+
+
+Constructor without reservations. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & the username \\
+\hline
+{\em password} & the password \\
+\hline
+{\em email} & the email address \\
+\hline
+{\em role} & the user role \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_user_a3184fcef1afa03697405bf32ddcae624}\index{com.cinema\_seat\_booking.model.User@{com.cinema\_seat\_booking.model.User}!User@{User}}
 \index{User@{User}!com.cinema\_seat\_booking.model.User@{com.cinema\_seat\_booking.model.User}}
 \doxysubsubsection{\texorpdfstring{User()}{User()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_user_a3184fcef1afa03697405bf32ddcae624} 
 com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+User.\+User (\begin{DoxyParamCaption}\item[{String}]{username}{, }\item[{String}]{password}{, }\item[{String}]{email}{}\end{DoxyParamCaption})}
 
+
+
+Constructor with default role CLIENT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & the username \\
+\hline
+{\em password} & the password \\
+\hline
+{\em email} & the email address \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
@@ -75,6 +145,17 @@ com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+User.\+User (\begin{DoxyParamCapti
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_user_afbfc55bea56c756f3b229145247fecd1} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+User.\+add\+Reservation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}}}]{reservation}{}\end{DoxyParamCaption})}
 
+
+
+Adds a reservation to the user. 
+
+Adds the reservation to the list and sets this user on the reservation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em reservation} & the reservation to add \\
+\hline
+\end{DoxyParams}
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -89,18 +170,39 @@ Here is the call graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_user_ab30f9021b01b393d66c7014e251b98c1} 
 String com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+User.\+get\+Email (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the email address. 
+
+\begin{DoxyReturn}{Returns}
+the email 
+\end{DoxyReturn}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_user_a72cdce7ff1320f9078eb04aac0a3ed9f}\index{com.cinema\_seat\_booking.model.User@{com.cinema\_seat\_booking.model.User}!getId@{getId}}
 \index{getId@{getId}!com.cinema\_seat\_booking.model.User@{com.cinema\_seat\_booking.model.User}}
 \doxysubsubsection{\texorpdfstring{getId()}{getId()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_user_a72cdce7ff1320f9078eb04aac0a3ed9f} 
 Long com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+User.\+get\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the unique ID of the user. 
+
+\begin{DoxyReturn}{Returns}
+the user ID 
+\end{DoxyReturn}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_user_af8d178bee1b988cc841fc7957a934cd6}\index{com.cinema\_seat\_booking.model.User@{com.cinema\_seat\_booking.model.User}!getPassword@{getPassword}}
 \index{getPassword@{getPassword}!com.cinema\_seat\_booking.model.User@{com.cinema\_seat\_booking.model.User}}
 \doxysubsubsection{\texorpdfstring{getPassword()}{getPassword()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_user_af8d178bee1b988cc841fc7957a934cd6} 
 String com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+User.\+get\+Password (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the password. 
+
+\begin{DoxyReturn}{Returns}
+the password 
+\end{DoxyReturn}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -115,12 +217,26 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_user_afa8e7af40e465db44442f157a874d697} 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+User.\+get\+Reservations (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the list of reservations made by the user. 
+
+\begin{DoxyReturn}{Returns}
+list of reservations 
+\end{DoxyReturn}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_user_ac8787e000f085ecbdd62a037a0a03cdd}\index{com.cinema\_seat\_booking.model.User@{com.cinema\_seat\_booking.model.User}!getRole@{getRole}}
 \index{getRole@{getRole}!com.cinema\_seat\_booking.model.User@{com.cinema\_seat\_booking.model.User}}
 \doxysubsubsection{\texorpdfstring{getRole()}{getRole()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_user_ac8787e000f085ecbdd62a037a0a03cdd} 
 \mbox{\hyperlink{enumcom_1_1cinema__seat__booking_1_1model_1_1_role}{Role}} com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+User.\+get\+Role (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the role of the user. 
+
+\begin{DoxyReturn}{Returns}
+the role 
+\end{DoxyReturn}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -135,6 +251,13 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_user_adab648a97119a28b920d9e9022f7d389} 
 String com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+User.\+get\+Username (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the username. 
+
+\begin{DoxyReturn}{Returns}
+the username 
+\end{DoxyReturn}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -149,6 +272,17 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_user_af7e506532deb2916de7a631ddb980951} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+User.\+remove\+Reservation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}}}]{reservation}{}\end{DoxyParamCaption})}
 
+
+
+Removes a reservation from the user. 
+
+Removes the reservation from the list and clears the user on the reservation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em reservation} & the reservation to remove \\
+\hline
+\end{DoxyParams}
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -171,6 +305,15 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_user_a793aef0eff9d4e123336012b0fb84680} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+User.\+set\+Email (\begin{DoxyParamCaption}\item[{String}]{email}{}\end{DoxyParamCaption})}
 
+
+
+Sets the email address. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & the email to set \\
+\hline
+\end{DoxyParams}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -185,12 +328,30 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_user_a300862149e0d64d645cdb2b6939a2bab} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+User.\+set\+Id (\begin{DoxyParamCaption}\item[{Long}]{id}{}\end{DoxyParamCaption})}
 
+
+
+Sets the unique ID of the user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the user ID to set \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_user_a505deb007d6ab7d73987e77f93348e23}\index{com.cinema\_seat\_booking.model.User@{com.cinema\_seat\_booking.model.User}!setPassword@{setPassword}}
 \index{setPassword@{setPassword}!com.cinema\_seat\_booking.model.User@{com.cinema\_seat\_booking.model.User}}
 \doxysubsubsection{\texorpdfstring{setPassword()}{setPassword()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_user_a505deb007d6ab7d73987e77f93348e23} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+User.\+set\+Password (\begin{DoxyParamCaption}\item[{String}]{password}{}\end{DoxyParamCaption})}
 
+
+
+Sets the password. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em password} & the password to set \\
+\hline
+\end{DoxyParams}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -205,12 +366,32 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_user_a132567bfdeb8bceb694fb89bde033bbf} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+User.\+set\+Reservations (\begin{DoxyParamCaption}\item[{List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} $>$}]{reservations}{}\end{DoxyParamCaption})}
 
+
+
+Sets the list of reservations. 
+
+Marked with @\+Json\+Ignore to avoid serialization recursion issues.
+
+
+\begin{DoxyParams}{Parameters}
+{\em reservations} & the reservations list to set \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_user_a045d39435d8b3b3813b939109ebe29da}\index{com.cinema\_seat\_booking.model.User@{com.cinema\_seat\_booking.model.User}!setRole@{setRole}}
 \index{setRole@{setRole}!com.cinema\_seat\_booking.model.User@{com.cinema\_seat\_booking.model.User}}
 \doxysubsubsection{\texorpdfstring{setRole()}{setRole()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_user_a045d39435d8b3b3813b939109ebe29da} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+User.\+set\+Role (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumcom_1_1cinema__seat__booking_1_1model_1_1_role}{Role}}}]{role}{}\end{DoxyParamCaption})}
 
+
+
+Sets the user role. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em role} & the role to set \\
+\hline
+\end{DoxyParams}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -225,6 +406,15 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_user_a776e5e171dfe2c3bfdca5aac062b8e57} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+User.\+set\+Username (\begin{DoxyParamCaption}\item[{String}]{username}{}\end{DoxyParamCaption})}
 
+
+
+Sets the username. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & the username to set \\
+\hline
+\end{DoxyParams}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]

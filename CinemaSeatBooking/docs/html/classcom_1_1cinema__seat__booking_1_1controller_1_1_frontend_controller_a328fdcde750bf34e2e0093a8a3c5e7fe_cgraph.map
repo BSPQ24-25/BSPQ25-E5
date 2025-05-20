@@ -1,6 +1,6 @@
 <map id="com.cinema_seat_booking.controller.FrontendController.showMyReservationsPage" name="com.cinema_seat_booking.controller.FrontendController.showMyReservationsPage">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,29,294,72"/>
 <area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="93,29,91,19,100,10,120,5,150,3,182,5,201,11,199,16,181,10,149,8,121,10,103,15,96,21,98,28"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#adab648a97119a28b920d9e9022f7d389" title=" " alt="" coords="342,29,561,72"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#adab648a97119a28b920d9e9022f7d389" title="Gets the username." alt="" coords="342,29,561,72"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="294,48,326,48,326,53,294,53"/>
 </map>

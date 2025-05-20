@@ -47,8 +47,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_admin_controller_8java.html",
-"classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o.html",
-"classcom_1_1cinema__seat__booking_1_1model_1_1_screening.html#a41a686b3e31d07e7d3570726bad94fa7",
+"classcom_1_1cinema__seat__booking_1_1dto_1_1_create_room_d_t_o.html#acad737c8be3cc4aaceb324d046363d94",
+"classcom_1_1cinema__seat__booking_1_1model_1_1_screening.html#a34b99a18f7aa63f10a053503f28ebc41",
 "functions_h.html"
 ];
 

@@ -1,10 +1,10 @@
 <map id="com.cinema_seat_booking.model.User.getRole" name="com.cinema_seat_booking.model.User.getRole">
-<area shape="rect" id="Node000001" title=" " alt="" coords="291,120,510,163"/>
+<area shape="rect" id="Node000001" title="Gets the role of the user." alt="" coords="291,120,510,163"/>
 <area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1controller_1_1_auth_controller.html#ac92b63ec9c6fc2ef4a9a566d234b070e" title=" " alt="" coords="5,29,243,72"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="327,116,242,87,205,75,207,70,244,81,329,111"/>
 <area shape="rect" id="Node000003" href="$classcom_1_1cinema__seat__booking_1_1controller_1_1_frontend_controller.html#ac97ba175d7b721fef7551624b43a893a" title=" " alt="" coords="5,120,243,163"/>
 <area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="275,144,243,144,243,139,275,139"/>
-<area shape="rect" id="Node000004" href="$classcom_1_1cinema__seat__booking_1_1controller_1_1_login_controller.html#a759ad11630a18882b142c9f73885f426" title=" " alt="" coords="5,187,243,229"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1cinema__seat__booking_1_1controller_1_1_login_controller.html#a21d00952e82504290f814a9a7f741e6c" title=" " alt="" coords="5,187,243,229"/>
 <area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="295,169,216,189,215,183,294,164"/>
 <area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="169,16,153,10,124,8,98,10,81,15,75,21,77,28,72,29,70,19,79,10,97,5,124,3,154,5,171,11"/>
 <area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="169,107,153,101,124,99,98,101,81,105,75,111,77,119,72,120,70,110,79,101,97,95,124,93,154,96,171,102"/>

@@ -1,25 +1,33 @@
 \doxysection{com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Screening\+Service Class Reference}
 \hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_screening_service}{}\label{classcom_1_1cinema__seat__booking_1_1service_1_1_screening_service}\index{com.cinema\_seat\_booking.service.ScreeningService@{com.cinema\_seat\_booking.service.ScreeningService}}
+
+
+Handles business logic related to movie screenings.  
+
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_screening_service_a71214d0078f1adc9bb57781209fb5e16}{get\+All\+Screenings}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Retrieves all screenings with their room seats initialized. \end{DoxyCompactList}\item 
 Optional$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_screening_service_aa90a49bdfbcf0fa1028b7796ed804e99}{get\+Screening\+By\+Id}} (Long id)
-\item 
+\begin{DoxyCompactList}\small\item\em Retrieves a screening by its ID with room seats initialized. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_screening_service_a94c71a5f42030df29e14a3c406709d60}{schedule\+Screening}} (\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} screening)
-\item 
+\begin{DoxyCompactList}\small\item\em Schedules a new screening. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_screening_service_a90cb0b46dd6940ee8cfa88082fa5ab9b}{delete\+Screening}} (Long id)
-\item 
+\begin{DoxyCompactList}\small\item\em Deletes a screening by its ID. \end{DoxyCompactList}\item 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_screening_service_ab5b595b2f7dfe59511da7f74ff983b5e}{get\+Screenings\+By\+Movie}} (Long movie\+Id)
-\item 
+\begin{DoxyCompactList}\small\item\em Retrieves all screenings for a specific movie. \end{DoxyCompactList}\item 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_screening_service_a446d96026c76c29a7068d03b462e2b07}{get\+Screenings\+By\+Date}} (String date)
-\item 
+\begin{DoxyCompactList}\small\item\em Retrieves screenings scheduled for a specific date. \end{DoxyCompactList}\item 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_screening_service_a900f0a8482c2c43ceebc2285f012c647}{get\+Screenings\+By\+Location}} (String location)
-\item 
+\begin{DoxyCompactList}\small\item\em Retrieves screenings by location. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_screening_service_ac6c64aef6e217680c2962300a1b04654}{update\+Screening}} (Long id, \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} new\+Screening)  throws Exception 
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Updates an existing screening with new information. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Handles business logic related to movie screenings. 
 
 \doxysubsection{Member Function Documentation}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_screening_service_a90cb0b46dd6940ee8cfa88082fa5ab9b}\index{com.cinema\_seat\_booking.service.ScreeningService@{com.cinema\_seat\_booking.service.ScreeningService}!deleteScreening@{deleteScreening}}
@@ -28,48 +36,143 @@ List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screenin
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_screening_service_a90cb0b46dd6940ee8cfa88082fa5ab9b} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Screening\+Service.\+delete\+Screening (\begin{DoxyParamCaption}\item[{Long}]{id}{}\end{DoxyParamCaption})}
 
+
+
+Deletes a screening by its ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the ID of the screening to delete \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_screening_service_a71214d0078f1adc9bb57781209fb5e16}\index{com.cinema\_seat\_booking.service.ScreeningService@{com.cinema\_seat\_booking.service.ScreeningService}!getAllScreenings@{getAllScreenings}}
 \index{getAllScreenings@{getAllScreenings}!com.cinema\_seat\_booking.service.ScreeningService@{com.cinema\_seat\_booking.service.ScreeningService}}
 \doxysubsubsection{\texorpdfstring{getAllScreenings()}{getAllScreenings()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_screening_service_a71214d0078f1adc9bb57781209fb5e16} 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Screening\+Service.\+get\+All\+Screenings (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Retrieves all screenings with their room seats initialized. 
+
+\begin{DoxyReturn}{Returns}
+a list of all {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} instances 
+\end{DoxyReturn}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_screening_service_aa90a49bdfbcf0fa1028b7796ed804e99}\index{com.cinema\_seat\_booking.service.ScreeningService@{com.cinema\_seat\_booking.service.ScreeningService}!getScreeningById@{getScreeningById}}
 \index{getScreeningById@{getScreeningById}!com.cinema\_seat\_booking.service.ScreeningService@{com.cinema\_seat\_booking.service.ScreeningService}}
 \doxysubsubsection{\texorpdfstring{getScreeningById()}{getScreeningById()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_screening_service_aa90a49bdfbcf0fa1028b7796ed804e99} 
 Optional$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Screening\+Service.\+get\+Screening\+By\+Id (\begin{DoxyParamCaption}\item[{Long}]{id}{}\end{DoxyParamCaption})}
 
+
+
+Retrieves a screening by its ID with room seats initialized. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the ID of the screening \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an {\ttfamily \doxylink{}{Optional}} containing the {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} if found 
+\end{DoxyReturn}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_screening_service_a446d96026c76c29a7068d03b462e2b07}\index{com.cinema\_seat\_booking.service.ScreeningService@{com.cinema\_seat\_booking.service.ScreeningService}!getScreeningsByDate@{getScreeningsByDate}}
 \index{getScreeningsByDate@{getScreeningsByDate}!com.cinema\_seat\_booking.service.ScreeningService@{com.cinema\_seat\_booking.service.ScreeningService}}
 \doxysubsubsection{\texorpdfstring{getScreeningsByDate()}{getScreeningsByDate()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_screening_service_a446d96026c76c29a7068d03b462e2b07} 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Screening\+Service.\+get\+Screenings\+By\+Date (\begin{DoxyParamCaption}\item[{String}]{date}{}\end{DoxyParamCaption})}
 
+
+
+Retrieves screenings scheduled for a specific date. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & the screening date in string format \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a list of {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} instances matching the date 
+\end{DoxyReturn}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_screening_service_a900f0a8482c2c43ceebc2285f012c647}\index{com.cinema\_seat\_booking.service.ScreeningService@{com.cinema\_seat\_booking.service.ScreeningService}!getScreeningsByLocation@{getScreeningsByLocation}}
 \index{getScreeningsByLocation@{getScreeningsByLocation}!com.cinema\_seat\_booking.service.ScreeningService@{com.cinema\_seat\_booking.service.ScreeningService}}
 \doxysubsubsection{\texorpdfstring{getScreeningsByLocation()}{getScreeningsByLocation()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_screening_service_a900f0a8482c2c43ceebc2285f012c647} 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Screening\+Service.\+get\+Screenings\+By\+Location (\begin{DoxyParamCaption}\item[{String}]{location}{}\end{DoxyParamCaption})}
 
+
+
+Retrieves screenings by location. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em location} & the location string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a list of {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} instances at the specified location 
+\end{DoxyReturn}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_screening_service_ab5b595b2f7dfe59511da7f74ff983b5e}\index{com.cinema\_seat\_booking.service.ScreeningService@{com.cinema\_seat\_booking.service.ScreeningService}!getScreeningsByMovie@{getScreeningsByMovie}}
 \index{getScreeningsByMovie@{getScreeningsByMovie}!com.cinema\_seat\_booking.service.ScreeningService@{com.cinema\_seat\_booking.service.ScreeningService}}
 \doxysubsubsection{\texorpdfstring{getScreeningsByMovie()}{getScreeningsByMovie()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_screening_service_ab5b595b2f7dfe59511da7f74ff983b5e} 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Screening\+Service.\+get\+Screenings\+By\+Movie (\begin{DoxyParamCaption}\item[{Long}]{movie\+Id}{}\end{DoxyParamCaption})}
 
+
+
+Retrieves all screenings for a specific movie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em movie\+Id} & the ID of the movie \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a list of {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} instances for the movie 
+\end{DoxyReturn}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_screening_service_a94c71a5f42030df29e14a3c406709d60}\index{com.cinema\_seat\_booking.service.ScreeningService@{com.cinema\_seat\_booking.service.ScreeningService}!scheduleScreening@{scheduleScreening}}
 \index{scheduleScreening@{scheduleScreening}!com.cinema\_seat\_booking.service.ScreeningService@{com.cinema\_seat\_booking.service.ScreeningService}}
 \doxysubsubsection{\texorpdfstring{scheduleScreening()}{scheduleScreening()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_screening_service_a94c71a5f42030df29e14a3c406709d60} 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Screening\+Service.\+schedule\+Screening (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}}}]{screening}{}\end{DoxyParamCaption})}
 
+
+
+Schedules a new screening. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em screening} & the {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} to save \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the saved {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} object 
+\end{DoxyReturn}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_screening_service_ac6c64aef6e217680c2962300a1b04654}\index{com.cinema\_seat\_booking.service.ScreeningService@{com.cinema\_seat\_booking.service.ScreeningService}!updateScreening@{updateScreening}}
 \index{updateScreening@{updateScreening}!com.cinema\_seat\_booking.service.ScreeningService@{com.cinema\_seat\_booking.service.ScreeningService}}
 \doxysubsubsection{\texorpdfstring{updateScreening()}{updateScreening()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_screening_service_ac6c64aef6e217680c2962300a1b04654} 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Screening\+Service.\+update\+Screening (\begin{DoxyParamCaption}\item[{Long}]{id}{, }\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}}}]{new\+Screening}{}\end{DoxyParamCaption}) throws Exception}
 
+
+
+Updates an existing screening with new information. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the ID of the screening to update \\
+\hline
+{\em new\+Screening} & the {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} object containing updated data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the updated {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}}
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & if the screening is not found \\
+\hline
+\end{DoxyExceptions}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

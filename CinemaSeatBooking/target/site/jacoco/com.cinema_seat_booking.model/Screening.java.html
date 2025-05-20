@@ -84,7 +84,7 @@ public class Screening {
      * @return the screening ID
      */
     public Long getId() {
-<span class="nc" id="L87">        return id;</span>
+<span class="fc" id="L87">        return id;</span>
     }
 
     /**
@@ -92,15 +92,15 @@ public class Screening {
      * @param id the screening ID to set
      */
     public void setId(Long id) {
-<span class="nc" id="L95">        this.id = id;</span>
-<span class="nc" id="L96">    }</span>
+<span class="fc" id="L95">        this.id = id;</span>
+<span class="fc" id="L96">    }</span>
 
     /**
      * @brief Gets the movie associated with this screening.
      * @return the movie
      */
     public Movie getMovie() {
-<span class="nc" id="L103">        return movie;</span>
+<span class="fc" id="L103">        return movie;</span>
     }
 
     /**
@@ -108,15 +108,15 @@ public class Screening {
      * @param movie the movie to set
      */
     public void setMovie(Movie movie) {
-<span class="nc" id="L111">        this.movie = movie;</span>
-<span class="nc" id="L112">    }</span>
+<span class="fc" id="L111">        this.movie = movie;</span>
+<span class="fc" id="L112">    }</span>
 
     /**
      * @brief Gets the date of the screening.
      * @return the date string
      */
     public String getDate() {
-<span class="nc" id="L119">        return date;</span>
+<span class="fc" id="L119">        return date;</span>
     }
 
     /**
@@ -124,15 +124,15 @@ public class Screening {
      * @param date the date string to set
      */
     public void setDate(String date) {
-<span class="nc" id="L127">        this.date = date;</span>
-<span class="nc" id="L128">    }</span>
+<span class="fc" id="L127">        this.date = date;</span>
+<span class="fc" id="L128">    }</span>
 
     /**
      * @brief Gets the location of the screening.
      * @return the location string
      */
     public String getLocation() {
-<span class="nc" id="L135">        return location;</span>
+<span class="fc" id="L135">        return location;</span>
     }
 
     /**
@@ -140,15 +140,15 @@ public class Screening {
      * @param location the location string to set
      */
     public void setLocation(String location) {
-<span class="nc" id="L143">        this.location = location;</span>
-<span class="nc" id="L144">    }</span>
+<span class="fc" id="L143">        this.location = location;</span>
+<span class="fc" id="L144">    }</span>
 
     /**
      * @brief Gets the room where the screening takes place.
      * @return the room
      */
     public Room getRoom() {
-<span class="nc" id="L151">        return room;</span>
+<span class="fc" id="L151">        return room;</span>
     }
 
     /**
@@ -156,15 +156,15 @@ public class Screening {
      * @param room the room to set
      */
     public void setRoom(Room room) {
-<span class="nc" id="L159">        this.room = room;</span>
-<span class="nc" id="L160">    }</span>
+<span class="fc" id="L159">        this.room = room;</span>
+<span class="fc" id="L160">    }</span>
 
     /**
      * @brief Gets the list of reservations for this screening.
      * @return list of reservations
      */
     public List&lt;Reservation&gt; getReservations() {
-<span class="nc" id="L167">        return reservations;</span>
+<span class="fc" id="L167">        return reservations;</span>
     }
 
     /**
@@ -172,8 +172,8 @@ public class Screening {
      * @param reservations the reservations list to set
      */
     public void setReservations(List&lt;Reservation&gt; reservations) {
-<span class="nc" id="L175">        this.reservations = reservations;</span>
-<span class="nc" id="L176">    }</span>
+<span class="fc" id="L175">        this.reservations = reservations;</span>
+<span class="fc" id="L176">    }</span>
 
     /**
      * @brief Adds a reservation to this screening.
@@ -184,21 +184,21 @@ public class Screening {
      * @param reservation the reservation to add
      */
     public void addReservation(Reservation reservation) {
-<span class="nc bnc" id="L187" title="All 2 branches missed.">        if (this.reservations == null) {</span>
+<span class="pc bpc" id="L187" title="1 of 2 branches missed.">        if (this.reservations == null) {</span>
 <span class="nc" id="L188">            this.reservations = new ArrayList&lt;&gt;();</span>
         }
-<span class="nc" id="L190">        this.reservations.add(reservation);</span>
-<span class="nc" id="L191">        reservation.setScreening(this);</span>
-<span class="nc" id="L192">    }</span>
+<span class="fc" id="L190">        this.reservations.add(reservation);</span>
+<span class="fc" id="L191">        reservation.setScreening(this);</span>
+<span class="fc" id="L192">    }</span>
 
     /**
      * @brief Default constructor required by JPA.
      *
      * @details Initializes the reservations list.
      */
-<span class="nc" id="L199">    public Screening() {</span>
-<span class="nc" id="L200">        this.reservations = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L201">    }</span>
+<span class="fc" id="L199">    public Screening() {</span>
+<span class="fc" id="L200">        this.reservations = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L201">    }</span>
 
     /**
      * @brief Constructor with all fields.
@@ -210,13 +210,13 @@ public class Screening {
      * @param reservations the initial list of reservations
      */
     public Screening(Movie movie, String date, String location, Room room, List&lt;Reservation&gt; reservations) {
-<span class="nc" id="L213">        super();</span>
-<span class="nc" id="L214">        this.movie = movie;</span>
-<span class="nc" id="L215">        this.date = date;</span>
-<span class="nc" id="L216">        this.location = location;</span>
-<span class="nc" id="L217">        this.room = room;</span>
-<span class="nc bnc" id="L218" title="All 2 branches missed.">        this.reservations = reservations != null ? reservations : new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L219">    }</span>
+<span class="fc" id="L213">        super();</span>
+<span class="fc" id="L214">        this.movie = movie;</span>
+<span class="fc" id="L215">        this.date = date;</span>
+<span class="fc" id="L216">        this.location = location;</span>
+<span class="fc" id="L217">        this.room = room;</span>
+<span class="pc bpc" id="L218" title="1 of 2 branches missed.">        this.reservations = reservations != null ? reservations : new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L219">    }</span>
 
     /**
      * @brief Constructor without reservations list.
@@ -226,12 +226,12 @@ public class Screening {
      * @param location the location of the screening
      * @param room the room where the screening takes place
      */
-<span class="nc" id="L229">    public Screening(Movie movie, String date, String location, Room room) {</span>
-<span class="nc" id="L230">        this.movie = movie;</span>
-<span class="nc" id="L231">        this.date = date;</span>
-<span class="nc" id="L232">        this.location = location;</span>
-<span class="nc" id="L233">        this.room = room;</span>
-<span class="nc" id="L234">        this.reservations = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L235">    }</span>
+<span class="fc" id="L229">    public Screening(Movie movie, String date, String location, Room room) {</span>
+<span class="fc" id="L230">        this.movie = movie;</span>
+<span class="fc" id="L231">        this.date = date;</span>
+<span class="fc" id="L232">        this.location = location;</span>
+<span class="fc" id="L233">        this.room = room;</span>
+<span class="fc" id="L234">        this.reservations = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L235">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

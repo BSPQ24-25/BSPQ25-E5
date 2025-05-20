@@ -36,7 +36,7 @@ import java.util.*;
  * generates associated seats when a room is created.
  */
 @Service
-<span class="nc" id="L39">public class RoomService {</span>
+<span class="fc" id="L39">public class RoomService {</span>
 
     @Autowired
     private RoomRepository roomRepository;
@@ -52,17 +52,17 @@ import java.util.*;
      * @return the created {@link Room} with seats assigned
      */
     public Room createRoomWithSeats(String name, int seatCount) {
-<span class="nc" id="L55">        Room room = new Room(name);</span>
-<span class="nc" id="L56">        roomRepository.save(room);</span>
+<span class="fc" id="L55">        Room room = new Room(name);</span>
+<span class="fc" id="L56">        roomRepository.save(room);</span>
 
-<span class="nc" id="L58">        List&lt;Seat&gt; seats = new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L59" title="All 2 branches missed.">        for (int i = 1; i &lt;= 20; i++) {</span>
-<span class="nc" id="L60">            seats.add(new Seat(i, room));</span>
+<span class="fc" id="L58">        List&lt;Seat&gt; seats = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">        for (int i = 1; i &lt;= 20; i++) {</span>
+<span class="fc" id="L60">            seats.add(new Seat(i, room));</span>
         }
 
-<span class="nc" id="L63">        seatRepository.saveAll(seats);</span>
-<span class="nc" id="L64">        room.setSeats(seats);</span>
-<span class="nc" id="L65">        return roomRepository.save(room);</span>
+<span class="fc" id="L63">        seatRepository.saveAll(seats);</span>
+<span class="fc" id="L64">        room.setSeats(seats);</span>
+<span class="fc" id="L65">        return roomRepository.save(room);</span>
     }
 
     /**
@@ -73,9 +73,9 @@ import java.util.*;
      */
     @Transactional(readOnly = true)
     public Optional&lt;Room&gt; getRoomById(Long id) {
-<span class="nc" id="L76">        return roomRepository.findById(id).map(room -&gt; {</span>
-<span class="nc" id="L77">            room.getSeats().size(); // Force initialization</span>
-<span class="nc" id="L78">            return room;</span>
+<span class="fc" id="L76">        return roomRepository.findById(id).map(room -&gt; {</span>
+<span class="fc" id="L77">            room.getSeats().size(); // Force initialization</span>
+<span class="fc" id="L78">            return room;</span>
         });
     }
 
@@ -86,9 +86,9 @@ import java.util.*;
      */
     @Transactional(readOnly = true)
     public List&lt;Room&gt; getAllRooms() {
-<span class="nc" id="L89">        List&lt;Room&gt; rooms = roomRepository.findAll();</span>
-<span class="nc" id="L90">        rooms.forEach(room -&gt; room.getSeats().size()); // Force initialization</span>
-<span class="nc" id="L91">        return rooms;</span>
+<span class="fc" id="L89">        List&lt;Room&gt; rooms = roomRepository.findAll();</span>
+<span class="fc" id="L90">        rooms.forEach(room -&gt; room.getSeats().size()); // Force initialization</span>
+<span class="fc" id="L91">        return rooms;</span>
     }
 
     /**
@@ -97,8 +97,8 @@ import java.util.*;
      * @param id the ID of the room to delete
      */
     public void deleteRoom(Long id) {
-<span class="nc" id="L100">        roomRepository.deleteById(id);</span>
-<span class="nc" id="L101">    }</span>
+<span class="fc" id="L100">        roomRepository.deleteById(id);</span>
+<span class="fc" id="L101">    }</span>
 
     /**
      * @brief Updates the name of an existing room.
@@ -110,11 +110,11 @@ import java.util.*;
      * @throws NoSuchElementException if the room is not found
      */
     public Room updateRoom(Long id, String newName) throws NoSuchElementException {
-<span class="nc" id="L113">        Room room = roomRepository.findById(id)</span>
-<span class="nc" id="L114">                .orElseThrow(() -&gt; new NoSuchElementException(&quot;Room not found with ID: &quot; + id));</span>
+<span class="fc" id="L113">        Room room = roomRepository.findById(id)</span>
+<span class="fc" id="L114">                .orElseThrow(() -&gt; new NoSuchElementException(&quot;Room not found with ID: &quot; + id));</span>
 
-<span class="nc" id="L116">        room.setName(newName);</span>
-<span class="nc" id="L117">        return roomRepository.save(room);</span>
+<span class="fc" id="L116">        room.setName(newName);</span>
+<span class="fc" id="L117">        return roomRepository.save(room);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

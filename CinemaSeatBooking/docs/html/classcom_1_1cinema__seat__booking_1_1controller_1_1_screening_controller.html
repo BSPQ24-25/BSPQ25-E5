@@ -102,6 +102,9 @@ $(function(){initNavTree('classcom_1_1cinema__seat__booking_1_1controller_1_1_sc
   <div class="headertitle"><div class="title">com.cinema_seat_booking.controller.ScreeningController Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Handles HTTP requests related to movie screenings.  
+ <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -122,7 +125,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1ec0cb416d229259eb038e4a8fde2729" id="r_a1ec0cb416d229259eb038e4a8fde2729"><td class="memItemLeft" align="right" valign="top">ResponseEntity&lt; List&lt; <a class="el" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o.html">ScreeningDTO</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ec0cb416d229259eb038e4a8fde2729">getScreeningsByLocation</a> (@PathVariable String location)</td></tr>
 <tr class="separator:a1ec0cb416d229259eb038e4a8fde2729"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Handles HTTP requests related to movie screenings. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a90619de243db7506ef7a7bde6cb1e7c7" name="a90619de243db7506ef7a7bde6cb1e7c7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a90619de243db7506ef7a7bde6cb1e7c7">&#9670;&#160;</a></span>deleteScreening()</h2>
 
@@ -137,6 +142,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Deletes a screening by ID.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The ID of the screening </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>HTTP 204 if successful, 404 if not found </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -172,6 +185,8 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Retrieves all screenings.</p>
+<dl class="section return"><dt>Returns</dt><dd>List of <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o.html">ScreeningDTO</a></code> wrapped in <code><a class="el" href="">ResponseEntity</a></code> </dd></dl>
 
 </div>
 </div>
@@ -189,6 +204,14 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Retrieves a screening by its ID.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The ID of the screening </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code><a class="el" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o.html">ScreeningDTO</a></code> if found, 404 otherwise </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -224,6 +247,14 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Retrieves screenings by date.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">date</td><td>The screening date in string format (e.g., "2025-05-18") </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>List of <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o.html">ScreeningDTO</a></code> for that date </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -259,6 +290,14 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Retrieves screenings by location.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">location</td><td>The location of the screening (e.g., cinema name or branch) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>List of <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o.html">ScreeningDTO</a></code> for that location </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -294,6 +333,14 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Retrieves screenings by movie ID.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">movieId</td><td>The ID of the movie </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>List of <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o.html">ScreeningDTO</a></code> for the given movie </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -329,6 +376,14 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Schedules a new movie screening.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">screening</td><td>The screening entity to be created </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Created <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o.html">ScreeningDTO</a></code> or HTTP 400 on error </dd></dl>
 
 </div>
 </div>
@@ -350,6 +405,15 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Updates the details of an existing screening.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The ID of the screening </td></tr>
+    <tr><td class="paramname">screeningDetails</td><td>The updated screening data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Updated <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_screening_d_t_o.html">ScreeningDTO</a></code> or error status </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

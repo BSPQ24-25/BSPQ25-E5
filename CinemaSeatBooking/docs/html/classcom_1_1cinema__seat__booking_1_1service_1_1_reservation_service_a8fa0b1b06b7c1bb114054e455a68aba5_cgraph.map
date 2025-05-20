@@ -1,11 +1,11 @@
 <map id="com.cinema_seat_booking.service.ReservationService.createReservation" name="com.cinema_seat_booking.service.ReservationService.createReservation">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,105,251,148"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a9c621d974953ff69978677138fede8fb" title=" " alt="" coords="299,5,518,48"/>
+<area shape="rect" id="Node000001" title="Creates a new reservation for a user and a specific seat in a screening." alt="" coords="5,105,251,148"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a9c621d974953ff69978677138fede8fb" title="Gets the unique ID of the seat." alt="" coords="299,5,518,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,102,298,57,318,51,320,56,300,63,183,107"/>
-<area shape="rect" id="Node000003" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#ab4b0c8caf25d7db65ab9194bbed49616" title=" " alt="" coords="299,72,518,115"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#ab4b0c8caf25d7db65ab9194bbed49616" title="Gets the seat number." alt="" coords="299,72,518,115"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="251,109,283,106,284,111,251,115"/>
-<area shape="rect" id="Node000004" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#afdaaad63ef2e75d82075d3a7d7df9716" title=" " alt="" coords="299,139,518,181"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#afdaaad63ef2e75d82075d3a7d7df9716" title="Sets the reservation state." alt="" coords="299,139,518,181"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="251,139,284,143,283,148,251,144"/>
-<area shape="rect" id="Node000005" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a8003ff7cf8511684dcfc4f3eef08bdda" title=" " alt="" coords="299,205,518,248"/>
+<area shape="rect" id="Node000005" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a8003ff7cf8511684dcfc4f3eef08bdda" title="Sets the reserved status of the seat." alt="" coords="299,205,518,248"/>
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="183,146,300,191,320,198,318,203,298,196,181,151"/>
 </map>

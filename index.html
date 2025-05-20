@@ -96,7 +96,7 @@
 
     <div class="buttons">
       <a class="button" href="CinemaSeatBooking/docs/index.html">📘 Doxygen Documentation</a>
-      <a class="button" href="CinemaSeatBooking/target/site\jacoco/index.html">🧪 Coverage Report</a>
+      <a class="button" href="CinemaSeatBooking/target/site/jacoco/index.html">🧪 Coverage Report</a>
     </div>
 
     <div class="report-list">
@@ -108,8 +108,8 @@
   </div>
 
   <script>
-    // List your report files here
-    const reports = [
+    // Performance reports from site/performance-reports/
+    const perfReports = [
       { file: "payment-service-perf-report.html", name: "💳 Payment Service" },
       { file: "reservation-service-perf-report.html", name: "📅 Reservation Service" },
       { file: "room-service-perf-report.html", name: "🚪 Room Service" },
@@ -117,9 +117,24 @@
       { file: "seat-service-perf-report.html", name: "💺 Seat Service" },
       { file: "user-service-perf-report.html", name: "👤 User Service" }
     ];
-
+  
+    // Additional reports from target/reports/
+    const extraReports = [
+      { file: "surefire.html", name: "Surefire Report " },
+    ];
+  
     const list = document.getElementById("report-links");
-    reports.forEach(report => {
+  
+    perfReports.forEach(report => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = `CinemaSeatBooking/target/reports/${report.file}`;
+      a.textContent = report.name;
+      li.appendChild(a);
+      list.appendChild(li);
+    });
+  
+    extraReports.forEach(report => {
       const li = document.createElement("li");
       const a = document.createElement("a");
       a.href = `CinemaSeatBooking/target/reports/${report.file}`;
@@ -128,6 +143,7 @@
       list.appendChild(li);
     });
   </script>
+  
 
 </body>
 </html>

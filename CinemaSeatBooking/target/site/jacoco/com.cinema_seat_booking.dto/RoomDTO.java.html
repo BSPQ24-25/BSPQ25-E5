@@ -11,49 +11,49 @@ public class RoomDTO {
     private String name;
     private List&lt;SeatDTO&gt; seats;
 
-<span class="nc" id="L14">    public RoomDTO(Long id, String name, List&lt;Seat&gt; seats) {</span>
-<span class="nc" id="L15">        this.id = id;</span>
-<span class="nc" id="L16">        this.name = name;</span>
-<span class="nc" id="L17">        List&lt;SeatDTO&gt; seatDTOs = new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L18" title="All 2 branches missed.">        for (Seat seat : seats) {</span>
-<span class="nc" id="L19">            seatDTOs.add(new SeatDTO(seat));</span>
-<span class="nc" id="L20">        }</span>
-<span class="nc" id="L21">        this.seats = seatDTOs;</span>
-<span class="nc" id="L22">    }</span>
+<span class="fc" id="L14">    public RoomDTO(Long id, String name, List&lt;Seat&gt; seats) {</span>
+<span class="fc" id="L15">        this.id = id;</span>
+<span class="fc" id="L16">        this.name = name;</span>
+<span class="fc" id="L17">        List&lt;SeatDTO&gt; seatDTOs = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L18" title="All 2 branches covered.">        for (Seat seat : seats) {</span>
+<span class="fc" id="L19">            seatDTOs.add(new SeatDTO(seat));</span>
+<span class="fc" id="L20">        }</span>
+<span class="fc" id="L21">        this.seats = seatDTOs;</span>
+<span class="fc" id="L22">    }</span>
 
-<span class="nc" id="L24">    public RoomDTO(Room room) {</span>
-<span class="nc" id="L25">        this.id = room.getId();</span>
-<span class="nc" id="L26">        this.name = room.getName();</span>
-<span class="nc" id="L27">        List&lt;SeatDTO&gt; seatDTOs = new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L28" title="All 2 branches missed.">        for (Seat seat : room.getSeats()) {</span>
-<span class="nc" id="L29">            seatDTOs.add(new SeatDTO(seat));</span>
-<span class="nc" id="L30">        }</span>
-<span class="nc" id="L31">        this.seats = seatDTOs;</span>
-<span class="nc" id="L32">    }</span>
+<span class="fc" id="L24">    public RoomDTO(Room room) {</span>
+<span class="fc" id="L25">        this.id = room.getId();</span>
+<span class="fc" id="L26">        this.name = room.getName();</span>
+<span class="fc" id="L27">        List&lt;SeatDTO&gt; seatDTOs = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        for (Seat seat : room.getSeats()) {</span>
+<span class="fc" id="L29">            seatDTOs.add(new SeatDTO(seat));</span>
+<span class="fc" id="L30">        }</span>
+<span class="fc" id="L31">        this.seats = seatDTOs;</span>
+<span class="fc" id="L32">    }</span>
 
     public Long getId() {
-<span class="nc" id="L35">        return id;</span>
+<span class="fc" id="L35">        return id;</span>
     }
 
     public void setId(Long id) {
-<span class="nc" id="L39">        this.id = id;</span>
-<span class="nc" id="L40">    }</span>
+<span class="fc" id="L39">        this.id = id;</span>
+<span class="fc" id="L40">    }</span>
 
     public String getName() {
-<span class="nc" id="L43">        return name;</span>
+<span class="fc" id="L43">        return name;</span>
     }
 
     public void setName(String name) {
-<span class="nc" id="L47">        this.name = name;</span>
-<span class="nc" id="L48">    }</span>
+<span class="fc" id="L47">        this.name = name;</span>
+<span class="fc" id="L48">    }</span>
 
     public List&lt;SeatDTO&gt; getSeats() {
-<span class="nc" id="L51">        return seats;</span>
+<span class="fc" id="L51">        return seats;</span>
     }
 
     public void setSeats(List&lt;SeatDTO&gt; seats) {
-<span class="nc" id="L55">        this.seats = seats;</span>
-<span class="nc" id="L56">    }</span>
+<span class="fc" id="L55">        this.seats = seats;</span>
+<span class="fc" id="L56">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

@@ -1,17 +1,13 @@
 <map id="src/main/java/com/cinema_seat_booking/model/Room.java" name="src/main/java/com/cinema_seat_booking/model/Room.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="436,5,648,48"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="256,5,468,48"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,104,146,131"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="436,48,159,99,141,102,140,97,158,93,435,42"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="296,51,132,102,130,96,294,46"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="170,104,293,131"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="470,51,291,102,290,97,469,46"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="333,51,264,97,261,93,330,46"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="316,104,408,131"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="501,51,403,99,401,94,499,46"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="365,48,365,88,360,88,360,48"/>
 <area shape="rect" id="Node000005" title=" " alt="" coords="432,96,653,139"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="545,48,545,81,540,81,540,48"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="406,46,488,86,485,91,403,51"/>
 <area shape="rect" id="Node000006" title=" " alt="" coords="677,96,898,139"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="601,46,717,88,715,93,599,51"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="922,96,1093,139"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="649,44,907,93,906,98,648,50"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="1118,96,1289,139"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="649,36,854,59,1103,93,1102,98,854,64,648,41"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="462,46,674,90,672,95,461,51"/>
 </map>

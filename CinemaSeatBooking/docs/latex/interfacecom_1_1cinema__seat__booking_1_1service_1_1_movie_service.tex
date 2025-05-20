@@ -2,6 +2,11 @@
 \hypertarget{interfacecom_1_1cinema__seat__booking_1_1service_1_1_movie_service}{}\label{interfacecom_1_1cinema__seat__booking_1_1service_1_1_movie_service}\index{com.cinema\_seat\_booking.service.MovieService@{com.cinema\_seat\_booking.service.MovieService}}
 
 
+Defines the service contract for movie-\/related functionality.  
+
+
+
+
 Inheritance diagram for com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Movie\+Service\+:
 \nopagebreak
 \begin{figure}[H]
@@ -14,14 +19,19 @@ Inheritance diagram for com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Movie\+S
 \begin{DoxyCompactItemize}
 \item 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie}{Movie}} $>$ \mbox{\hyperlink{interfacecom_1_1cinema__seat__booking_1_1service_1_1_movie_service_ac24ab31614a9383ea89f01b7f503d272}{get\+All\+Movies}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Retrieves all movies. \end{DoxyCompactList}\item 
 Optional$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie}{Movie}} $>$ \mbox{\hyperlink{interfacecom_1_1cinema__seat__booking_1_1service_1_1_movie_service_ae4e08148b16bc821628b55dbc1f453f8}{find\+By\+Id}} (Long id)
-\item 
+\begin{DoxyCompactList}\small\item\em Finds a movie by its ID. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie}{Movie}} \mbox{\hyperlink{interfacecom_1_1cinema__seat__booking_1_1service_1_1_movie_service_abcdde6392543ced4e2cc0617b4ad6875}{save}} (\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie}{Movie}} movie)
-\item 
+\begin{DoxyCompactList}\small\item\em Saves or updates a movie. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{interfacecom_1_1cinema__seat__booking_1_1service_1_1_movie_service_a7852beac277a097479310024b7016c53}{delete}} (Long id)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Deletes a movie by its ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Defines the service contract for movie-\/related functionality. 
+
+This interface provides methods to interact with {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie}{Movie}} entities, including listing all movies, finding by ID, saving, and deleting. 
 
 \doxysubsection{Member Function Documentation}
 \Hypertarget{interfacecom_1_1cinema__seat__booking_1_1service_1_1_movie_service_a7852beac277a097479310024b7016c53}\index{com.cinema\_seat\_booking.service.MovieService@{com.cinema\_seat\_booking.service.MovieService}!delete@{delete}}
@@ -30,6 +40,17 @@ void \mbox{\hyperlink{interfacecom_1_1cinema__seat__booking_1_1service_1_1_movie
 {\footnotesize\ttfamily \label{interfacecom_1_1cinema__seat__booking_1_1service_1_1_movie_service_a7852beac277a097479310024b7016c53} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Movie\+Service.\+delete (\begin{DoxyParamCaption}\item[{Long}]{id}{}\end{DoxyParamCaption})}
 
+
+
+Deletes a movie by its ID. 
+
+Removes the movie with the specified ID from the data source.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the unique identifier of the movie to delete \\
+\hline
+\end{DoxyParams}
 
 
 Implemented in \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_movie_service_impl_a0b596ac9feefdb85ebc683b68d886971}{com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Movie\+Service\+Impl}}.
@@ -42,6 +63,20 @@ Optional$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movi
 
 
 
+Finds a movie by its ID. 
+
+Searches for a movie with the given ID. If the movie exists, it is returned wrapped in an {\ttfamily \doxylink{}{Optional}}; otherwise, an empty {\ttfamily Optional} is returned.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the unique identifier of the movie \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an {\ttfamily \doxylink{}{Optional}} containing the found {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie}{Movie}}, or empty if not found 
+\end{DoxyReturn}
+
+
 Implemented in \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_movie_service_impl_aa3d9205663a97885423628689bcb3b65}{com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Movie\+Service\+Impl}}.
 
 \Hypertarget{interfacecom_1_1cinema__seat__booking_1_1service_1_1_movie_service_ac24ab31614a9383ea89f01b7f503d272}\index{com.cinema\_seat\_booking.service.MovieService@{com.cinema\_seat\_booking.service.MovieService}!getAllMovies@{getAllMovies}}
@@ -52,6 +87,15 @@ List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie}{M
 
 
 
+Retrieves all movies. 
+
+Fetches a list of all available movies from the data source.
+
+\begin{DoxyReturn}{Returns}
+a list of all {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie}{Movie}} objects 
+\end{DoxyReturn}
+
+
 Implemented in \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_movie_service_impl_a6b20075b980dea63a13c448286a9ac7f}{com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Movie\+Service\+Impl}}.
 
 \Hypertarget{interfacecom_1_1cinema__seat__booking_1_1service_1_1_movie_service_abcdde6392543ced4e2cc0617b4ad6875}\index{com.cinema\_seat\_booking.service.MovieService@{com.cinema\_seat\_booking.service.MovieService}!save@{save}}
@@ -60,6 +104,20 @@ Implemented in \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1
 {\footnotesize\ttfamily \label{interfacecom_1_1cinema__seat__booking_1_1service_1_1_movie_service_abcdde6392543ced4e2cc0617b4ad6875} 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie}{Movie}} com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Movie\+Service.\+save (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie}{Movie}}}]{movie}{}\end{DoxyParamCaption})}
 
+
+
+Saves or updates a movie. 
+
+Persists a new movie to the database or updates an existing one.
+
+
+\begin{DoxyParams}{Parameters}
+{\em movie} & the {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie}{Movie}} object to be saved \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the saved {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_movie}{Movie}} instance 
+\end{DoxyReturn}
 
 
 Implemented in \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_movie_service_impl_a071d57508a544092b90a00b110a2b036}{com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Movie\+Service\+Impl}}.

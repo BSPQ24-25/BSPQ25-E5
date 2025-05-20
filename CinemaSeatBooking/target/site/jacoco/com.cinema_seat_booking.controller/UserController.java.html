@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @Controller
 @RequestMapping(&quot;/api/users&quot;)
-<span class="nc" id="L31">public class UserController {</span>
+<span class="fc" id="L31">public class UserController {</span>
 
     /** Service that handles all user-related operations. */
     @Autowired
@@ -47,8 +47,8 @@ import org.springframework.web.bind.annotation.*;
     })
     @PostMapping(&quot;/register&quot;)
     public ResponseEntity&lt;User&gt; register(@RequestBody UserDTO userDTO) {
-<span class="nc" id="L50">        User user = userService.registerUser(userDTO);</span>
-<span class="nc" id="L51">        return new ResponseEntity&lt;&gt;(user, HttpStatus.CREATED);</span>
+<span class="fc" id="L50">        User user = userService.registerUser(userDTO);</span>
+<span class="fc" id="L51">        return new ResponseEntity&lt;&gt;(user, HttpStatus.CREATED);</span>
     }
 
     /**
@@ -64,11 +64,11 @@ import org.springframework.web.bind.annotation.*;
     })
     @GetMapping(&quot;/profile&quot;)
     public ResponseEntity&lt;User&gt; viewProfile(@RequestParam String username) {
-<span class="nc" id="L67">        User user = userService.getUserByUsername(username);</span>
-<span class="nc bnc" id="L68" title="All 2 branches missed.">        if (user != null) {</span>
-<span class="nc" id="L69">            return new ResponseEntity&lt;&gt;(user, HttpStatus.OK);</span>
+<span class="fc" id="L67">        User user = userService.getUserByUsername(username);</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">        if (user != null) {</span>
+<span class="fc" id="L69">            return new ResponseEntity&lt;&gt;(user, HttpStatus.OK);</span>
         } else {
-<span class="nc" id="L71">            return new ResponseEntity&lt;&gt;(HttpStatus.NOT_FOUND);</span>
+<span class="fc" id="L71">            return new ResponseEntity&lt;&gt;(HttpStatus.NOT_FOUND);</span>
         }
     }
 
@@ -85,11 +85,11 @@ import org.springframework.web.bind.annotation.*;
     })
     @PutMapping(&quot;/profile&quot;)
     public ResponseEntity&lt;User&gt; updateProfile(@RequestBody UserDTO userDTO) {
-<span class="nc" id="L88">        User updatedUser = userService.updateUserProfile(userDTO);</span>
-<span class="nc bnc" id="L89" title="All 2 branches missed.">        if (updatedUser != null) {</span>
-<span class="nc" id="L90">            return new ResponseEntity&lt;&gt;(updatedUser, HttpStatus.OK);</span>
+<span class="fc" id="L88">        User updatedUser = userService.updateUserProfile(userDTO);</span>
+<span class="fc bfc" id="L89" title="All 2 branches covered.">        if (updatedUser != null) {</span>
+<span class="fc" id="L90">            return new ResponseEntity&lt;&gt;(updatedUser, HttpStatus.OK);</span>
         } else {
-<span class="nc" id="L92">            return new ResponseEntity&lt;&gt;(HttpStatus.BAD_REQUEST);</span>
+<span class="fc" id="L92">            return new ResponseEntity&lt;&gt;(HttpStatus.BAD_REQUEST);</span>
         }
     }
 
@@ -107,11 +107,11 @@ import org.springframework.web.bind.annotation.*;
     })
     @DeleteMapping(&quot;/profile&quot;)
     public ResponseEntity&lt;Void&gt; deleteProfile(@RequestParam String username, @RequestParam String password) {
-<span class="nc" id="L110">        boolean deleted = userService.deleteUser(username, password);</span>
-<span class="nc bnc" id="L111" title="All 2 branches missed.">        if (deleted) {</span>
-<span class="nc" id="L112">            return new ResponseEntity&lt;&gt;(HttpStatus.NO_CONTENT);</span>
+<span class="fc" id="L110">        boolean deleted = userService.deleteUser(username, password);</span>
+<span class="fc bfc" id="L111" title="All 2 branches covered.">        if (deleted) {</span>
+<span class="fc" id="L112">            return new ResponseEntity&lt;&gt;(HttpStatus.NO_CONTENT);</span>
         } else {
-<span class="nc" id="L114">            return new ResponseEntity&lt;&gt;(HttpStatus.BAD_REQUEST);</span>
+<span class="fc" id="L114">            return new ResponseEntity&lt;&gt;(HttpStatus.BAD_REQUEST);</span>
         }
     }
 }

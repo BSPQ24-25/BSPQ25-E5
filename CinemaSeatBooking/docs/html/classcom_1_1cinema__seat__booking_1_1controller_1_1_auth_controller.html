@@ -102,6 +102,9 @@ $(function(){initNavTree('classcom_1_1cinema__seat__booking_1_1controller_1_1_au
   <div class="headertitle"><div class="title">com.cinema_seat_booking.controller.AuthController Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>REST controller for user authentication and registration.  
+ <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -110,7 +113,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac92b63ec9c6fc2ef4a9a566d234b070e" id="r_ac92b63ec9c6fc2ef4a9a566d234b070e"><td class="memItemLeft" align="right" valign="top">ResponseEntity&lt; Map&lt; String, String &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac92b63ec9c6fc2ef4a9a566d234b070e">login</a> (@RequestBody Map&lt; String, String &gt; loginRequest, HttpSession session)</td></tr>
 <tr class="separator:ac92b63ec9c6fc2ef4a9a566d234b070e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>REST controller for user authentication and registration. </p>
+<p>Handles user registration and login endpoints. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ac92b63ec9c6fc2ef4a9a566d234b070e" name="ac92b63ec9c6fc2ef4a9a566d234b070e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac92b63ec9c6fc2ef4a9a566d234b070e">&#9670;&#160;</a></span>login()</h2>
 
@@ -129,6 +135,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Authenticates a user with username and password.</p>
+<p>On successful authentication, stores the user in the HTTP session. Returns the user's role and username.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">loginRequest</td><td>Map containing "username" and "password" keys. </td></tr>
+    <tr><td class="paramname">session</td><td>HTTP session for storing user info on successful login. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>ResponseEntity containing user info or error message. </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -136,11 +152,11 @@ Here is the call graph for this function:</div>
 <map name="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_auth_controller_ac92b63ec9c6fc2ef4a9a566d234b070e_cgraph" id="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_auth_controller_ac92b63ec9c6fc2ef4a9a566d234b070e_cgraph">
 <area shape="rect" title=" " alt="" coords="5,72,243,115"/>
 <area shape="poly" title=" " alt="" coords="72,72,70,62,79,53,97,47,124,45,154,48,171,54,169,59,153,53,124,51,98,53,81,57,75,63,77,71"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#af8d178bee1b988cc841fc7957a934cd6" title=" " alt="" coords="291,5,510,48"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#af8d178bee1b988cc841fc7957a934cd6" title="Gets the password." alt="" coords="291,5,510,48"/>
 <area shape="poly" title=" " alt="" coords="215,69,294,50,295,55,216,74"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#ac8787e000f085ecbdd62a037a0a03cdd" title=" " alt="" coords="291,72,510,115"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#ac8787e000f085ecbdd62a037a0a03cdd" title="Gets the role of the user." alt="" coords="291,72,510,115"/>
 <area shape="poly" title=" " alt="" coords="243,91,275,91,275,96,243,96"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#adab648a97119a28b920d9e9022f7d389" title=" " alt="" coords="291,139,510,181"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#adab648a97119a28b920d9e9022f7d389" title="Gets the username." alt="" coords="291,139,510,181"/>
 <area shape="poly" title=" " alt="" coords="216,113,295,132,294,137,215,118"/>
 </map>
 </div>
@@ -170,6 +186,15 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Registers a new user.</p>
+<p>If the username already exists, returns a bad request. If no role is specified, assigns the CLIENT role by default.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">user</td><td>The user object to register, provided in the request body. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>ResponseEntity with success or error message. </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

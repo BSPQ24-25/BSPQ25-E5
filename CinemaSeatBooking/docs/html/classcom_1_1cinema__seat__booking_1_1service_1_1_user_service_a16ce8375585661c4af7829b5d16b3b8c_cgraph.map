@@ -1,17 +1,17 @@
 <map id="com.cinema_seat_booking.service.UserService.registerUser" name="com.cinema_seat_booking.service.UserService.registerUser">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,205,232,248"/>
+<area shape="rect" id="Node000001" title="Registers a new user with CLIENT role." alt="" coords="5,205,232,248"/>
 <area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1dto_1_1_user_d_t_o.html#a2d8b1cc123e0c95b1539098413bad264" title=" " alt="" coords="288,5,490,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,203,191,132,232,92,278,58,287,53,290,57,281,62,236,96,195,136,137,207"/>
 <area shape="rect" id="Node000003" href="$classcom_1_1cinema__seat__booking_1_1dto_1_1_user_d_t_o.html#a190323bea6c6087a4cde3d97626b4b75" title=" " alt="" coords="288,72,490,115"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="148,203,207,164,279,124,293,118,295,123,281,129,209,168,151,207"/>
 <area shape="rect" id="Node000004" href="$classcom_1_1cinema__seat__booking_1_1dto_1_1_user_d_t_o.html#a4c56ae4308763a5f4aa814fdf5b45191" title=" " alt="" coords="288,139,490,181"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="207,202,284,183,286,188,209,207"/>
-<area shape="rect" id="Node000005" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#a793aef0eff9d4e123336012b0fb84680" title=" " alt="" coords="280,205,499,248"/>
+<area shape="rect" id="Node000005" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#a793aef0eff9d4e123336012b0fb84680" title="Sets the email address." alt="" coords="280,205,499,248"/>
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="232,224,264,224,264,229,232,229"/>
-<area shape="rect" id="Node000006" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#a505deb007d6ab7d73987e77f93348e23" title=" " alt="" coords="280,272,499,315"/>
+<area shape="rect" id="Node000006" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#a505deb007d6ab7d73987e77f93348e23" title="Sets the password." alt="" coords="280,272,499,315"/>
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="209,246,286,265,284,270,207,251"/>
-<area shape="rect" id="Node000007" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#a045d39435d8b3b3813b939109ebe29da" title=" " alt="" coords="280,339,499,381"/>
+<area shape="rect" id="Node000007" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#a045d39435d8b3b3813b939109ebe29da" title="Sets the user role." alt="" coords="280,339,499,381"/>
 <area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="151,246,209,285,281,324,295,330,293,335,279,329,207,290,148,251"/>
-<area shape="rect" id="Node000008" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#a776e5e171dfe2c3bfdca5aac062b8e57" title=" " alt="" coords="280,405,499,448"/>
+<area shape="rect" id="Node000008" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#a776e5e171dfe2c3bfdca5aac062b8e57" title="Sets the username." alt="" coords="280,405,499,448"/>
 <area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="137,247,195,318,236,357,281,391,290,396,287,401,278,396,232,361,191,321,133,250"/>
 </map>

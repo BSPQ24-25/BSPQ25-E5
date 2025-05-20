@@ -1,5 +1,10 @@
 \doxysection{src/main/java/com/cinema\+\_\+seat\+\_\+booking/service/\+User\+Service.java File Reference}
 \hypertarget{_user_service_8java}{}\label{_user_service_8java}\index{src/main/java/com/cinema\_seat\_booking/service/UserService.java@{src/main/java/com/cinema\_seat\_booking/service/UserService.java}}
+
+
+Service class for managing user-\/related operations in the cinema seat booking system.  
+
+
 {\ttfamily import com.\+cinema\+\_\+seat\+\_\+booking.\+dto.\+User\+DTO;}\newline
 {\ttfamily import com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Role;}\newline
 {\ttfamily import com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+User;}\newline
@@ -19,9 +24,42 @@ Include dependency graph for User\+Service.\+java\+:
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_user_service}{com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+User\+Service}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Business logic for user operations such as registration, authentication, and profile management. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Packages}
 \begin{DoxyCompactItemize}
 \item 
 package \mbox{\hyperlink{namespacecom_1_1cinema__seat__booking_1_1service}{com.\+cinema\+\_\+seat\+\_\+booking.\+service}}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Service class for managing user-\/related operations in the cinema seat booking system. 
+
+This service provides the business logic for user management including\+:
+\begin{DoxyItemize}
+\item User registration with default CLIENT role
+\item Authentication of users via username and password
+\item Updating user profiles such as email and password
+\item Deletion of user accounts with authentication check
+\end{DoxyItemize}
+
+It interacts with the {\ttfamily \doxylink{}{User\+Repository}} for persistence operations, and works closely with {\ttfamily \doxylink{}{User}} and {\ttfamily \doxylink{}{Role}} model classes.
+
+\begin{DoxySeeAlso}{See also}
+User 
+
+User\+DTO 
+
+Role 
+
+User\+Repository
+\end{DoxySeeAlso}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+2025-\/05-\/19 
+\end{DoxySince}
+\begin{DoxyAuthor}{Author}
+BSPQ25-\/\+E5 
+\end{DoxyAuthor}

@@ -102,23 +102,28 @@ $(function(){initNavTree('classcom_1_1cinema__seat__booking_1_1controller_1_1_re
   <div class="headertitle"><div class="title">com.cinema_seat_booking.controller.ReservationController Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Exposes REST endpoints for reservation management.  
+ <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2c0b6fa84d026bd1a4031d84eff33bd2" id="r_a2c0b6fa84d026bd1a4031d84eff33bd2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o.html">ReservationDTO</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c0b6fa84d026bd1a4031d84eff33bd2">createReservation</a> ( @RequestParam String username, @RequestParam Long screeningId, @RequestParam Long seatId)</td></tr>
-<tr class="separator:a2c0b6fa84d026bd1a4031d84eff33bd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a974bb51edf3a7ac8833ed054c7792add" id="r_a974bb51edf3a7ac8833ed054c7792add"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o.html">ReservationDTO</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a974bb51edf3a7ac8833ed054c7792add">createReservation</a> ( @RequestParam @Parameter(description=&quot;Username of the user&quot;) String username, @RequestParam @Parameter(description=&quot;ID of the screening&quot;) Long screeningId, @RequestParam @Parameter(description=&quot;ID of the seat&quot;) Long seatId)</td></tr>
+<tr class="separator:a974bb51edf3a7ac8833ed054c7792add"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af434da11e4d63f31173ec3b5dbc857b1" id="r_af434da11e4d63f31173ec3b5dbc857b1"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o.html">ReservationDTO</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af434da11e4d63f31173ec3b5dbc857b1">getAllReservations</a> ()</td></tr>
 <tr class="separator:af434da11e4d63f31173ec3b5dbc857b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a120d3a3eb4663825831a0c824159647a" id="r_a120d3a3eb4663825831a0c824159647a"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o.html">ReservationDTO</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a120d3a3eb4663825831a0c824159647a">getAllReservationsOfUser</a> (@RequestParam String username)</td></tr>
-<tr class="separator:a120d3a3eb4663825831a0c824159647a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52572e21e8329683e42de9ab877b39c7" id="r_a52572e21e8329683e42de9ab877b39c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52572e21e8329683e42de9ab877b39c7">cancelReservation</a> (@PathVariable Long reservationId)</td></tr>
-<tr class="separator:a52572e21e8329683e42de9ab877b39c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa046864b6f4b11c171673f771fe443c" id="r_afa046864b6f4b11c171673f771fe443c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o.html">ReservationDTO</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa046864b6f4b11c171673f771fe443c">getReservation</a> (@PathVariable Long reservationId)</td></tr>
-<tr class="separator:afa046864b6f4b11c171673f771fe443c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a144ce82cbc5d0d261d88aaa7c00d26fb" id="r_a144ce82cbc5d0d261d88aaa7c00d26fb"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o.html">ReservationDTO</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a144ce82cbc5d0d261d88aaa7c00d26fb">getAllReservationsOfUser</a> ( @PathVariable @Parameter(description=&quot;Username of the user&quot;) String username)</td></tr>
+<tr class="separator:a144ce82cbc5d0d261d88aaa7c00d26fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cf1a33392867a2d5f223b44acbfc8bb" id="r_a0cf1a33392867a2d5f223b44acbfc8bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0cf1a33392867a2d5f223b44acbfc8bb">cancelReservation</a> ( @PathVariable @Parameter(description=&quot;ID of the reservation to cancel&quot;) Long reservationId)</td></tr>
+<tr class="separator:a0cf1a33392867a2d5f223b44acbfc8bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a924bfd7637d938c3e0907f75ad3dada8" id="r_a924bfd7637d938c3e0907f75ad3dada8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o.html">ReservationDTO</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a924bfd7637d938c3e0907f75ad3dada8">getReservation</a> ( @PathVariable @Parameter(description=&quot;ID of the reservation&quot;) Long reservationId)</td></tr>
+<tr class="separator:a924bfd7637d938c3e0907f75ad3dada8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a52572e21e8329683e42de9ab877b39c7" name="a52572e21e8329683e42de9ab877b39c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52572e21e8329683e42de9ab877b39c7">&#9670;&#160;</a></span>cancelReservation()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Exposes REST endpoints for reservation management. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a0cf1a33392867a2d5f223b44acbfc8bb" name="a0cf1a33392867a2d5f223b44acbfc8bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cf1a33392867a2d5f223b44acbfc8bb">&#9670;&#160;</a></span>cancelReservation()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -126,16 +131,23 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void com.cinema_seat_booking.controller.ReservationController.cancelReservation </td>
           <td>(</td>
-          <td class="paramtype">@PathVariable Long</td>          <td class="paramname"><span class="paramname"><em>reservationId</em></span></td><td>)</td>
+          <td class="paramtype">@PathVariable @Parameter(description=&quot;ID of the reservation to cancel&quot;) Long</td>          <td class="paramname"><span class="paramname"><em>reservationId</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Cancels an existing reservation by ID.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reservationId</td><td>the ID of the reservation to cancel </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a52572e21e8329683e42de9ab877b39c7_cgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a52572e21e8329683e42de9ab877b39c7_cgraph" alt=""/></div>
-<map name="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a52572e21e8329683e42de9ab877b39c7_cgraph" id="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a52572e21e8329683e42de9ab877b39c7_cgraph">
+<div class="center"><img src="classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a0cf1a33392867a2d5f223b44acbfc8bb_cgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a0cf1a33392867a2d5f223b44acbfc8bb_cgraph" alt=""/></div>
+<map name="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a0cf1a33392867a2d5f223b44acbfc8bb_cgraph" id="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a0cf1a33392867a2d5f223b44acbfc8bb_cgraph">
 <area shape="rect" title=" " alt="" coords="5,29,265,72"/>
 <area shape="poly" title=" " alt="" coords="86,29,84,19,92,10,109,5,135,3,163,5,179,11,177,16,161,10,135,8,110,10,95,15,89,21,91,28"/>
 </map>
@@ -143,8 +155,8 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a52572e21e8329683e42de9ab877b39c7_icgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a52572e21e8329683e42de9ab877b39c7_icgraph" alt=""/></div>
-<map name="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a52572e21e8329683e42de9ab877b39c7_icgraph" id="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a52572e21e8329683e42de9ab877b39c7_icgraph">
+<div class="center"><img src="classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a0cf1a33392867a2d5f223b44acbfc8bb_icgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a0cf1a33392867a2d5f223b44acbfc8bb_icgraph" alt=""/></div>
+<map name="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a0cf1a33392867a2d5f223b44acbfc8bb_icgraph" id="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a0cf1a33392867a2d5f223b44acbfc8bb_icgraph">
 <area shape="rect" title=" " alt="" coords="5,29,265,72"/>
 <area shape="poly" title=" " alt="" coords="177,16,161,10,135,8,110,10,95,15,89,21,91,28,86,29,84,19,92,10,109,5,135,3,163,5,179,11"/>
 </map>
@@ -152,8 +164,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a2c0b6fa84d026bd1a4031d84eff33bd2" name="a2c0b6fa84d026bd1a4031d84eff33bd2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c0b6fa84d026bd1a4031d84eff33bd2">&#9670;&#160;</a></span>createReservation()</h2>
+<a id="a974bb51edf3a7ac8833ed054c7792add" name="a974bb51edf3a7ac8833ed054c7792add"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a974bb51edf3a7ac8833ed054c7792add">&#9670;&#160;</a></span>createReservation()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -161,20 +173,30 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname"><a class="el" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o.html">ReservationDTO</a> com.cinema_seat_booking.controller.ReservationController.createReservation </td>
           <td>(</td>
-          <td class="paramtype">@RequestParam String</td>          <td class="paramname"><span class="paramname"><em>username</em></span>, </td>
+          <td class="paramtype">@RequestParam @Parameter(description=&quot;Username of the user&quot;) String</td>          <td class="paramname"><span class="paramname"><em>username</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">@RequestParam Long</td>          <td class="paramname"><span class="paramname"><em>screeningId</em></span>, </td>
+          <td class="paramtype">@RequestParam @Parameter(description=&quot;ID of the screening&quot;) Long</td>          <td class="paramname"><span class="paramname"><em>screeningId</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">@RequestParam Long</td>          <td class="paramname"><span class="paramname"><em>seatId</em></span>&#160;)</td>
+          <td class="paramtype">@RequestParam @Parameter(description=&quot;ID of the seat&quot;) Long</td>          <td class="paramname"><span class="paramname"><em>seatId</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Creates a new reservation for a user, screening, and seat.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">username</td><td>the username of the user making the reservation </td></tr>
+    <tr><td class="paramname">screeningId</td><td>the ID of the screening </td></tr>
+    <tr><td class="paramname">seatId</td><td>the ID of the seat to reserve </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the created <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o.html">ReservationDTO</a></code> </dd></dl>
 
 </div>
 </div>
@@ -192,11 +214,13 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Retrieves all reservations in the system.</p>
+<dl class="section return"><dt>Returns</dt><dd>a list of <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o.html">ReservationDTO</a></code> </dd></dl>
 
 </div>
 </div>
-<a id="a120d3a3eb4663825831a0c824159647a" name="a120d3a3eb4663825831a0c824159647a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a120d3a3eb4663825831a0c824159647a">&#9670;&#160;</a></span>getAllReservationsOfUser()</h2>
+<a id="a144ce82cbc5d0d261d88aaa7c00d26fb" name="a144ce82cbc5d0d261d88aaa7c00d26fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a144ce82cbc5d0d261d88aaa7c00d26fb">&#9670;&#160;</a></span>getAllReservationsOfUser()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -204,16 +228,24 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">List&lt; <a class="el" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o.html">ReservationDTO</a> &gt; com.cinema_seat_booking.controller.ReservationController.getAllReservationsOfUser </td>
           <td>(</td>
-          <td class="paramtype">@RequestParam String</td>          <td class="paramname"><span class="paramname"><em>username</em></span></td><td>)</td>
+          <td class="paramtype">@PathVariable @Parameter(description=&quot;Username of the user&quot;) String</td>          <td class="paramname"><span class="paramname"><em>username</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Retrieves all reservations for a given user.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">username</td><td>the username of the user </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a list of <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o.html">ReservationDTO</a></code> for that user </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a120d3a3eb4663825831a0c824159647a_cgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a120d3a3eb4663825831a0c824159647a_cgraph" alt=""/></div>
-<map name="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a120d3a3eb4663825831a0c824159647a_cgraph" id="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a120d3a3eb4663825831a0c824159647a_cgraph">
+<div class="center"><img src="classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a144ce82cbc5d0d261d88aaa7c00d26fb_cgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a144ce82cbc5d0d261d88aaa7c00d26fb_cgraph" alt=""/></div>
+<map name="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a144ce82cbc5d0d261d88aaa7c00d26fb_cgraph" id="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a144ce82cbc5d0d261d88aaa7c00d26fb_cgraph">
 <area shape="rect" title=" " alt="" coords="5,29,309,72"/>
 <area shape="poly" title=" " alt="" coords="100,29,98,19,108,10,127,5,157,3,189,5,209,11,207,16,188,10,157,8,128,10,110,15,103,21,105,28"/>
 </map>
@@ -221,8 +253,8 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a120d3a3eb4663825831a0c824159647a_icgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a120d3a3eb4663825831a0c824159647a_icgraph" alt=""/></div>
-<map name="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a120d3a3eb4663825831a0c824159647a_icgraph" id="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a120d3a3eb4663825831a0c824159647a_icgraph">
+<div class="center"><img src="classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a144ce82cbc5d0d261d88aaa7c00d26fb_icgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a144ce82cbc5d0d261d88aaa7c00d26fb_icgraph" alt=""/></div>
+<map name="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a144ce82cbc5d0d261d88aaa7c00d26fb_icgraph" id="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a144ce82cbc5d0d261d88aaa7c00d26fb_icgraph">
 <area shape="rect" title=" " alt="" coords="5,29,309,72"/>
 <area shape="poly" title=" " alt="" coords="207,16,188,10,157,8,128,10,110,15,103,21,105,28,100,29,98,19,108,10,127,5,157,3,189,5,209,11"/>
 </map>
@@ -230,8 +262,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="afa046864b6f4b11c171673f771fe443c" name="afa046864b6f4b11c171673f771fe443c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa046864b6f4b11c171673f771fe443c">&#9670;&#160;</a></span>getReservation()</h2>
+<a id="a924bfd7637d938c3e0907f75ad3dada8" name="a924bfd7637d938c3e0907f75ad3dada8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a924bfd7637d938c3e0907f75ad3dada8">&#9670;&#160;</a></span>getReservation()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -239,16 +271,24 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname"><a class="el" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o.html">ReservationDTO</a> com.cinema_seat_booking.controller.ReservationController.getReservation </td>
           <td>(</td>
-          <td class="paramtype">@PathVariable Long</td>          <td class="paramname"><span class="paramname"><em>reservationId</em></span></td><td>)</td>
+          <td class="paramtype">@PathVariable @Parameter(description=&quot;ID of the reservation&quot;) Long</td>          <td class="paramname"><span class="paramname"><em>reservationId</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Retrieves a reservation by its ID.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reservationId</td><td>the ID of the reservation </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o.html">ReservationDTO</a></code> if found </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_afa046864b6f4b11c171673f771fe443c_cgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_afa046864b6f4b11c171673f771fe443c_cgraph" alt=""/></div>
-<map name="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_afa046864b6f4b11c171673f771fe443c_cgraph" id="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_afa046864b6f4b11c171673f771fe443c_cgraph">
+<div class="center"><img src="classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a924bfd7637d938c3e0907f75ad3dada8_cgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a924bfd7637d938c3e0907f75ad3dada8_cgraph" alt=""/></div>
+<map name="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a924bfd7637d938c3e0907f75ad3dada8_cgraph" id="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a924bfd7637d938c3e0907f75ad3dada8_cgraph">
 <area shape="rect" title=" " alt="" coords="5,29,245,72"/>
 <area shape="poly" title=" " alt="" coords="80,29,78,19,85,10,101,5,125,3,151,5,166,11,164,16,149,10,125,8,102,10,88,15,83,21,85,28"/>
 </map>
@@ -256,8 +296,8 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_afa046864b6f4b11c171673f771fe443c_icgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_afa046864b6f4b11c171673f771fe443c_icgraph" alt=""/></div>
-<map name="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_afa046864b6f4b11c171673f771fe443c_icgraph" id="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_afa046864b6f4b11c171673f771fe443c_icgraph">
+<div class="center"><img src="classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a924bfd7637d938c3e0907f75ad3dada8_icgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a924bfd7637d938c3e0907f75ad3dada8_icgraph" alt=""/></div>
+<map name="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a924bfd7637d938c3e0907f75ad3dada8_icgraph" id="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller_a924bfd7637d938c3e0907f75ad3dada8_icgraph">
 <area shape="rect" title=" " alt="" coords="5,29,245,72"/>
 <area shape="poly" title=" " alt="" coords="164,16,149,10,125,8,102,10,88,15,83,21,85,28,80,29,78,19,85,10,101,5,125,3,151,5,166,11"/>
 </map>

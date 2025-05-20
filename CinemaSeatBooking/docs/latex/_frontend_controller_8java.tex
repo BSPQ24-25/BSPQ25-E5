@@ -1,5 +1,6 @@
 \doxysection{src/main/java/com/cinema\+\_\+seat\+\_\+booking/controller/\+Frontend\+Controller.java File Reference}
 \hypertarget{_frontend_controller_8java}{}\label{_frontend_controller_8java}\index{src/main/java/com/cinema\_seat\_booking/controller/FrontendController.java@{src/main/java/com/cinema\_seat\_booking/controller/FrontendController.java}}
+{\ttfamily import com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Reservation;}\newline
 {\ttfamily import com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Role;}\newline
 {\ttfamily import com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+User;}\newline
 {\ttfamily import com.\+cinema\+\_\+seat\+\_\+booking.\+repository.\+Movie\+Repository;}\newline
@@ -11,12 +12,14 @@
 {\ttfamily import jakarta.\+servlet.\+http.\+Http\+Servlet\+Request;}\newline
 {\ttfamily import jakarta.\+servlet.\+http.\+Http\+Session;}\newline
 {\ttfamily import org.\+springframework.\+beans.\+factory.\+annotation.\+Autowired;}\newline
+{\ttfamily import org.\+springframework.\+http.\+Http\+Status;}\newline
 {\ttfamily import org.\+springframework.\+stereotype.\+Controller;}\newline
 {\ttfamily import org.\+springframework.\+ui.\+Model;}\newline
 {\ttfamily import org.\+springframework.\+web.\+bind.\+annotation.\+Get\+Mapping;}\newline
 {\ttfamily import org.\+springframework.\+web.\+bind.\+annotation.\+Path\+Variable;}\newline
 {\ttfamily import org.\+springframework.\+web.\+bind.\+annotation.\+Post\+Mapping;}\newline
 {\ttfamily import org.\+springframework.\+web.\+bind.\+annotation.\+Request\+Param;}\newline
+{\ttfamily import org.\+springframework.\+web.\+server.\+Response\+Status\+Exception;}\newline
 {\ttfamily import org.\+springframework.\+security.\+core.\+Authentication;}\newline
 {\ttfamily import org.\+springframework.\+security.\+core.\+context.\+Security\+Context\+Holder;}\newline
 {\ttfamily import org.\+springframework.\+security.\+authentication.\+Anonymous\+Authentication\+Token;}\newline
@@ -38,4 +41,4 @@ class \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_front
 \begin{DoxyCompactItemize}
 \item 
 package \mbox{\hyperlink{namespacecom_1_1cinema__seat__booking_1_1controller}{com.\+cinema\+\_\+seat\+\_\+booking.\+controller}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em REST controller for handling payment processing. \end{DoxyCompactList}\end{DoxyCompactItemize}

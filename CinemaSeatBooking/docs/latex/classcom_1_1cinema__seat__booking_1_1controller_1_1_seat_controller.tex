@@ -1,5 +1,10 @@
 \doxysection{com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Seat\+Controller Class Reference}
 \hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_seat_controller}{}\label{classcom_1_1cinema__seat__booking_1_1controller_1_1_seat_controller}\index{com.cinema\_seat\_booking.controller.SeatController@{com.cinema\_seat\_booking.controller.SeatController}}
+
+
+REST controller for handling seat management operations.  
+
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -21,6 +26,11 @@ Response\+Entity$<$ Void $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+REST controller for handling seat management operations. 
+
+Exposes endpoints for CRUD operations and business logic related to cinema seat reservations. 
+
 \doxysubsection{Member Function Documentation}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_seat_controller_a313e5e6088ec81952bb3fef8eadd161d}\index{com.cinema\_seat\_booking.controller.SeatController@{com.cinema\_seat\_booking.controller.SeatController}!cancelSeatReservation@{cancelSeatReservation}}
 \index{cancelSeatReservation@{cancelSeatReservation}!com.cinema\_seat\_booking.controller.SeatController@{com.cinema\_seat\_booking.controller.SeatController}}
@@ -28,16 +38,24 @@ Response\+Entity$<$ Void $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_seat_controller_a313e5e6088ec81952bb3fef8eadd161d} 
 Response\+Entity$<$ Void $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Seat\+Controller.\+cancel\+Seat\+Reservation (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{id}{}\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-\nopagebreak
+Cancels a reservation for a specific seat.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the seat \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+HTTP 200 if successful, 400 if cancellation fails 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=263pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_seat_controller_a313e5e6088ec81952bb3fef8eadd161d_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -50,22 +68,42 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_seat_controller_af1b1a2983140cb0180f074b063746a38} 
 Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Seat\+Controller.\+create\+Seat (\begin{DoxyParamCaption}\item[{@Request\+Param int}]{number}{, }\item[{@Request\+Param Long}]{room\+Id}{}\end{DoxyParamCaption})}
 
+Creates a new seat associated with a room.
+
+
+\begin{DoxyParams}{Parameters}
+{\em number} & The seat number \\
+\hline
+{\em room\+Id} & The ID of the room the seat belongs to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A {\ttfamily \doxylink{}{Response\+Entity}} containing the created {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} 
+\end{DoxyReturn}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_seat_controller_a941d954270b45c97cbf2daaa80db4c71}\index{com.cinema\_seat\_booking.controller.SeatController@{com.cinema\_seat\_booking.controller.SeatController}!deleteSeat@{deleteSeat}}
 \index{deleteSeat@{deleteSeat}!com.cinema\_seat\_booking.controller.SeatController@{com.cinema\_seat\_booking.controller.SeatController}}
 \doxysubsubsection{\texorpdfstring{deleteSeat()}{deleteSeat()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_seat_controller_a941d954270b45c97cbf2daaa80db4c71} 
 Response\+Entity$<$ Void $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Seat\+Controller.\+delete\+Seat (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{id}{}\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-\nopagebreak
+Deletes a seat by ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the seat \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+HTTP 204 if deleted, 404 if not found 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=258pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_seat_controller_a941d954270b45c97cbf2daaa80db4c71_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -78,22 +116,35 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_seat_controller_a6d4f0367c625532490fd1dd273c4b0aa} 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_seat_d_t_o}{Seat\+DTO}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Seat\+Controller.\+get\+All\+Seats (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+Retrieves all seats including their reservation status and room name.
+
+\begin{DoxyReturn}{Returns}
+A list of {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1dto_1_1_seat_d_t_o}{Seat\+DTO}} objects. 
+\end{DoxyReturn}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_seat_controller_a3f97727106ca0879399bb81991fd4d30}\index{com.cinema\_seat\_booking.controller.SeatController@{com.cinema\_seat\_booking.controller.SeatController}!getAvailableSeats@{getAvailableSeats}}
 \index{getAvailableSeats@{getAvailableSeats}!com.cinema\_seat\_booking.controller.SeatController@{com.cinema\_seat\_booking.controller.SeatController}}
 \doxysubsubsection{\texorpdfstring{getAvailableSeats()}{getAvailableSeats()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_seat_controller_a3f97727106ca0879399bb81991fd4d30} 
 Response\+Entity$<$ List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} $>$ $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Seat\+Controller.\+get\+Available\+Seats (\begin{DoxyParamCaption}\item[{@Request\+Param Long}]{room\+Id}{}\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-\nopagebreak
+Retrieves all available (non-\/reserved) seats for a specific room.
+
+
+\begin{DoxyParams}{Parameters}
+{\em room\+Id} & The room ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of available {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} objects 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=258pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_seat_controller_a3f97727106ca0879399bb81991fd4d30_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -106,6 +157,16 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_seat_controller_a2e3a86028858c738d446f5c21ca2a70f} 
 Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1dto_1_1_seat_d_t_o}{Seat\+DTO}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Seat\+Controller.\+get\+Seat\+By\+Id (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{id}{}\end{DoxyParamCaption})}
 
+Retrieves a seat by its ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The seat ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A {\ttfamily \doxylink{}{Response\+Entity}} containing a {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1dto_1_1_seat_d_t_o}{Seat\+DTO}} if found, or 404 if not 
+\end{DoxyReturn}
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -114,8 +175,7 @@ Here is the call graph for this function\+:
 \includegraphics[width=350pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_seat_controller_a2e3a86028858c738d446f5c21ca2a70f_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -128,16 +188,24 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_seat_controller_afb03d209a9c17758b72a2732564a6630} 
 Response\+Entity$<$ Void $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Seat\+Controller.\+reserve\+Seat (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{id}{}\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-\nopagebreak
+Reserves a seat by ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the seat to reserve \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+HTTP 200 if successful, 400 if reservation fails 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=258pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_seat_controller_afb03d209a9c17758b72a2732564a6630_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -150,16 +218,28 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_seat_controller_a9bda9c98ce701ad7bfb472cc0510fa3f} 
 Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Seat\+Controller.\+update\+Seat (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{id}{, }\item[{@Request\+Param int}]{number}{, }\item[{@Request\+Param Long}]{room\+Id}{}\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-\nopagebreak
+Updates an existing seat\textquotesingle{}s number and room.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the seat to update \\
+\hline
+{\em number} & The new seat number \\
+\hline
+{\em room\+Id} & The new room ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A {\ttfamily \doxylink{}{Response\+Entity}} containing the updated {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} or 404 if not found 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=258pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_seat_controller_a9bda9c98ce701ad7bfb472cc0510fa3f_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

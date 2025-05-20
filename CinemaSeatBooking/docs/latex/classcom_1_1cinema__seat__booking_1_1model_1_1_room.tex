@@ -1,40 +1,61 @@
 \doxysection{com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Room Class Reference}
 \hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_room}{}\label{classcom_1_1cinema__seat__booking_1_1model_1_1_room}\index{com.cinema\_seat\_booking.model.Room@{com.cinema\_seat\_booking.model.Room}}
+
+
+Entity class representing a cinema room where screenings take place.  
+
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 Long \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room_ace4e6cba4421e2a22c9951c903018d56}{get\+Id}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the unique ID of the room. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room_ac57aee83a843c8b1bfccd6f7a2580287}{set\+Id}} (Long id)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the unique ID of the room. \end{DoxyCompactList}\item 
 String \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room_ae7a89ea77c228ec78629a768fa377d4a}{get\+Name}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the name of the room. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room_ac25aa30147d27b26469b0c5cbef8727e}{set\+Name}} (String name)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the name of the room. \end{DoxyCompactList}\item 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room_a3ad9b38b7618f3a77b3fa5fae57ba892}{get\+Seats}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the list of seats in the room. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room_a1a08bb040fd2404e2c66ff3aa01194cb}{set\+Seats}} (List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} $>$ seats)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the list of seats in the room. \end{DoxyCompactList}\item 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room_a9ac9c6b7d6e0912305917f7244387a85}{get\+Screenings}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the list of screenings in the room. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room_aeb69ec585b266fa4faeedda544f24b2f}{set\+Screenings}} (List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} $>$ screenings)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the list of screenings in the room. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room_ada4dc69adeb61a71c3c75b58b2048498}{add\+Seat}} (\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} seat)
-\item 
+\begin{DoxyCompactList}\small\item\em Adds a seat to the room. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room_ada1327b5d036fd080dadab5b04ecbad1}{add\+Screening}} (\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} screening)
-\item 
+\begin{DoxyCompactList}\small\item\em Adds a screening to the room. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room_a305d0367b894461c62a70955f462553f}{get\+Seat\+Count}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the total number of seats in the room. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room_ae6c2decec98fe6d167e99b2c5e36b3a9}{get\+Available\+Seats}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the number of available (not reserved) seats. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room_ac6e130c07a8040bbfd2ffdbb3267a144}{get\+Reserved\+Seats}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the number of reserved seats. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room_a056879cb5032f391597f9a058072f517}{Room}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Default constructor required by JPA. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room_a1d21fcc2ba6e37d867301aeef497a455}{Room}} (String name, List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} $>$ seats)
-\item 
+\begin{DoxyCompactList}\small\item\em Constructor to create a room with a name and initial list of seats. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room_a62d2417c6138fa0332e419d4e6d65402}{Room}} (String name)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Constructor to create a room with a name and default 20 seats. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Entity class representing a cinema room where screenings take place. 
+
+The {\ttfamily Room} class maps to a database entity representing a cinema room. It contains a list of {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} objects representing seats in the room and a list of {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} objects representing scheduled screenings. It provides convenience methods to get counts of total, available, and reserved seats.
+
+\begin{DoxyAuthor}{Author}
+BSPQ25-\/\+E5 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+2025-\/05-\/19 
+\end{DoxySince}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -44,12 +65,27 @@ int \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_room_ac6e130
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_room_a056879cb5032f391597f9a058072f517} 
 com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Room.\+Room (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-\Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_room_a1d21fcc2ba6e37d867301aeef497a455}\index{com.cinema\_seat\_booking.model.Room@{com.cinema\_seat\_booking.model.Room}!Room@{Room}}
+
+
+Default constructor required by JPA. 
+
+Initializes seats and screenings lists to empty lists. \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_room_a1d21fcc2ba6e37d867301aeef497a455}\index{com.cinema\_seat\_booking.model.Room@{com.cinema\_seat\_booking.model.Room}!Room@{Room}}
 \index{Room@{Room}!com.cinema\_seat\_booking.model.Room@{com.cinema\_seat\_booking.model.Room}}
 \doxysubsubsection{\texorpdfstring{Room()}{Room()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_room_a1d21fcc2ba6e37d867301aeef497a455} 
 com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Room.\+Room (\begin{DoxyParamCaption}\item[{String}]{name}{, }\item[{List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} $>$}]{seats}{}\end{DoxyParamCaption})}
 
+
+
+Constructor to create a room with a name and initial list of seats. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & the name of the room \\
+\hline
+{\em seats} & the initial list of seats \\
+\hline
+\end{DoxyParams}
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -66,6 +102,15 @@ com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Room.\+Room (\begin{DoxyParamCapti
 
 
 
+Constructor to create a room with a name and default 20 seats. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & the name of the room \\
+\hline
+\end{DoxyParams}
+
+
 \doxysubsection{Member Function Documentation}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_room_ada1327b5d036fd080dadab5b04ecbad1}\index{com.cinema\_seat\_booking.model.Room@{com.cinema\_seat\_booking.model.Room}!addScreening@{addScreening}}
 \index{addScreening@{addScreening}!com.cinema\_seat\_booking.model.Room@{com.cinema\_seat\_booking.model.Room}}
@@ -73,6 +118,17 @@ com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Room.\+Room (\begin{DoxyParamCapti
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_room_ada1327b5d036fd080dadab5b04ecbad1} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Room.\+add\+Screening (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}}}]{screening}{}\end{DoxyParamCaption})}
 
+
+
+Adds a screening to the room. 
+
+Adds the screening to the screening list and sets the room on the screening.
+
+
+\begin{DoxyParams}{Parameters}
+{\em screening} & the screening to add \\
+\hline
+\end{DoxyParams}
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -87,6 +143,17 @@ Here is the call graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_room_ada4dc69adeb61a71c3c75b58b2048498} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Room.\+add\+Seat (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}}}]{seat}{}\end{DoxyParamCaption})}
 
+
+
+Adds a seat to the room. 
+
+Adds the seat to the seat list and sets the room on the seat.
+
+
+\begin{DoxyParams}{Parameters}
+{\em seat} & the seat to add \\
+\hline
+\end{DoxyParams}
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -109,6 +176,13 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_room_ae6c2decec98fe6d167e99b2c5e36b3a9} 
 int com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Room.\+get\+Available\+Seats (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the number of available (not reserved) seats. 
+
+\begin{DoxyReturn}{Returns}
+the count of available seats 
+\end{DoxyReturn}
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -131,6 +205,13 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_room_ace4e6cba4421e2a22c9951c903018d56} 
 Long com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Room.\+get\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the unique ID of the room. 
+
+\begin{DoxyReturn}{Returns}
+the room ID 
+\end{DoxyReturn}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -145,6 +226,13 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_room_ae7a89ea77c228ec78629a768fa377d4a} 
 String com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Room.\+get\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the name of the room. 
+
+\begin{DoxyReturn}{Returns}
+the room name 
+\end{DoxyReturn}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -159,6 +247,13 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_room_ac6e130c07a8040bbfd2ffdbb3267a144} 
 int com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Room.\+get\+Reserved\+Seats (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the number of reserved seats. 
+
+\begin{DoxyReturn}{Returns}
+the count of reserved seats 
+\end{DoxyReturn}
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -181,12 +276,26 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_room_a9ac9c6b7d6e0912305917f7244387a85} 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Room.\+get\+Screenings (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the list of screenings in the room. 
+
+\begin{DoxyReturn}{Returns}
+the list of screenings 
+\end{DoxyReturn}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_room_a305d0367b894461c62a70955f462553f}\index{com.cinema\_seat\_booking.model.Room@{com.cinema\_seat\_booking.model.Room}!getSeatCount@{getSeatCount}}
 \index{getSeatCount@{getSeatCount}!com.cinema\_seat\_booking.model.Room@{com.cinema\_seat\_booking.model.Room}}
 \doxysubsubsection{\texorpdfstring{getSeatCount()}{getSeatCount()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_room_a305d0367b894461c62a70955f462553f} 
 int com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Room.\+get\+Seat\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the total number of seats in the room. 
+
+\begin{DoxyReturn}{Returns}
+the seat count 
+\end{DoxyReturn}
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -209,6 +318,13 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_room_a3ad9b38b7618f3a77b3fa5fae57ba892} 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Room.\+get\+Seats (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Gets the list of seats in the room. 
+
+\begin{DoxyReturn}{Returns}
+the list of seats 
+\end{DoxyReturn}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -223,12 +339,30 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_room_ac57aee83a843c8b1bfccd6f7a2580287} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Room.\+set\+Id (\begin{DoxyParamCaption}\item[{Long}]{id}{}\end{DoxyParamCaption})}
 
+
+
+Sets the unique ID of the room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the room ID to set \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_room_ac25aa30147d27b26469b0c5cbef8727e}\index{com.cinema\_seat\_booking.model.Room@{com.cinema\_seat\_booking.model.Room}!setName@{setName}}
 \index{setName@{setName}!com.cinema\_seat\_booking.model.Room@{com.cinema\_seat\_booking.model.Room}}
 \doxysubsubsection{\texorpdfstring{setName()}{setName()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_room_ac25aa30147d27b26469b0c5cbef8727e} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Room.\+set\+Name (\begin{DoxyParamCaption}\item[{String}]{name}{}\end{DoxyParamCaption})}
 
+
+
+Sets the name of the room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & the room name to set \\
+\hline
+\end{DoxyParams}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -243,12 +377,30 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_room_aeb69ec585b266fa4faeedda544f24b2f} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Room.\+set\+Screenings (\begin{DoxyParamCaption}\item[{List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} $>$}]{screenings}{}\end{DoxyParamCaption})}
 
+
+
+Sets the list of screenings in the room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em screenings} & the list of screenings to set \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1model_1_1_room_a1a08bb040fd2404e2c66ff3aa01194cb}\index{com.cinema\_seat\_booking.model.Room@{com.cinema\_seat\_booking.model.Room}!setSeats@{setSeats}}
 \index{setSeats@{setSeats}!com.cinema\_seat\_booking.model.Room@{com.cinema\_seat\_booking.model.Room}}
 \doxysubsubsection{\texorpdfstring{setSeats()}{setSeats()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1model_1_1_room_a1a08bb040fd2404e2c66ff3aa01194cb} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+model.\+Room.\+set\+Seats (\begin{DoxyParamCaption}\item[{List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} $>$}]{seats}{}\end{DoxyParamCaption})}
 
+
+
+Sets the list of seats in the room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em seats} & the list of seats to set \\
+\hline
+\end{DoxyParams}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]

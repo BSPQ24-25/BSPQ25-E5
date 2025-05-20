@@ -39,7 +39,7 @@ import org.springframework.stereotype.Service;
  * @brief Business logic for user operations such as registration, authentication, and profile management.
  */
 @Service
-<span class="nc" id="L42">public class UserService {</span>
+<span class="fc" id="L42">public class UserService {</span>
 
     @Autowired
     private UserRepository userRepository;
@@ -51,12 +51,12 @@ import org.springframework.stereotype.Service;
      */
     @Transactional
     public User registerUser(UserDTO user) {
-<span class="nc" id="L54">        User newUser = new User();</span>
-<span class="nc" id="L55">        newUser.setUsername(user.getUsername());</span>
-<span class="nc" id="L56">        newUser.setEmail(user.getEmail());</span>
-<span class="nc" id="L57">        newUser.setPassword(user.getPassword()); // Consider encrypting the password in production</span>
-<span class="nc" id="L58">        newUser.setRole(Role.CLIENT);</span>
-<span class="nc" id="L59">        return userRepository.save(newUser);</span>
+<span class="fc" id="L54">        User newUser = new User();</span>
+<span class="fc" id="L55">        newUser.setUsername(user.getUsername());</span>
+<span class="fc" id="L56">        newUser.setEmail(user.getEmail());</span>
+<span class="fc" id="L57">        newUser.setPassword(user.getPassword()); // Consider encrypting the password in production</span>
+<span class="fc" id="L58">        newUser.setRole(Role.CLIENT);</span>
+<span class="fc" id="L59">        return userRepository.save(newUser);</span>
     }
 
     /**
@@ -66,11 +66,11 @@ import org.springframework.stereotype.Service;
      * @throws RuntimeException if the user is not found.
      */
     public User getUserByUsername(String username) {
-<span class="nc" id="L69">        User user = userRepository.findByUsername(username);</span>
-<span class="nc bnc" id="L70" title="All 2 branches missed.">        if (user == null) {</span>
-<span class="nc" id="L71">            throw new RuntimeException(&quot;User not found&quot;);</span>
+<span class="fc" id="L69">        User user = userRepository.findByUsername(username);</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">        if (user == null) {</span>
+<span class="fc" id="L71">            throw new RuntimeException(&quot;User not found&quot;);</span>
         }
-<span class="nc" id="L73">        return user;</span>
+<span class="fc" id="L73">        return user;</span>
     }
 
     /**
@@ -81,15 +81,15 @@ import org.springframework.stereotype.Service;
      */
     @Transactional
     public User updateUserProfile(UserDTO userDTO) {
-<span class="nc" id="L84">        User existingUser = userRepository.findByUsername(userDTO.getUsername());</span>
-<span class="nc bnc" id="L85" title="All 2 branches missed.">        if (existingUser != null) {</span>
-<span class="nc" id="L86">            existingUser.setEmail(userDTO.getEmail());</span>
-<span class="nc bnc" id="L87" title="All 4 branches missed.">            if (userDTO.getPassword() != null &amp;&amp; !userDTO.getPassword().isEmpty()) {</span>
-<span class="nc" id="L88">                existingUser.setPassword(userDTO.getPassword()); // Again, encryption recommended</span>
+<span class="fc" id="L84">        User existingUser = userRepository.findByUsername(userDTO.getUsername());</span>
+<span class="fc bfc" id="L85" title="All 2 branches covered.">        if (existingUser != null) {</span>
+<span class="fc" id="L86">            existingUser.setEmail(userDTO.getEmail());</span>
+<span class="pc bpc" id="L87" title="2 of 4 branches missed.">            if (userDTO.getPassword() != null &amp;&amp; !userDTO.getPassword().isEmpty()) {</span>
+<span class="fc" id="L88">                existingUser.setPassword(userDTO.getPassword()); // Again, encryption recommended</span>
             }
-<span class="nc" id="L90">            return userRepository.save(existingUser);</span>
+<span class="fc" id="L90">            return userRepository.save(existingUser);</span>
         } else {
-<span class="nc" id="L92">            throw new RuntimeException(&quot;User not found&quot;);</span>
+<span class="fc" id="L92">            throw new RuntimeException(&quot;User not found&quot;);</span>
         }
     }
 
@@ -101,12 +101,12 @@ import org.springframework.stereotype.Service;
      */
     @Transactional
     public boolean deleteUser(String username, String password) {
-<span class="nc" id="L104">        User user = userRepository.findByUsername(username);</span>
-<span class="nc bnc" id="L105" title="All 4 branches missed.">        if (user != null &amp;&amp; user.getPassword().equals(password)) {</span>
-<span class="nc" id="L106">            userRepository.delete(user);</span>
-<span class="nc" id="L107">            return true;</span>
+<span class="fc" id="L104">        User user = userRepository.findByUsername(username);</span>
+<span class="fc bfc" id="L105" title="All 4 branches covered.">        if (user != null &amp;&amp; user.getPassword().equals(password)) {</span>
+<span class="fc" id="L106">            userRepository.delete(user);</span>
+<span class="fc" id="L107">            return true;</span>
         } else {
-<span class="nc" id="L109">            return false;</span>
+<span class="fc" id="L109">            return false;</span>
         }
     }
 

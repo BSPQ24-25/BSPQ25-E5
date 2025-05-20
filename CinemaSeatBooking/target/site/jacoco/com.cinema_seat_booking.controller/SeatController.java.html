@@ -30,7 +30,7 @@ import java.util.stream.Collectors;
  */
 @RestController
 @RequestMapping(&quot;/api/seats&quot;)
-<span class="nc" id="L33">public class SeatController {</span>
+<span class="fc" id="L33">public class SeatController {</span>
 
     /** Service for seat-related operations. */
     @Autowired
@@ -44,14 +44,14 @@ import java.util.stream.Collectors;
     @Operation(summary = &quot;Get all seats&quot;, description = &quot;Returns a list of all seats with room information&quot;)
     @GetMapping
     public List&lt;SeatDTO&gt; getAllSeats() {
-<span class="nc" id="L47">        List&lt;Seat&gt; seats = seatService.getAllSeats();</span>
-<span class="nc" id="L48">        return seats.stream()</span>
-<span class="nc" id="L49">                .map(seat -&gt; new SeatDTO(</span>
-<span class="nc" id="L50">                        seat.getId(),</span>
-<span class="nc" id="L51">                        seat.getSeatNumber(),</span>
-<span class="nc" id="L52">                        seat.isReserved(),</span>
-<span class="nc" id="L53">                        seat.getRoom().getName()))</span>
-<span class="nc" id="L54">                .collect(Collectors.toList());</span>
+<span class="fc" id="L47">        List&lt;Seat&gt; seats = seatService.getAllSeats();</span>
+<span class="fc" id="L48">        return seats.stream()</span>
+<span class="fc" id="L49">                .map(seat -&gt; new SeatDTO(</span>
+<span class="fc" id="L50">                        seat.getId(),</span>
+<span class="fc" id="L51">                        seat.getSeatNumber(),</span>
+<span class="fc" id="L52">                        seat.isReserved(),</span>
+<span class="fc" id="L53">                        seat.getRoom().getName()))</span>
+<span class="fc" id="L54">                .collect(Collectors.toList());</span>
     }
 
     /**
@@ -68,15 +68,15 @@ import java.util.stream.Collectors;
     @GetMapping(&quot;/{id}&quot;)
     public ResponseEntity&lt;SeatDTO&gt; getSeatById(@PathVariable Long id) {
         try {
-<span class="nc" id="L71">            Seat seat = seatService.getSeatById(id).orElseThrow(() -&gt; new RuntimeException(&quot;Seat not found&quot;));</span>
-<span class="nc" id="L72">            SeatDTO seatDTO = new SeatDTO(</span>
-<span class="nc" id="L73">                    seat.getId(),</span>
-<span class="nc" id="L74">                    seat.getSeatNumber(),</span>
-<span class="nc" id="L75">                    seat.isReserved(),</span>
-<span class="nc" id="L76">                    seat.getRoom().getName());</span>
-<span class="nc" id="L77">            return ResponseEntity.ok(seatDTO);</span>
-<span class="nc" id="L78">        } catch (Exception e) {</span>
-<span class="nc" id="L79">            return ResponseEntity.notFound().build();</span>
+<span class="fc" id="L71">            Seat seat = seatService.getSeatById(id).orElseThrow(() -&gt; new RuntimeException(&quot;Seat not found&quot;));</span>
+<span class="fc" id="L72">            SeatDTO seatDTO = new SeatDTO(</span>
+<span class="fc" id="L73">                    seat.getId(),</span>
+<span class="fc" id="L74">                    seat.getSeatNumber(),</span>
+<span class="fc" id="L75">                    seat.isReserved(),</span>
+<span class="fc" id="L76">                    seat.getRoom().getName());</span>
+<span class="fc" id="L77">            return ResponseEntity.ok(seatDTO);</span>
+<span class="fc" id="L78">        } catch (Exception e) {</span>
+<span class="fc" id="L79">            return ResponseEntity.notFound().build();</span>
         }
     }
 
@@ -91,8 +91,8 @@ import java.util.stream.Collectors;
     @PostMapping
     public ResponseEntity&lt;Seat&gt; createSeat(@RequestParam int number, @RequestParam Long roomId) {
         try {
-<span class="nc" id="L94">            Seat seat = seatService.createSeat(number, roomId);</span>
-<span class="nc" id="L95">            return ResponseEntity.status(201).body(seat);</span>
+<span class="fc" id="L94">            Seat seat = seatService.createSeat(number, roomId);</span>
+<span class="fc" id="L95">            return ResponseEntity.status(201).body(seat);</span>
 <span class="nc" id="L96">        } catch (IllegalArgumentException e) {</span>
 <span class="nc" id="L97">            return ResponseEntity.badRequest().body(null);</span>
         }
@@ -112,10 +112,10 @@ import java.util.stream.Collectors;
                                            @RequestParam int number,
                                            @RequestParam Long roomId) {
         try {
-<span class="nc" id="L115">            Seat updatedSeat = seatService.updateSeat(id, number, roomId);</span>
-<span class="nc" id="L116">            return ResponseEntity.ok(updatedSeat);</span>
-<span class="nc" id="L117">        } catch (IllegalArgumentException e) {</span>
-<span class="nc" id="L118">            return ResponseEntity.notFound().build();</span>
+<span class="fc" id="L115">            Seat updatedSeat = seatService.updateSeat(id, number, roomId);</span>
+<span class="fc" id="L116">            return ResponseEntity.ok(updatedSeat);</span>
+<span class="fc" id="L117">        } catch (IllegalArgumentException e) {</span>
+<span class="fc" id="L118">            return ResponseEntity.notFound().build();</span>
         }
     }
 
@@ -128,10 +128,10 @@ import java.util.stream.Collectors;
     @Operation(summary = &quot;Delete a seat by ID&quot;)
     @DeleteMapping(&quot;/{id}&quot;)
     public ResponseEntity&lt;Void&gt; deleteSeat(@PathVariable Long id) {
-<span class="nc bnc" id="L131" title="All 2 branches missed.">        if (seatService.deleteSeat(id)) {</span>
-<span class="nc" id="L132">            return ResponseEntity.noContent().build();</span>
+<span class="fc bfc" id="L131" title="All 2 branches covered.">        if (seatService.deleteSeat(id)) {</span>
+<span class="fc" id="L132">            return ResponseEntity.noContent().build();</span>
         } else {
-<span class="nc" id="L134">            return ResponseEntity.notFound().build();</span>
+<span class="fc" id="L134">            return ResponseEntity.notFound().build();</span>
         }
     }
 
@@ -144,7 +144,7 @@ import java.util.stream.Collectors;
     @Operation(summary = &quot;Get available (non-reserved) seats by room ID&quot;)
     @GetMapping(&quot;/available&quot;)
     public ResponseEntity&lt;List&lt;Seat&gt;&gt; getAvailableSeats(@RequestParam Long roomId) {
-<span class="nc" id="L147">        return ResponseEntity.ok(seatService.getAvailableSeats(roomId));</span>
+<span class="fc" id="L147">        return ResponseEntity.ok(seatService.getAvailableSeats(roomId));</span>
     }
 
     /**
@@ -157,10 +157,10 @@ import java.util.stream.Collectors;
     @PutMapping(&quot;/{id}/reserve&quot;)
     public ResponseEntity&lt;Void&gt; reserveSeat(@PathVariable Long id) {
         try {
-<span class="nc" id="L160">            seatService.reserveSeat(id);</span>
-<span class="nc" id="L161">            return ResponseEntity.ok().build();</span>
-<span class="nc" id="L162">        } catch (Exception e) {</span>
-<span class="nc" id="L163">            return ResponseEntity.badRequest().build();</span>
+<span class="fc" id="L160">            seatService.reserveSeat(id);</span>
+<span class="fc" id="L161">            return ResponseEntity.ok().build();</span>
+<span class="fc" id="L162">        } catch (Exception e) {</span>
+<span class="fc" id="L163">            return ResponseEntity.badRequest().build();</span>
         }
     }
 
@@ -174,10 +174,10 @@ import java.util.stream.Collectors;
     @PutMapping(&quot;/{id}/cancel&quot;)
     public ResponseEntity&lt;Void&gt; cancelSeatReservation(@PathVariable Long id) {
         try {
-<span class="nc" id="L177">            seatService.cancelSeatReservation(id);</span>
-<span class="nc" id="L178">            return ResponseEntity.ok().build();</span>
-<span class="nc" id="L179">        } catch (Exception e) {</span>
-<span class="nc" id="L180">            return ResponseEntity.badRequest().build();</span>
+<span class="fc" id="L177">            seatService.cancelSeatReservation(id);</span>
+<span class="fc" id="L178">            return ResponseEntity.ok().build();</span>
+<span class="fc" id="L179">        } catch (Exception e) {</span>
+<span class="fc" id="L180">            return ResponseEntity.badRequest().build();</span>
         }
     }
 }

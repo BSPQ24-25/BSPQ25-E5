@@ -1,5 +1,5 @@
 <map id="com.cinema_seat_booking.service.RoomService.updateRoom" name="com.cinema_seat_booking.service.RoomService.updateRoom">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,232,48"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_room.html#ac25aa30147d27b26469b0c5cbef8727e" title=" " alt="" coords="280,5,499,48"/>
+<area shape="rect" id="Node000001" title="Updates the name of an existing room." alt="" coords="5,5,232,48"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_room.html#ac25aa30147d27b26469b0c5cbef8727e" title="Sets the name of the room." alt="" coords="280,5,499,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="232,24,264,24,264,29,232,29"/>
 </map>

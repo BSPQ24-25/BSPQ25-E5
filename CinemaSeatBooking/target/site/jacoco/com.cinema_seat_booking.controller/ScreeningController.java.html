@@ -29,7 +29,7 @@ import java.util.Optional;
  */
 @RestController
 @RequestMapping(&quot;/api/screenings&quot;)
-<span class="nc" id="L32">public class ScreeningController {</span>
+<span class="fc" id="L32">public class ScreeningController {</span>
 
     /** Service class for screening logic and data access. */
     @Autowired
@@ -44,11 +44,11 @@ import java.util.Optional;
     @ApiResponse(responseCode = &quot;200&quot;, description = &quot;List of screenings retrieved successfully&quot;)
     @GetMapping
     public ResponseEntity&lt;List&lt;ScreeningDTO&gt;&gt; getAllScreenings() {
-<span class="nc" id="L47">        List&lt;Screening&gt; screenings = screeningService.getAllScreenings();</span>
-<span class="nc" id="L48">        List&lt;ScreeningDTO&gt; screeningDTOs = screenings.stream()</span>
-<span class="nc" id="L49">                .map(ScreeningDTO::new)</span>
-<span class="nc" id="L50">                .toList();</span>
-<span class="nc" id="L51">        return ResponseEntity.ok(screeningDTOs);</span>
+<span class="fc" id="L47">        List&lt;Screening&gt; screenings = screeningService.getAllScreenings();</span>
+<span class="fc" id="L48">        List&lt;ScreeningDTO&gt; screeningDTOs = screenings.stream()</span>
+<span class="fc" id="L49">                .map(ScreeningDTO::new)</span>
+<span class="fc" id="L50">                .toList();</span>
+<span class="fc" id="L51">        return ResponseEntity.ok(screeningDTOs);</span>
     }
 
     /**
@@ -64,11 +64,11 @@ import java.util.Optional;
     })
     @GetMapping(&quot;/{id}&quot;)
     public ResponseEntity&lt;ScreeningDTO&gt; getScreeningById(@PathVariable Long id) {
-<span class="nc" id="L67">        Optional&lt;Screening&gt; screening = screeningService.getScreeningById(id);</span>
-<span class="nc bnc" id="L68" title="All 2 branches missed.">        if (screening.isEmpty()) return ResponseEntity.notFound().build();</span>
+<span class="fc" id="L67">        Optional&lt;Screening&gt; screening = screeningService.getScreeningById(id);</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">        if (screening.isEmpty()) return ResponseEntity.notFound().build();</span>
 
-<span class="nc" id="L70">        ScreeningDTO screeningDTO = new ScreeningDTO(screening.get());</span>
-<span class="nc" id="L71">        return ResponseEntity.ok(screeningDTO);</span>
+<span class="fc" id="L70">        ScreeningDTO screeningDTO = new ScreeningDTO(screening.get());</span>
+<span class="fc" id="L71">        return ResponseEntity.ok(screeningDTO);</span>
     }
 
     /**

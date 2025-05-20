@@ -16,9 +16,9 @@ import com.cinema_seat_booking.service.ReservationService;
 import jakarta.transaction.Transactional;
 
 @Configuration
-<span class="nc" id="L19">public class DataInitializer {</span>
+<span class="fc" id="L19">public class DataInitializer {</span>
 
-<span class="nc" id="L21">    private static final Logger logger = LoggerFactory.getLogger(DataInitializer.class);</span>
+<span class="fc" id="L21">    private static final Logger logger = LoggerFactory.getLogger(DataInitializer.class);</span>
 
     @Bean
     @Transactional
@@ -26,11 +26,11 @@ import jakarta.transaction.Transactional;
             RoomRepository roomRepository, SeatRepository seatRepository, ScreeningRepository screeningRepository,
             ReservationRepository reservationRepository, PaymentRepository paymentRepository,
             ReservationService reservationService) {
-<span class="nc" id="L29">        return args -&gt; {</span>
+<span class="fc" id="L29">        return args -&gt; {</span>
             // Database is already initialized
-<span class="nc bnc" id="L31" title="All 2 branches missed.">            if (userRepository.count() &gt; 0) {</span>
-<span class="nc" id="L32">                logger.info(&quot;Database already initialized, skipping data initialization.&quot;);</span>
-<span class="nc" id="L33">                return;</span>
+<span class="pc bpc" id="L31" title="1 of 2 branches missed.">            if (userRepository.count() &gt; 0) {</span>
+<span class="fc" id="L32">                logger.info(&quot;Database already initialized, skipping data initialization.&quot;);</span>
+<span class="fc" id="L33">                return;</span>
             }
 
             // Create some users

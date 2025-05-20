@@ -45,7 +45,7 @@ import java.util.Optional;
  * and payment integration.
  */
 @Service
-<span class="nc" id="L48">public class ReservationService {</span>
+<span class="fc" id="L48">public class ReservationService {</span>
 
     @Autowired
     private ReservationRepository reservationRepository;
@@ -79,20 +79,20 @@ import java.util.Optional;
      */
     @Transactional
     public Reservation createReservation(User user, Screening screening, Seat seat, String paymentMethod) {
-<span class="nc" id="L82">        Seat managedSeat = seatRepository.findById(seat.getId())</span>
-<span class="nc" id="L83">                .orElseThrow(() -&gt; new IllegalArgumentException(&quot;Seat not found&quot;));</span>
+<span class="fc" id="L82">        Seat managedSeat = seatRepository.findById(seat.getId())</span>
+<span class="pc" id="L83">                .orElseThrow(() -&gt; new IllegalArgumentException(&quot;Seat not found&quot;));</span>
 
-<span class="nc bnc" id="L85" title="All 2 branches missed.">        if (managedSeat.isReserved()) {</span>
-<span class="nc" id="L86">            throw new IllegalStateException(&quot;Seat &quot; + managedSeat.getSeatNumber() + &quot; is already reserved!&quot;);</span>
+<span class="fc bfc" id="L85" title="All 2 branches covered.">        if (managedSeat.isReserved()) {</span>
+<span class="fc" id="L86">            throw new IllegalStateException(&quot;Seat &quot; + managedSeat.getSeatNumber() + &quot; is already reserved!&quot;);</span>
         }
 
-<span class="nc" id="L89">        managedSeat.setReserved(true);</span>
-<span class="nc" id="L90">        seatRepository.save(managedSeat);</span>
+<span class="fc" id="L89">        managedSeat.setReserved(true);</span>
+<span class="fc" id="L90">        seatRepository.save(managedSeat);</span>
 
-<span class="nc" id="L92">        Reservation reservation = new Reservation(user, screening, managedSeat);</span>
-<span class="nc" id="L93">        reservation.setReservationState(ReservationState.PENDING);</span>
+<span class="fc" id="L92">        Reservation reservation = new Reservation(user, screening, managedSeat);</span>
+<span class="fc" id="L93">        reservation.setReservationState(ReservationState.PENDING);</span>
 
-<span class="nc" id="L95">        return reservationRepository.save(reservation);</span>
+<span class="fc" id="L95">        return reservationRepository.save(reservation);</span>
     }
 
     /**
@@ -102,11 +102,11 @@ import java.util.Optional;
      */
     @Transactional
     public List&lt;Reservation&gt; getAllReservations() {
-<span class="nc" id="L105">        List&lt;Reservation&gt; reservations = reservationRepository.findAll();</span>
-<span class="nc" id="L106">        reservations.forEach(res -&gt; {</span>
-<span class="nc" id="L107">            res.getScreening().getRoom().getSeats().size();</span>
-<span class="nc" id="L108">        });</span>
-<span class="nc" id="L109">        return reservations;</span>
+<span class="fc" id="L105">        List&lt;Reservation&gt; reservations = reservationRepository.findAll();</span>
+<span class="fc" id="L106">        reservations.forEach(res -&gt; {</span>
+<span class="fc" id="L107">            res.getScreening().getRoom().getSeats().size();</span>
+<span class="fc" id="L108">        });</span>
+<span class="fc" id="L109">        return reservations;</span>
     }
 
     /**
@@ -135,39 +135,39 @@ import java.util.Optional;
      */
     @Transactional
     public void cancelReservation(Long reservationId) {
-<span class="nc" id="L138">        Optional&lt;Reservation&gt; optionalReservation = reservationRepository.findById(reservationId);</span>
+<span class="fc" id="L138">        Optional&lt;Reservation&gt; optionalReservation = reservationRepository.findById(reservationId);</span>
 
-<span class="nc bnc" id="L140" title="All 2 branches missed.">        if (optionalReservation.isPresent()) {</span>
-<span class="nc" id="L141">            Reservation reservation = optionalReservation.get();</span>
-<span class="nc" id="L142">            User user = reservation.getUser();</span>
-<span class="nc" id="L143">            Seat seat = reservation.getSeat();</span>
-<span class="nc" id="L144">            Screening screening = reservation.getScreening();</span>
-<span class="nc" id="L145">            Payment payment = reservation.getPayment();</span>
+<span class="pc bpc" id="L140" title="1 of 2 branches missed.">        if (optionalReservation.isPresent()) {</span>
+<span class="fc" id="L141">            Reservation reservation = optionalReservation.get();</span>
+<span class="fc" id="L142">            User user = reservation.getUser();</span>
+<span class="fc" id="L143">            Seat seat = reservation.getSeat();</span>
+<span class="fc" id="L144">            Screening screening = reservation.getScreening();</span>
+<span class="fc" id="L145">            Payment payment = reservation.getPayment();</span>
 
-<span class="nc" id="L147">            user.removeReservation(reservation);</span>
-<span class="nc" id="L148">            userRepository.save(user);</span>
+<span class="fc" id="L147">            user.removeReservation(reservation);</span>
+<span class="fc" id="L148">            userRepository.save(user);</span>
 
-<span class="nc" id="L150">            screening.getReservations().remove(reservation);</span>
-<span class="nc" id="L151">            screeningRepository.save(screening);</span>
+<span class="fc" id="L150">            screening.getReservations().remove(reservation);</span>
+<span class="fc" id="L151">            screeningRepository.save(screening);</span>
 
-<span class="nc" id="L153">            seat.setReserved(false);</span>
-<span class="nc" id="L154">            seat.setReservation(null);</span>
-<span class="nc" id="L155">            seatRepository.save(seat);</span>
+<span class="fc" id="L153">            seat.setReserved(false);</span>
+<span class="fc" id="L154">            seat.setReservation(null);</span>
+<span class="fc" id="L155">            seatRepository.save(seat);</span>
 
-<span class="nc" id="L157">            payment.setReservation(null);</span>
-<span class="nc" id="L158">            payment.setStatus(PaymentStatus.FAILED);</span>
-<span class="nc" id="L159">            paymentRepository.save(payment);</span>
+<span class="fc" id="L157">            payment.setReservation(null);</span>
+<span class="fc" id="L158">            payment.setStatus(PaymentStatus.FAILED);</span>
+<span class="fc" id="L159">            paymentRepository.save(payment);</span>
 
-<span class="nc" id="L161">            reservation.setUser(null);</span>
-<span class="nc" id="L162">            reservation.setScreening(null);</span>
-<span class="nc" id="L163">            reservation.setSeat(null);</span>
-<span class="nc" id="L164">            reservation.setPayment(null);</span>
-<span class="nc" id="L165">            reservation.setReservationState(ReservationState.CANCELLED);</span>
-<span class="nc" id="L166">            reservationRepository.deleteById(reservation.getId());</span>
-<span class="nc" id="L167">        } else {</span>
+<span class="fc" id="L161">            reservation.setUser(null);</span>
+<span class="fc" id="L162">            reservation.setScreening(null);</span>
+<span class="fc" id="L163">            reservation.setSeat(null);</span>
+<span class="fc" id="L164">            reservation.setPayment(null);</span>
+<span class="fc" id="L165">            reservation.setReservationState(ReservationState.CANCELLED);</span>
+<span class="fc" id="L166">            reservationRepository.deleteById(reservation.getId());</span>
+<span class="fc" id="L167">        } else {</span>
 <span class="nc" id="L168">            throw new IllegalArgumentException(&quot;Reservation not found!&quot;);</span>
         }
-<span class="nc" id="L170">    }</span>
+<span class="fc" id="L170">    }</span>
 
     /**
      * @brief Saves a pre-created reservation object.
@@ -193,13 +193,13 @@ import java.util.Optional;
      */
     @Transactional
     public Payment makePayment(Long reservationId, String paymentMethod, double amount, String date) {
-<span class="nc" id="L196">        Reservation reservation = reservationRepository.findById(reservationId)</span>
-<span class="nc" id="L197">                .orElseThrow(() -&gt; new IllegalArgumentException(&quot;Reservation not found&quot;));</span>
-<span class="nc" id="L198">        Payment payment = paymentService.processPayment(reservation, paymentMethod, amount, date);</span>
-<span class="nc" id="L199">        paymentRepository.save(payment);</span>
-<span class="nc" id="L200">        reservation.setPayment(payment);</span>
-<span class="nc" id="L201">        reservationRepository.save(reservation);</span>
-<span class="nc" id="L202">        return payment;</span>
+<span class="fc" id="L196">        Reservation reservation = reservationRepository.findById(reservationId)</span>
+<span class="pc" id="L197">                .orElseThrow(() -&gt; new IllegalArgumentException(&quot;Reservation not found&quot;));</span>
+<span class="fc" id="L198">        Payment payment = paymentService.processPayment(reservation, paymentMethod, amount, date);</span>
+<span class="fc" id="L199">        paymentRepository.save(payment);</span>
+<span class="fc" id="L200">        reservation.setPayment(payment);</span>
+<span class="fc" id="L201">        reservationRepository.save(reservation);</span>
+<span class="fc" id="L202">        return payment;</span>
     }
 
     /**
@@ -211,8 +211,8 @@ import java.util.Optional;
      * @throws IllegalArgumentException if the reservation is not found
      */
     public Reservation getReservationById(Long reservationId) {
-<span class="nc" id="L214">        return reservationRepository.findById(reservationId)</span>
-<span class="nc" id="L215">                .orElseThrow(() -&gt; new IllegalArgumentException(&quot;Reservation not found&quot;));</span>
+<span class="fc" id="L214">        return reservationRepository.findById(reservationId)</span>
+<span class="fc" id="L215">                .orElseThrow(() -&gt; new IllegalArgumentException(&quot;Reservation not found&quot;));</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

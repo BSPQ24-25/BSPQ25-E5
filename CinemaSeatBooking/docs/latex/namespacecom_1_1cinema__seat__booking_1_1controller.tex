@@ -1,5 +1,10 @@
 \doxysection{Package com.\+cinema\+\_\+seat\+\_\+booking.\+controller}
 \hypertarget{namespacecom_1_1cinema__seat__booking_1_1controller}{}\label{namespacecom_1_1cinema__seat__booking_1_1controller}\index{com.cinema\_seat\_booking.controller@{com.cinema\_seat\_booking.controller}}
+
+
+REST controller for handling payment processing.  
+
+
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -10,7 +15,7 @@ class \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_admin
 class \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_admin_room_controller}{Admin\+Room\+Controller}}
 \item 
 class \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_auth_controller}{Auth\+Controller}}
-\item 
+\begin{DoxyCompactList}\small\item\em REST controller for user authentication and registration. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_cinema_seat_booking_application}{Cinema\+Seat\+Booking\+Application}}
 \item 
 class \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_client_controller}{Client\+Controller}}
@@ -22,16 +27,42 @@ class \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_front
 class \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_global_exception_handler}{Global\+Exception\+Handler}}
 \item 
 class \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_login_controller}{Login\+Controller}}
-\item 
+\begin{DoxyCompactList}\small\item\em REST controller for user login functionality. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_payment_controller}{Payment\+Controller}}
-\item 
+\begin{DoxyCompactList}\small\item\em Controller responsible for managing payment operations. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_reservation_controller}{Reservation\+Controller}}
-\item 
+\begin{DoxyCompactList}\small\item\em Exposes REST endpoints for reservation management. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_room_controller}{Room\+Controller}}
-\item 
+\begin{DoxyCompactList}\small\item\em Exposes REST endpoints for managing cinema rooms. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_screening_controller}{Screening\+Controller}}
-\item 
+\begin{DoxyCompactList}\small\item\em Handles HTTP requests related to movie screenings. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_seat_controller}{Seat\+Controller}}
-\item 
+\begin{DoxyCompactList}\small\item\em REST controller for handling seat management operations. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_user_controller}{User\+Controller}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em REST controller that provides endpoints for user registration, profile viewing, updating, and deletion. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+REST controller for handling payment processing. 
+
+This package contains REST controllers for handling user operations in the cinema seat booking system.
+
+REST controller providing endpoints for managing cinema seat operations.
+
+REST controller for managing movie screening-\/related operations.
+
+REST controller for managing cinema rooms and their seats.
+
+REST controller for managing seat reservations.
+
+Provides an endpoint to process payments associated with reservations.
+
+Provides endpoints to create, retrieve, and cancel reservations involving users, screenings, and seats.
+
+Provides endpoints to create, read, update, and delete rooms, along with retrieving rooms and their associated seats.
+
+This controller provides endpoints for CRUD operations and search functionalities for movie screenings. It interacts with the {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1service_1_1_screening_service}{Screening\+Service}}.
+
+This controller handles seat creation, retrieval, updating, deletion, as well as reservation and availability checking, interacting with the {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1service_1_1_seat_service}{Seat\+Service}}.
+
+It includes {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1controller_1_1_user_controller}{User\+Controller}} for managing user registration, profile management, and authentication. 

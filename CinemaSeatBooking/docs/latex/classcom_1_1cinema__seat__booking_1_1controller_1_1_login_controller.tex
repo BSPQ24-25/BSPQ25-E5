@@ -1,25 +1,49 @@
 \doxysection{com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Login\+Controller Class Reference}
 \hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_login_controller}{}\label{classcom_1_1cinema__seat__booking_1_1controller_1_1_login_controller}\index{com.cinema\_seat\_booking.controller.LoginController@{com.cinema\_seat\_booking.controller.LoginController}}
+
+
+REST controller for user login functionality.  
+
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_login_controller_a759ad11630a18882b142c9f73885f426}{login}} (@Request\+Param("{}username"{}) String username, @Request\+Param("{}password"{}) String password, Http\+Session session)
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1controller_1_1_login_controller_a21d00952e82504290f814a9a7f741e6c}{login}} ( @Request\+Param("{}username"{}) String username, @Request\+Param("{}password"{}) String password, Http\+Session session)
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+REST controller for user login functionality. 
+
+Provides an endpoint to authenticate users and start a session. 
+
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_login_controller_a759ad11630a18882b142c9f73885f426}\index{com.cinema\_seat\_booking.controller.LoginController@{com.cinema\_seat\_booking.controller.LoginController}!login@{login}}
+\Hypertarget{classcom_1_1cinema__seat__booking_1_1controller_1_1_login_controller_a21d00952e82504290f814a9a7f741e6c}\index{com.cinema\_seat\_booking.controller.LoginController@{com.cinema\_seat\_booking.controller.LoginController}!login@{login}}
 \index{login@{login}!com.cinema\_seat\_booking.controller.LoginController@{com.cinema\_seat\_booking.controller.LoginController}}
 \doxysubsubsection{\texorpdfstring{login()}{login()}}
-{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_login_controller_a759ad11630a18882b142c9f73885f426} 
+{\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1controller_1_1_login_controller_a21d00952e82504290f814a9a7f741e6c} 
 Response\+Entity$<$?$>$ com.\+cinema\+\_\+seat\+\_\+booking.\+controller.\+Login\+Controller.\+login (\begin{DoxyParamCaption}\item[{@Request\+Param("{}username"{}) String}]{username}{, }\item[{@Request\+Param("{}password"{}) String}]{password}{, }\item[{Http\+Session}]{session}{}\end{DoxyParamCaption})}
 
+Authenticates a user with the provided username and password. If successful, stores the user in the HTTP session.
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & the username of the user trying to log in \\
+\hline
+{\em password} & the password of the user \\
+\hline
+{\em session} & the HTTP session for storing authenticated user data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a Response\+Entity containing the username and role on success, or an error message on failure 
+\end{DoxyReturn}
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_login_controller_a759ad11630a18882b142c9f73885f426_cgraph}
+\includegraphics[width=350pt]{classcom_1_1cinema__seat__booking_1_1controller_1_1_login_controller_a21d00952e82504290f814a9a7f741e6c_cgraph}
 \end{center}
 \end{figure}
 

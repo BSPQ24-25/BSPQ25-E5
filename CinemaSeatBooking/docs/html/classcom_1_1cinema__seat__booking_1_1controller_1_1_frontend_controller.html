@@ -119,6 +119,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1db49a8694da23457e504836fc79f097"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a328fdcde750bf34e2e0093a8a3c5e7fe" id="r_a328fdcde750bf34e2e0093a8a3c5e7fe"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a328fdcde750bf34e2e0093a8a3c5e7fe">showMyReservationsPage</a> (HttpSession session, Model model)</td></tr>
 <tr class="separator:a328fdcde750bf34e2e0093a8a3c5e7fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cb1875134d5b4dc66e3f734ac12e576" id="r_a7cb1875134d5b4dc66e3f734ac12e576"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7cb1875134d5b4dc66e3f734ac12e576">showCheckoutPage</a> (@PathVariable Long reservationId, HttpSession session, Model model)</td></tr>
+<tr class="separator:a7cb1875134d5b4dc66e3f734ac12e576"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02293e981a98edf0a30504d6ab030501" id="r_a02293e981a98edf0a30504d6ab030501"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a02293e981a98edf0a30504d6ab030501">showAboutPage</a> ()</td></tr>
 <tr class="separator:a02293e981a98edf0a30504d6ab030501"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b35cbae16646ec9e1cedcfda8b3b404" id="r_a4b35cbae16646ec9e1cedcfda8b3b404"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b35cbae16646ec9e1cedcfda8b3b404">show404ltPage</a> ()</td></tr>
@@ -194,7 +196,7 @@ Here is the call graph for this function:</div>
 <map name="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_frontend_controller_ac97ba175d7b721fef7551624b43a893a_cgraph" id="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_frontend_controller_ac97ba175d7b721fef7551624b43a893a_cgraph">
 <area shape="rect" title=" " alt="" coords="5,29,243,72"/>
 <area shape="poly" title=" " alt="" coords="72,29,70,19,79,10,97,5,124,3,154,5,171,11,169,16,153,10,124,8,98,10,81,15,75,21,77,28"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#ac8787e000f085ecbdd62a037a0a03cdd" title=" " alt="" coords="291,29,510,72"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#ac8787e000f085ecbdd62a037a0a03cdd" title="Gets the role of the user." alt="" coords="291,29,510,72"/>
 <area shape="poly" title=" " alt="" coords="243,48,275,48,275,53,243,53"/>
 </map>
 </div>
@@ -285,7 +287,7 @@ Here is the call graph for this function:</div>
 <map name="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_frontend_controller_a0e3778bfa4f0c945e29cf000166cefe5_cgraph" id="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_frontend_controller_a0e3778bfa4f0c945e29cf000166cefe5_cgraph">
 <area shape="rect" title=" " alt="" coords="5,29,243,72"/>
 <area shape="poly" title=" " alt="" coords="72,29,70,19,79,10,97,5,124,3,154,5,171,11,169,16,153,10,124,8,98,10,81,15,75,21,77,28"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#a776e5e171dfe2c3bfdca5aac062b8e57" title=" " alt="" coords="291,29,510,72"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#a776e5e171dfe2c3bfdca5aac062b8e57" title="Sets the username." alt="" coords="291,29,510,72"/>
 <area shape="poly" title=" " alt="" coords="243,48,275,48,275,53,243,53"/>
 </map>
 </div>
@@ -475,6 +477,50 @@ Here is the caller graph for this function:</div>
 <map name="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_frontend_controller_a152532837f39ea8e7fd85195c892aa44_icgraph" id="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_frontend_controller_a152532837f39ea8e7fd85195c892aa44_icgraph">
 <area shape="rect" title=" " alt="" coords="5,29,243,72"/>
 <area shape="poly" title=" " alt="" coords="163,16,148,10,124,8,102,10,88,15,82,21,84,28,79,29,77,19,85,10,100,5,124,3,149,5,165,11"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a7cb1875134d5b4dc66e3f734ac12e576" name="a7cb1875134d5b4dc66e3f734ac12e576"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cb1875134d5b4dc66e3f734ac12e576">&#9670;&#160;</a></span>showCheckoutPage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String com.cinema_seat_booking.controller.FrontendController.showCheckoutPage </td>
+          <td>(</td>
+          <td class="paramtype">@PathVariable Long</td>          <td class="paramname"><span class="paramname"><em>reservationId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">HttpSession</td>          <td class="paramname"><span class="paramname"><em>session</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Model</td>          <td class="paramname"><span class="paramname"><em>model</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classcom_1_1cinema__seat__booking_1_1controller_1_1_frontend_controller_a7cb1875134d5b4dc66e3f734ac12e576_cgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1controller_1_1_frontend_controller_a7cb1875134d5b4dc66e3f734ac12e576_cgraph" alt=""/></div>
+<map name="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_frontend_controller_a7cb1875134d5b4dc66e3f734ac12e576_cgraph" id="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_frontend_controller_a7cb1875134d5b4dc66e3f734ac12e576_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,255,72"/>
+<area shape="poly" title=" " alt="" coords="83,29,81,19,89,10,105,5,130,3,157,5,173,11,171,16,155,10,130,8,106,10,92,15,86,21,88,28"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classcom_1_1cinema__seat__booking_1_1controller_1_1_frontend_controller_a7cb1875134d5b4dc66e3f734ac12e576_icgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1controller_1_1_frontend_controller_a7cb1875134d5b4dc66e3f734ac12e576_icgraph" alt=""/></div>
+<map name="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_frontend_controller_a7cb1875134d5b4dc66e3f734ac12e576_icgraph" id="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_frontend_controller_a7cb1875134d5b4dc66e3f734ac12e576_icgraph">
+<area shape="rect" title=" " alt="" coords="5,29,255,72"/>
+<area shape="poly" title=" " alt="" coords="171,16,155,10,130,8,106,10,92,15,86,21,88,28,83,29,81,19,89,10,105,5,130,3,157,5,173,11"/>
 </map>
 </div>
 
@@ -915,7 +961,7 @@ Here is the call graph for this function:</div>
 <map name="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_frontend_controller_a328fdcde750bf34e2e0093a8a3c5e7fe_cgraph" id="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_frontend_controller_a328fdcde750bf34e2e0093a8a3c5e7fe_cgraph">
 <area shape="rect" title=" " alt="" coords="5,29,294,72"/>
 <area shape="poly" title=" " alt="" coords="93,29,91,19,100,10,120,5,150,3,182,5,201,11,199,16,181,10,149,8,121,10,103,15,96,21,98,28"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#adab648a97119a28b920d9e9022f7d389" title=" " alt="" coords="342,29,561,72"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#adab648a97119a28b920d9e9022f7d389" title="Gets the username." alt="" coords="342,29,561,72"/>
 <area shape="poly" title=" " alt="" coords="294,48,326,48,326,53,294,53"/>
 </map>
 </div>

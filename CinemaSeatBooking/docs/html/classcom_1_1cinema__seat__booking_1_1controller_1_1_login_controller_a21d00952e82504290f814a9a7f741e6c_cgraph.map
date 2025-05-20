@@ -1,0 +1,9 @@
+<map id="com.cinema_seat_booking.controller.LoginController.login" name="com.cinema_seat_booking.controller.LoginController.login">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,72,243,115"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#af8d178bee1b988cc841fc7957a934cd6" title="Gets the password." alt="" coords="291,5,510,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="215,69,294,50,295,55,216,74"/>
+<area shape="rect" id="Node000003" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#ac8787e000f085ecbdd62a037a0a03cdd" title="Gets the role of the user." alt="" coords="291,72,510,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="243,91,275,91,275,96,243,96"/>
+<area shape="rect" id="Node000004" href="$classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#adab648a97119a28b920d9e9022f7d389" title="Gets the username." alt="" coords="291,139,510,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="216,113,295,132,294,137,215,118"/>
+</map>

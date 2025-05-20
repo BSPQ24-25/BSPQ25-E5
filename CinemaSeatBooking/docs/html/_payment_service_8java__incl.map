@@ -1,15 +1,21 @@
 <map id="src/main/java/com/cinema_seat_booking/service/PaymentService.java" name="src/main/java/com/cinema_seat_booking/service/PaymentService.java">
-<area shape="rect" id="Node000001" title=" " alt="" coords="585,5,864,48"/>
+<area shape="rect" id="Node000001" title="Service class for managing payment processing in the cinema booking system." alt="" coords="961,5,1240,48"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,96,225,139"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="585,49,241,98,240,93,584,44"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="960,38,636,60,440,77,240,98,240,93,440,72,636,55,960,33"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="249,96,469,139"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="639,51,460,94,459,89,638,46"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="960,44,741,67,485,98,484,93,741,62,960,39"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="493,96,713,139"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="698,51,645,89,642,84,695,46"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="984,51,729,96,728,91,983,46"/>
 <area shape="rect" id="Node000005" title=" " alt="" coords="737,96,957,139"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="754,46,808,84,805,89,751,51"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="980,104,1191,131"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="810,46,1020,97,1018,102,808,51"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="1215,96,1423,139"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="865,44,1200,93,1199,98,864,49"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1042,51,922,93,920,88,1040,46"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="980,96,1220,139"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1103,48,1103,81,1098,81,1098,48"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="1244,96,1484,139"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1163,46,1289,88,1287,93,1161,51"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="1508,104,1719,131"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1221,46,1526,98,1525,104,1220,51"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="1742,96,2032,139"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1240,40,1727,93,1727,98,1240,45"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="2056,96,2264,139"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="1240,31,1599,52,1818,70,2041,93,2041,98,1818,75,1599,57,1240,36"/>
 </map>

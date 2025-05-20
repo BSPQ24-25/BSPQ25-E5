@@ -102,15 +102,21 @@ $(function(){initNavTree('classcom_1_1cinema__seat__booking_1_1controller_1_1_lo
   <div class="headertitle"><div class="title">com.cinema_seat_booking.controller.LoginController Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>REST controller for user login functionality.  
+ <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a759ad11630a18882b142c9f73885f426" id="r_a759ad11630a18882b142c9f73885f426"><td class="memItemLeft" align="right" valign="top">ResponseEntity&lt;?&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a759ad11630a18882b142c9f73885f426">login</a> (@RequestParam(&quot;username&quot;) String username, @RequestParam(&quot;password&quot;) String password, HttpSession session)</td></tr>
-<tr class="separator:a759ad11630a18882b142c9f73885f426"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21d00952e82504290f814a9a7f741e6c" id="r_a21d00952e82504290f814a9a7f741e6c"><td class="memItemLeft" align="right" valign="top">ResponseEntity&lt;?&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a21d00952e82504290f814a9a7f741e6c">login</a> ( @RequestParam(&quot;username&quot;) String username, @RequestParam(&quot;password&quot;) String password, HttpSession session)</td></tr>
+<tr class="separator:a21d00952e82504290f814a9a7f741e6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a759ad11630a18882b142c9f73885f426" name="a759ad11630a18882b142c9f73885f426"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a759ad11630a18882b142c9f73885f426">&#9670;&#160;</a></span>login()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>REST controller for user login functionality. </p>
+<p>Provides an endpoint to authenticate users and start a session. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a21d00952e82504290f814a9a7f741e6c" name="a21d00952e82504290f814a9a7f741e6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21d00952e82504290f814a9a7f741e6c">&#9670;&#160;</a></span>login()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -132,17 +138,27 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Authenticates a user with the provided username and password. If successful, stores the user in the HTTP session.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">username</td><td>the username of the user trying to log in </td></tr>
+    <tr><td class="paramname">password</td><td>the password of the user </td></tr>
+    <tr><td class="paramname">session</td><td>the HTTP session for storing authenticated user data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a ResponseEntity containing the username and role on success, or an error message on failure </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classcom_1_1cinema__seat__booking_1_1controller_1_1_login_controller_a759ad11630a18882b142c9f73885f426_cgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1controller_1_1_login_controller_a759ad11630a18882b142c9f73885f426_cgraph" alt=""/></div>
-<map name="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_login_controller_a759ad11630a18882b142c9f73885f426_cgraph" id="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_login_controller_a759ad11630a18882b142c9f73885f426_cgraph">
+<div class="center"><img src="classcom_1_1cinema__seat__booking_1_1controller_1_1_login_controller_a21d00952e82504290f814a9a7f741e6c_cgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1controller_1_1_login_controller_a21d00952e82504290f814a9a7f741e6c_cgraph" alt=""/></div>
+<map name="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_login_controller_a21d00952e82504290f814a9a7f741e6c_cgraph" id="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_login_controller_a21d00952e82504290f814a9a7f741e6c_cgraph">
 <area shape="rect" title=" " alt="" coords="5,72,243,115"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#af8d178bee1b988cc841fc7957a934cd6" title=" " alt="" coords="291,5,510,48"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#af8d178bee1b988cc841fc7957a934cd6" title="Gets the password." alt="" coords="291,5,510,48"/>
 <area shape="poly" title=" " alt="" coords="215,69,294,50,295,55,216,74"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#ac8787e000f085ecbdd62a037a0a03cdd" title=" " alt="" coords="291,72,510,115"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#ac8787e000f085ecbdd62a037a0a03cdd" title="Gets the role of the user." alt="" coords="291,72,510,115"/>
 <area shape="poly" title=" " alt="" coords="243,91,275,91,275,96,243,96"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#adab648a97119a28b920d9e9022f7d389" title=" " alt="" coords="291,139,510,181"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#adab648a97119a28b920d9e9022f7d389" title="Gets the username." alt="" coords="291,139,510,181"/>
 <area shape="poly" title=" " alt="" coords="216,113,295,132,294,137,215,118"/>
 </map>
 </div>

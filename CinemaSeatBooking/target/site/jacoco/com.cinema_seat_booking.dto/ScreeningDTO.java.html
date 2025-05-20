@@ -11,61 +11,61 @@ public class ScreeningDTO {
     private String location;
     private RoomDTO room;
 
-<span class="nc" id="L14">    public ScreeningDTO(Long id, Movie movie, String date, String location, Room room) {</span>
-<span class="nc" id="L15">        this.id = id;</span>
-<span class="nc" id="L16">        this.movie = movie;</span>
-<span class="nc" id="L17">        this.date = date;</span>
-<span class="nc" id="L18">        this.location = location;</span>
-<span class="nc" id="L19">        this.room = new RoomDTO(room);</span>
-<span class="nc" id="L20">    }</span>
+<span class="fc" id="L14">    public ScreeningDTO(Long id, Movie movie, String date, String location, Room room) {</span>
+<span class="fc" id="L15">        this.id = id;</span>
+<span class="fc" id="L16">        this.movie = movie;</span>
+<span class="fc" id="L17">        this.date = date;</span>
+<span class="fc" id="L18">        this.location = location;</span>
+<span class="fc" id="L19">        this.room = new RoomDTO(room);</span>
+<span class="fc" id="L20">    }</span>
 
-<span class="nc" id="L22">    public ScreeningDTO(Screening screening) {</span>
-<span class="nc" id="L23">        this.id = screening.getId();</span>
-<span class="nc" id="L24">        this.movie = screening.getMovie();</span>
-<span class="nc" id="L25">        this.date = screening.getDate();</span>
-<span class="nc" id="L26">        this.location = screening.getLocation();</span>
-<span class="nc" id="L27">        this.room = new RoomDTO(screening.getRoom());</span>
-<span class="nc" id="L28">    }</span>
+<span class="fc" id="L22">    public ScreeningDTO(Screening screening) {</span>
+<span class="fc" id="L23">        this.id = screening.getId();</span>
+<span class="fc" id="L24">        this.movie = screening.getMovie();</span>
+<span class="fc" id="L25">        this.date = screening.getDate();</span>
+<span class="fc" id="L26">        this.location = screening.getLocation();</span>
+<span class="fc" id="L27">        this.room = new RoomDTO(screening.getRoom());</span>
+<span class="fc" id="L28">    }</span>
 
     public Long getId() {
-<span class="nc" id="L31">        return id;</span>
+<span class="fc" id="L31">        return id;</span>
     }
 
     public void setId(Long id) {
-<span class="nc" id="L35">        this.id = id;</span>
-<span class="nc" id="L36">    }</span>
+<span class="fc" id="L35">        this.id = id;</span>
+<span class="fc" id="L36">    }</span>
 
     public Movie getMovie() {
-<span class="nc" id="L39">        return movie;</span>
+<span class="fc" id="L39">        return movie;</span>
     }
 
     public void setMovie(Movie movie) {
-<span class="nc" id="L43">        this.movie = movie;</span>
-<span class="nc" id="L44">    }</span>
+<span class="fc" id="L43">        this.movie = movie;</span>
+<span class="fc" id="L44">    }</span>
 
     public String getDate() {
-<span class="nc" id="L47">        return date;</span>
+<span class="fc" id="L47">        return date;</span>
     }
 
     public void setDate(String date) {
-<span class="nc" id="L51">        this.date = date;</span>
-<span class="nc" id="L52">    }</span>
+<span class="fc" id="L51">        this.date = date;</span>
+<span class="fc" id="L52">    }</span>
 
     public String getLocation() {
-<span class="nc" id="L55">        return location;</span>
+<span class="fc" id="L55">        return location;</span>
     }
 
     public void setLocation(String location) {
-<span class="nc" id="L59">        this.location = location;</span>
-<span class="nc" id="L60">    }</span>
+<span class="fc" id="L59">        this.location = location;</span>
+<span class="fc" id="L60">    }</span>
 
     public RoomDTO getRoom() {
-<span class="nc" id="L63">        return room;</span>
+<span class="fc" id="L63">        return room;</span>
     }
 
     public void setRoom(RoomDTO room) {
-<span class="nc" id="L67">        this.room = room;</span>
-<span class="nc" id="L68">    }</span>
+<span class="fc" id="L67">        this.room = room;</span>
+<span class="fc" id="L68">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

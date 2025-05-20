@@ -8,6 +8,7 @@ var classcom_1_1cinema__seat__booking_1_1controller_1_1_frontend_controller =
     [ "showAdminDashboard", "classcom_1_1cinema__seat__booking_1_1controller_1_1_frontend_controller.html#a1db49a8694da23457e504836fc79f097", null ],
     [ "showArticlePage", "classcom_1_1cinema__seat__booking_1_1controller_1_1_frontend_controller.html#ae144e147a6d1c2308eda7db2030f5fd4", null ],
     [ "showArticlesPage", "classcom_1_1cinema__seat__booking_1_1controller_1_1_frontend_controller.html#a152532837f39ea8e7fd85195c892aa44", null ],
+    [ "showCheckoutPage", "classcom_1_1cinema__seat__booking_1_1controller_1_1_frontend_controller.html#a7cb1875134d5b4dc66e3f734ac12e576", null ],
     [ "showContactPage", "classcom_1_1cinema__seat__booking_1_1controller_1_1_frontend_controller.html#af5e4dafcdcda54af9e82b8aaa0dee082", null ],
     [ "showHomePage", "classcom_1_1cinema__seat__booking_1_1controller_1_1_frontend_controller.html#ae1fea91fc981e84d32f74a255011685f", null ],
     [ "showLoginPage", "classcom_1_1cinema__seat__booking_1_1controller_1_1_frontend_controller.html#a5a4f449def75017ba09119e73764dc27", null ],

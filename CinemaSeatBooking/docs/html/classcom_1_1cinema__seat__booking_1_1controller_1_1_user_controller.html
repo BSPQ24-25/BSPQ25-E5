@@ -102,6 +102,9 @@ $(function(){initNavTree('classcom_1_1cinema__seat__booking_1_1controller_1_1_us
   <div class="headertitle"><div class="title">com.cinema_seat_booking.controller.UserController Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>REST controller that provides endpoints for user registration, profile viewing, updating, and deletion.  
+ <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -114,7 +117,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8c19f8477288e166ec7e836211102e3a" id="r_a8c19f8477288e166ec7e836211102e3a"><td class="memItemLeft" align="right" valign="top">ResponseEntity&lt; Void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c19f8477288e166ec7e836211102e3a">deleteProfile</a> (@RequestParam String username, @RequestParam String password)</td></tr>
 <tr class="separator:a8c19f8477288e166ec7e836211102e3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>REST controller that provides endpoints for user registration, profile viewing, updating, and deletion. </p>
+<p>This controller interacts with the <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1service_1_1_user_service.html">UserService</a></code> to perform business logic and database operations. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a8c19f8477288e166ec7e836211102e3a" name="a8c19f8477288e166ec7e836211102e3a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8c19f8477288e166ec7e836211102e3a">&#9670;&#160;</a></span>deleteProfile()</h2>
 
@@ -133,6 +139,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Deletes a user account based on username and password.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">username</td><td>The username of the account </td></tr>
+    <tr><td class="paramname">password</td><td>The password for verification </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code><a class="el" href="">ResponseEntity</a></code> with HTTP 204 if deleted, or HTTP 400 if credentials are invalid </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -168,6 +183,14 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Registers a new user account.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">userDTO</td><td>The user registration data (username, email, password) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code><a class="el" href="">ResponseEntity</a></code> containing the registered user and HTTP 201 status </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -203,6 +226,14 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Updates the profile information of an existing user.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">userDTO</td><td>The updated user details </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code><a class="el" href="">ResponseEntity</a></code> containing the updated user and HTTP 200 status, or HTTP 400 if update failed </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -238,6 +269,14 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Retrieves the user profile by username.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">username</td><td>The username of the user </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code><a class="el" href="">ResponseEntity</a></code> containing the user data and HTTP 200 status, or HTTP 404 if not found </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

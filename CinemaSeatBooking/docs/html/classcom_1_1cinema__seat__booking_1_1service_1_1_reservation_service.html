@@ -102,25 +102,38 @@ $(function(){initNavTree('classcom_1_1cinema__seat__booking_1_1service_1_1_reser
   <div class="headertitle"><div class="title">com.cinema_seat_booking.service.ReservationService Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Service for creating, retrieving, and managing reservations.  
+ <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a8fa0b1b06b7c1bb114054e455a68aba5" id="r_a8fa0b1b06b7c1bb114054e455a68aba5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html">Reservation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8fa0b1b06b7c1bb114054e455a68aba5">createReservation</a> (<a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html">User</a> user, <a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_screening.html">Screening</a> screening, <a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html">Seat</a> seat, String paymentMethod)</td></tr>
+<tr class="memdesc:a8fa0b1b06b7c1bb114054e455a68aba5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new reservation for a user and a specific seat in a screening.  <br /></td></tr>
 <tr class="separator:a8fa0b1b06b7c1bb114054e455a68aba5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad63d6bcfb4f4e1a16f30e57227d192f4" id="r_ad63d6bcfb4f4e1a16f30e57227d192f4"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html">Reservation</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad63d6bcfb4f4e1a16f30e57227d192f4">getAllReservations</a> ()</td></tr>
+<tr class="memdesc:ad63d6bcfb4f4e1a16f30e57227d192f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves all reservations in the system.  <br /></td></tr>
 <tr class="separator:ad63d6bcfb4f4e1a16f30e57227d192f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac70b4a8b7c6c601acbe84b7e3bd69978" id="r_ac70b4a8b7c6c601acbe84b7e3bd69978"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html">Reservation</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac70b4a8b7c6c601acbe84b7e3bd69978">getAllReservationsOfUser</a> (String username)</td></tr>
+<tr class="memdesc:ac70b4a8b7c6c601acbe84b7e3bd69978"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves all reservations associated with a specific user.  <br /></td></tr>
 <tr class="separator:ac70b4a8b7c6c601acbe84b7e3bd69978"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af754976d7866bca195e31144f0f9b5b7" id="r_af754976d7866bca195e31144f0f9b5b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af754976d7866bca195e31144f0f9b5b7">cancelReservation</a> (Long reservationId)</td></tr>
+<tr class="memdesc:af754976d7866bca195e31144f0f9b5b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cancels a reservation and reverts associated entities.  <br /></td></tr>
 <tr class="separator:af754976d7866bca195e31144f0f9b5b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82a564dcd0e78e76d47fdb93ecf9f812" id="r_a82a564dcd0e78e76d47fdb93ecf9f812"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html">Reservation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82a564dcd0e78e76d47fdb93ecf9f812">createReservation</a> (<a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html">Reservation</a> reservation)</td></tr>
+<tr class="memdesc:a82a564dcd0e78e76d47fdb93ecf9f812"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves a pre-created reservation object.  <br /></td></tr>
 <tr class="separator:a82a564dcd0e78e76d47fdb93ecf9f812"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50dde08403e1a0a6644ce4418788ca3f" id="r_a50dde08403e1a0a6644ce4418788ca3f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_payment.html">Payment</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a50dde08403e1a0a6644ce4418788ca3f">makePayment</a> (Long reservationId, String paymentMethod, double amount, String date)</td></tr>
+<tr class="memdesc:a50dde08403e1a0a6644ce4418788ca3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes payment for a reservation.  <br /></td></tr>
 <tr class="separator:a50dde08403e1a0a6644ce4418788ca3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e8911247c58f6ae92b1e306d97532fa" id="r_a7e8911247c58f6ae92b1e306d97532fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html">Reservation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e8911247c58f6ae92b1e306d97532fa">getReservationById</a> (Long reservationId)</td></tr>
+<tr class="memdesc:a7e8911247c58f6ae92b1e306d97532fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a reservation by its ID.  <br /></td></tr>
 <tr class="separator:a7e8911247c58f6ae92b1e306d97532fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Service for creating, retrieving, and managing reservations. </p>
+<p>Handles all reservation-related operations including creation, cancellation, and payment integration. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="af754976d7866bca195e31144f0f9b5b7" name="af754976d7866bca195e31144f0f9b5b7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af754976d7866bca195e31144f0f9b5b7">&#9670;&#160;</a></span>cancelReservation()</h2>
 
@@ -135,43 +148,57 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Cancels a reservation and reverts associated entities. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reservationId</td><td>the ID of the reservation to cancel</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">IllegalArgumentException</td><td>if the reservation is not found </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_af754976d7866bca195e31144f0f9b5b7_cgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_af754976d7866bca195e31144f0f9b5b7_cgraph" alt=""/></div>
 <map name="aclasscom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_af754976d7866bca195e31144f0f9b5b7_cgraph" id="aclasscom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_af754976d7866bca195e31144f0f9b5b7_cgraph">
-<area shape="rect" title=" " alt="" coords="5,493,253,536"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#a600cf33b0ba7646ffeaf0085542d8b40" title=" " alt="" coords="301,5,520,48"/>
+<area shape="rect" title="Cancels a reservation and reverts associated entities." alt="" coords="5,493,253,536"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#a600cf33b0ba7646ffeaf0085542d8b40" title="Gets the reservation ID." alt="" coords="301,5,520,48"/>
 <area shape="poly" title=" " alt="" coords="129,493,140,412,151,356,167,295,188,231,217,169,254,110,299,58,302,55,306,59,303,62,258,113,222,171,193,233,172,297,156,357,145,413,135,493"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#a08d2daecfb916157e63571b58fdb938e" title=" " alt="" coords="301,72,520,115"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#a08d2daecfb916157e63571b58fdb938e" title="Gets the payment linked to this reservation." alt="" coords="301,72,520,115"/>
 <area shape="poly" title=" " alt="" coords="131,492,145,422,175,323,197,270,225,217,258,168,299,125,302,122,306,126,303,129,263,171,229,220,202,272,180,325,150,423,136,493"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_screening.html#a89b8274013d63c6d78c0b85324a45bfb" title=" " alt="" coords="301,139,520,181"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_screening.html#a89b8274013d63c6d78c0b85324a45bfb" title="Gets the list of reservations for this screening." alt="" coords="301,139,520,181"/>
 <area shape="poly" title=" " alt="" coords="133,492,151,433,184,352,206,308,232,266,263,226,299,191,304,188,307,192,302,195,267,230,237,269,210,311,188,354,156,434,138,494"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#a0c1135aefc294e95bad6df6f3a1b57b7" title=" " alt="" coords="301,205,520,248"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#a0c1135aefc294e95bad6df6f3a1b57b7" title="Gets the screening linked to this reservation." alt="" coords="301,205,520,248"/>
 <area shape="poly" title=" " alt="" coords="136,492,158,444,193,381,240,315,268,284,299,258,305,254,308,258,302,262,272,288,244,318,198,383,163,446,141,494"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#a4a7b3bcd2775490e16347fd8446fe0c3" title=" " alt="" coords="301,272,520,315"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#a4a7b3bcd2775490e16347fd8446fe0c3" title="Gets the reserved seat." alt="" coords="301,272,520,315"/>
 <area shape="poly" title=" " alt="" coords="142,492,167,455,203,410,248,364,299,324,308,320,310,324,302,329,252,368,207,414,172,459,146,495"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#ad04edcad932eb70afd6a861b14c345c9" title=" " alt="" coords="301,339,520,381"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#ad04edcad932eb70afd6a861b14c345c9" title="Gets the user who made the reservation." alt="" coords="301,339,520,381"/>
 <area shape="poly" title=" " alt="" coords="154,491,217,441,257,415,299,391,312,385,314,390,302,396,260,419,220,446,157,495"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#af7e506532deb2916de7a631ddb980951" title=" " alt="" coords="301,405,520,448"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_user.html#af7e506532deb2916de7a631ddb980951" title="Removes a reservation from the user." alt="" coords="301,405,520,448"/>
 <area shape="poly" title=" " alt="" coords="199,490,325,451,326,456,201,495"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#a39a580e1eeab2630f08d22016022312f" title=" " alt="" coords="568,435,787,477"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#a39a580e1eeab2630f08d22016022312f" title="Sets the user for the reservation." alt="" coords="568,435,787,477"/>
 <area shape="poly" title=" " alt="" coords="253,499,552,467,553,472,253,504"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#a855b27cdb0ac9b03a6726dcc91842a3e" title=" " alt="" coords="301,523,520,565"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#a855b27cdb0ac9b03a6726dcc91842a3e" title="Sets the payment for the reservation." alt="" coords="301,523,520,565"/>
 <area shape="poly" title=" " alt="" coords="253,525,286,528,285,534,253,530"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_payment.html#a549b5f53c2984534deb9cbe31dedab29" title=" " alt="" coords="301,589,520,632"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_payment.html#a549b5f53c2984534deb9cbe31dedab29" title="Sets the associated reservation." alt="" coords="301,589,520,632"/>
 <area shape="poly" title=" " alt="" coords="189,534,302,575,322,582,321,587,300,580,187,539"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a71e3c9a2352419357f194c2299136982" title=" " alt="" coords="301,656,520,699"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a71e3c9a2352419357f194c2299136982" title="Sets the reservation for this seat." alt="" coords="301,656,520,699"/>
 <area shape="poly" title=" " alt="" coords="155,534,219,588,259,616,302,642,314,647,311,652,299,646,256,621,215,592,152,538"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#afdaaad63ef2e75d82075d3a7d7df9716" title=" " alt="" coords="301,723,520,765"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#afdaaad63ef2e75d82075d3a7d7df9716" title="Sets the reservation state." alt="" coords="301,723,520,765"/>
 <area shape="poly" title=" " alt="" coords="146,535,171,573,206,619,251,667,302,708,310,713,307,718,299,713,247,671,202,623,166,576,141,538"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a8003ff7cf8511684dcfc4f3eef08bdda" title=" " alt="" coords="301,789,520,832"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a8003ff7cf8511684dcfc4f3eef08bdda" title="Sets the reserved status of the seat." alt="" coords="301,789,520,832"/>
 <area shape="poly" title=" " alt="" coords="141,535,162,585,196,650,243,717,271,748,302,775,308,779,305,783,299,779,268,752,239,721,192,652,157,587,136,537"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#a7dfa56c999addc733ba7940485a46898" title=" " alt="" coords="301,856,520,899"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#a7dfa56c999addc733ba7940485a46898" title="Sets the screening for the reservation." alt="" coords="301,856,520,899"/>
 <area shape="poly" title=" " alt="" coords="138,536,155,596,187,679,209,723,236,767,267,807,302,842,307,845,304,850,299,846,263,810,231,770,205,726,183,681,150,598,133,537"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#a91b6dd855a7ba755c7af17f18cafdc37" title=" " alt="" coords="301,923,520,965"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#a91b6dd855a7ba755c7af17f18cafdc37" title="Sets the seat for the reservation." alt="" coords="301,923,520,965"/>
 <area shape="poly" title=" " alt="" coords="136,536,150,607,179,708,201,762,228,815,262,865,303,909,306,911,302,915,299,913,258,869,224,818,196,764,174,710,144,609,131,537"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_payment.html#a627443ab4d4ad9508224ef7901dc8dec" title=" " alt="" coords="301,989,520,1032"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_payment.html#a627443ab4d4ad9508224ef7901dc8dec" title="Sets the payment status." alt="" coords="301,989,520,1032"/>
 <area shape="poly" title=" " alt="" coords="134,536,144,618,155,674,171,736,192,800,221,864,257,923,303,975,306,978,302,982,299,979,253,927,216,866,187,802,166,737,150,675,139,619,129,537"/>
 <area shape="poly" title=" " alt="" coords="521,436,553,440,552,445,520,441"/>
 </map>
@@ -193,6 +220,15 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Saves a pre-created reservation object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reservation</td><td>the <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html">Reservation</a></code> to save </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the saved <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html">Reservation</a></code> </dd></dl>
 
 </div>
 </div>
@@ -224,19 +260,38 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates a new reservation for a user and a specific seat in a screening. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">user</td><td>the user making the reservation </td></tr>
+    <tr><td class="paramname">screening</td><td>the screening to reserve a seat for </td></tr>
+    <tr><td class="paramname">seat</td><td>the seat to reserve </td></tr>
+    <tr><td class="paramname">paymentMethod</td><td>the payment method to be used </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the created <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html">Reservation</a></code> object</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">IllegalArgumentException</td><td>if the seat is not found </td></tr>
+    <tr><td class="paramname">IllegalStateException</td><td>if the seat is already reserved </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a8fa0b1b06b7c1bb114054e455a68aba5_cgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a8fa0b1b06b7c1bb114054e455a68aba5_cgraph" alt=""/></div>
 <map name="aclasscom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a8fa0b1b06b7c1bb114054e455a68aba5_cgraph" id="aclasscom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a8fa0b1b06b7c1bb114054e455a68aba5_cgraph">
-<area shape="rect" title=" " alt="" coords="5,105,251,148"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a9c621d974953ff69978677138fede8fb" title=" " alt="" coords="299,5,518,48"/>
+<area shape="rect" title="Creates a new reservation for a user and a specific seat in a screening." alt="" coords="5,105,251,148"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a9c621d974953ff69978677138fede8fb" title="Gets the unique ID of the seat." alt="" coords="299,5,518,48"/>
 <area shape="poly" title=" " alt="" coords="181,102,298,57,318,51,320,56,300,63,183,107"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#ab4b0c8caf25d7db65ab9194bbed49616" title=" " alt="" coords="299,72,518,115"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#ab4b0c8caf25d7db65ab9194bbed49616" title="Gets the seat number." alt="" coords="299,72,518,115"/>
 <area shape="poly" title=" " alt="" coords="251,109,283,106,284,111,251,115"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#afdaaad63ef2e75d82075d3a7d7df9716" title=" " alt="" coords="299,139,518,181"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#afdaaad63ef2e75d82075d3a7d7df9716" title="Sets the reservation state." alt="" coords="299,139,518,181"/>
 <area shape="poly" title=" " alt="" coords="251,139,284,143,283,148,251,144"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a8003ff7cf8511684dcfc4f3eef08bdda" title=" " alt="" coords="299,205,518,248"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a8003ff7cf8511684dcfc4f3eef08bdda" title="Sets the reserved status of the seat." alt="" coords="299,205,518,248"/>
 <area shape="poly" title=" " alt="" coords="183,146,300,191,320,198,318,203,298,196,181,151"/>
 </map>
 </div>
@@ -258,6 +313,9 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Retrieves all reservations in the system. </p>
+<dl class="section return"><dt>Returns</dt><dd>list of all <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html">Reservation</a></code> objects </dd></dl>
+
 </div>
 </div>
 <a id="ac70b4a8b7c6c601acbe84b7e3bd69978" name="ac70b4a8b7c6c601acbe84b7e3bd69978"></a>
@@ -275,6 +333,15 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Retrieves all reservations associated with a specific user. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">username</td><td>the username of the user </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>list of <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html">Reservation</a></code> objects for the given user </dd></dl>
+
 </div>
 </div>
 <a id="a7e8911247c58f6ae92b1e306d97532fa" name="a7e8911247c58f6ae92b1e306d97532fa"></a>
@@ -291,6 +358,21 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Retrieves a reservation by its ID. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reservationId</td><td>the ID of the reservation </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the corresponding <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html">Reservation</a></code></dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">IllegalArgumentException</td><td>if the reservation is not found </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -322,13 +404,31 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Processes payment for a reservation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reservationId</td><td>the ID of the reservation </td></tr>
+    <tr><td class="paramname">paymentMethod</td><td>the payment method used </td></tr>
+    <tr><td class="paramname">amount</td><td>the payment amount </td></tr>
+    <tr><td class="paramname">date</td><td>the date of payment </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_payment.html">Payment</a></code> object created</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">IllegalArgumentException</td><td>if the reservation is not found </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a50dde08403e1a0a6644ce4418788ca3f_cgraph.png" border="0" usemap="#aclasscom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a50dde08403e1a0a6644ce4418788ca3f_cgraph" alt=""/></div>
 <map name="aclasscom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a50dde08403e1a0a6644ce4418788ca3f_cgraph" id="aclasscom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a50dde08403e1a0a6644ce4418788ca3f_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,232,48"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#a855b27cdb0ac9b03a6726dcc91842a3e" title=" " alt="" coords="280,5,499,48"/>
+<area shape="rect" title="Processes payment for a reservation." alt="" coords="5,5,232,48"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_reservation.html#a855b27cdb0ac9b03a6726dcc91842a3e" title="Sets the payment for the reservation." alt="" coords="280,5,499,48"/>
 <area shape="poly" title=" " alt="" coords="232,24,264,24,264,29,232,29"/>
 </map>
 </div>

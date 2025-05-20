@@ -102,6 +102,9 @@ $(function(){initNavTree('classcom_1_1cinema__seat__booking_1_1controller_1_1_se
   <div class="headertitle"><div class="title">com.cinema_seat_booking.controller.SeatController Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>REST controller for handling seat management operations.  
+ <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -122,7 +125,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a313e5e6088ec81952bb3fef8eadd161d" id="r_a313e5e6088ec81952bb3fef8eadd161d"><td class="memItemLeft" align="right" valign="top">ResponseEntity&lt; Void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a313e5e6088ec81952bb3fef8eadd161d">cancelSeatReservation</a> (@PathVariable Long id)</td></tr>
 <tr class="separator:a313e5e6088ec81952bb3fef8eadd161d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>REST controller for handling seat management operations. </p>
+<p>Exposes endpoints for CRUD operations and business logic related to cinema seat reservations. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a313e5e6088ec81952bb3fef8eadd161d" name="a313e5e6088ec81952bb3fef8eadd161d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a313e5e6088ec81952bb3fef8eadd161d">&#9670;&#160;</a></span>cancelSeatReservation()</h2>
 
@@ -137,6 +143,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Cancels a reservation for a specific seat.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The ID of the seat </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>HTTP 200 if successful, 400 if cancellation fails </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -176,6 +190,15 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Creates a new seat associated with a room.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">number</td><td>The seat number </td></tr>
+    <tr><td class="paramname">roomId</td><td>The ID of the room the seat belongs to </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code><a class="el" href="">ResponseEntity</a></code> containing the created <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html">Seat</a></code> </dd></dl>
 
 </div>
 </div>
@@ -193,6 +216,14 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Deletes a seat by ID.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The ID of the seat </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>HTTP 204 if deleted, 404 if not found </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -228,6 +259,8 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Retrieves all seats including their reservation status and room name.</p>
+<dl class="section return"><dt>Returns</dt><dd>A list of <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_seat_d_t_o.html">SeatDTO</a></code> objects. </dd></dl>
 
 </div>
 </div>
@@ -245,6 +278,14 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Retrieves all available (non-reserved) seats for a specific room.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">roomId</td><td>The room ID </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A list of available <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html">Seat</a></code> objects </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -280,6 +321,14 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Retrieves a seat by its ID.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The seat ID </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code><a class="el" href="">ResponseEntity</a></code> containing a <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1dto_1_1_seat_d_t_o.html">SeatDTO</a></code> if found, or 404 if not </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -287,13 +336,13 @@ Here is the call graph for this function:</div>
 <map name="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_seat_controller_a2e3a86028858c738d446f5c21ca2a70f_cgraph" id="aclasscom_1_1cinema__seat__booking_1_1controller_1_1_seat_controller_a2e3a86028858c738d446f5c21ca2a70f_cgraph">
 <area shape="rect" title=" " alt="" coords="5,105,243,148"/>
 <area shape="poly" title=" " alt="" coords="72,105,70,95,79,86,97,81,124,79,154,81,171,87,169,92,153,86,124,84,98,86,81,91,75,97,77,104"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a9c621d974953ff69978677138fede8fb" title=" " alt="" coords="291,5,510,48"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#a9c621d974953ff69978677138fede8fb" title="Gets the unique ID of the seat." alt="" coords="291,5,510,48"/>
 <area shape="poly" title=" " alt="" coords="175,102,290,57,309,51,311,56,292,63,177,107"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_room.html#ae7a89ea77c228ec78629a768fa377d4a" title=" " alt="" coords="291,72,510,115"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_room.html#ae7a89ea77c228ec78629a768fa377d4a" title="Gets the name of the room." alt="" coords="291,72,510,115"/>
 <area shape="poly" title=" " alt="" coords="243,110,275,106,275,111,243,115"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#aba2c569171b06af7eb7ca56c9ca12cbf" title=" " alt="" coords="291,139,510,181"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#aba2c569171b06af7eb7ca56c9ca12cbf" title="Gets the room of the seat." alt="" coords="291,139,510,181"/>
 <area shape="poly" title=" " alt="" coords="243,138,275,142,275,148,243,144"/>
-<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#ab4b0c8caf25d7db65ab9194bbed49616" title=" " alt="" coords="291,205,510,248"/>
+<area shape="rect" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html#ab4b0c8caf25d7db65ab9194bbed49616" title="Gets the seat number." alt="" coords="291,205,510,248"/>
 <area shape="poly" title=" " alt="" coords="177,146,292,191,311,197,309,203,290,196,175,151"/>
 </map>
 </div>
@@ -323,6 +372,14 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Reserves a seat by ID.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The ID of the seat to reserve </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>HTTP 200 if successful, 400 if reservation fails </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -367,6 +424,16 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Updates an existing seat's number and room.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The ID of the seat to update </td></tr>
+    <tr><td class="paramname">number</td><td>The new seat number </td></tr>
+    <tr><td class="paramname">roomId</td><td>The new room ID </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code><a class="el" href="">ResponseEntity</a></code> containing the updated <code><a class="el" href="classcom_1_1cinema__seat__booking_1_1model_1_1_seat.html">Seat</a></code> or 404 if not found </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

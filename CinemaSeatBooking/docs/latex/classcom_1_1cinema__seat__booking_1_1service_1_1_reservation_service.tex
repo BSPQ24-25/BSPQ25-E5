@@ -1,23 +1,33 @@
 \doxysection{com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Reservation\+Service Class Reference}
 \hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service}{}\label{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service}\index{com.cinema\_seat\_booking.service.ReservationService@{com.cinema\_seat\_booking.service.ReservationService}}
+
+
+Service for creating, retrieving, and managing reservations.  
+
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a8fa0b1b06b7c1bb114054e455a68aba5}{create\+Reservation}} (\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user}{User}} user, \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}} screening, \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}} seat, String payment\+Method)
-\item 
+\begin{DoxyCompactList}\small\item\em Creates a new reservation for a user and a specific seat in a screening. \end{DoxyCompactList}\item 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_ad63d6bcfb4f4e1a16f30e57227d192f4}{get\+All\+Reservations}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Retrieves all reservations in the system. \end{DoxyCompactList}\item 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} $>$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_ac70b4a8b7c6c601acbe84b7e3bd69978}{get\+All\+Reservations\+Of\+User}} (String username)
-\item 
+\begin{DoxyCompactList}\small\item\em Retrieves all reservations associated with a specific user. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_af754976d7866bca195e31144f0f9b5b7}{cancel\+Reservation}} (Long reservation\+Id)
-\item 
+\begin{DoxyCompactList}\small\item\em Cancels a reservation and reverts associated entities. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a82a564dcd0e78e76d47fdb93ecf9f812}{create\+Reservation}} (\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} reservation)
-\item 
+\begin{DoxyCompactList}\small\item\em Saves a pre-\/created reservation object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_payment}{Payment}} \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a50dde08403e1a0a6644ce4418788ca3f}{make\+Payment}} (Long reservation\+Id, String payment\+Method, double amount, String date)
-\item 
+\begin{DoxyCompactList}\small\item\em Processes payment for a reservation. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a7e8911247c58f6ae92b1e306d97532fa}{get\+Reservation\+By\+Id}} (Long reservation\+Id)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Retrieves a reservation by its ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Service for creating, retrieving, and managing reservations. 
+
+Handles all reservation-\/related operations including creation, cancellation, and payment integration. 
 
 \doxysubsection{Member Function Documentation}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_af754976d7866bca195e31144f0f9b5b7}\index{com.cinema\_seat\_booking.service.ReservationService@{com.cinema\_seat\_booking.service.ReservationService}!cancelReservation@{cancelReservation}}
@@ -26,6 +36,20 @@ void \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_reservati
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_af754976d7866bca195e31144f0f9b5b7} 
 void com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Reservation\+Service.\+cancel\+Reservation (\begin{DoxyParamCaption}\item[{Long}]{reservation\+Id}{}\end{DoxyParamCaption})}
 
+
+
+Cancels a reservation and reverts associated entities. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reservation\+Id} & the ID of the reservation to cancel\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\+Argument\+Exception} & if the reservation is not found \\
+\hline
+\end{DoxyExceptions}
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -40,12 +64,49 @@ Here is the call graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a82a564dcd0e78e76d47fdb93ecf9f812} 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Reservation\+Service.\+create\+Reservation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}}}]{reservation}{}\end{DoxyParamCaption})}
 
+
+
+Saves a pre-\/created reservation object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reservation} & the {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} to save \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the saved {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} 
+\end{DoxyReturn}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a8fa0b1b06b7c1bb114054e455a68aba5}\index{com.cinema\_seat\_booking.service.ReservationService@{com.cinema\_seat\_booking.service.ReservationService}!createReservation@{createReservation}}
 \index{createReservation@{createReservation}!com.cinema\_seat\_booking.service.ReservationService@{com.cinema\_seat\_booking.service.ReservationService}}
 \doxysubsubsection{\texorpdfstring{createReservation()}{createReservation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a8fa0b1b06b7c1bb114054e455a68aba5} 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Reservation\+Service.\+create\+Reservation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_user}{User}}}]{user}{, }\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening}}}]{screening}{, }\item[{\mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat}}}]{seat}{, }\item[{String}]{payment\+Method}{}\end{DoxyParamCaption})}
 
+
+
+Creates a new reservation for a user and a specific seat in a screening. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & the user making the reservation \\
+\hline
+{\em screening} & the screening to reserve a seat for \\
+\hline
+{\em seat} & the seat to reserve \\
+\hline
+{\em payment\+Method} & the payment method to be used \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the created {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} object
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\+Argument\+Exception} & if the seat is not found \\
+\hline
+{\em Illegal\+State\+Exception} & if the seat is already reserved \\
+\hline
+\end{DoxyExceptions}
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -60,24 +121,83 @@ Here is the call graph for this function\+:
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_ad63d6bcfb4f4e1a16f30e57227d192f4} 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Reservation\+Service.\+get\+All\+Reservations (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Retrieves all reservations in the system. 
+
+\begin{DoxyReturn}{Returns}
+list of all {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} objects 
+\end{DoxyReturn}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_ac70b4a8b7c6c601acbe84b7e3bd69978}\index{com.cinema\_seat\_booking.service.ReservationService@{com.cinema\_seat\_booking.service.ReservationService}!getAllReservationsOfUser@{getAllReservationsOfUser}}
 \index{getAllReservationsOfUser@{getAllReservationsOfUser}!com.cinema\_seat\_booking.service.ReservationService@{com.cinema\_seat\_booking.service.ReservationService}}
 \doxysubsubsection{\texorpdfstring{getAllReservationsOfUser()}{getAllReservationsOfUser()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_ac70b4a8b7c6c601acbe84b7e3bd69978} 
 List$<$ \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} $>$ com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Reservation\+Service.\+get\+All\+Reservations\+Of\+User (\begin{DoxyParamCaption}\item[{String}]{username}{}\end{DoxyParamCaption})}
 
+
+
+Retrieves all reservations associated with a specific user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & the username of the user \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+list of {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} objects for the given user 
+\end{DoxyReturn}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a7e8911247c58f6ae92b1e306d97532fa}\index{com.cinema\_seat\_booking.service.ReservationService@{com.cinema\_seat\_booking.service.ReservationService}!getReservationById@{getReservationById}}
 \index{getReservationById@{getReservationById}!com.cinema\_seat\_booking.service.ReservationService@{com.cinema\_seat\_booking.service.ReservationService}}
 \doxysubsubsection{\texorpdfstring{getReservationById()}{getReservationById()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a7e8911247c58f6ae92b1e306d97532fa} 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}} com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Reservation\+Service.\+get\+Reservation\+By\+Id (\begin{DoxyParamCaption}\item[{Long}]{reservation\+Id}{}\end{DoxyParamCaption})}
 
+
+
+Retrieves a reservation by its ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reservation\+Id} & the ID of the reservation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the corresponding {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation}}
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\+Argument\+Exception} & if the reservation is not found \\
+\hline
+\end{DoxyExceptions}
 \Hypertarget{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a50dde08403e1a0a6644ce4418788ca3f}\index{com.cinema\_seat\_booking.service.ReservationService@{com.cinema\_seat\_booking.service.ReservationService}!makePayment@{makePayment}}
 \index{makePayment@{makePayment}!com.cinema\_seat\_booking.service.ReservationService@{com.cinema\_seat\_booking.service.ReservationService}}
 \doxysubsubsection{\texorpdfstring{makePayment()}{makePayment()}}
 {\footnotesize\ttfamily \label{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service_a50dde08403e1a0a6644ce4418788ca3f} 
 \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1model_1_1_payment}{Payment}} com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Reservation\+Service.\+make\+Payment (\begin{DoxyParamCaption}\item[{Long}]{reservation\+Id}{, }\item[{String}]{payment\+Method}{, }\item[{double}]{amount}{, }\item[{String}]{date}{}\end{DoxyParamCaption})}
 
+
+
+Processes payment for a reservation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reservation\+Id} & the ID of the reservation \\
+\hline
+{\em payment\+Method} & the payment method used \\
+\hline
+{\em amount} & the payment amount \\
+\hline
+{\em date} & the date of payment \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the {\ttfamily \doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_payment}{Payment}} object created
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\+Argument\+Exception} & if the reservation is not found \\
+\hline
+\end{DoxyExceptions}
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]

@@ -1,5 +1,10 @@
 \doxysection{src/main/java/com/cinema\+\_\+seat\+\_\+booking/service/\+Reservation\+Service.java File Reference}
 \hypertarget{_reservation_service_8java}{}\label{_reservation_service_8java}\index{src/main/java/com/cinema\_seat\_booking/service/ReservationService.java@{src/main/java/com/cinema\_seat\_booking/service/ReservationService.java}}
+
+
+Service class for managing reservation logic in the cinema booking system.  
+
+
 {\ttfamily import com.\+cinema\+\_\+seat\+\_\+booking.\+model.\texorpdfstring{$\ast$}{*};}\newline
 {\ttfamily import com.\+cinema\+\_\+seat\+\_\+booking.\+repository.\+Payment\+Repository;}\newline
 {\ttfamily import com.\+cinema\+\_\+seat\+\_\+booking.\+repository.\+Reservation\+Repository;}\newline
@@ -23,9 +28,42 @@ Include dependency graph for Reservation\+Service.\+java\+:
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service}{com.\+cinema\+\_\+seat\+\_\+booking.\+service.\+Reservation\+Service}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Service for creating, retrieving, and managing reservations. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Packages}
 \begin{DoxyCompactItemize}
 \item 
 package \mbox{\hyperlink{namespacecom_1_1cinema__seat__booking_1_1service}{com.\+cinema\+\_\+seat\+\_\+booking.\+service}}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Service class for managing reservation logic in the cinema booking system. 
+
+This class provides methods to create, cancel, retrieve, and pay for reservations. It interacts with various repositories and services, including {\ttfamily \doxylink{}{Seat\+Repository}}, {\ttfamily \doxylink{}{Reservation\+Repository}}, {\ttfamily \doxylink{}{Payment\+Service}}, and others.
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_reservation}{Reservation} 
+
+\doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_seat}{Seat} 
+
+\doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_payment}{Payment} 
+
+\doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_user}{User} 
+
+\doxylink{classcom_1_1cinema__seat__booking_1_1model_1_1_screening}{Screening} 
+
+Payment\+Service 
+
+\doxylink{enumcom_1_1cinema__seat__booking_1_1model_1_1_payment_status}{Payment\+Status} 
+
+\doxylink{enumcom_1_1cinema__seat__booking_1_1model_1_1_reservation_state}{Reservation\+State}
+\end{DoxySeeAlso}
+\begin{DoxyAuthor}{Author}
+BSPQ25-\/\+E5 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+2025-\/05-\/19 
+\end{DoxySince}

@@ -1,6 +1,6 @@
 <map id="com.cinema_seat_booking.model.Reservation.getId" name="com.cinema_seat_booking.model.Reservation.getId">
-<area shape="rect" id="Node000001" title=" " alt="" coords="301,39,520,81"/>
-<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service.html#af754976d7866bca195e31144f0f9b5b7" title=" " alt="" coords="5,5,253,48"/>
+<area shape="rect" id="Node000001" title="Gets the reservation ID." alt="" coords="301,39,520,81"/>
+<area shape="rect" id="Node000002" href="$classcom_1_1cinema__seat__booking_1_1service_1_1_reservation_service.html#af754976d7866bca195e31144f0f9b5b7" title="Cancels a reservation and reverts associated entities." alt="" coords="5,5,253,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="285,48,253,44,253,39,285,43"/>
 <area shape="rect" id="Node000003" href="$classcom_1_1cinema__seat__booking_1_1dto_1_1_reservation_d_t_o.html#a4c51800d9eb5d29a3e9ab2288afd62d3" title=" " alt="" coords="18,72,240,115"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="285,77,240,83,240,78,285,72"/>
