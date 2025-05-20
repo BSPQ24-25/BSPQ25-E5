@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Cinema Seat Booking</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css"/>
+  <script th:src="@{/js/jquery-1.4.2.min.js}" type="text/javascript"></script>
+  <script th:src="@{/js/script.js}" type="text/javascript"></script>
+  <script th:src="@{/scripts.js}" type="text/javascript"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Limelight&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <!--[if lt IE 7]>
+  <script type="text/javascript" src="js/ie_png.js"></script>
+  <script type="text/javascript">ie_png.fix('.png, .link1 span, .link1');</script>
+  <link href="css/ie6.css" rel="stylesheet" type="text/css" />
+  <![endif]-->
+</head>
+<body id="page3">
+<!-- START PAGE SOURCE -->
+<div class="tail-top">
+  <div class="tail-bottom">
+    <div id="main">
+      <div id="header">
+        <div class="row-1">
+          <div class="fleft"><a href="#">Kino teatro <span>rezervacija</span></a></div>
+               <div>
+    <button id="logoutBtn">Atsijungti</button>
+    </div>
+    <div>
+          <ul>
+            <li><a href="#"><img src="images/icon1.gif" alt="" /></a></li>
+            <li><a href="#"><img src="images/icon2.gif" alt="" /></a></li>
+            <li><a href="#"><img src="images/icon3.gif" alt="" /></a></li>
+            <li><a href="/myreservations-lt"><img src="images/world.png" style="height:13px; width: 13px;" alt="" /></a></li>
+            <li><a href="/myreservations"><img src="images/united-kingdom.png" style="height:13px; width: 13px;" alt="" /></a></li>    
+          </ul>
+          
+        </div>
+           
+<script>
+document.getElementById('logoutBtn').onclick = async function() {
+    const response = await fetch('/login/logout', { method: 'POST' });
+    if (response.ok) {
+        window.location.href = '/'; 
+    }
+};
+</script>
+        </div>
+        <div class="row-2">
+                 <ul>
+            <li><a th:href="@{/home-lt}">Pradinis</a></li>
+            <li><a th:href="@{/screenings-lt}">Repertuaras</a></li>
+            <li><a th:href="@{/myreservations-lt}" >Straipsniai</a></li>
+            <li class="last"><a th:href="@{/rooms-lt}" class="active">Kambariai</a></li>
+        </div>
+      </div>
+      <div id="content">
+        <div class="line-hor"></div>
+        <div class="box">
+          <div class="border-right">
+            <div class="border-left">
+              <div class="inner">
+                <h3>Mūsų <span>straipsniai</span></h3>
+                <p>Mūsų straipsniai apima visas naujausias žinias apie filmus ir ne tik. Čia rasite viską, ko tik jūsų širdis geidžia. Nuo naujausių filmų atsiliepimų iki žinių apie filmų įžymybių pasaulį. Viską rasite šičia. Nauji straipsniai kas savaitę.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content">
+          <h3>Mano <span>rezervacijos</span></h3>
+          <div th:if="${!#lists.isEmpty(reservations)}">
+            <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+              <div th:each="reservation : ${reservations}" style="flex: 0 0 calc(50% - 20px); padding: 20px; box-sizing: border-box;">
+                <div class="box">
+                  <div class="border-right">
+                    <div class="border-left">
+                      <div class="inner">
+                        <h4 th:text="${reservation.screening.movie.title}">Filmo pavadinimas</h4>
+                        <p><strong>Genre:</strong> <span th:text="${reservation.screening.movie.genre}">Žanras</span></p>
+                        <p><strong>Trukmė:</strong> <span th:text="${reservation.screening.movie.duration}">120</span> min</p>
+                        <p><strong>Aktoriai:</strong> <span th:text="${reservation.screening.movie.cast}">Aktorių sarašas</span></p>
+                        <p><strong>Rodymo data:</strong> <span th:text="${reservation.screening.date}">Data</span></p>
+                        <p><strong>Vieta:</strong> <span th:text="${reservation.screening.location}">Vieta</span></p>
+                        <p><strong>Kambarys:</strong> <span th:text="${reservation.screening.room.name}">Kambario pavadinimas</span></p>
+                        <p><strong>Kėdė:</strong> <span th:text="${reservation.seat.seatNumber}">Kėdės numeris</span></p>
+                        <p><strong>Būklė:</strong> <span th:text="${reservation.reservationState}">Būklė</span></p>
+
+                        <div class="small-line-hor"></div>
+
+                        <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+                          <!-- Cancel Button -->
+                          <button class="cancel-button" th:data-id="${reservation.id}">
+                            Atšaukti
+                          </button>
+                          <!-- Pay Button -->
+                          <button 
+                            class="pay-button" 
+                            style="background-color: grey; cursor: not-allowed;" 
+                            disabled
+                            th:if="${reservation.reservationState.toString() == 'PAID'}">
+                            Sumokėta
+                          </button>
+
+                          <!-- Si la reserva NO está pagada -->
+                          <button 
+                            class="pay-button" 
+                            th:data-id="${reservation.id}"
+                            th:if="${reservation.reservationState.toString() != 'PAID'}">
+                            Mokėti
+                          </button>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p th:if="${#lists.isEmpty(reservations)}">
+            Rezervacijų nėra.
+          </p>
+        </div>
+      </div>
+      <div id="footer">
+        <div class="left">
+          <div class="right">
+            <div class="footerlink">
+                <p class="lf">Autorių teisės &copy; 2025 <a href="#">SiteName</a> - Visos teisės rezervuotos</p>
+                <p class="rf">Sukurta su <a href="http://www.templatemonster.com/">TemplateMonster</a></p>
+                <div style="clear:both;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript"> Cufon.now(); </script>
+<!-- END PAGE SOURCE -->
+</body>
+</html>
